@@ -1,31 +1,31 @@
 module.exports = function(grunt){
   grunt.initConfig({
     clean: {
-      stylesheets: ['public/stylesheets/*.css'],
-      javascripts: ['public/javascripts/*.js']
+      stylesheets: ['client/css/*.css'],
+      javascripts: ['client/js/*.js']
     },
 
     less: {
       options:{
-        paths: ['public/src/css']
+        paths: ['client/src/css']
         // cleancss: true
       },
 
       compile: {
         files: {
-          'public/stylesheets/style.css': 'public/src/**/*.less'
+          'client/css/style.css': 'client/src/**/*.less'
         }
       }
     },
 
     jshint: {
       options: {
-        ignores: ['node_modules/**/*', 'public/lib/**/*'],
+        ignores: ['node_modules/**/*', 'client/lib/**/*'],
         laxbreak: true
       },
 
       beforeConcat: ['**/*.js'],
-      afterConcat: ['public/javascripts/build.js']
+      afterConcat: ['client/js/build.js']
     },
 
     concat: {
@@ -34,8 +34,8 @@ module.exports = function(grunt){
       },
 
       javascripts: {
-        src: ['public/src/**/*.js'],
-        dest: 'public/javascripts/build.js'
+        src: ['client/src/**/*.js'],
+        dest: 'client/js/build.js'
       }
     },
 
@@ -57,17 +57,17 @@ module.exports = function(grunt){
       },
 
       stylesheets: {
-        files: ['public/src/**/*.less'],
+        files: ['client/src/**/*.less'],
         tasks: ['less']
       },
 
       javascripts_frontend: {
-        files: ['public/src/**/*.js'],
+        files: ['client/src/**/*.js'],
         tasks: ['jshint:beforeConcat', 'concat', 'jshint:afterConcat', 'express']
       },
 
       javascripts_server: {
-        files: ['**/*.js', '!public/**/*'],
+        files: ['**/*.js', '!client/**/*'],
         tasks: ['express']
       },
 
