@@ -1,31 +1,30 @@
 module.exports = function(grunt){
   grunt.initConfig({
     clean: {
-      stylesheets: ['client/css/*.css'],
-      javascripts: ['client/js/*.js']
+      stylesheets: ['public/stylesheets/*.css'],
+      javascripts: ['public/javascripts/build.js']
     },
 
     less: {
       options:{
-        paths: ['client/src/css']
+        paths: ['public/stylesheets']
         // cleancss: true
       },
 
       compile: {
         files: {
-          'client/css/style.css': 'client/src/**/*.less'
+          'public/stylesheets/style.css': 'public/stylesheets/**.less'
         }
       }
     },
 
     jshint: {
       options: {
-        ignores: ['node_modules/**/*', 'client/lib/**/*'],
-        laxbreak: true
+        ignores: ['node_modules/**/*', 'public/lib/**/*']
       },
 
       beforeConcat: ['**/*.js'],
-      afterConcat: ['client/js/build.js']
+      afterConcat: ['public/javascripts/build.js']
     },
 
     concat: {
@@ -34,15 +33,15 @@ module.exports = function(grunt){
       },
 
       javascripts: {
-        src: ['client/src/**/*.js'],
-        dest: 'client/js/build.js'
+        src: ['public/javascripts/**/*.js', '!public/javascripts/build.js'],
+        dest: 'public/javascripts/build.js'
       }
     },
 
     express: {
       options: {
         port: 3000,
-        debug: false
+        debug: true
       },
       server: {
         options: {
@@ -57,17 +56,17 @@ module.exports = function(grunt){
       },
 
       stylesheets: {
-        files: ['client/src/**/*.less'],
+        files: ['public/stylesheets/**/*.less'],
         tasks: ['less']
       },
 
       javascripts_frontend: {
-        files: ['client/src/**/*.js'],
+        files: ['public/**/*'],
         tasks: ['jshint:beforeConcat', 'concat', 'jshint:afterConcat', 'express']
       },
 
       javascripts_server: {
-        files: ['**/*.js', '!client/**/*'],
+        files: ['**/*.js', '!public/**/*'],
         tasks: ['express']
       },
 
@@ -88,17 +87,14 @@ module.exports = function(grunt){
   grunt.loadNpmTasks('grunt-express-server');
 
   // 自定义任务
-  // grunt.registerTask('default', ['clean', 'less', 'jshint:beforeConcat', 'concat', 'jshint:afterConcat', 'express', 'watch']);
-  grunt.registerTask('default', ['jshint:beforeConcat', 'express', 'watch']);
-
+  grunt.registerTask('default', ['clean', 'less', 'jshint:beforeConcat', 'concat', 'jshint:afterConcat', 'express', 'watch']);
+  
   grunt.registerTask('clearDatabase', 'Clear database...', function(){
     var db = require('./lib/db');
     var done = this.async();
 
-    db.connect(function(){
-      db.clear(function(){
-        done();
-      });
+    db.clear(function(){
+      done();
     });
   });
 
@@ -106,13 +102,21 @@ module.exports = function(grunt){
     var db = require('./lib/db');
     var done = this.async();
 
-    db.connect(function(){
-      db.initialize(function(){
-        done();
-      });
+    db.initialize(function(){
+      done();
     });
   });
 
-  grunt.registerTask('reset', ['clearDatabase', 'clean', 'initialize']);
-};
+  grunt.registerTask('insertTestData', 'Insert test data...', function(){
+    grunt.task.requires('clearDatabase');
 
+    var testData = require('./test_data/main');
+    var done = this.async();
+
+    testData.insert(function(){
+      done();
+    });
+  });
+
+  grunt.registerTask('reset', ['clearDatabase', 'clean', 'initialize', 'insertTestData']);
+};
