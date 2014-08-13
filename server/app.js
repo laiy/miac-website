@@ -69,7 +69,7 @@ db.connect(function(db) {
       message: err.message,
       error: {}
     });
-});
+  });
 
   var server = app.listen(process.env.PORT || 3000, function() {
     console.log('Express server listening on port ' + server.address().port);
