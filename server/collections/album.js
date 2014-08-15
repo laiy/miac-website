@@ -3,9 +3,9 @@
  *{
  *    _id: ObjectID,
  *    title: string,
- *    publisher: user,
+ *    publisher: ObjectID,
  *    publisherTime: string,
- *    pictures: [pictures],
+ *    pictures: [ObjectID],
  *    picturesCount: int
  *}
  */

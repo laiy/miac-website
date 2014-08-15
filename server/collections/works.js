@@ -2,8 +2,8 @@
  *works
  *{
  *    _id: ObjectID,
- *    pictures: pictures,
- *    publisher: user,
+ *    pictures: ObjectID,
+ *    publisher: ObjectID,
  *    worksName: string,
  *    description: string,
  *    url: string

@@ -3,14 +3,14 @@
  *{
  *    _id: ObjectID,
  *    identity: string,
- *    headPortrait: pictures,
+ *    headPortrait: ObjectID,
  *    account: string,
  *    password: string,
  *    email: string,
- *    createdArticles: [article],
- *    createdShares: [share],
- *    createdDiscuss: [discuss],
- *    createdAlbums: [album],
- *    createdWorks: [works]
+ *    createdArticles: [ObjectID],
+ *    createdShares: [ObjectID],
+ *    createdDiscuss: [ObjectID],
+ *    createdAlbums: [ObjectID],
+ *    createdWorks: [ObjectID]
  *}
  */

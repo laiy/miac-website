@@ -2,7 +2,7 @@
  *comment
  *{
  *    _id: ObjectID,
- *    user: user,
+ *    user: ObjectID,
  *    commentText: string,
  *    commentTime: string
  *}

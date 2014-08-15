@@ -2,7 +2,7 @@
  *articleComment
  *{
  *    _id: ObjectID,
- *    mainComment: comment,
- *    replyComment: [comment]
+ *    mainComment: ObjectID,
+ *    replyComment: [ObjectID]
  *}
  */

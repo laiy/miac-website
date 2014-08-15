@@ -5,8 +5,8 @@
  *    title: string,
  *    publishTime: string,
  *    mainBody: string,
- *    producer: user,
- *    articleComment: [articleComment],
+ *    producer: ObjectID,
+ *    articleComment: [ObjectID],
  *    lastAccessTime: string
  *}
  */

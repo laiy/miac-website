@@ -2,11 +2,11 @@
  *share
  *{
  *    _id: ObjectID,
- *    publisher: user,
+ *    publisher: ObjectID,
  *    publishTime: string,
  *    mainText: string,
  *    attachmentUrl: string,
- *    comment: [comment],
+ *    comment: [ObjectID],
  *    lastAccessTime: string
  *}
  */

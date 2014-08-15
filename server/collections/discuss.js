@@ -8,9 +8,9 @@
  *    up: int,
  *    down: int,
  *    viewsCOunt: int,
- *    questioner: user,
+ *    questioner: ObjectID,
  *    publishTime: string,
- *    discussAnswer: [discussAnswer],
+ *    discussAnswer: [ObjectID],
  *    lastAccessTime: string
  *}
  */

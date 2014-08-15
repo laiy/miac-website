@@ -4,7 +4,7 @@
  *    _id: ObjectID,
  *    up: int,
  *    down: int,
- *    answer: comment,
- *    reply: [comment]
+ *    answer: ObjectID,
+ *    reply: [ObjectID]
  *}
  */
