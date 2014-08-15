@@ -19,6 +19,8 @@ app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded());
 app.use(multer({ dest: './public/temp/'}));
+require('./lib/helpers')(app);
+
 
 app.use(express.static(path.join(__dirname, 'public')));
 
