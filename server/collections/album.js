@@ -4,7 +4,7 @@
  *    _id: ObjectID,
  *    title: string,
  *    publisher: ObjectID,
- *    publisherTime: string,
+ *    createdAt: Date,
  *    pictures: [ObjectID],
  *    picturesCount: int
  *}

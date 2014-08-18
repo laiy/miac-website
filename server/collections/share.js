@@ -3,10 +3,10 @@
  *{
  *    _id: ObjectID,
  *    publisher: ObjectID,
- *    publishTime: string,
+ *    createdAt: Date,
  *    mainText: string,
  *    attachmentUrl: string,
  *    comment: [ObjectID],
- *    lastAccessTime: string
+ *    lastAccessTime: Date
  *}
  */

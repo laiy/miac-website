@@ -3,10 +3,10 @@
  *{
  *    _id: ObjectID,
  *    title: string,
- *    publishTime: string,
+ *    createdAt: Date,
  *    mainBody: string,
  *    producer: ObjectID,
  *    articleComment: [ObjectID],
- *    lastAccessTime: string
+ *    lastAccessTime: Date
  *}
  */

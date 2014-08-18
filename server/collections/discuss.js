@@ -9,8 +9,8 @@
  *    down: int,
  *    viewsCOunt: int,
  *    questioner: ObjectID,
- *    publishTime: string,
+ *    createdAt: Date,
  *    discussAnswer: [ObjectID],
- *    lastAccessTime: string
+ *    lastAccessTime: Date 
  *}
  */

@@ -3,6 +3,6 @@
  *{
  *    _id: ObjectID,
  *    mainText: string,
- *    publishTime: string
+ *    createdAt: Date
  *}
  */
