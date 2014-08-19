@@ -5,7 +5,10 @@
  *    identity: string,
  *    headPortrait: ObjectID,
  *    account: string,
- *    password: string,
+ *    password: {
+ *        identity: string, // = sha1(sha1(原始密码) + salt)
+ *        salt: string
+ *    }, 
  *    email: string,
  *    createdArticles: [ObjectID],
  *    createdShares: [ObjectID],
