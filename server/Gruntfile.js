@@ -66,7 +66,7 @@ module.exports = function(grunt){
       },
 
       javascripts_server: {
-        files: ['**/*.js', '!public/**/*'],
+        files: ['**/*.js', '!public/**/*', '!node_modules/**/*'],
         tasks: ['express']
       },
 
