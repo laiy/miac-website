@@ -7,9 +7,10 @@
 * lib: 供服务器端其它部分使用的函数
 * models: 数据原型，包含数据操作封装
 * package.json: 管理npm依赖
-* routes: 路由定义及处理
-* test_data: 测试数据
+* routes: 路由定义
+* test: 测试
 * views: jade模板
+* controllers: 路由处理
 
 ## 安装
 
