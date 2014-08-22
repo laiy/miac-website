@@ -1,12 +1,12 @@
 var share = {
-  _id: "share-id-1",
-  content: "Nice whether, right?",
+  _id: "share-id-1", // ObjectID
+  content: "Nice whether, right?", // string
   createdBy: {
-    _id: "user-id-1",
-    username: "Bosson"
+    _id: "user-id-1", // ObjectID
+    username: "Bosson" // string
   },
-  createAt: "2014-8-21",
-  attachmentUrl: "/attachment/123456",
-  tags: ["心情"],
-  likes: ["user-id-1", "user-id-2"]
+  createAt: "2014-8-21", // Date
+  attachmentUrl: "/attachment/123456", // string
+  tags: ["心情"], // string
+  likes: ["user-id-1", "user-id-2"] // ObjectID
 };
