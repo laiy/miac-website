@@ -1,7 +1,6 @@
 ## 文件结构
 * app.js: 应用的入口
 * public: 客户端的css,js源文件以及图片
-* collections: Collection的定义，仅用来记录、查询数据结构
 * config: 应用的配置信息，如数据库的地址、端口等
 * Gruntfile.js: Grunt配置
 * lib: 供服务器端其它部分使用的函数
@@ -11,6 +10,7 @@
 * test: 测试
 * views: jade模板
 * controllers: 路由处理
+* fixtures: 数据结构
 
 ## 安装
 
