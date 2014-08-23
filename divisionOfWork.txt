@@ -1,17 +1,17 @@
-includes/header.jade
-index.jade // "/"
-announcement.jade "/announcement"
-article.jade // "/article"
-childArticle.jade // "/article/:id"
-editArticle.jade // "/article/edit"
-share.jade // "/share"
-childShare.jade // "/share/:id"
-discuss.jade // "/discuss"
-childDiscuss.jade "/discuss/:id"
-album.jade // "/album"
-childAlbum.jade // "/album/:id"
-works.jade // "/works"
-about.jade // "/about"
-logIn.jade // "/logIn"
-register.jade // "/register"
+includes/header.jade                  tq
+index.jade // "/"                     tq
+announcement.jade "/announcement"     tq
+article.jade // "/article"            jw
+childArticle.jade // "/article/:id"   jw
+editArticle.jade // "/article/edit"   jw
+share.jade // "/share"                jw
+childShare.jade // "/share/:id"       jw
+discuss.jade // "/discuss"            tq
+childDiscuss.jade "/discuss/:id"      tq
+album.jade // "/album"                jw
+childAlbum.jade // "/album/:id"       jw
+works.jade // "/works"                tq
+about.jade // "/about"                tq
+logIn.jade // "/logIn"                tq
+register.jade // "/register"          tq
 
