@@ -10,6 +10,6 @@ var discuss = {
     _id: "user-id-1", // ObjectID
     username: "Laiy" // string
   },
-  createAt: "2014-8-21", // Date
+  createdAt: "2014-8-21", // Date
   discussCount: 100 // int
 };

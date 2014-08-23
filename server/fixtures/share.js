@@ -5,7 +5,7 @@ var share = {
     _id: "user-id-1", // ObjectID
     username: "Bosson" // string
   },
-  createAt: "2014-8-21", // Date
+  createdAt: "2014-8-21", // Date
   attachmentUrl: "/attachment/123456", // string
   tags: ["心情"], // string
   likes: ["user-id-1", "user-id-2"] // ObjectID

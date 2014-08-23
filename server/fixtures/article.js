@@ -7,6 +7,6 @@ var article = {
     _id: "user-id-1", // ObjectID
     username: "Weike" // string
   },
-  createAt: "2014-8-21", // Date
+  createdAt: "2014-8-21", // Date
   tags: ["nodejs", "ODM", "mongodb"] // string
 };

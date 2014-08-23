@@ -7,5 +7,5 @@ var message = {
     _id: "user-id-1", // ObjectID
     username: "bossonchan" // string
   },
-  createAt: "2014-8-21" // Date
+  createdAt: "2014-8-21" // Date
 };
