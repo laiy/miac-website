@@ -1,4 +1,4 @@
-var article = {
+module.exports = {
   _id: "article-id-1", // ObjectID
   category: "技术分享", // string
   title: "The new ODM framework of document database!", // string

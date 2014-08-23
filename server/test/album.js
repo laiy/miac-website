@@ -1,4 +1,4 @@
-var album = {
+module.exports = {
   _id: "album-id-1", // ObjectID
   title: "春季出游", // ObjectID
   createdAt: "2014-2-20", // Date
