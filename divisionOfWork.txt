@@ -1,0 +1,17 @@
+includes/header.jade
+index.jade // "/"
+announcement.jade "/announcement"
+article.jade // "/article"
+childArticle.jade // "/article/:id"
+editArticle.jade // "/article/edit"
+share.jade // "/share"
+childShare.jade // "/share/:id"
+discuss.jade // "/discuss"
+childDiscuss.jade "/discuss/:id"
+album.jade // "/album"
+childAlbum.jade // "/album/:id"
+works.jade // "/works"
+about.jade // "/about"
+logIn.jade // "/logIn"
+register.jade // "/register"
+
