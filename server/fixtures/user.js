@@ -1,7 +1,6 @@
 var user = {
   _id: "user-id-1", // ObjectID
   username: "Shin", // string
-  password: "xxxxx",
   password: {
     identity: "xxxxx", // identity = sha1(sha1(原始密码) + salt) string
     salt: "xxxxxxxxxxx" // string
