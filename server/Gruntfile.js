@@ -74,7 +74,7 @@ module.exports = function(grunt){
         files: ['views/**/*.jade'],
         tasks: ['express']
       }
-    },
+    }
   });
 
   // 任务加载
