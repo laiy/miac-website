@@ -22,8 +22,17 @@ register.jade // "/register"              tq
 
 前端暂时不考虑前后端通讯，自拟静态数据，views里面你们要完成的jade已经创建好，less和js创建在public的stylesheets和javascripts里，类库和框架在public/lib中，无需自行添加。
 此外，'/xxx/:id'暂时用静态的'/xxx/id'代替。
+需要用到的图片放在public/images里。
 js和less命名和所写模板名字一致，如logIn.jade, 你就需要创建logIn.less和logIn.js.
 暂时为了方便测试统一引用build.js和style.css，grunt会自动把你们写的东西整合进去，具体可以参考test.jade test.less test.js
 
 后端：
-
+短期的任务是完成models层的模块，分工如下：
+album    lsc
+article  ly
+category lsc
+discuss  ly
+message  ly
+share    lsc
+user     ly
+work     lsc
