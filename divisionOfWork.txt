@@ -15,6 +15,7 @@ album.jade // "/album"                    jw
 childAlbum.jade // "/album/:id"           jw
 createAlbum.jade // "/album/create"       jw
 works.jade // "/works"                    tq
+createWorks.jade // "/works/create"       tq
 about.jade // "/about"                    tq
 logIn.jade // "/logIn"                    tq
 register.jade // "/register"              tq
