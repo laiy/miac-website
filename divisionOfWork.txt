@@ -1,3 +1,8 @@
+工作模式：git 项目地址：https://github.com/laiy/miac-website
+fork下来在自己的仓库写，完成之后再merge.
+
+2014.8.24
+
 前端：
 includes/header.jade                      tq
 index.jade // "/"                         tq
