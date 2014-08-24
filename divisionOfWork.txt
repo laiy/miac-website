@@ -1,17 +1,23 @@
-includes/header.jade                  tq
-index.jade // "/"                     tq
-announcement.jade "/announcement"     tq
-article.jade // "/article"            jw
-childArticle.jade // "/article/:id"   jw
-editArticle.jade // "/article/edit"   jw
-share.jade // "/share"                jw
-childShare.jade // "/share/:id"       jw
-discuss.jade // "/discuss"            tq
-childDiscuss.jade "/discuss/:id"      tq
-album.jade // "/album"                jw
-childAlbum.jade // "/album/:id"       jw
-works.jade // "/works"                tq
-about.jade // "/about"                tq
-logIn.jade // "/logIn"                tq
-register.jade // "/register"          tq
+前端：
+includes/header.jade                      tq
+index.jade // "/"                         tq
+announcement.jade "/announcement"         tq
+article.jade // "/article"                jw
+childArticle.jade // "/article/:id"       jw
+createArticle.jade // "/article/create"   jw
+share.jade // "/share"                    jw
+childShare.jade // "/share/:id"           jw
+createShare.jade // "/share/create"       jw
+discuss.jade // "/discuss"                tq
+childDiscuss.jade "/discuss/:id"          tq
+createDiscuss.jade // "/discuss/create"   tq
+album.jade // "/album"                    jw
+childAlbum.jade // "/album/:id"           jw
+createAlbum.jade // "/album/create"       jw
+works.jade // "/works"                    tq
+about.jade // "/about"                    tq
+logIn.jade // "/logIn"                    tq
+register.jade // "/register"              tq
+
+后端：
 
