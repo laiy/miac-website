@@ -31,6 +31,7 @@ js和less命名和所写模板名字一致，如logIn.jade, 你就需要创建lo
 暂时为了方便测试统一引用build.js和style.css，这两个文件是自动生成的，grunt会自动把你们写的东西整合进去，具体可以参考test.jade test.less test.js
 如需新插件和框架放在public/lib中即可。
 需兼容IE9
+缩进统一4个空格，css选择器命名用横杠'-'，js用驼峰命名
 
 
 后端：
@@ -45,5 +46,5 @@ user     ly
 work     ly
 
 美工：
-完成所有前端页面样式设计，图片命名与对应Jade文件名称一致
+完成所有前端页面样式设计，图片命名与对应Jade文件名称一致  lyj
 
