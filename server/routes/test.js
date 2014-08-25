@@ -30,10 +30,6 @@ router.get('/share/id', function(req, res, next) {
     res.render('childShare');
 });
 
-router.get('/share/create', function(req, res, next) {
-    res.render('createShare');
-});
-
 router.get('/discuss', function(req, res, next) {
     res.render('discuss');
 });

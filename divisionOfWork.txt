@@ -12,14 +12,14 @@ childArticle.jade // "/article/:id"       jw
 createArticle.jade // "/article/create"   jw
 share.jade // "/share"                    jw
 childShare.jade // "/share/:id"           jw
-discuss.jade // "/discuss"                tq
-childDiscuss.jade "/discuss/:id"          tq
-createDiscuss.jade // "/discuss/create"   tq
-album.jade // "/album"                    jw
-childAlbum.jade // "/album/:id"           jw
-createAlbum.jade // "/album/create"       jw
-works.jade // "/works"                    tq
-createWorks.jade // "/works/create"       tq
+discuss.jade // "/discuss"                lsc
+childDiscuss.jade "/discuss/:id"          lsc
+createDiscuss.jade // "/discuss/create"   lsc
+album.jade // "/album"                    lsc
+childAlbum.jade // "/album/:id"           lsc
+createAlbum.jade // "/album/create"       lsc
+works.jade // "/works"                    lsc
+createWorks.jade // "/works/create"       lsc
 about.jade // "/about"                    tq
 logIn.jade // "/logIn"                    tq
 register.jade // "/register"              tq
@@ -29,17 +29,19 @@ register.jade // "/register"              tq
 需要用到的图片放在public/images里。
 js和less命名和所写模板名字一致，如logIn.jade, 你就需要创建logIn.less和logIn.js.
 暂时为了方便测试统一引用build.js和style.css，这两个文件是自动生成的，grunt会自动把你们写的东西整合进去，具体可以参考test.jade test.less test.js
+如需新插件和框架放在public/lib中即可。
+
 
 后端：
 短期的任务是完成models层的模块，分工如下：
-album    lsc
+album    ly
 article  ly
-category lsc
+category ly
 discuss  ly
 message  ly
-share    lsc
+share    ly
 user     ly
-work     lsc
+work     ly
 
 美工：
 完成所有前端页面样式设计，图片命名与对应Jade文件名称一致
