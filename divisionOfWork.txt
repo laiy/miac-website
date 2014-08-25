@@ -30,6 +30,7 @@ register.jade // "/register"              tq
 js和less命名和所写模板名字一致，如logIn.jade, 你就需要创建logIn.less和logIn.js.
 暂时为了方便测试统一引用build.js和style.css，这两个文件是自动生成的，grunt会自动把你们写的东西整合进去，具体可以参考test.jade test.less test.js
 如需新插件和框架放在public/lib中即可。
+需兼容IE9
 
 
 后端：
