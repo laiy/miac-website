@@ -40,10 +40,10 @@ module.exports = {
 
     update: function(selector, updater, callback) {
         async([
-            function(next) {
+            function(callback) {
                 db.connection('message', callback);
             },
-            function(col, next) {
+            function(col, callback) {
                 col.update(selector, updater, callback);
             } 
         ], callback);
@@ -51,10 +51,10 @@ module.exports = {
 
     remove: function(selector, callback) {
         async.waterfall([
-            function(next) {
+            function(callback) {
                 db.connection('message', callback);
             },
-            function(col, next) {
+            function(col, callback) {
                 col.remove(selector, callback);
             }
         ], callback);

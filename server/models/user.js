@@ -10,10 +10,10 @@ var encryptPassword = function(origin, salt) {
 
 var createSession = function(useId, callback) {
     async.waterfall([
-        function(callback) {
+        function(next) {
             db.connection('sessions', callback);
         },
-        function(callback) {
+        function(next) {
             col.insert({
                 userId: userId,
                 createAt: new Date()
@@ -28,10 +28,10 @@ module.exports = {
 
     findOne: function(selector, callback) {
         async.waterfall([
-            function(callback) {
+            function(next) {
                 db.connection('user', callback);
             },
-            function(col, callback) {
+            function(col, next) {
                 col.findOne(selector, callback);
             }
         ], callback);
@@ -39,10 +39,10 @@ module.exports = {
 
     find: function(selector, options, callback) {
         async.waterfall([
-            function(callback) {
+            function(next) {
                 db.connection('user', callback);
             },
-            function(col, callback) {
+            function(col, next) {
                 col.find(selector, options).toArray(callback);
             }
         ], callback);
@@ -50,10 +50,10 @@ module.exports = {
 
     insert: function(user, callback) {
         async.waterfall([
-            function(callback) {
+            function(next) {
                 db.connection('user', callback);
             },
-            function(col, callback) {
+            function(col, next) {
                 db.insert(user, callback);
             }
         ], function(err, items) {
@@ -63,10 +63,10 @@ module.exports = {
 
     update: function(selector, updater, callback) {
         async([
-            function(callback) {
+            function(next) {
                 db.connection('user', callback);
             },
-            function(col, callback) {
+            function(col, next) {
                 col.update(selector, updater, callback);
             } 
         ], callback);
@@ -74,10 +74,10 @@ module.exports = {
 
     remove: function(selector, callback) {
         async.waterfall([
-            function(callback) {
+            function(next) {
                 db.connection('user', callback);
             },
-            function(col, callback) {
+            function(col, next) {
                 col.remove(selector, callback);
             }
         ], callback);
@@ -87,10 +87,10 @@ module.exports = {
         var User = this;
         var user;
         async.waterfall([
-            function(callback) {
+            function(next) {
                 User.findOne({username: username}, callback);
             },
-            function(item, callback) {
+            function(item, next) {
                 if (!item || encryptPassword(password, item.password.salt) != item.password.identity) {
                     callback(true);
                 } else {
@@ -107,10 +107,10 @@ module.exports = {
         var User = this;
         var user;
         async.waterfall([
-            function(callback) {
+            function(next) {
                 User.insert(doc, callback);
             },
-            function(item, callback) {
+            function(item, next) {
                 if (!item) {
                     callback(true);
                 } else {
