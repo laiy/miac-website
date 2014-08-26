@@ -25,7 +25,6 @@ var createSession = function(useId, callback) {
 };
 
 module.exports = {
-
     findOne: function(selector, callback) {
         async.waterfall([
             function(callback) {
@@ -36,17 +35,13 @@ module.exports = {
             }
         ], callback);
     },
-
     find: function(selector, options, callback) {
         async.waterfall([
             function(callback) {
                 db.connection('user', callback);
             },
-            function(col, callback) {
-                col.find(selector, options).toArray(callback);
-            }
-        ], callback);
-    }
 
+        ])
+    }
 };
 
