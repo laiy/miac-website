@@ -6,10 +6,10 @@ module.exports = {
     findOne: function(selector, callback) {
         async.waterfall([
             function(next) {
-                db.connection('message', callback);
+                db.connection('message', next);
             },
             function(col, next) {
-                col.findOne(selector, callback);
+                col.findOne(selector, next);
             }
         ], callback);
     },
@@ -17,10 +17,10 @@ module.exports = {
     find: function(selector, options, callback) {
         async.waterfall([
             function(next) {
-                db.connection('message', callback);
+                db.connection('message', next);
             },
             function(col, next) {
-                col.find(selector, options).toArray(callback);
+                col.find(selector, options).toArray(next);
             }
         ], callback);
     },
@@ -28,10 +28,10 @@ module.exports = {
     insert: function(message, callback) {
         async.waterfall([
             function(next) {
-                db.connection('message', callback);
+                db.connection('message', next);
             },
             function(col, next) {
-                db.insert(message, callback);
+                db.insert(message, next);
             }
         ], function(err, items) {
             callback(err, items && items[0]);
@@ -41,10 +41,10 @@ module.exports = {
     update: function(selector, updater, callback) {
         async([
             function(next) {
-                db.connection('message', callback);
+                db.connection('message', next);
             },
             function(col, next) {
-                col.update(selector, updater, callback);
+                col.update(selector, updater, next);
             } 
         ], callback);
     },
@@ -52,10 +52,10 @@ module.exports = {
     remove: function(selector, callback) {
         async.waterfall([
             function(next) {
-                db.connection('message', callback);
+                db.connection('message', next);
             },
             function(col, next) {
-                col.remove(selector, callback);
+                col.remove(selector, next);
             }
         ], callback);
     }

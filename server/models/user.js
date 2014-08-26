@@ -11,13 +11,13 @@ var encryptPassword = function(origin, salt) {
 var createSession = function(useId, callback) {
     async.waterfall([
         function(next) {
-            db.connection('sessions', callback);
+            db.connection('sessions', next);
         },
         function(next) {
             col.insert({
                 userId: userId,
                 createAt: new Date()
-            }, callback);
+            }, next);
         }
     ], function() {
         callback(err, items && items[0] && items[0]._id);
@@ -29,10 +29,10 @@ module.exports = {
     findOne: function(selector, callback) {
         async.waterfall([
             function(next) {
-                db.connection('user', callback);
+                db.connection('user', next);
             },
             function(col, next) {
-                col.findOne(selector, callback);
+                col.findOne(selector, next);
             }
         ], callback);
     },
@@ -40,10 +40,10 @@ module.exports = {
     find: function(selector, options, callback) {
         async.waterfall([
             function(next) {
-                db.connection('user', callback);
+                db.connection('user', next);
             },
             function(col, next) {
-                col.find(selector, options).toArray(callback);
+                col.find(selector, options).toArray(next);
             }
         ], callback);
     },
@@ -51,10 +51,10 @@ module.exports = {
     insert: function(user, callback) {
         async.waterfall([
             function(next) {
-                db.connection('user', callback);
+                db.connection('user', next);
             },
             function(col, next) {
-                db.insert(user, callback);
+                db.insert(user, next);
             }
         ], function(err, items) {
             callback(err, items && items[0]);
@@ -64,10 +64,10 @@ module.exports = {
     update: function(selector, updater, callback) {
         async([
             function(next) {
-                db.connection('user', callback);
+                db.connection('user', next);
             },
             function(col, next) {
-                col.update(selector, updater, callback);
+                col.update(selector, updater, next);
             } 
         ], callback);
     },
@@ -75,10 +75,10 @@ module.exports = {
     remove: function(selector, callback) {
         async.waterfall([
             function(next) {
-                db.connection('user', callback);
+                db.connection('user', next);
             },
             function(col, next) {
-                col.remove(selector, callback);
+                col.remove(selector, next);
             }
         ], callback);
     },
@@ -88,14 +88,14 @@ module.exports = {
         var user;
         async.waterfall([
             function(next) {
-                User.findOne({username: username}, callback);
+                User.findOne({username: username}, next);
             },
             function(item, next) {
                 if (!item || encryptPassword(password, item.password.salt) != item.password.identity) {
-                    callback(true);
+                    next(true);
                 } else {
                     user = item;
-                    createSession(item._id, callback);
+                    createSession(item._id, next);
                 }
             }
         ], function(err, sid) {
@@ -108,14 +108,14 @@ module.exports = {
         var user;
         async.waterfall([
             function(next) {
-                User.insert(doc, callback);
+                User.insert(doc, next);
             },
             function(item, next) {
                 if (!item) {
                     callback(true);
                 } else {
                     user = item;
-                    createSession(item._id, callback);
+                    createSession(item._id, next);
                 }
             }
         ], function(err, sid) {
