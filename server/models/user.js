@@ -143,8 +143,15 @@ module.exports = {
             return 'The length of password should not be less than 6';
         }
         return false;
+    },
+
+    generatePassword: function(origin) {
+        var salt = crypto.randomBytes(10).toString('hex');
+        return {
+            identity: encryptPassword(origin, salt),
+            salt: salt
+        };
     }
     
-
 };
 
