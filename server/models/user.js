@@ -127,7 +127,7 @@ module.exports = {
         this.findOne({_id: userId}, function(err, item) {
             callback(err, item && encryptPassword(password, item.password.salt) == item.password.identity);
         });
-    },
+    }
 
 };
 
