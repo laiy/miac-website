@@ -152,6 +152,6 @@ module.exports = {
             salt: salt
         };
     }
-    
+
 };
 
