@@ -129,29 +129,5 @@ module.exports = {
         });
     },
 
-    validateUsername: function(username) {
-        if (!username) {
-            return 'Username should not be empty';
-        } else if (!/^[a-zA-Z\d]+$/.test(username)) {
-            return 'The form of username is invalid';
-        }
-        return false;
-    },
-
-    validatePassword: function(password) {
-        if (!password || password.length < 6) {
-            return 'The length of password should not be less than 6';
-        }
-        return false;
-    },
-
-    generatePassword: function(origin) {
-        var salt = crypto.randomBytes(10).toString('hex');
-        return {
-            identity: encryptPassword(origin, salt),
-            salt: salt
-        };
-    }
-
 };
 
