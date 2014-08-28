@@ -41,7 +41,7 @@ module.exports = {
     update: function(selector, updater, callback) {
         async([
             function(next) {
-                db.connection('share', next);
+                db.connection('message', next);
             },
             function(col, next) {
                 col.update(selector, updater, next);
@@ -52,7 +52,7 @@ module.exports = {
     remove: function(selector, callback) {
         async.waterfall([
             function(next) {
-                    db.connection('share', next);
+                db.connection('message', next);
             },
             function(col, next) {
                 col.remove(selector, next);

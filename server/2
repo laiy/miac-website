@@ -52,7 +52,7 @@ module.exports = {
     remove: function(selector, callback) {
         async.waterfall([
             function(next) {
-                    db.connection('share', next);
+                db.connection('message', next);
             },
             function(col, next) {
                 col.remove(selector, next);
