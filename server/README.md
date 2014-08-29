@@ -4,31 +4,31 @@
 * config: 应用的配置信息，如数据库的地址、端口等
 * Gruntfile.js: Grunt配置
 * lib: 供服务器端其它部分使用的函数
-* models: 数据原型，包含数据操作封装
+* models: 数据原型，包含数据操作封装，只在此层设计数据库底层操作
 * package.json: 管理npm依赖
 * routes: 路由定义
-* test: 测试
+* test: 测试相关
 * views: jade模板
-* controllers: 路由处理
+* controllers: 模块操作和逻辑控制
 * fixtures: 数据结构
 
 ## 安装
 
-1. 安装Node.js, NPM  
-   下载：http://nodejs.org/download  
-   Linux下参考https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager  
+1. 安装Node.js, NPM
+   下载：http://nodejs.org/download
+   Linux下参考https://github.com/joyent/node/wiki/Installing-Node.js-via-package-manager
    通常Node.js安装包已经包含了NPM。
-   
-2. 安装MongoDB  
+ 
+2. 安装MongoDB
    参考http://docs.mongodb.org/manual
-   
-3. 安装grunt-cli  
+ 
+3. 安装grunt-cli
    npm install -g grunt-cli
 
 
 ### 运行数据库
 
-Windows下：  
+Windows下：
 参考http://docs.mongodb.org/manual/tutorial/install-mongodb-on-windows
 ```
 "C:\Program Files\MongoDB 2.6 Standard\bin\mongod" --dbpath YourDbPath
