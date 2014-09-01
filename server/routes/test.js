@@ -3,10 +3,6 @@ var router = express.Router();
 var album = require('../test/album');
 var User = require('../models/user');
 
-router.get('/userTest', function(req ,res, next) {
-    console.log(User.validatePassword('122'));
-});
-
 router.get('/', function(req, res, next) {
     res.render('index');
 });
