@@ -6,7 +6,7 @@
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
-util = require './util.coffee'
+util = require '../../common/util.coffee'
 
 
 UserSchema = new Schema
@@ -29,7 +29,7 @@ UserModel.createAdministrator = (callback)->
     UserModel.count {}, (err, count)->
         if count isnt 0 then callback?(err, count)
         createAdmin callback
-        createAdmin = (err, count)->
+        createAdmin = (callback)->
             UserModel.create {
                 username: 'admin'
                 password: util.encrypt 'miac-website'
