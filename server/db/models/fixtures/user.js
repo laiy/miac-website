@@ -1,10 +1,7 @@
 var user = {
   _id: "user-id-1", // ObjectID
   username: "Shin", // string
-  password: {
-    identity: "xxxxx", // identity = sha1(sha1(原始密码) + salt) string
-    salt: "xxxxxxxxxxx" // string === username
-  },
+  password: "xxxxx", // identity = sha1(sha1(原始密码) + username) string ,
   avatar: "/pictures/xxx", // string
   email: "bossonchan@gmail.com", // string
   createdArticles: [{
