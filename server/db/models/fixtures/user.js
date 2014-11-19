@@ -3,7 +3,7 @@ var user = {
   username: "Shin", // string
   password: {
     identity: "xxxxx", // identity = sha1(sha1(原始密码) + salt) string
-    salt: "xxxxxxxxxxx" // string
+    salt: "xxxxxxxxxxx" // string === username
   },
   avatar: "/pictures/xxx", // string
   email: "bossonchan@gmail.com", // string

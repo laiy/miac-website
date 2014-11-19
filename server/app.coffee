@@ -8,6 +8,7 @@ path = require 'path'
 
 #routes
 indexRoute = require './routes/index.coffee'
+registerRoute = require './routes/register.coffee'
 
 app = express()
 
@@ -19,3 +20,4 @@ app.use '/', indexRoute
 app.listen 2333
 
 module.exports = app
+
