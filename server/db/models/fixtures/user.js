@@ -4,6 +4,7 @@ var user = {
   password: "xxxxx", // identity = sha1(sha1(原始密码) + username) string ,
   avatar: "/pictures/xxx", // string
   email: "bossonchan@gmail.com", // string
+  isAdmin: "false", // Boolean
   createdArticles: [{
     lastAccessTime: "2014-01-01", // Date
     id: "article-id-1" // ObjectID 

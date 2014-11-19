@@ -8,7 +8,6 @@ path = require 'path'
 
 #routes
 indexRoute = require './routes/index.coffee'
-registerRoute = require './routes/register.coffee'
 
 app = express()
 

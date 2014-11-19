@@ -5,17 +5,37 @@
 
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
+ObjectId = Schema.Types.ObjectId
+util = require './util.coffee'
 
-userSchema = new Schema
-    _id: Schema.Types.ObjectId
-    username: string
+
+UserSchema = new Schema
+    #_id: ObjectId
+    username: String
     password: String
     avatar: {type: String, default: "default.jpg"}
     email: String
-    createArticles: [{lastAccessTime: Date, id: Schema.Types.ObjectId}]
-    createShares: [{lastAccessTime: Date, id: Schema.Types.ObjectId}]
-    createDiscuss: [{lastAccessTime: Date, id: Schema.Types.ObjectId}]
-    createAlbums: [{lastAccessTime: Date, id: Schema.Types.ObjectId}]
-    createWorks: [{lastAccessTime: Date, id: Schema.Types.ObjectId}]
+    isAdmin: Boolean
+    createArticles: [{lastAccessTime: Date, id: ObjectId}]
+    createShares: [{lastAccessTime: Date, id: ObjectId}]
+    createDiscuss: [{lastAccessTime: Date, id: ObjectId}]
+    createAlbums: [{lastAccessTime: Date, id: ObjectId}]
+    createWorks: [{lastAccessTime: Date, id: ObjectId}]
 
+UserModel = mongoose.model 'User', UserSchema
+
+UserModel.createAdministrator = (callback)->
+    callback = callback or ->
+    UserModel.count {}, (err, count)->
+        if count isnt 0 then callback?(err, count)
+        createAdmin callback
+        createAdmin = (err, count)->
+            UserModel.create {
+                username: 'admin'
+                password: util.encrypt 'miac-website'
+                email: 'ly.franky@gmail.com'
+                isAdmin: yes
+            }, callback
+
+module.exports = UserModel
 
