@@ -6,10 +6,11 @@
 chai = require "chai"
 chai.should()
 app = require '../app.coffee'
-request = (request 'supertest')(app)
+request = (require 'supertest')(app)
 
-decrible "index display", ->
+describe "index display", ->
     it 'GET / -> index.jade', (done)->
         request
             .get('/')
             .expect(200)
+            .end done

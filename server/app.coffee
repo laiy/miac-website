@@ -17,3 +17,5 @@ app.set 'view engine', 'jade'
 app.use '/', indexRoute
 
 app.listen 2333
+
+module.exports = app
