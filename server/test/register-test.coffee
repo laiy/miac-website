@@ -7,14 +7,16 @@ chai = require 'chai'
 chai.should()
 app = require '../app.coffee'
 request = (require 'supertest')(app)
+UserModel = require '../db/models/user.coffee'
 
 describe 'regist a new user', ->
     describe 'POST /register/regist -> registration', ->
         before (done)->
-            request
-                .post('/register/regist')
-                .send({username: 'already_existed_user', password: 'blablabla', email: 'blablabla@gmail.com'})
-                .end done
+            UserModel.drop ->
+                request
+                    .post('/register/regist')
+                    .send({username: 'already_existed_user', password: 'blablabla', email: 'blablabla@gmail.com'})
+                    .end done
         it 'create a new user successfully', (done)->
             request
                 .post('/register/regist')
@@ -23,7 +25,7 @@ describe 'regist a new user', ->
                 .end (err, res)->
                     res.body.result.should.equal 'success'
                     done()
-        it 'create a new user fail cuz user has already existed', (done)->
+        it 'create a new user fail cuz username has already existed', (done)->
             request
                 .post('/register/regist')
                 .send({username: 'already_existed_user', password: 'blablabla', email: 'blablabla@gmail.com'})
@@ -32,9 +34,4 @@ describe 'regist a new user', ->
                     res.body.result.should.equal 'fail'
                     res.body.msg.should.equal 'Username has already existed.'
                     done()
-
-
-
-
-
 

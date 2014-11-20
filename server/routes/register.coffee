@@ -9,7 +9,7 @@ router = express.Router()
 
 router.post '/regist', (req, res)->
     {username, password, email} = req.body
-    UserModel.find {username: username}, (err, user)->
+    UserModel.findOne {username: username}, (err, user)->
         if user
             return res.json {result: 'fail', msg: 'Username has already existed.'}
         else
