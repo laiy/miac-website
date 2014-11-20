@@ -5,6 +5,7 @@
 
 express = require 'express'
 path = require 'path'
+db = require './db/db.coffee'
 
 #routes
 indexRoute = require './routes/index.coffee'
@@ -17,6 +18,8 @@ app.set 'view engine', 'jade'
 
 app.use '/', indexRoute
 app.use '/register', registerRoute
+
+db.init()
 
 app.listen 2333
 

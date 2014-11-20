@@ -4,7 +4,7 @@
 #	> Created Time: Wednesday, November 19, 2014 PM03:58:31 CST
 
 mongoose = require "mongoose"
-User = require "./models/user.coffee"
+UserModel = require "./models/user.coffee"
 
 db = null
 
