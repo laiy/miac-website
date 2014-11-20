@@ -81,7 +81,63 @@ describe 'regist a new user', ->
         it 'create a new user fail cuz the form of email is invalid', (done)->
             request
                 .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '233'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '123123@qqcom'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '213123@qq..com'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '213123@@qq.com'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '213123@qq.com@'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '213213@qq.com.'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: '.wqe@qq.com'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
                 .send({username: 'blablabla', password: 'blablabla', email: '@gmail.com'})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'The form of email is invalid.'
+            request
+                .post('/register/regist')
+                .send({username: 'blablabla', password: 'blablabla', email: 'qwe@.com'})
                 .expect(200)
                 .end (err, res)->
                     res.body.result.should.equal 'fail'
