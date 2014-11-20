@@ -39,7 +39,7 @@ UserModel.createAdministrator = (callback)->
 UserModel.createUser = (username, password, email, callback)->
     UserModel.create {
         username: username
-        password: password
+        password: util.encrypt password
         email: email
         isAdmin: no
     }, callback

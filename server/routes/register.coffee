@@ -16,7 +16,7 @@ router.post '/regist', (req, res)->
             return res.json {result: 'fail', msg: 'Info not complete.'}
         else if password.length < 8
             return res.json {result: 'fail', msg: 'The length of password must be at least 8.'}
-        else if not /^([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(email)
+        else if not /^([a-zA-Z0-9\u4e00-\u9fa5]+[_|\_|\.-]?)*[a-zA-Z0-9\u4e00-\u9fa5]+@([a-zA-Z0-9]+[_|\_|\.]?)*[a-zA-Z0-9]+\.[a-zA-Z]{2,3}$/.test(email)
             return res.json {result: 'fail', msg: 'The form of email is invalid.'}
         else
             UserModel.createUser username, password, email, ->
