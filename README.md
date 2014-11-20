@@ -83,13 +83,13 @@ miac-website
 * 后端
 	* 语言：Node.js
 	* MVC框架：[Express](http://expressjs.com/)
-	* 数据库：MongoDB
-    * 项目构建工具： Grunt
-    * async: Node.js异步解决方案
+	* 数据库：Mongoose
+    * 项目构建工具： Grunt, Npm, Mocha
 * 前端
 	* [jQuery](http://www.jquery.com)
 	* [Jade](http://jade-lang.com/)
-    * [Less](http://lesscss.org/)
+    * [sass](http://sass-lang.com/)
+    * [coffee](http://coffeescript.org/)
 
 ## License
 [MIT](http://mutedsolutions.mit-license.org/)
