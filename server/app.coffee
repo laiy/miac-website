@@ -8,6 +8,7 @@ path = require 'path'
 
 #routes
 indexRoute = require './routes/index.coffee'
+registerRoute = require './routes/register.coffee'
 
 app = express()
 
@@ -15,6 +16,7 @@ app.set 'views', path.join(__dirname, 'views')
 app.set 'view engine', 'jade'
 
 app.use '/', indexRoute
+app.use '/register', registerRoute
 
 app.listen 2333
 

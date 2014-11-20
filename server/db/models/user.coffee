@@ -37,5 +37,13 @@ UserModel.createAdministrator = (callback)->
                 isAdmin: yes
             }, callback
 
+UserModel.createUser = (username, password, email, callback)->
+    UserModel.create {
+        username: username
+        password: password
+        email: email
+        isAdmin: no
+    }, callback
+
 module.exports = UserModel
 
