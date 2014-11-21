@@ -1,4 +1,4 @@
-#	> File Name: login-test.coffee
+#	> File Name: user-test.coffee
 #	> Author: LY
 #	> Mail: ly.franky@gmail.com
 #	> Created Time: Friday, November 21, 2014 AM09:29:20 CST
@@ -9,7 +9,7 @@ app = require '../app.coffee'
 request = (require 'supertest')(app)
 UserModel = require '../db/models/user.coffee'
 
-describe 'login test', ->
+describe 'log test', ->
     describe 'user login', ->
         before (done)->
             UserModel.drop ->
@@ -48,15 +48,17 @@ describe 'login test', ->
             request
                 .post('/login/session')
                 .send({username: 'laiy', password: 'miac-website'})
-                .expect(409)
+                .expect("set-cookie", /connect\.sid/)
                 .end (err, res)->
-                    res.body.result.should.equal 'fail'
-                    res.body.msg.should.equal 'User conflict.'
-                    done()
-
-
-
-
+                    request
+                        .post('/login/session')
+                        .set("Cookie", res.headers['set-cookie'])
+                        .send({username: 'laiy', password: 'miac-website'})
+                        .expect(409)
+                        .end (err, res)->
+                            res.body.result.should.equal 'fail'
+                            res.body.msg.should.equal 'User conflict.'
+                            done()
 
 
 
