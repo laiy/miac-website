@@ -8,18 +8,17 @@ Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 util = require '../../common/util.coffee'
 
-UserSchema = new Schema {
-    username: String,
-    password: String,
-    avatar: {type: String, default: "default.jpg"},
-    email: String,
-    isAdmin: Boolean,
-    createArticles: [{lastAccessTime: Date, id: ObjectId}],
-    createShares: [{lastAccessTime: Date, id: ObjectId}],
-    createDiscuss: [{lastAccessTime: Date, id: ObjectId}],
-    createAlbums: [{lastAccessTime: Date, id: ObjectId}],
+UserSchema = new Schema
+    username: String
+    password: String
+    avatar: {type: String, default: "default.jpg"}
+    email: String
+    isAdmin: Boolean
+    createArticles: [{lastAccessTime: Date, id: ObjectId}]
+    createShares: [{lastAccessTime: Date, id: ObjectId}]
+    createDiscuss: [{lastAccessTime: Date, id: ObjectId}]
+    createAlbums: [{lastAccessTime: Date, id: ObjectId}]
     createWorks: [{lastAccessTime: Date, id: ObjectId}]
-}
 
 UserModel = mongoose.model 'UserModel', UserSchema
 

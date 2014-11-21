@@ -18,6 +18,7 @@ config = require './config.coffee'
 #routes
 indexRoute = require './routes/index.coffee'
 registerRoute = require './routes/register.coffee'
+loginRoute = require './routes/login.coffee'
 
 app = express()
 
@@ -39,6 +40,7 @@ app.set 'view engine', 'jade'
 
 app.use '/', indexRoute
 app.use '/register', registerRoute
+app.use '/login', loginRoute
 
 db.init()
 
