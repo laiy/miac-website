@@ -10,14 +10,16 @@ config = require '../config.coffee'
 db = null
 
 init = ->
-    initDB()
+    initDB ->
+        UserModel.drop ->
 
-initDB = ->
+initDB = (callback)->
     if process.env.NODE_ENV is "DEV"
         mongoose.connect config.TEST_DB_URI
     else
         mongoose.connect config.PRODUCTION_DB_URI
     db = mongoose.connection
+    callback()
 
 module.exports = {db, init}
 
