@@ -48,17 +48,45 @@ describe 'log test', ->
             request
                 .post('/log/session')
                 .send({username: 'laiy', password: 'miac-website'})
-                .expect("set-cookie", /connect\.sid/)
+                .expect('set-cookie', /connect\.sid/)
                 .end (err, res)->
                     request
                         .post('/log/session')
-                        .set("Cookie", res.headers['set-cookie'])
+                        .set('Cookie', res.headers['set-cookie'])
                         .send({username: 'laiy', password: 'miac-website'})
                         .expect(409)
                         .end (err, res)->
                             res.body.result.should.equal 'fail'
                             res.body.msg.should.equal 'User conflict.'
                             done()
-
+    describe 'user logout', ->
+        before (done)->
+            UserModel.drop ->
+                request
+                    .post('/register/regist')
+                    .send({username: 'laiy', password: 'miac-website', email: 'ly.franky@gmail.com'})
+                    .end done
+        it 'Logout successfully', (done)->
+            request
+                .post('/log/session')
+                .send({username: 'laiy', password: 'miac-website'})
+                .expect(200)
+                .expect('set-cookie', /connect\.sid/)
+                .end (err, res)->
+                    res.body.result.should.equal 'success'
+                    request
+                        .delete('/log/session')
+                        .set('Cookie', res.headers['set-cookie'])
+                        .end (err, res)->
+                            res.body.result.should.equal 'success'
+                            done()
+        it 'Logout fail cuz user has not login.', (done)->
+            request
+                .delete('/log/session')
+                .expect(401)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'Please log in first.'
+                    done()
 
 
