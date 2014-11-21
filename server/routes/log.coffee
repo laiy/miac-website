@@ -1,4 +1,4 @@
-#	> File Name: user.coffee
+#	> File Name: log.coffee
 #	> Author: LY
 #	> Mail: ly.franky@gmail.com
 #	> Created Time: Friday, November 21, 2014 AM09:19:00 CST

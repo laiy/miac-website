@@ -1,4 +1,4 @@
-#	> File Name: user-test.coffee
+#	> File Name: log-test.coffee
 #	> Author: LY
 #	> Mail: ly.franky@gmail.com
 #	> Created Time: Friday, November 21, 2014 AM09:29:20 CST
@@ -19,7 +19,7 @@ describe 'log test', ->
                     .end done
         it 'Login fail cuz user doesnt exist', (done)->
             request
-                .post('/login/session')
+                .post('/log/session')
                 .send({username: 'ly', password: 'blablabla'})
                 .expect(404)
                 .end (err, res)->
@@ -28,7 +28,7 @@ describe 'log test', ->
                     done()
         it 'Login fail cuz password is not correct', (done)->
             request
-                .post('/login/session')
+                .post('/log/session')
                 .send({username: 'laiy', password: 'blablabla'})
                 .expect(400)
                 .end (err, res)->
@@ -37,7 +37,7 @@ describe 'log test', ->
                     done()
         it 'Login successfully', (done)->
             request
-                .post('/login/session')
+                .post('/log/session')
                 .send({username: 'laiy', password: 'miac-website'})
                 .expect(200)
                 .expect("set-cookie", /connect\.sid/)
@@ -46,12 +46,12 @@ describe 'log test', ->
                     done()
         it 'Login fail cuz user has already login', (done)->
             request
-                .post('/login/session')
+                .post('/log/session')
                 .send({username: 'laiy', password: 'miac-website'})
                 .expect("set-cookie", /connect\.sid/)
                 .end (err, res)->
                     request
-                        .post('/login/session')
+                        .post('/log/session')
                         .set("Cookie", res.headers['set-cookie'])
                         .send({username: 'laiy', password: 'miac-website'})
                         .expect(409)
