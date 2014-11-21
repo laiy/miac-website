@@ -27,7 +27,7 @@ app.use logger('dev')
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
 app.use busbody {immediate: true}
-app.use express.static(path.join(__dirname, 'public'))
+app.use express.static(path.join(__dirname, '/views'))
 app.use cookieParser()
 app.use session {
     secret: config.SECRET_KEY

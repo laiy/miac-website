@@ -22,5 +22,8 @@ router.post '/regist', (req, res)->
             UserModel.createUser username, password, email, ->
                 res.json {result: 'success'}
 
+router.get '/', (req, res)->
+    res.render 'register'
+
 module.exports = router
 

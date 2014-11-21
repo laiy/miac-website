@@ -89,4 +89,3 @@ describe 'log test', ->
                     res.body.msg.should.equal 'Please log in first.'
                     done()
 
-

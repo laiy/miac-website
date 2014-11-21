@@ -26,4 +26,8 @@ router.delete '/session', requireLogin, (req,res)->
     req.session.destroy()
     res.json {result: 'success'}
 
+router.get '/', (req, res)->
+    res.render 'login'
+
 module.exports = router
+
