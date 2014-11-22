@@ -14,6 +14,8 @@ router.post '/session', checkUserConflict, (req, res)->
     UserModel.findOne {username}, (err, user)->
         if err
             return res.status(500).send 'Server Error.'
+        else if username is '' or password is ''
+            return res.json {result: 'fail', msg: 'Info not complete.'}
         if not user
             return res.status(404).json {result: 'fail', msg: 'User is not found.'}
         if user.password isnt util.encrypt password

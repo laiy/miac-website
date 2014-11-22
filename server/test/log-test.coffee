@@ -35,6 +35,15 @@ describe 'log test', ->
                     res.body.result.should.equal 'fail'
                     res.body.msg.should.equal 'Password is not correct.'
                     done()
+        it 'Login fail cuz Info not complete', (done)->
+            request
+                .post('/log/session')
+                .send({username: '', password: ''})
+                .expect(200)
+                .end (err, res)->
+                    res.body.result.should.equal 'fail'
+                    res.body.msg.should.equal 'Info not complete.'
+                    done()
         it 'Login successfully', (done)->
             request
                 .post('/log/session')
