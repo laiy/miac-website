@@ -11,22 +11,24 @@ module.exports = (grunt)->
             all: {src: ['test/**/*.coffee']}
         watch:
             compile:
-                options:
-                    livereload: true
                 files: [
-                    'views/**/*.coffee',
-                    'views/**/*.sass'
-                    'views/**/*.jade'
+                    'views/src/coffee/**/*.coffee'
                 ]
+                options:
+                    spawn: false
                 tasks: ['coffee']
         coffee:
-            compile:
-                files:
-                    'views/dist/build.js': 'views/src/coffee/*.coffee'
+            glob_to_multiple:
+                expand: true,
+                flatten: true,
+                cwd: 'views/src/coffee',
+                src: ['**/*.coffee']
+                dest: 'views/bin/js',
+                ext: '.js'
 
     grunt.loadNpmTasks 'grunt-simple-mocha'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
+    grunt.loadNpmTasks "grunt-contrib-connect"
 
     grunt.registerTask 'test', 'simplemocha'
-    grunt.registerTask 'watch', ['coffee', 'watch']
