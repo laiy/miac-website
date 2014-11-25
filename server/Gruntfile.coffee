@@ -25,10 +25,18 @@ module.exports = (grunt)->
                 src: ['**/*.coffee']
                 dest: 'views/bin/js',
                 ext: '.js'
+        browserSync:
+            dev:
+                bsFiles:
+                    src: 'views/**/*'
+                options:
+                    proxy: 'localhost:2333'
+                    watchTask: true
 
     grunt.loadNpmTasks 'grunt-simple-mocha'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
-    grunt.loadNpmTasks "grunt-contrib-connect"
+    grunt.loadNpmTasks 'grunt-browser-sync'
 
     grunt.registerTask 'test', 'simplemocha'
+    grunt.registerTask 'client', ['browserSync', 'watch']

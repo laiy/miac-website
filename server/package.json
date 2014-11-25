@@ -31,6 +31,7 @@
     "mocha": "~1.21.4",
     "mongodb": "~1.4.18",
     "mocha-mongoose": "~1.0.1",
-    "express-session": "~1.8.2"
+    "express-session": "~1.8.2",
+    "grunt-browser-sync": "~1.5.3"
   }
 }
