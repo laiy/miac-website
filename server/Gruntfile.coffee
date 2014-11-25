@@ -39,4 +39,4 @@ module.exports = (grunt)->
     grunt.loadNpmTasks 'grunt-browser-sync'
 
     grunt.registerTask 'test', 'simplemocha'
-    grunt.registerTask 'client', ['browserSync', 'watch']
+    grunt.registerTask 'default', ['browserSync', 'watch']

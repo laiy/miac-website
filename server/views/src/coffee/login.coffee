@@ -6,7 +6,6 @@
 $('button').click ->
     username = $('#username').val()
     password = $('#password').val()
-    alert '233'
     $.ajax
         url: '/log/session'
         data: {username: username, password:password}

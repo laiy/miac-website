@@ -3,7 +3,6 @@
     var password, username;
     username = $('#username').val();
     password = $('#password').val();
-    alert('233');
     return $.ajax({
       url: '/log/session',
       data: {
