@@ -16,4 +16,3 @@ authorization.checkUserConflict = (req, res, next)->
         res.status(409).json {result: 'fail', msg: 'User conflict.'}
     else
         next()
-

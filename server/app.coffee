@@ -14,6 +14,7 @@ logger = require 'morgan'
 
 db = require './db/db.coffee'
 config = require './config.coffee'
+util = require './common/util.coffee'
 
 #routes
 indexRoute = require './routes/index.coffee'
@@ -34,6 +35,7 @@ app.use session {
     resave: yes
     saveUninitialized: yes
 }
+app.use util.setLocalsUser
 
 app.set 'views', path.join(__dirname, 'views')
 app.set 'view engine', 'jade'
