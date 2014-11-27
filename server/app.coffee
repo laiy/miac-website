@@ -20,6 +20,7 @@ util = require './common/util.coffee'
 indexRoute = require './routes/index.coffee'
 registerRoute = require './routes/register.coffee'
 logRoute = require './routes/log.coffee'
+aboutRoute = require './routes/about.coffee'
 
 app = express()
 
@@ -43,6 +44,7 @@ app.set 'view engine', 'jade'
 app.use '/', indexRoute
 app.use '/register', registerRoute
 app.use '/log', logRoute
+app.use '/about', aboutRoute
 
 db.init()
 

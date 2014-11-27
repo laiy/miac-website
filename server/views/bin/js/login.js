@@ -14,7 +14,10 @@
         return alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText);
       },
       success: function(data) {
-        return alert(data.result + '\n' + data.msg);
+        alert(data.result + '\n' + data.msg);
+        if (data.result === 'success') {
+          return $(location).attr('href', '/');
+        }
       }
     });
   });

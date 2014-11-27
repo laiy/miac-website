@@ -9,7 +9,10 @@
       password: password,
       email: email
     }, function(data) {
-      return alert(data.result + '\n' + data.msg);
+      alert(data.result + '\n' + data.msg);
+      if (data.result === 'success') {
+        return $(location).attr('href', '/');
+      }
     });
   });
 

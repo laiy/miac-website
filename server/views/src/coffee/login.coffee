@@ -14,3 +14,7 @@ $('button').click ->
             alert XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText
         success: (data)->
             alert data.result + '\n' + data.msg
+            if data.result is 'success'
+                $(location).attr 'href', '/'
+
+

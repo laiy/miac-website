@@ -9,4 +9,6 @@ $('button').click ->
     email = $('#email').val()
     $.post '/register/regist', {username: username, password: password, email: email}, (data)->
         alert data.result + '\n' + data.msg
+        if data.result is 'success'
+            $(location).attr 'href', '/'
 

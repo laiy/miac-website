@@ -1,4 +1,4 @@
-a(href='/index') 主页
+a(href='/') 主页
 a(href='/article') 文章
 a(href='/share') 分享
 a(href='/discuss') 讨论
@@ -6,8 +6,9 @@ a(href='/album') 相册
 a(href='/works') 作品
 a(href='/about') 关于
 -if (user)
-    a(href='#') 登出
+    a(id='logout') 登出
 -else
     a(href='/log') 登录
     a(href='/register') 注册
 
+script(src='../bin/js/header.js')
