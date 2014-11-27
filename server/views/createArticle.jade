@@ -1,0 +1,17 @@
+doctype html
+html
+    head
+        title createArticle
+        script(src='../lib/jquery.js')
+    body
+        p createArticle
+        include ./includes/header.jade
+        p category
+        input(type='text' id='category')
+        p title
+        input(type='text' id='title')
+        p content
+        input(type='textarea' id='content')
+        button(type='button') submit
+        script(src='../bin/js/createArticle.js')
+

@@ -13,7 +13,7 @@ $('button').click ->
         error: (XMLHttpRequest)->
             alert XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText
         success: (data)->
-            alert data.result + '\n' + data.msg
+            alert data.result + '\n' + (data.msg if data.msg)
             if data.result is 'success'
                 $(location).attr 'href', '/'
 

@@ -8,6 +8,6 @@ $('#logout').click ->
         url: '/log/session'
         type: 'delete'
         success: (data)->
-            alert data.result + '\n' + data.msg
+            alert data.result + '\n' + (data.msg if data.msg)
             if data.result is 'success'
                 $(location).attr 'href', '/'
