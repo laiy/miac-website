@@ -11,21 +11,18 @@ ArticleSchema = new Schema
     category: String
     title: String
     content: String
-    createdBy: String #username
+    createdBy: String
     createdAt: {type: Date, default: Date.now()}
-    tags: [String]
 
 ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 
-ArticleModel.createArticle = (callback)->
+ArticleModel.createArticle = (category, title, content, createdBy, callback)->
     callback = callback or ->
     ArticleModel.create {
         category: category
         title: title
         content: content
         createdBy: createdBy
-        createdAt: createdAt
-        tags: tags
     }, callback
 
 module.exports = ArticleModel

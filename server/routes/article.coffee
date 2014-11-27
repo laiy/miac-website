@@ -7,6 +7,7 @@ express = require 'express'
 router = express.Router()
 ArticleModel = require '../db/models/article.coffee'
 ObjectId = Schema.Types.ObjectId
+{requireLogin} = require './helpers/authorization.coffee'
 
 router.get '/:id', (req, res)->
     ArticleModel.findOne {_id: ObjectId(req.params.id)}, (err, article)->
@@ -22,9 +23,18 @@ router.get '/', (req, res)->
         else
             res.render 'article', articles = articles
 
-router.get '/create', (req, res)->
+router.get '/create', requireLogin, (req, res)->
     res.render 'createArticle'
 
 router.post '/create', (req, res)->
     {category, title, content, tags} = req.body
+    createdBy = req.session.user.username
+    ArticleModel.findOne {title}, (err, article)->
+        if article
+            res.json {result: 'fail', msg: 'Article has already existed.'}
+        else if not title or not content or not createdBy
+            res.json {result: 'fail', msg: 'Info not completed.'}
+        else
+            ArticleModel.createArticle category, title, content, createdBy, ->
+                res.json {result: 'success'}
 
