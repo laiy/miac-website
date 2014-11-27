@@ -13,7 +13,7 @@ UserSchema = new Schema
     password: String
     avatar: {type: String, default: "default.jpg"}
     email: String
-    isAdmin: Boolean
+    isAdmin: {type: Boolean, default: no}
     createArticles: [{lastAccessTime: Date, id: ObjectId}]
     createShares: [{lastAccessTime: Date, id: ObjectId}]
     createDiscuss: [{lastAccessTime: Date, id: ObjectId}]
