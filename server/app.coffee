@@ -11,6 +11,7 @@ favicon = require 'static-favicon'
 busbody = require "connect-busboy"
 session = require 'express-session'
 logger = require 'morgan'
+moment = require 'moment'
 
 db = require './db/db.coffee'
 config = require './config.coffee'

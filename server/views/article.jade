@@ -9,6 +9,17 @@ html
         if user
             a(href='/article/create') createNew
         if articles
-            for article in articles
-                a(href='/article/' + article._id) article.title
+            each article in articles
+                br
+                p category
+                p=article.category
+                p title
+                a(href='/article/' + article._id)=article.title
+                p content
+                p=article.content
+                p createdBy
+                p=article.createdBy
+                p cratedAt
+                p=moment(article.cratedAt).format('MMM D,YY')
+                br
 

@@ -11,6 +11,14 @@ ArticleModel = require '../db/models/article.coffee'
 ObjectId = Schema.Types.ObjectId
 {requireLogin} = require './helpers/authorization.coffee'
 
+router.get '/', (req, res)->
+    ArticleModel.find {}, (err, articles)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            console.log articles
+            res.render 'article', articles: articles
+
 router.get '/create', requireLogin, (req, res)->
     res.render 'createArticle'
 
@@ -19,14 +27,7 @@ router.get '/:id', (req, res)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'childArticle', article=article
-
-router.get '/', (req, res)->
-    ArticleModel.find {}, (err, articles)->
-        if err
-            return res.status(500).send 'Server Error.'
-        else
-            res.render 'article', articles = articles
+            res.render 'childArticle', article: article
 
 router.post '/create', (req, res)->
     {category, title, content} = req.body

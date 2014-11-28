@@ -12,7 +12,7 @@ ArticleSchema = new Schema
     title: String
     content: String
     createdBy: String
-    createdAt: {type: Date, default: Date.now()}
+    createdAt: { type: Date, default: Date.now }
 
 ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 

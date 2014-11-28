@@ -11,14 +11,14 @@ util = require '../../common/util.coffee'
 UserSchema = new Schema
     username: String
     password: String
-    avatar: {type: String, default: "default.jpg"}
+    avatar: { type: String, default: "default.jpg" }
     email: String
-    isAdmin: {type: Boolean, default: no}
-    createArticles: [{lastAccessTime: Date, id: ObjectId}]
-    createShares: [{lastAccessTime: Date, id: ObjectId}]
-    createDiscuss: [{lastAccessTime: Date, id: ObjectId}]
-    createAlbums: [{lastAccessTime: Date, id: ObjectId}]
-    createWorks: [{lastAccessTime: Date, id: ObjectId}]
+    isAdmin: { type: Boolean, default: no }
+    createArticles: [{ lastAccessTime: Date, id: ObjectId }]
+    createShares: [{ lastAccessTime: Date, id: ObjectId }]
+    createDiscuss: [{ lastAccessTime: Date, id: ObjectId }]
+    createAlbums: [{ lastAccessTime: Date, id: ObjectId }]
+    createWorks: [{ lastAccessTime: Date, id: ObjectId }]
 
 UserModel = mongoose.model 'UserModel', UserSchema
 
