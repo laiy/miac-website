@@ -5,4 +5,12 @@
 
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
-ObjectId = 
+ObjectId = Schema.Types.ObjectId
+
+MessageSchema = new Schema
+    replyTo: ObjectId
+    
+
+MessageModel = mongoose.model 'MessageModel', MessageSchema
+
+module.exports = MessageModel
