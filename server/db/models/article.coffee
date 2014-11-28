@@ -5,7 +5,6 @@
 
 mongoose = require 'mongoose'
 Schema = mongoose.Schema
-ObjectId = Schema.Types.ObjectId
 
 ArticleSchema = new Schema
     category: String
@@ -28,6 +27,5 @@ ArticleModel.createArticle = (category, title, content, createdBy, callback)->
 ArticleModel.drop = (callback)->
     ArticleModel.remove {}, ->
         callback()
-
 
 module.exports = ArticleModel
