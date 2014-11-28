@@ -1,0 +1,18 @@
+doctype html
+html
+    head
+        title article
+        script(src='./lib/jquery.js')
+    body
+        p article
+        include ./includes/header.jade
+        p category:
+            span=article.category
+        p title:
+            a(href='/article/' + article._id)=article.title
+        p content:
+            span=article.content
+        p createdBy:
+            span=article.createdBy
+        p cratedAt:
+            span=moment(article.cratedAt).format('MMM D,YY')

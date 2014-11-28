@@ -26,6 +26,7 @@ articleRoute = require './routes/article.coffee'
 
 app = express()
 
+app.locals.moment = moment
 app.use favicon()
 app.use logger('dev')
 app.use bodyParser.json()

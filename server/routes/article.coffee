@@ -4,11 +4,8 @@
 #	> Created Time: Thursday, November 27, 2014 PM07:09:34 CST
 
 express = require 'express'
-mongoose = require 'mongoose'
-Schema = mongoose.Schema
 router = express.Router()
 ArticleModel = require '../db/models/article.coffee'
-ObjectId = Schema.Types.ObjectId
 {requireLogin} = require './helpers/authorization.coffee'
 
 router.get '/', (req, res)->
@@ -16,17 +13,18 @@ router.get '/', (req, res)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            console.log articles
             res.render 'article', articles: articles
 
 router.get '/create', requireLogin, (req, res)->
     res.render 'createArticle'
 
 router.get '/:id', (req, res)->
-    ArticleModel.findOne {_id: ObjectId(req.params.id)}, (err, article)->
+    ArticleModel.findOne {_id: req.params.id}, (err, article)->
         if err
             return res.status(500).send 'Server Error.'
         else
+            console.log req.params.id
+            console.log article
             res.render 'childArticle', article: article
 
 router.post '/create', (req, res)->

@@ -15,3 +15,4 @@ util.encrypt = (str)->
 util.setLocalsUser = (req, res, next)->
     res.locals.user = req.session.user or null
     next()
+
