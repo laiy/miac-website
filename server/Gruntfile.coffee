@@ -13,10 +13,11 @@ module.exports = (grunt)->
             compile:
                 files: [
                     'views/src/coffee/**/*.coffee'
+                    'views/src/sass/**/*.sass'
                 ]
                 options:
                     spawn: false
-                tasks: ['coffee']
+                tasks: ['coffee', 'sass']
         coffee:
             glob_to_multiple:
                 expand: true,
@@ -32,11 +33,21 @@ module.exports = (grunt)->
                 options:
                     proxy: 'localhost:2333'
                     watchTask: true
+        sass:
+            dist:
+                files: [
+                    expand: true
+                    cwd: 'views/src/sass/'
+                    src: '**/*.sass'
+                    dest: 'views/bin/css'
+                    ext: '.css'
+                ]
 
     grunt.loadNpmTasks 'grunt-simple-mocha'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-browser-sync'
+    grunt.loadNpmTasks 'grunt-contrib-sass'
 
     grunt.registerTask 'test', 'simplemocha'
     grunt.registerTask 'default', ['browserSync', 'watch']

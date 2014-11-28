@@ -11,7 +11,7 @@ db = null
 
 init = ->
     initDB ->
-        UserModel.drop ->
+        #UserModel.drop ->
 
 initDB = (callback)->
     if process.env.NODE_ENV is "DEV"

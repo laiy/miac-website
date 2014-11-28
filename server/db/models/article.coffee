@@ -25,4 +25,9 @@ ArticleModel.createArticle = (category, title, content, createdBy, callback)->
         createdBy: createdBy
     }, callback
 
+ArticleModel.drop = (callback)->
+    ArticleModel.remove {}, ->
+        callback()
+
+
 module.exports = ArticleModel
