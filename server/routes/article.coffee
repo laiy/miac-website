@@ -4,9 +4,11 @@
 #	> Created Time: Thursday, November 27, 2014 PM07:09:34 CST
 
 express = require 'express'
+mongoose = require 'mongoose'
 router = express.Router()
 ArticleModel = require '../db/models/article.coffee'
 {requireLogin} = require './helpers/authorization.coffee'
+MessageModel = require '../db/models/message.coffee'
 
 router.get '/', (req, res)->
     ArticleModel.find {}, (err, articles)->
@@ -19,22 +21,25 @@ router.get '/create', requireLogin, (req, res)->
     res.render 'createArticle'
 
 router.get '/:id', (req, res)->
-    ArticleModel.findOne {_id: req.params.id}, (err, article)->
+    id = mongoose.Types.ObjectId(req.params.id)
+    ArticleModel.findOne {_id: id}, (err, article)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            console.log req.params.id
-            console.log article
-            res.render 'childArticle', article: article
+            MessageModel.find {replyTo: id}, { sort: { createdAt: -1 } }, (err, comments)->
+                for comment in comments
+                    MessageModel.find {replyTo: comment._id}, { sort: { createdAt: -1 } }, (err, replys)->
+                        comment.replys = replys
+                        res.render 'childArticle', article: article, comments: comments
 
 router.post '/create', (req, res)->
     {category, title, content} = req.body
     createdBy = req.session.user.username
     ArticleModel.findOne {title}, (err, article)->
         if article
-            res.json {result: 'fail', msg: 'Article has already existed.'}
+            return res.json {result: 'fail', msg: 'Article has already existed.'}
         else if not title or not content or not createdBy
-            res.json {result: 'fail', msg: 'Info not completed.'}
+            return res.json {result: 'fail', msg: 'Info not completed.'}
         else
             ArticleModel.createArticle category, title, content, createdBy, ->
                 res.json {result: 'success'}

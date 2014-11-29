@@ -2,7 +2,7 @@ doctype html
 html
     head
         title article
-        script(src='./lib/jquery.js')
+        script(src='../lib/jquery.js')
     body
         p article
         include ./includes/header.jade
@@ -16,3 +16,31 @@ html
             span=article.createdBy
         p cratedAt:
             span=moment(article.cratedAt).format('MMM D,YY')
+        p comments
+        each comment in comments
+            p comment:
+            p ObjectId:
+                span=comment._id
+            p type:
+                span=comment.type
+            p content:
+                span=comment.content
+            p createdBy(OI):
+                span=comment.createdBy
+            p createdAt:
+                span=moment(comment.createdAt).format('MMM D,YY')
+            p replys:
+            each reply in comment.replys
+                p reply:
+                p ObjectId:
+                    span=reply._id
+                p type:
+                    span=reply.type
+                p content:
+                    span=reply.content
+                p createdBy(OI):
+                    span=reply.createdBy
+                p createdAt:
+                    span=moment(reply.createdAt).format('MMM D,YY')
+            br
+

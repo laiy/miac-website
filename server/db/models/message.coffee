@@ -16,10 +16,13 @@ MessageSchema = new Schema
 
 MessageModel = mongoose.model 'MessageModel', MessageSchema
 
-MessageModel.createMessage = (callback)->
+MessageModel.createMessage = (replyTo, type, content, createdBy, callback)->
     MessageModel.create {
-        
-    }
-
+        replyTo: replyTo
+        type: type
+        content: content
+        createdBy: createdBy
+    }, callback
 
 module.exports = MessageModel
+
