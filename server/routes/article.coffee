@@ -30,11 +30,14 @@ router.get '/:id', (req, res)->
                 if not comments
                     res.render 'childArticle', article: article
                 else
-                    for comment in comments
-                        MessageModel.find {replyTo: comment._id, type: 'reply'}, (err, replys)->
-                            if replys
-                                comment.replys = replys
-                    res.render 'childArticle', { article: article, comments: comments }
+                    setReplys = (callback)->
+                        for comment in comments
+                            MessageModel.find {replyTo: comment._id, type: 'reply'}, (err, replys)->
+                                if replys
+                                    comment.replys = replys
+                                    callback()
+                    setReplys ->
+                        res.render 'childArticle', { article: article, comments: comments }
 
 router.post '/create', (req, res)->
     { category, title, content } = req.body
