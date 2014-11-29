@@ -26,15 +26,14 @@ router.get '/:id', (req, res)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            MessageModel.find { replyTo: id }, (err, comments)->
+            MessageModel.find { replyTo: id , type: 'comment'}, (err, comments)->
                 if not comments
                     res.render 'childArticle', article: article
                 else
                     for comment in comments
-                        MessageModel.find {replyTo: comment._id}, (err, replys)->
-                            console.log replys
-                            comment.replys = replys
-                            console.log comment.replys
+                        MessageModel.find {replyTo: comment._id, type: 'reply'}, (err, replys)->
+                            if replys
+                                comment.replys = replys
                     res.render 'childArticle', { article: article, comments: comments }
 
 router.post '/create', (req, res)->
