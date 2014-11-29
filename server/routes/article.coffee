@@ -5,6 +5,7 @@
 
 express = require 'express'
 mongoose = require 'mongoose'
+async = require 'async'
 router = express.Router()
 ArticleModel = require '../db/models/article.coffee'
 { requireLogin } = require './helpers/authorization.coffee'
@@ -30,13 +31,14 @@ router.get '/:id', (req, res)->
                 if not comments
                     res.render 'childArticle', article: article
                 else
-                    setReplys = (callback)->
-                        for comment in comments
-                            MessageModel.find {replyTo: comment._id, type: 'reply'}, (err, replys)->
-                                if replys
-                                    comment.replys = replys
-                                    callback()
-                    setReplys ->
+                    async.each comments, (comment, callback)->
+                        MessageModel.find {replyTo: comment._id, type: 'reply'}, (err, replys)->
+                            if not replys
+                                callback()
+                            else
+                                comment.replys = replys
+                                callback()
+                    , (err)->
                         res.render 'childArticle', { article: article, comments: comments }
 
 router.post '/create', (req, res)->
