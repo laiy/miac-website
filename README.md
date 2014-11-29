@@ -3,7 +3,6 @@ miac-website
 
 [中山大学现代互联网应用俱乐部（MIAC）网站](http://sysumiac.com)
 
-
 ## 功能设想
 * 主页：
 	* 显示俱乐部网站最新的动态：文章、分享、讨论、相册等
@@ -64,7 +63,7 @@ miac-website
 	* 具有所有权限
 	* 后台管理功能
 
-（详情请见 [原型设计](https://github.com/sysumiac/miac-website/tree/develop/prototype)）
+（详情请见 [原型设计](https://github.com/laiy/miac-website/tree/develop/prototype)）
 
 
 ## 团队构建
@@ -88,8 +87,11 @@ miac-website
 * 前端
 	* [jQuery](http://www.jquery.com)
 	* [Jade](http://jade-lang.com/)
-    * [sass](http://sass-lang.com/)
-    * [coffee](http://coffeescript.org/)
+    * [Sass](http://sass-lang.com/)
+    * [CoffeeScript](http://coffeescript.org/)
 
 ## License
 [MIT](http://mutedsolutions.mit-license.org/)
+
+## Powered by
+[laiy](https://github.com/laiy/miac-website/tree/master/server)
