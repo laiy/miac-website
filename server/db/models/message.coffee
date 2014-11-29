@@ -24,5 +24,8 @@ MessageModel.createMessage = (replyTo, type, content, createdBy, callback)->
         createdBy: createdBy
     }, callback
 
-module.exports = MessageModel
+MessageModel.drop = (callback)->
+    MessageModel.remove {}, ->
+        callback()
 
+module.exports = MessageModel

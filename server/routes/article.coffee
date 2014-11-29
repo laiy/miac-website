@@ -7,7 +7,7 @@ express = require 'express'
 mongoose = require 'mongoose'
 router = express.Router()
 ArticleModel = require '../db/models/article.coffee'
-{requireLogin} = require './helpers/authorization.coffee'
+{ requireLogin } = require './helpers/authorization.coffee'
 MessageModel = require '../db/models/message.coffee'
 
 router.get '/', (req, res)->
@@ -22,26 +22,31 @@ router.get '/create', requireLogin, (req, res)->
 
 router.get '/:id', (req, res)->
     id = mongoose.Types.ObjectId(req.params.id)
-    ArticleModel.findOne {_id: id}, (err, article)->
+    ArticleModel.findOne { _id: id }, (err, article)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            MessageModel.find {replyTo: id}, { sort: { createdAt: -1 } }, (err, comments)->
-                for comment in comments
-                    MessageModel.find {replyTo: comment._id}, { sort: { createdAt: -1 } }, (err, replys)->
-                        comment.replys = replys
-                        res.render 'childArticle', article: article, comments: comments
+            MessageModel.find { replyTo: id }, (err, comments)->
+                if not comments
+                    res.render 'childArticle', article: article
+                else
+                    for comment in comments
+                        MessageModel.find {replyTo: comment._id}, (err, replys)->
+                            console.log replys
+                            comment.replys = replys
+                            console.log comment.replys
+                    res.render 'childArticle', { article: article, comments: comments }
 
 router.post '/create', (req, res)->
-    {category, title, content} = req.body
+    { category, title, content } = req.body
     createdBy = req.session.user.username
-    ArticleModel.findOne {title}, (err, article)->
+    ArticleModel.findOne { title }, (err, article)->
         if article
-            return res.json {result: 'fail', msg: 'Article has already existed.'}
+            return res.json { result: 'fail', msg: 'Article has already existed.' }
         else if not title or not content or not createdBy
-            return res.json {result: 'fail', msg: 'Info not completed.'}
+            return res.json { result: 'fail', msg: 'Info not completed.' }
         else
             ArticleModel.createArticle category, title, content, createdBy, ->
-                res.json {result: 'success'}
+                res.json { result: 'success' }
 
 module.exports = router
