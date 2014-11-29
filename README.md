@@ -94,4 +94,4 @@ miac-website
 [MIT](http://mutedsolutions.mit-license.org/)
 
 ## Powered by
-[laiy](https://github.com/laiy/miac-website/tree/master/server)
+[laiy](https://github.com/laiy)
