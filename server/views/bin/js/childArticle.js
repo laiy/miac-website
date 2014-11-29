@@ -1,7 +1,7 @@
 (function() {
   $('#comment-submit').click(function() {
     var ObjectId, content, items;
-    content = $('#comment-content').val();
+    content = $(this).siblings('input').val();
     items = window.location.href.split('/');
     ObjectId = items[items.length - 1];
     return $.post('/message/create', {
@@ -11,7 +11,7 @@
     }, function(data) {
       alert(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload;
+        return window.location.reload();
       }
     });
   });
@@ -27,7 +27,7 @@
     }, function(data) {
       alert(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload;
+        return window.location.reload();
       }
     });
   });

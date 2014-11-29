@@ -17,7 +17,7 @@ html
         p cratedAt:
             span=moment(article.cratedAt).format('MMM D,YY')
         p saySomethingHere:
-        input(type='text' id='comment-content')
+        input(type='text')
         button(type='button' id='comment-submit') submit
         br
         p comments
@@ -36,7 +36,7 @@ html
                     p createdAt:
                         span=moment(comment.createdAt).format('MMM D,YY')
                     p saySomethingHere:
-                    input(type='text' class='reply-content')
+                    input(type='text')
                     button(type='button' class='reply-submit') submit
                     if comment.replys
                         p replys:
