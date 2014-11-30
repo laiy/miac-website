@@ -24,6 +24,7 @@ logRoute = require './routes/log.coffee'
 aboutRoute = require './routes/about.coffee'
 articleRoute = require './routes/article.coffee'
 messageRoute = require './routes/message.coffee'
+worksRoute = require './routes/works.coffee'
 
 app = express()
 
@@ -51,6 +52,7 @@ app.use '/log', logRoute
 app.use '/about', aboutRoute
 app.use '/article', articleRoute
 app.use '/message', messageRoute
+app.use '/works', worksRoute
 
 db.init()
 
