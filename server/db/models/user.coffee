@@ -24,10 +24,8 @@ UserModel = mongoose.model 'UserModel', UserSchema
 
 UserModel.createAdministrator = (callback)->
     callback = callback or ->
-    UserModel.count {}, (err, count)->
-        if count isnt 0 then callback?(err, count)
-        createAdmin callback
-        createAdmin = (callback)->
+    UserModel.findOne {isAdmin: yes}, (err, admin)->
+        if not admin
             UserModel.create {
                 username: 'admin'
                 password: util.encrypt 'miac-website'

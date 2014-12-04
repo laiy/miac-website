@@ -7,14 +7,16 @@ mongoose = require "mongoose"
 UserModel = require "./models/user.coffee"
 config = require '../config.coffee'
 MessageModel = require './models/message.coffee'
+ArticleModel = require './models/article.coffee'
 
 db = null
 
 init = ->
     initDB ->
+        UserModel.createAdministrator ->
         #MessageModel.drop ->
         #UserModel.drop ->
-        #UserModel.createAdministrator ->
+        #ArticleModel.drop ->
 
 initDB = (callback)->
     if process.env.NODE_ENV is "DEV"

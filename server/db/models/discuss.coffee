@@ -16,7 +16,20 @@ DiscussSchema = new Schema
     viewsCount: Number
     createdBy: ObjectId
     createdAt: { type: Date, default: Date.now }
+    votedUsers: [ObjectId]
 
 DiscussModel = mongoose.model 'DiscussModel', DiscussSchema
+
+DiscussModel.createDiscuss = (type, title, content, createdBy, callback)->
+    callback = callback or ->
+    DiscussModel.create {
+        type: type
+        title: title
+        content: content
+        up: 0
+        down: 0
+        viewsCount: 0
+        createdBy: createdBy
+    }, callback
 
 module.exports = DiscussModel
