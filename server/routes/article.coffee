@@ -32,7 +32,7 @@ router.get '/:id', (req, res)->
                     res.render 'childArticle', article: article
                 else
                     async.each comments, (comment, callback)->
-                        MessageModel.find {replyTo: comment._id, type: 'reply'}, (err, replys)->
+                        MessageModel.find { replyTo: comment._id, type: 'reply' }, (err, replys)->
                             if not replys
                                 callback()
                             else
