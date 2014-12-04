@@ -8,15 +8,17 @@ UserModel = require "./models/user.coffee"
 config = require '../config.coffee'
 MessageModel = require './models/message.coffee'
 ArticleModel = require './models/article.coffee'
+DiscussModel = require './models/discuss.coffee'
 
 db = null
 
 init = ->
     initDB ->
         UserModel.createAdministrator ->
-        #MessageModel.drop ->
-        #UserModel.drop ->
-        #ArticleModel.drop ->
+            #MessageModel.drop ->
+            #UserModel.drop ->
+            #ArticleModel.drop ->
+            #DiscussModel.drop ->
 
 initDB = (callback)->
     if process.env.NODE_ENV is "DEV"
