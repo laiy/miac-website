@@ -32,4 +32,8 @@ DiscussModel.createDiscuss = (type, title, content, createdBy, callback)->
         createdBy: createdBy
     }, callback
 
+DiscussModel.drop = (callback)->
+    DiscussModel.remove {}, ->
+        callback()
+
 module.exports = DiscussModel
