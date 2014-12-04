@@ -11,7 +11,7 @@ MessageModel = require '../db/models/message.coffee'
 router.post '/create', requireLogin, (req, res)->
     {replyTo, type, content} = req.body
     createdBy = req.session.user._id
-    if not replyTo or not type or not createdBy
+    if not replyTo or not type or not createdBy or not content
         return res.json {result: 'fail', msg: 'Info not completed.'}
     else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(replyTo)
         return res.json {result: 'fail', msg: 'Bad ObjectId.'}
