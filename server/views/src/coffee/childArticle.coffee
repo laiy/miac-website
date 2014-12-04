@@ -5,7 +5,7 @@
 
 $('#comment-submit').click ->
     content = $(@).siblings('input').val()
-    items = window.location.href.split('/')
+    items = window.location.href.split '/'
     ObjectId = items[items.length - 1]
     $.post '/message/create', { replyTo: ObjectId, type: 'comment', content: content}, (data)->
         alert data.result + '\n' + (data.msg if data.msg)
@@ -14,7 +14,7 @@ $('#comment-submit').click ->
 
 $('.reply-submit').click ->
     content = $(@).siblings('input').val()
-    ObjectId = $(@).attr('comment-id')
+    ObjectId = $(@).attr 'comment-id'
     $.post '/message/create', { replyTo: ObjectId, type: 'reply', content: content}, (data)->
         alert data.result + '\n' + (data.msg if data.msg)
         if data.result is 'success'
