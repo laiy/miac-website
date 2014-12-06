@@ -8,7 +8,7 @@ UserModel = require "./models/user.coffee"
 config = require '../config.coffee'
 MessageModel = require './models/message.coffee'
 ArticleModel = require './models/article.coffee'
-DiscussModel = require './models/discuss.coffee'
+DiscussionModel = require './models/discuss.coffee'
 
 db = null
 
@@ -18,7 +18,7 @@ init = ->
             #MessageModel.drop ->
             #UserModel.drop ->
             #ArticleModel.drop ->
-            #DiscussModel.drop ->
+            #DiscussionModel.drop ->
 
 initDB = (callback)->
     if process.env.NODE_ENV is "DEV"

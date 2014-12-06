@@ -7,7 +7,7 @@ mongoose = require 'mongoose'
 Schema = mongoose.Schema
 ObjectId = Schema.Types.ObjectId
 
-DiscussSchema = new Schema
+DiscussionSchema = new Schema
     type: String
     title: String
     content: String
@@ -18,11 +18,11 @@ DiscussSchema = new Schema
     createdAt: { type: Date, default: Date.now }
     votedUsers: [ObjectId]
 
-DiscussModel = mongoose.model 'DiscussModel', DiscussSchema
+DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
-DiscussModel.createDiscuss = (type, title, content, createdBy, callback)->
+DiscussionModel.createDiscussion = (type, title, content, createdBy, callback)->
     callback = callback or ->
-    DiscussModel.create {
+    DiscussionModel.create {
         type: type
         title: title
         content: content
@@ -32,8 +32,8 @@ DiscussModel.createDiscuss = (type, title, content, createdBy, callback)->
         createdBy: createdBy
     }, callback
 
-DiscussModel.drop = (callback)->
-    DiscussModel.remove {}, ->
+DiscussionModel.drop = (callback)->
+    DiscussionModel.remove {}, ->
         callback()
 
-module.exports = DiscussModel
+module.exports = DiscussionModel
