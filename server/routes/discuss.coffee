@@ -59,8 +59,13 @@ router.post '/up', requireLogin, (req, res)->
     if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(discussionId)
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
-        DiscussionModel.up discussionId, createdBy, ->
-            return res.json { result: 'success' }
+        DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+            async.each discussion.votedUsers, (user, callback)->
+                if user is createdBy
+                    return res.json { result: 'fail', msg: 'User has voted.' }
+            , (err)->
+                DiscussionModel.up discussionId, createdBy, ->
+                    return res.json { result: 'success' }
 
 router.post '/down', requireLogin, (req, res)->
     { discussionId } = req.body
@@ -68,7 +73,12 @@ router.post '/down', requireLogin, (req, res)->
     if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(discussionId)
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
-        DiscussionModel.down discussionId, createdBy, ->
-            return res.json { result: 'success' }
+        DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+            async.each discussion.votedUsers, (user, callback)->
+                if user is createdBy
+                    return res.json { result: 'fail', msg: 'User has voted.' }
+            , (err)->
+            DiscussionModel.down discussionId, createdBy, ->
+                return res.json { result: 'success' }
 
 module.exports = router
