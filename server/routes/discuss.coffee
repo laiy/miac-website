@@ -63,11 +63,16 @@ router.post '/up', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+            removeVote = false
             for user in discussion.votedUsers
                 if user is createdBy
-                    return res.json { result: 'fail', msg: 'User has voted.' }
-            DiscussionModel.up discussionId, createdBy, ->
-                return res.json { result: 'success' }
+                    removeVote = true
+            if removeVote
+                DiscussionModel.removeVote true, discussionId, createdBy, ->
+                    return res.json { result: 'success' }
+            else
+                DiscussionModel.up discussionId, createdBy, ->
+                    return res.json { result: 'success' }
 
 router.post '/down', requireLogin, (req, res)->
     { discussionId } = req.body
@@ -77,10 +82,15 @@ router.post '/down', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+            removeVote = false
             for user in discussion.votedUsers
                 if user is createdBy
-                    return res.json { result: 'fail', msg: 'User has voted.' }
-            DiscussionModel.down discussionId, createdBy, ->
-                return res.json { result: 'success' }
+                    removeVote = true
+            if removeVote
+                DiscussionModel.removeVote false, discussionId, createdBy, ->
+                    return res.json { result: 'success' }
+            else
+                DiscussionModel.down discussionId, createdBy, ->
+                    return res.json { result: 'success' }
 
 module.exports = router

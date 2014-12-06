@@ -59,6 +59,25 @@ DiscussionModel.down = (discussionId, createdBy, callback)->
             discussion.save ->
                 callback()
 
+DiscussionModel.removeVote = (up, discussionId, createdBy, callback)->
+    DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+        if err
+            console.log err
+        else
+            index = 0
+            while index < discussion.votedUsers.length
+                if discussion.votedUsers[index] is createdBy
+                    discussion.votedUsers.splice(index, 1)
+                    console.log 'flag'
+                    break
+                index++
+            if up
+                discussion.up--
+            else
+                discussion.down--
+            discussion.save ->
+                callback()
+
 DiscussionModel.addViewsCount = (discussionId, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err

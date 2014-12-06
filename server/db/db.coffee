@@ -14,11 +14,12 @@ db = null
 
 init = ->
     initDB ->
-        UserModel.createAdministrator ->
-            #MessageModel.drop ->
-            #UserModel.drop ->
-            #ArticleModel.drop ->
-            #DiscussionModel.drop ->
+        #UserModel.createAdministrator ->
+        #DiscussionModel.drop ->
+        #MessageModel.drop ->
+        #UserModel.drop ->
+        #ArticleModel.drop ->
+        #DiscussionModel.drop ->
 
 initDB = (callback)->
     if process.env.NODE_ENV is "DEV"
