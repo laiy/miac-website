@@ -21,7 +21,7 @@ router.get '/', (req, res)->
 router.get '/create', requireLogin, (req, res)->
     res.render 'createDiscuss'
 
-router.post '/create', (req, res)->
+router.post '/create', requireLogin, (req, res)->
     { type, title, content, answerTo } = req.body
     createdBy = req.session.user._id
     if not title and type is 'question' or not type or not content

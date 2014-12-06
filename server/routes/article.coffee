@@ -41,7 +41,7 @@ router.get '/:id', (req, res)->
                     , (err)->
                         res.render 'childArticle', { article: article, comments: comments }
 
-router.post '/create', (req, res)->
+router.post '/create', requireLogin, (req, res)->
     { category, title, content } = req.body
     createdBy = req.session.user.username
     ArticleModel.findOne { title }, (err, article)->
