@@ -1,10 +1,10 @@
 doctype html
 html
     head
-        title article
+        title childArticle
         script(src='../lib/jquery.js')
     body
-        p article
+        p childArticle
         include ./includes/header.jade
         p category:
             span=article.category
@@ -20,8 +20,8 @@ html
         input(type='text')
         button(type='button' id='comment-submit') submit
         br
-        p comments
         if comments
+            p comments
             each comment in comments
                 div
                     p comment:
@@ -51,7 +51,7 @@ html
                             p createdBy(OI):
                                 span=reply.createdBy
                             p createdAt:
-                                    span=moment(reply.createdAt).format('MMM D,YY')
+                                span=moment(reply.createdAt).format('MMM D,YY')
                 br
         script(src='../bin/js/childArticle.js')
 

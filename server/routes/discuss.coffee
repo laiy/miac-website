@@ -5,6 +5,7 @@
 
 express = require 'express'
 mongoose = require 'mongoose'
+async = require 'async'
 router = express.Router()
 { requireLogin } = require './helpers/authorization.coffee'
 DiscussionModel = require '../db/models/discuss.coffee'
@@ -23,7 +24,7 @@ router.get '/create', requireLogin, (req, res)->
 router.post '/create', (req, res)->
     { type, title, content, answerTo } = req.body
     createdBy = req.session.user._id
-    if not title or not type or not content
+    if not title and type is 'question' or not type or not content
         return res.json { result: 'fail', msg: 'Info not completed.' }
     else if type isnt 'question' and type isnt 'answer'
         return res.json { result: 'fail', msg: 'Bad type.' }
@@ -52,7 +53,7 @@ router.get '/:id', (req, res)->
                                     answer.replys = replys
                                     callback()
                         , (err)->
-                            res.render 'chlidDiscuss', { discussion: discussion, answers: answers}
+                            res.render 'childDiscuss', { discussion: discussion, answers: answers}
 
 router.post '/up', requireLogin, (req, res)->
     { discussionId } = req.body

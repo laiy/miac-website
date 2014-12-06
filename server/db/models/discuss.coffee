@@ -24,7 +24,7 @@ DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, callback)->
     DiscussionModel.create {
         type: type
-        title: title
+        title: title if title isnt ''
         content: content
         up: 0
         down: 0

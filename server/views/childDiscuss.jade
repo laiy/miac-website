@@ -1,0 +1,68 @@
+doctype html
+html
+    head
+        title childDiscuss
+        script(src='../lib/jquery.js')
+    body
+        p childDiscuss
+        include ./includes/header.jade
+        br
+        p type:
+            span=discussion.type
+        p title:
+            span=discussion.title
+        p content:
+            span=discussion.content
+        p up:
+            button(class='up' discussion-id=discussion._id)=discussion.up
+        p down:
+            button(class='down' discussion-id=discussion._id)=discussion.down
+        p viewsCount:
+            span=discussion.viewsCount
+        p createdBy:
+            span=discussion.createdBy
+        p cratedAt:
+            span=moment(discussion.cratedAt).format('MMM D,YY')
+        p votedUsers:
+            span=discussion.votedUsers
+        br
+        p writeDownUrAnswerHere:
+        input(type='text' id='content')
+        button(type='button' id='answer-submit') submit
+        br
+        if answers
+            p answers
+            each answer in answers
+                p type:
+                    span=answer.type
+                p content:
+                    span=answer.content
+                p up:
+                    button(class='up' discussion-id=answer._id)=answer.up
+                p down:
+                    button(class='down' discussion-id=answer._id)=answer.down
+                p createdBy:
+                    span=answer.createdBy
+                p cratedAt:
+                    span=moment(answer.cratedAt).format('MMM D,YY')
+                p votedUsers:
+                    span=answer.votedUsers
+                p saySomethingsHere:
+                input(type='text')
+                button(type='button' class='reply-submit' answer-id=answer._id) submit
+                if answer.replys
+                    p replys
+                    each reply in answer.replys
+                        p reply:
+                        p ObjectId:
+                            span=reply._id
+                        p type:
+                            span=reply.type
+                        p content:
+                            span=reply.content
+                        p createdBy(OI):
+                            span=reply.createdBy
+                        p createdAt:
+                            span=moment(reply.createdAt).format('MMM D,YY')
+                br
+        script(src='../bin/js/childDiscuss.js')
