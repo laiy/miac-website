@@ -22,15 +22,15 @@ router.get '/create', requireLogin, (req, res)->
 
 router.post '/create', (req, res)->
     { type, title, content, answerTo } = req.body
-    createdBy = req.session.user.username
+    createdBy = req.session.user._id
     if not title or not type or not content
         return res.json { result: 'fail', msg: 'Info not completed.' }
-    else if type isnt 'question' or type isnt 'answer'
+    else if type isnt 'question' and type isnt 'answer'
         return res.json { result: 'fail', msg: 'Bad type.' }
     else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(answerTo) and answerTo isnt ''
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
-        DiscussionModel.createDiscussion type, title, content, answerTo, createdBy, ->
+        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, ->
             res.json { result: 'success' }
 
 router.get '/:id', (req, res)->

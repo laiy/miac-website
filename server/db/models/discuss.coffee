@@ -16,13 +16,12 @@ DiscussionSchema = new Schema
     viewsCount: Number
     createdBy: ObjectId
     createdAt: { type: Date, default: Date.now }
-    votedUsers: [ObjectId]
+    votedUsers: []
     answerTo: ObjectId
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
 DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, callback)->
-    callback = callback or ->
     DiscussionModel.create {
         type: type
         title: title
@@ -31,8 +30,14 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, c
         down: 0
         viewsCount: 0
         createdBy: createdBy
-        answerTo: answerTo
-    }, callback
+        answerTo: answerTo if answerTo isnt ''
+    }, (err)->
+        if err
+            console.log err
+        else
+            DiscussionModel.find {}, (err, discussions)->
+                console.log discussions
+                callback()
 
 DiscussionModel.up = (discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->

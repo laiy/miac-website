@@ -1,0 +1,14 @@
+doctype html
+html
+    head
+        title createDiscuss
+        script(src='../lib/jquery.js')
+    body
+        p createDiscuss
+        include ./includes/header.jade
+        p title
+        input(type='text' id='title')
+        p content
+        input(type='textarea' id='content')
+        button(type='button') submit
+        script(src='../bin/js/createDiscuss.js')
