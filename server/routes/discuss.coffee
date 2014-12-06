@@ -35,23 +35,24 @@ router.post '/create', (req, res)->
 
 router.get '/:id', (req, res)->
     id = mongoose.Types.ObjectId(req.params.id)
-    DiscussionModel.findOne { _id: id }, (err, discussion)->
-        if err
-            return res.status(500).send 'Server Error.'
-        else
-            DiscussionModel.find { answerTo: id, type: 'answer' }, (err, answers)->
-                if not answers
-                    res.render 'childDiscuss', discussion: discussion
-                else
-                    async.each answers, (answer, callback)->
-                        MessageModel.find { replyTo: answer._id, type: 'reply' }, (err, replys)->
-                            if not replys
-                                callback()
-                            else
-                                answer.replys = replys
-                                callback()
-                    , (err)->
-                        res.render 'chlidDiscuss', { discussion: discussion, answers: answers}
+    DiscussionModel.addViewsCount id, ->
+        DiscussionModel.findOne { _id: id }, (err, discussion)->
+            if err
+                return res.status(500).send 'Server Error.'
+            else
+                DiscussionModel.find { answerTo: id, type: 'answer' }, (err, answers)->
+                    if not answers
+                        res.render 'childDiscuss', discussion: discussion
+                    else
+                        async.each answers, (answer, callback)->
+                            MessageModel.find { replyTo: answer._id, type: 'reply' }, (err, replys)->
+                                if not replys
+                                    callback()
+                                else
+                                    answer.replys = replys
+                                    callback()
+                        , (err)->
+                            res.render 'chlidDiscuss', { discussion: discussion, answers: answers}
 
 router.post '/up', requireLogin, (req, res)->
     { discussionId } = req.body
@@ -60,12 +61,11 @@ router.post '/up', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
-            async.each discussion.votedUsers, (user, callback)->
+            for user in discussion.votedUsers
                 if user is createdBy
                     return res.json { result: 'fail', msg: 'User has voted.' }
-            , (err)->
-                DiscussionModel.up discussionId, createdBy, ->
-                    return res.json { result: 'success' }
+            DiscussionModel.up discussionId, createdBy, ->
+                return res.json { result: 'success' }
 
 router.post '/down', requireLogin, (req, res)->
     { discussionId } = req.body
@@ -74,10 +74,9 @@ router.post '/down', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
-            async.each discussion.votedUsers, (user, callback)->
+            for user in discussion.votedUsers
                 if user is createdBy
                     return res.json { result: 'fail', msg: 'User has voted.' }
-            , (err)->
             DiscussionModel.down discussionId, createdBy, ->
                 return res.json { result: 'success' }
 

@@ -52,6 +52,14 @@ DiscussionModel.down = (discussionId, createdBy, callback)->
             discussion.votedUsers.push createdBy
             callback()
 
+DiscussionModel.addViewsCount = (discussionId, callback)->
+    DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+        if err
+            throw err
+        else
+            discussion.viewsCount++
+            callback()
+
 DiscussionModel.drop = (callback)->
     DiscussionModel.remove {}, ->
         callback()
