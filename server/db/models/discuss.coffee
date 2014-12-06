@@ -18,6 +18,7 @@ DiscussionSchema = new Schema
     createdAt: { type: Date, default: Date.now }
     votedUsers: []
     answerTo: ObjectId
+    userVoteForUp: []
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
@@ -35,9 +36,7 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, c
         if err
             console.log err
         else
-            DiscussionModel.find {}, (err, discussions)->
-                console.log discussions
-                callback()
+            callback()
 
 DiscussionModel.up = (discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
@@ -46,6 +45,7 @@ DiscussionModel.up = (discussionId, createdBy, callback)->
         else
             discussion.up++
             discussion.votedUsers.push createdBy
+            discussion.userVoteForUp.push createdBy
             discussion.save ->
                 callback()
 
@@ -68,10 +68,15 @@ DiscussionModel.removeVote = (up, discussionId, createdBy, callback)->
             while index < discussion.votedUsers.length
                 if discussion.votedUsers[index] is createdBy
                     discussion.votedUsers.splice(index, 1)
-                    console.log 'flag'
                     break
                 index++
             if up
+                index = 0
+                while index < discussion.userVoteForUp.length
+                    if discussion.userVoteForUp[index] is createdBy
+                        discussion.userVoteForUp.splice(index, 1)
+                        break
+                    index++
                 discussion.up--
             else
                 discussion.down--

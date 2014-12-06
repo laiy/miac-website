@@ -63,16 +63,23 @@ router.post '/up', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+            hasVoted = false
             removeVote = false
             for user in discussion.votedUsers
                 if user is createdBy
-                    removeVote = true
-            if removeVote
+                    hasVoted = true
+            if hasVoted
+                for user in discussion.userVoteForUp
+                    if user is createdBy
+                        removeVote = true
+            if removeVote and hasVoted
                 DiscussionModel.removeVote true, discussionId, createdBy, ->
                     return res.json { result: 'success' }
-            else
+            else if not hasVoted
                 DiscussionModel.up discussionId, createdBy, ->
                     return res.json { result: 'success' }
+            else
+                return res.json { result: 'fail', msg: 'Bad removing.' }
 
 router.post '/down', requireLogin, (req, res)->
     { discussionId } = req.body
@@ -82,15 +89,22 @@ router.post '/down', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
-            removeVote = false
+            hasVoted = false
+            removeVote = true
             for user in discussion.votedUsers
                 if user is createdBy
-                    removeVote = true
-            if removeVote
+                    hasVoted = true
+            if hasVoted
+                for user in discussion.userVoteForUp
+                    if user is createdBy
+                        removeVote = false
+            if removeVote and hasVoted
                 DiscussionModel.removeVote false, discussionId, createdBy, ->
                     return res.json { result: 'success' }
-            else
+            else if not hasVoted
                 DiscussionModel.down discussionId, createdBy, ->
                     return res.json { result: 'success' }
+            else
+                return res.json { result: 'fail', msg: 'Bad removing.' }
 
 module.exports = router
