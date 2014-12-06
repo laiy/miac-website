@@ -12,7 +12,7 @@ DiscussionModel = require '../db/models/discuss.coffee'
 MessageModel = require '../db/models/message.coffee'
 
 router.get '/', (req, res)->
-    DiscussionModel.find {}, (err, discussions)->
+    DiscussionModel.find { type: 'question' }, (err, discussions)->
         if err
             return res.status(500).send 'Server Error.'
         else

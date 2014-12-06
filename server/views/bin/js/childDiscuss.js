@@ -21,8 +21,6 @@
     var ObjectId, content;
     content = $(this).siblings('input').val();
     ObjectId = $(this).attr('answer-id');
-    alert(content);
-    alert(ObjectId);
     return $.post('/message/create', {
       replyTo: ObjectId,
       type: 'reply',

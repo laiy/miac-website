@@ -15,8 +15,6 @@ $('#answer-submit').click ->
 $('.reply-submit').click ->
     content = $(@).siblings('input').val()
     ObjectId = $(@).attr 'answer-id'
-    alert content
-    alert ObjectId
     $.post '/message/create', { replyTo: ObjectId, type: 'reply', content: content}, (data)->
         alert data.result + '\n' + (data.msg if data.msg)
         if data.result is 'success'
