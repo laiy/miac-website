@@ -27,7 +27,7 @@ router.post '/create', (req, res)->
         return res.json { result: 'fail', msg: 'Info not completed.' }
     else if type isnt 'question' or type isnt 'answer'
         return res.json { result: 'fail', msg: 'Bad type.' }
-    else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(answerTo) and test isnt ''
+    else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(answerTo) and answerTo isnt ''
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         DiscussionModel.createDiscussion type, title, content, answerTo, createdBy, ->
@@ -52,5 +52,23 @@ router.get '/:id', (req, res)->
                                 callback()
                     , (err)->
                         res.render 'chlidDiscuss', { discussion: discussion, answers: answers}
+
+router.post '/up', requireLogin, (req, res)->
+    { discussionId } = req.body
+    createdBy = req.session.user.username
+    if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(discussionId)
+        return res.json { result: 'fail', msg: 'Bad ObjectId.' }
+    else
+        DiscussionModel.up discussionId, createdBy, ->
+            return res.json { result: 'success' }
+
+router.post '/down', requireLogin, (req, res)->
+    { discussionId } = req.body
+    createdBy = req.session.user.username
+    if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(discussionId)
+        return res.json { result: 'fail', msg: 'Bad ObjectId.' }
+    else
+        DiscussionModel.down discussionId, createdBy, ->
+            return res.json { result: 'success' }
 
 module.exports = router

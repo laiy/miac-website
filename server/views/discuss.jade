@@ -1,0 +1,31 @@
+doctype html
+html
+    head
+        title discuss
+        script(src='./lib/jquery.js')
+    body
+        p discuss
+        include ./includes/header.jade
+        if user
+            a(href='/discuss/create') createNew
+        if discussions
+            each discussion in discussions
+                br
+                p type:
+                    span=discussion.type
+                p title:
+                    a(href='/discuss/' + discussion._id)=discussion.title
+                p content:
+                    span=discussion.content
+                p up:
+                    a(class='up' discussion-id=discussion._id)=discussion.up
+                p down:
+                    a(class='down' discussion-id=discussion._id)=discussion.down
+                p viewsCount:
+                    span=discussion.viewsCount
+                p createdBy:
+                    span=discussion.createdBy
+                p cratedAt:
+                    span=moment(discussion.cratedAt).format('MMM D,YY')
+                p votedUsers:
+                    span=discussion.votedUsers

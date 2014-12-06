@@ -34,6 +34,24 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, c
         answerTo: answerTo
     }, callback
 
+DiscussionModel.up = (discussionId, createdBy, callback)->
+    DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+        if err
+            throw err
+        else
+            discussion.up++
+            discussion.votedUsers.push createdBy
+            callback()
+
+DiscussionModel.down = (discussionId, createdBy, callback)->
+    DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+        if err
+            throw err
+        else
+            discussion.down--
+            discussion.votedUsers.push createdBy
+            callback()
+
 DiscussionModel.drop = (callback)->
     DiscussionModel.remove {}, ->
         callback()
