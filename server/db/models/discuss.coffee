@@ -42,28 +42,31 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, c
 DiscussionModel.up = (discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
-            throw err
+            console.log err
         else
             discussion.up++
             discussion.votedUsers.push createdBy
-            callback()
+            discussion.save ->
+                callback()
 
 DiscussionModel.down = (discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
-            throw err
+            console.log err
         else
-            discussion.down--
+            discussion.down++
             discussion.votedUsers.push createdBy
-            callback()
+            discussion.save ->
+                callback()
 
 DiscussionModel.addViewsCount = (discussionId, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
-            throw err
+            console.log err
         else
             discussion.viewsCount++
-            callback()
+            discussion.save ->
+                callback()
 
 DiscussionModel.drop = (callback)->
     DiscussionModel.remove {}, ->

@@ -18,9 +18,9 @@ html
                 p content:
                     span=discussion.content
                 p up:
-                    a(class='up' discussion-id=discussion._id)=discussion.up
+                    button(class='up' discussion-id=discussion._id)=discussion.up
                 p down:
-                    a(class='down' discussion-id=discussion._id)=discussion.down
+                    button(class='down' discussion-id=discussion._id)=discussion.down
                 p viewsCount:
                     span=discussion.viewsCount
                 p createdBy:
@@ -29,3 +29,4 @@ html
                     span=moment(discussion.cratedAt).format('MMM D,YY')
                 p votedUsers:
                     span=discussion.votedUsers
+        script(src='./bin/js/discuss.js')

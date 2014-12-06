@@ -56,7 +56,8 @@ router.get '/:id', (req, res)->
 
 router.post '/up', requireLogin, (req, res)->
     { discussionId } = req.body
-    createdBy = req.session.user.username
+    discussionId = mongoose.Types.ObjectId(discussionId)
+    createdBy = req.session.user._id
     if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(discussionId)
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
@@ -69,7 +70,8 @@ router.post '/up', requireLogin, (req, res)->
 
 router.post '/down', requireLogin, (req, res)->
     { discussionId } = req.body
-    createdBy = req.session.user.username
+    discussionId = mongoose.Types.ObjectId(discussionId)
+    createdBy = req.session.user._id
     if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(discussionId)
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
