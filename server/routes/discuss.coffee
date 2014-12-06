@@ -8,6 +8,7 @@ mongoose = require 'mongoose'
 router = express.Router()
 { requireLogin } = require './helpers/authorization.coffee'
 DiscussionModel = require '../db/models/discuss.coffee'
+MessageModel = require '../db/models/message.coffee'
 
 router.get '/', (req, res)->
     DiscussionModel.find {}, (err, discussions)->
@@ -34,5 +35,22 @@ router.post '/create', (req, res)->
 
 router.get '/:id', (req, res)->
     id = mongoose.Types.ObjectId(req.params.id)
+    DiscussionModel.findOne { _id: id }, (err, discussion)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            DiscussionModel.find { answerTo: id, type: 'answer' }, (err, answers)->
+                if not answers
+                    res.render 'childDiscuss', discussion: discussion
+                else
+                    async.each answers, (answer, callback)->
+                        MessageModel.find { replyTo: answer._id, type: 'reply' }, (err, replys)->
+                            if not replys
+                                callback()
+                            else
+                                answer.replys = replys
+                                callback()
+                    , (err)->
+                        res.render 'chlidDiscuss', { discussion: discussion, answers: answers}
 
 module.exports = router
