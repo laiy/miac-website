@@ -17,10 +17,11 @@ DiscussionSchema = new Schema
     createdBy: ObjectId
     createdAt: { type: Date, default: Date.now }
     votedUsers: [ObjectId]
+    answerTo: ObjectId
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
-DiscussionModel.createDiscussion = (type, title, content, createdBy, callback)->
+DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, callback)->
     callback = callback or ->
     DiscussionModel.create {
         type: type
@@ -30,6 +31,7 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, callback)->
         down: 0
         viewsCount: 0
         createdBy: createdBy
+        answerTo: answerTo
     }, callback
 
 DiscussionModel.drop = (callback)->

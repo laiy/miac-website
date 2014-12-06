@@ -8,5 +8,6 @@ var discuss = {
   viewsCount: 100, // int
   createdBy: "user-id-1", // ObjectID
   createdAt: "2014-8-21", // Date
-  votedUsers: ["user-id-1"] // ObjectID
+  votedUsers: ["user-id-1"], // ObjectID
+  answerTo: "discuss-id-1" // ObjectID
 };
