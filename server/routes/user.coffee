@@ -38,6 +38,8 @@ router.post '/updatePassword', requireLogin, (req, res)->
     password = util.encrypt password
     if not password or not userId
         return res.json { result: 'fail', msg: 'Info not completed.' }
+    else if password.length < 8
+        return res.json { result: 'fali', msg: 'The length of password should be at least 8.' }
     else
         UserModel.updatePassword password, userId, ->
             return res.json { result: 'success' }
