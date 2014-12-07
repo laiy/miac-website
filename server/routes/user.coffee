@@ -45,7 +45,6 @@ router.post '/updatePassword', requireLogin, (req, res)->
             return res.json { result: 'success' }
 
 router.post '/uploadAvatar', requireLogin, (req, res)->
-    console.log req.files
     path = req.files.img.path
     size = req.files.img.size
     items = req.files.img.name.split '.'
@@ -63,7 +62,7 @@ router.post '/uploadAvatar', requireLogin, (req, res)->
                 else
                     fs.unlink path, ->
                         UserModel.updateAvatar fileName, req.session.user._id, ->
-                            return res.json { result: 'success' }
+                            res.redirect '/user/' + req.session.user._id
 
 module.exports = router
 
