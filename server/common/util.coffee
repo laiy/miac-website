@@ -17,6 +17,3 @@ util.setLocalsUser = (req, res, next)->
     res.locals.user = req.session.user or null
     next()
 
-util.setHost = (req, res, next)->
-    res.locals.host = config.HOST
-    next()
