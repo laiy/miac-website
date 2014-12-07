@@ -45,24 +45,27 @@ router.post '/updatePassword', requireLogin, (req, res)->
             return res.json { result: 'success' }
 
 router.post '/uploadAvatar', requireLogin, (req, res)->
-    path = req.files.img.path
-    size = req.files.img.size
-    items = req.files.img.name.split '.'
-    fileName = req.session.user._id + '.' + items[items.length - 1]
-    if req.files.img.mimetype.split('/')[0] isnt 'image'
-        fs.unlink path, ->
-            res.json { result: 'fail', msg: 'Not a image!' }
+    if not req.files.img
+        return res.status(500).send 'Server Error.'
     else
-        imageMagick(path)
-            .resize 90, 90, '!'
-            .autoOrient()
-            .write 'views/assets/img/user/' + fileName, (err)->
-                if err
-                    return res.status(500).send 'Server Error.'
-                else
-                    fs.unlink path, ->
-                        UserModel.updateAvatar fileName, req.session.user._id, ->
-                            res.redirect '/user/' + req.session.user._id
+        path = req.files.img.path
+        size = req.files.img.size
+        items = req.files.img.name.split '.'
+        fileName = req.session.user._id + '.' + items[items.length - 1]
+        if req.files.img.mimetype.split('/')[0] isnt 'image'
+            fs.unlink path, ->
+                res.json { result: 'fail', msg: 'Not a image!' }
+        else
+            imageMagick(path)
+                .resize 90, 90, '!'
+                .autoOrient()
+                .write 'views/assets/img/user/' + fileName, (err)->
+                    if err
+                        return res.status(500).send 'Server Error.'
+                    else
+                        fs.unlink path, ->
+                            UserModel.updateAvatar fileName, req.session.user._id, ->
+                                res.redirect '/user/' + req.session.user._id
 
 module.exports = router
 
