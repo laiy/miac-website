@@ -18,7 +18,8 @@
     "connect-busboy": "0.0.1",
     "node-uuid": "~1.4.1",
     "moment": "~2.4.0",
-    "gm": "~1.17.0"
+    "gm": "~1.17.0",
+    "multer": "~0.1.6"
   },
   "devDependencies": {
     "grunt-simple-mocha": "~0.4.0",

@@ -12,6 +12,7 @@ busbody = require "connect-busboy"
 session = require 'express-session'
 logger = require 'morgan'
 moment = require 'moment'
+multer = require 'multer'
 
 db = require './db/db.coffee'
 config = require './config.coffee'
@@ -35,7 +36,7 @@ app.use favicon()
 app.use logger('dev')
 app.use bodyParser.json()
 app.use bodyParser.urlencoded()
-app.use busbody {immediate: true}
+app.use busbody { immediate: true }
 app.use express.static(path.join(__dirname, '/views'))
 app.use cookieParser()
 app.use session {
@@ -44,6 +45,7 @@ app.use session {
     saveUninitialized: yes
 }
 app.use util.setLocalsUser
+app.use multer({ dest: './views/assets/img/user' })
 
 app.set 'views', path.join(__dirname, 'views')
 app.set 'view engine', 'jade'

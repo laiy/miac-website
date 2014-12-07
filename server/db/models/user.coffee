@@ -11,7 +11,7 @@ util = require '../../common/util.coffee'
 UserSchema = new Schema
     username: String
     password: String
-    avatar: { type: String, default: "default.jpg" }
+    avatar: { type: String, default: 'default.jpg' }
     email: String
     isAdmin: { type: Boolean, default: no }
     createArticles: [{ lastAccessTime: Date, id: ObjectId }]
@@ -52,6 +52,13 @@ UserModel.updatePassword = (password, userId, callback)->
     UserModel.findOne { _id: userId }, (err, user)->
         if user
             user.password = password
+            user.save ->
+                callback()
+
+UserModel.updateAvatar = (fileName, userId, callback)->
+    UserModel.findOne { _id: userId }, (err, user)->
+        if user
+            user.avatar = fileName
             user.save ->
                 callback()
 
