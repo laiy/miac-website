@@ -41,6 +41,20 @@ UserModel.createUser = (username, password, email, callback)->
         isAdmin: no
     }, callback
 
+UserModel.updateEmail = (email, userId, callback)->
+    UserModel.findOne { _id: userId }, (err, user)->
+        if user
+            user.email = email
+            user.save ->
+                callback()
+
+UserModel.updatePassword = (password, userId, callback)->
+    UserModel.findOne { _id: userId }, (err, user)->
+        if user
+            user.password = util.encrypt password
+            user.save ->
+                callback()
+
 UserModel.drop = (callback)->
     UserModel.remove {}, ->
         callback()
