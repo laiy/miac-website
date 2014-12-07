@@ -22,7 +22,7 @@ router.get '/create', requireLogin, (req, res)->
     res.render 'createArticle'
 
 router.get '/:id', (req, res)->
-    id = mongoose.Types.ObjectId(req.params.id)
+    id = mongoose.Types.ObjectId req.params.id
     ArticleModel.findOne { _id: id }, (err, article)->
         if err
             return res.status(500).send 'Server Error.'

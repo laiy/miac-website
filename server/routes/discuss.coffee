@@ -35,7 +35,7 @@ router.post '/create', requireLogin, (req, res)->
             res.json { result: 'success' }
 
 router.get '/:id', (req, res)->
-    id = mongoose.Types.ObjectId(req.params.id)
+    id = mongoose.Types.ObjectId req.params.id
     DiscussionModel.addViewsCount id, ->
         DiscussionModel.findOne { _id: id }, (err, discussion)->
             if err

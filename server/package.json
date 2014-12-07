@@ -17,7 +17,8 @@
     "lodash": "~2.4.1",
     "connect-busboy": "0.0.1",
     "node-uuid": "~1.4.1",
-    "moment": "~2.4.0"
+    "moment": "~2.4.0",
+    "gm": "~1.17.0"
   },
   "devDependencies": {
     "grunt-simple-mocha": "~0.4.0",
