@@ -9,7 +9,7 @@ if not process.env.NODE_ENV
     process.env.DEBUG = "miac-website"
     process.env.NODE_ENV = "DEV"
 
-config.host = "http://localhost:2333"
+config.HOST = "http://localhost:2333"
 
 config.TEST_DB_URI = "mongodb://localhost/mocha-test"
 config.PRODUCTION_DB_URI = "mongodb://localhost/miac-website"

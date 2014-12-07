@@ -45,6 +45,7 @@ app.use session {
     saveUninitialized: yes
 }
 app.use util.setLocalsUser
+app.use util.setHost
 app.use multer({ dest: './views/assets/img/user' })
 
 app.set 'views', path.join(__dirname, 'views')

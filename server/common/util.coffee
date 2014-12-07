@@ -4,6 +4,7 @@
 #	> Created Time: Wednesday, November 19, 2014 PM05:38:24 CST
 
 crypto = require 'crypto'
+config = require '../config.coffee'
 
 util = exports
 
@@ -16,3 +17,6 @@ util.setLocalsUser = (req, res, next)->
     res.locals.user = req.session.user or null
     next()
 
+util.setHost = (req, res, next)->
+    res.locals.host = config.HOST
+    next()
