@@ -57,7 +57,7 @@ router.post '/uploadAvatar', requireLogin, (req, res)->
                 res.json { result: 'fail', msg: 'Not a image!' }
         else
             imageMagick(path)
-                .resize 90, 90, '!'
+                .resize 70, 70, '!'
                 .autoOrient()
                 .write 'views/assets/img/user/' + fileName, (err)->
                     if err
