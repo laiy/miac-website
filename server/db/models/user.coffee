@@ -26,20 +26,20 @@ UserModel.createAdministrator = (callback)->
     callback = callback or ->
     UserModel.findOne {isAdmin: yes}, (err, admin)->
         if not admin
-            UserModel.create {
+            UserModel.create
                 username: 'admin'
                 password: util.encrypt 'miac-website'
                 email: 'ly.franky@gmail.com'
                 isAdmin: yes
-            }, callback
+            , callback
 
 UserModel.createUser = (username, password, email, callback)->
-    UserModel.create {
+    UserModel.create
         username: username
         password: util.encrypt password
         email: email
         isAdmin: no
-    }, callback
+    , callback
 
 UserModel.updateEmail = (email, userId, callback)->
     UserModel.findOne { _id: userId }, (err, user)->

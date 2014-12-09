@@ -17,12 +17,12 @@ MessageSchema = new Schema
 MessageModel = mongoose.model 'MessageModel', MessageSchema
 
 MessageModel.createMessage = (replyTo, type, content, createdBy, callback)->
-    MessageModel.create {
+    MessageModel.create
         replyTo: replyTo
         type: type
         content: content
         createdBy: createdBy
-    }, callback
+    , callback
 
 MessageModel.drop = (callback)->
     MessageModel.remove {}, ->

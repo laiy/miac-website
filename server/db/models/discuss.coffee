@@ -16,14 +16,14 @@ DiscussionSchema = new Schema
     viewsCount: Number
     createdBy: ObjectId
     createdAt: { type: Date, default: Date.now }
-    votedUsers: []
+    votedUsers: [ObjectId]
     answerTo: ObjectId
-    userVoteForUp: []
+    userVoteForUp: [ObjectId]
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
 DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, callback)->
-    DiscussionModel.create {
+    DiscussionModel.create
         type: type
         title: title if title isnt ''
         content: content
@@ -32,7 +32,7 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, c
         viewsCount: 0
         createdBy: createdBy
         answerTo: answerTo if answerTo isnt ''
-    }, (err)->
+    , (err)->
         if err
             console.log err
         else

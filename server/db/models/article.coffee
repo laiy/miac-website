@@ -17,12 +17,12 @@ ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 
 ArticleModel.createArticle = (category, title, content, createdBy, callback)->
     callback = callback or ->
-    ArticleModel.create {
+    ArticleModel.create
         category: category
         title: title
         content: content
         createdBy: createdBy
-    }, callback
+    , callback
 
 ArticleModel.drop = (callback)->
     ArticleModel.remove {}, ->
