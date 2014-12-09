@@ -29,15 +29,7 @@ AlbumModel.addPictures = (albumId, pictures, callback)->
         if album
             for picture in pictures
                 album.pictures.push picture
-            album.save ->
-                callback()
 
-#AlbumModel.updateCover = (albumId, cover, callback)->
-    #AlbumModel.findOnw { _id: albumId }, (err, album)->
-        #if album
-            #album.cover = cover
-            #album.save ->
-                #callback()
 
 AlbumModel.drop = (callback)->
     AlbumModel.remove {}, ->
