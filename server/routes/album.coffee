@@ -54,6 +54,29 @@ router.get '/addPicture', requireLogin, (req, res)->
     if not req.files.picture
         return res.status(500).send 'Server Error.'
     else
-        path = req.files.picture
+        { albumId } = req.body
+        if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(albumId)
+            return json { result: 'fail', msg: 'U r not permitted 2 add picture 2 @ album.' }
+        else
+            AlbumModel.find { _id: albumId }, (err, album)->
+                if err
+                    return res.status(500).send 'Server Error.'
+                else
+                    if req.session.user._id isnt album.createdBy
+                        return json { result: 'fail', msg: 'U r not permitted 2 add picture 2 @ album.' }
+                    else
+                        path = req.files.picture.path
+                        name = req.files.picture.name
+                        if req.files.picture.mimetype.split('/')[0] isnt 'image'
+                            fs.unlink path, ->
+                                res.json { result: 'fail', msg: 'Not a image!' }
+                        else
+                            imageMagick(path).write 'views/assets/img/album/' + album.title + '/' + name, (err)->
+                                if err
+                                    return res.status(500).send 'Server Error.'
+                                else fs.unlink path, ->
+                                    AlbumModel.addPicture albumId, name, ->
+                                        res.redirect '/album/' + albumId
 
 module.exports = router
+

@@ -23,11 +23,10 @@ AlbumModel.createAlbum = (title, createdBy, cover, callback)->
         cover: cover
     , callback
 
-AlbumModel.addPictures = (albumId, pictures, callback)->
+AlbumModel.addPicture = (albumId, picture, callback)->
     AlbumModel.findOne { _id: albumId }, (err, album)->
         if album
-            for picture in pictures
-                album.pictures.push picture
+            album.pictures.push picture
             album.save ->
                 callback()
 
