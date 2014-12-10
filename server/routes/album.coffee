@@ -1,6 +1,4 @@
-#	> File Name: album.coffee
-#	> Author: LY
-#	> Mail: ly.franky@gmail.com
+#	> File Name: album.coffee #	> Author: LY #	> Mail: ly.franky@gmail.com
 #	> Created Time: Wednesday, December 10, 2014 AM09:58:47 CST
 
 express = require 'express'
@@ -28,6 +26,9 @@ router.get '/:id', (req, res)->
             res.render 'childAlbum', album: album
 
 router.get '/createAlbum', requireLogin, (req, res)->
+    res.render 'createAlbum'
+
+router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover
         return res.status(500).send 'Server Error.'
     else
@@ -50,7 +51,7 @@ router.get '/createAlbum', requireLogin, (req, res)->
                                 AlbumModel.createAlbum title, req.session.user._id, coverName, ->
                                     res.redirect '/album'
 
-router.get '/addPicture', requireLogin, (req, res)->
+router.post '/addPicture', requireLogin, (req, res)->
     if not req.files.picture
         return res.status(500).send 'Server Error.'
     else
