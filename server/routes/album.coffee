@@ -1,4 +1,6 @@
-#	> File Name: album.coffee #	> Author: LY #	> Mail: ly.franky@gmail.com
+#	> File Name: album.coffee
+#	> Author: LY
+#	> Mail: ly.franky@gmail.com
 #	> Created Time: Wednesday, December 10, 2014 AM09:58:47 CST
 
 express = require 'express'
