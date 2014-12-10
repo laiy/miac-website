@@ -16,11 +16,10 @@ AlbumSchema = new Schema
 
 AlbumModel = mongoose.model 'AlbumModel', AlbumSchema
 
-AlbumModel.createAlbum = (title, createdBy, pictures, cover, callback)->
+AlbumModel.createAlbum = (title, createdBy, cover, callback)->
     AlbumModel.create
         title: title
         createdBy: createdBy
-        pictures: pictures
         cover: cover
     , callback
 
@@ -31,13 +30,6 @@ AlbumModel.addPictures = (albumId, pictures, callback)->
                 album.pictures.push picture
             album.save ->
                 callback()
-
-#AlbumModel.updateCover = (albumId, cover, callback)->
-    #AlbumModel.findOnw { _id: albumId }, (err, album)->
-        #if album
-            #album.cover = cover
-            #album.save ->
-                #callback()
 
 AlbumModel.drop = (callback)->
     AlbumModel.remove {}, ->
