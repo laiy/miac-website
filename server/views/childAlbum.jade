@@ -1,0 +1,29 @@
+doctype html
+html
+    head
+        title childAlbum
+        script(src='../lib/jquery.js')
+    body
+        p childAlbum
+        include ./includes/header.jade
+        p addPicture
+        if user
+            form(action='/album/addPicture' method='post' enctype='multipart/form-data')
+                input(type='file' name='picture')
+                input(type='text' name='albumId' value=album._id)
+                button submit
+        br
+        p title:
+            a(href='/album/' + album._id)=album.title
+        p cratedAt:
+            span=album.createdAt
+        p createdBy:
+            span=album.createdBy
+        if album.pictures
+            p pictures:
+                each picture in album.pictures
+                    br
+                    p=picture
+                    img(src='/assets/img/album/' + album.title + '/' + picture alt='picture')
+        p cover
+        img(src= '/assets/img/album/' + album.title + '/' + album.cover)
