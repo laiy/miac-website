@@ -6,6 +6,8 @@ html
     body
         p album
         include ./includes/header.jade
+        if user
+            a(href='/album/createAlbum') createNew
         if albums
             each album in albums
                 br
