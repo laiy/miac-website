@@ -14,11 +14,11 @@ html
                 p title:
                     a(href='/album/' + album._id)=album.title
                 p cratedAt:
-                    span=album.cratedAt
+                    span=album.createdAt
                 p createdBy:
                     span=album.createdBy
                 p pictures:
                     span=album.pictures
                 p cover
-                img(src= '../views/assets/img/album/' + album.title + '/' + album.cover)
+                img(src= '/assets/img/album/' + album.title + '/' + album.cover)
         script(src='../bin/js/userInfo.js')

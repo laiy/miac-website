@@ -19,6 +19,9 @@ router.get '/', (req , res)->
         else
             res.render 'album', albums: albums
 
+router.get '/createAlbum', requireLogin, (req, res)->
+    res.render 'createAlbum'
+
 router.get '/:id', (req, res)->
     id = mongoose.Types.ObjectId req.params.id
     AlbumModel.findOne { _id: id }, (err, album)->
@@ -26,9 +29,6 @@ router.get '/:id', (req, res)->
             return res.status(500).send 'Server Error.'
         else
             res.render 'childAlbum', album: album
-
-router.get '/createAlbum', requireLogin, (req, res)->
-    res.render 'createAlbum'
 
 router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover
