@@ -59,14 +59,15 @@ router.post '/addPicture', requireLogin, (req, res)->
     else
         { albumId } = req.body
         if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(albumId)
-            return json { result: 'fail', msg: 'U r not permitted 2 add picture 2 @ album.' }
+            return res.json { result: 'fail', msg: 'Invalid albumId.' }
         else
-            AlbumModel.find { _id: albumId }, (err, album)->
+            albumId = mongoose.Types.ObjectId(albumId)
+            AlbumModel.findOne { _id: albumId }, (err, album)->
                 if err
                     return res.status(500).send 'Server Error.'
                 else
-                    if req.session.user._id isnt album.createdBy
-                        return json { result: 'fail', msg: 'U r not permitted 2 add picture 2 @ album.' }
+                    if req.session.user._id isnt album.createdBy.toString()
+                        return res.json { result: 'fail', msg: 'U r not permitted 2 add picture 2 @ album.' }
                     else
                         path = req.files.picture.path
                         name = req.files.picture.name

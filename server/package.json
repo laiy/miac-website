@@ -1,6 +1,6 @@
 {
   "name": "miac-website",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "private": true,
   "scripts": {
     "start": "DEBUG=miac-website nodemon -e js,coffee app.coffee"
