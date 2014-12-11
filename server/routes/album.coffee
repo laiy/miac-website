@@ -45,7 +45,7 @@ router.post '/createAlbum', requireLogin, (req, res)->
                 imageMagick(coverPath)
                     .resize 150, 150, '!'
                     .autoOrient()
-                    .write 'views/assets/img/album/' + title + coverName, (err)->
+                    .write 'views/assets/img/album/' + title + '/' + coverName, (err)->
                         if err
                             return res.status(500).send 'Server Error.'
                         else
