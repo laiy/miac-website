@@ -27,3 +27,42 @@ html
                     img(src='/assets/img/album/' + album.title + '/' + picture alt='picture')
         p cover
         img(src= '/assets/img/album/' + album.title + '/' + album.cover)
+        p saySomethingHere:
+        input(type='text')
+        button(type='button' id='comment-submit') submit
+        br
+        if comments
+            p comments
+            each comment in comments
+                div
+                    p comment:
+                    p ObjectId:
+                        span=comment._id
+                    p type:
+                        span=comment.type
+                    p content:
+                        span=comment.content
+                    p createdBy(OI):
+                        span=comment.createdBy
+                    p createdAt:
+                        span=moment(comment.createdAt).format('MMM D,YY')
+                    p saySomethingHere:
+                    input(type='text')
+                    button(type='button' class='reply-submit' comment-id=comment._id) submit
+                    if comment.replys
+                        p replys:
+                        each reply in comment.replys
+                            p reply:
+                            p ObjectId:
+                                span=reply._id
+                            p type:
+                                span=reply.type
+                            p content:
+                                span=reply.content
+                            p createdBy(OI):
+                                span=reply.createdBy
+                            p createdAt:
+                                span=moment(reply.createdAt).format('MMM D,YY')
+                br
+        script(src='../bin/js/childAlbum.js')
+

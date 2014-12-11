@@ -7,10 +7,12 @@ express = require 'express'
 fs = require 'fs'
 gm = require 'gm'
 mongoose = require 'mongoose'
+async = require 'async'
 router = express.Router()
 imageMagick = gm.subClass { imageMagick: true }
 { requireLogin } = require './helpers/authorization.coffee'
 AlbumModel = require '../db/models/album.coffee'
+MessageModel = require '../db/models/message.coffee'
 
 router.get '/', (req , res)->
     AlbumModel.find {}, (err, albums)->
@@ -28,7 +30,19 @@ router.get '/:id', (req, res)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'childAlbum', album: album
+            MessageModel.find { replyTo: id , type: 'comment'}, (err, comments)->
+                if not comments
+                    res.render 'childArticle', article: article
+                else
+                    async.each comments, (comment, callback)->
+                        MessageModel.find { replyTo: comment._id, type: 'reply' }, (err, replys)->
+                            if not replys
+                                callback()
+                            else
+                                comment.replys = replys
+                                callback()
+                    , (err)->
+                        res.render 'childAlbum', { album: album, comments: comments }
 
 router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover

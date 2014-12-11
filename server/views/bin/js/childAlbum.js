@@ -1,23 +1,33 @@
 (function() {
-  $('button').click(function() {
-    var albumId, data, items;
+  $('#comment-submit').click(function() {
+    var ObjectId, content, items;
+    content = $(this).siblings('input').val();
     items = window.location.href.split('/');
-    albumId = items[items.length - 1];
-    data = FormData();
-    data.append('picture', $('input').attr('files'));
-    data.append('albumId', albumId);
-    return $.ajax({
-      url: '/album/addPicture',
-      data: data,
-      cache: false,
-      contentType: false,
-      processData: false,
-      type: 'POST',
-      success: function() {
-        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
-        if (data.result === 'success') {
-          return window.location.reload();
-        }
+    ObjectId = items[items.length - 1];
+    return $.post('/message/create', {
+      replyTo: ObjectId,
+      type: 'comment',
+      content: content
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      if (data.result === 'success') {
+        return window.location.reload();
+      }
+    });
+  });
+
+  $('.reply-submit').click(function() {
+    var ObjectId, content;
+    content = $(this).siblings('input').val();
+    ObjectId = $(this).attr('comment-id');
+    return $.post('/message/create', {
+      replyTo: ObjectId,
+      type: 'reply',
+      content: content
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      if (data.result === 'success') {
+        return window.location.reload();
       }
     });
   });
