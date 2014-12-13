@@ -35,19 +35,19 @@ Modern Internet Application Club（MIAC）website
 
 **Member Classification**:
 
-1. tourist：(permission to read)
+1. Tourist：(permission to read)
 	* Browse articles
 	* Browse discussions
 	* Browse albums
-2. user: (permission to read and write partly)
+2. User: (permission to read and write partly)
 	* Browse and commemt articles, but not publish
 	* Browse and comment discussions, but not publish
 	* Browse and comment albums, but not upload
-3. club member: (permission to read and write)
+3. Club member: (permission to read and write)
 	* Browse commemt, and publish articles
 	* Browse commemt, and publish discussions
 	* Browse commemt, and upload albums
-4. admin: (manager)
+4. Admin: (manager)
 	* All authorities are available
 	* Backstage manament
 
@@ -62,14 +62,14 @@ Modern Internet Application Club（MIAC）website
 	* github wiki
 	* Markdown README
 
-## Technical architecture
-* Version management(git & github)
-* back-end
+## Technical Architecture
+* Version Management(git & github)
+* Back-end
 	* Language: Node.js
 	* MVC Frame: [Express](http://expressjs.com/)
 	* Database: Mongoose
     * Project Structuring Tools: Grunt, Npm, Mocha
-* front-end
+* Front-end
 	* [jQuery](http://www.jquery.com)
 	* [Jade](http://jade-lang.com/)
     * [Sass](http://sass-lang.com/)
