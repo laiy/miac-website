@@ -1,83 +1,74 @@
-miac-website
 =======================
 
-[中山大学现代互联网应用俱乐部（MIAC）网站](http://sysumiac.com)
+[Modern Internet Application Club（MIAC）website](http://sysumiac.com)
 
-## 功能设想
-* 主页：
-	* 显示俱乐部网站最新的动态：文章、分享、讨论、相册等
-* 发布文章: 
-	* 俱乐部成员可以发布技术文章
-	* 其他成员可以评论、分享
-	* 文章分类：目录、标签
-	* 搜索文章
-* 讨论墙
-	* （中大版Stackoverflow）
-	* 发布一个话题
-	* 可以在下面进行评论、讨论
-	* 赞同、反对
-	* 搜索讨论
-* 相册
-	* 俱乐部成员可以上传俱乐部图片
-* 作品展示
-	* 俱乐部作品展示
-* 关于我们：
-	* 俱乐部介绍
-	* 捐赠感谢
-	* 捐赠我们
-* 后台管理（TODO）：
-	* 文章、分享、讨论的管理（删改）
-	* 相册（删改）
-		* 相册页面中的幻灯片设置
-	* 成员管理
+## Function Imagination
+* Index:
+	* Show club website latest infomations including articles, discussions, albums
+* Publish article:
+	* Club members are capabile of publishing technology article
+	* Others could comment as well as reply
+	* Article classification: category
+	* Search article
+* Discussion wall:
+	* （Stackoverflow of SYSU version）
+	* Publish a topic
+	* Capable of commenting and discussing
+	* Up or down
+	* Search discussion
+* Album:
+	* Club members could upload club's photos
+* Works show:
+	* Showing works form MIAC
+* About us:
+	* Introdution of club
+	* Appreciation
+	* Donation
+* Backstage(admin):
+	* CRUD of articles, discussions, albums, etc.
+	* Member management
 	* ...
 
 * * *
-**成员策略**: 所有人都可以注册成为网站用户，但是只有俱乐部成员才会有某些特殊权限（发表文章、分享、相册等）。
+**Member Tactics**: Everyone could be a user of website，but some priority are only for club's member(publish article, upload photos, etc.)
 
-**成员分类**:
+**Member Classification**:
 
-1. 游客：（读权限）
-	* 文章查看
-	* 分享下载、查看
-	* 讨论墙查看
-	* 相册查看
-2. 用户：（读权限、部分写权限）
-	* 文章查看、评论，不可以新建文章
-	* 分享下载、评论，不可以新建分享
-	* 讨论墙查看、评论、创建
-	* 相册查看
-3. 俱乐部成员（头像加V）
-	* 文章查看、评论、创建
-	* 分享查看、评论、创建
-	* 讨论墙查看、评论、创建
-	* 相册查看、上传
-4. 管理员：
-	* 具有所有权限
-	* 后台管理功能
+1. tourist：(permission to read)
+	* Browse articles
+	* Browse discussions
+	* Browse albums
+2. user: (permission to read and write partly)
+	* Browse and commemt articles, but not publish
+	* Browse and comment discussions, but not publish
+	* Browse and comment albums, but not upload
+3. club member: (permission to read and write)
+	* Browse commemt, and publish articles
+	* Browse commemt, and publish discussions
+	* Browse commemt, and upload albums
+4. admin: (manager)
+	* All authorities are available
+	* Backstage manament
 
-（详情请见 [原型设计](https://github.com/laiy/miac-website/tree/develop/prototype)）
-
-
-## 团队构建
-* 分享和讨论：
+## Team construction
+* Share and discuss
 	* github wiki
-* 协同工作：
+* Teamwork
 	* github
-* 任务管理：
+* Assignment management
 	* github issues
-* 文档管理：
+* Document management
 	* github wiki
 	* Markdown README
 
-## 技术架构
-* 版本管理（git & github）
-* 后端
-	* 语言：Node.js
-	* MVC框架：[Express](http://expressjs.com/)
-	* 数据库：Mongoose
-    * 项目构建工具： Grunt, Npm, Mocha
-* 前端
+## Technical architecture
+* Version management(git & github)
+* back-end
+	* Language: Node.js
+	* MVC Frame: [Express](http://expressjs.com/)
+	* Database: Mongoose
+    * Project Structuring Tools: Grunt, Npm, Mocha
+* front-end
 	* [jQuery](http://www.jquery.com)
 	* [Jade](http://jade-lang.com/)
     * [Sass](http://sass-lang.com/)
@@ -87,4 +78,4 @@ miac-website
 [MIT](http://mutedsolutions.mit-license.org/)
 
 ## Powered by
-[laiy](https://github.com/laiy)
+[miac-website](https://github.com/laiy/miac-website)
