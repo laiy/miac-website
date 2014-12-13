@@ -1,4 +1,4 @@
-Modern Internet Application Club（MIAC）website
+Modern Internet Application Club（MIAC）Website
 =======================
 
 [Modern Internet Application Club（MIAC）website](http://sysumiac.com)
@@ -78,5 +78,5 @@ Modern Internet Application Club（MIAC）website
 ## License
 [MIT](http://mutedsolutions.mit-license.org/)
 
-## Powered by
+## Powered By
 [miac-website](https://github.com/laiy/miac-website)
