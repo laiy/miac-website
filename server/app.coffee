@@ -18,7 +18,6 @@ db = require './db/db.coffee'
 config = require './config.coffee'
 util = require './common/util.coffee'
 
-#routes
 indexRoute = require './routes/index.coffee'
 registerRoute = require './routes/register.coffee'
 logRoute = require './routes/log.coffee'

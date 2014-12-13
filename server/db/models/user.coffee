@@ -13,7 +13,7 @@ UserSchema = new Schema
     password: String
     avatar: { type: String, default: 'default.jpg' }
     email: String
-    isAdmin: { type: Boolean, default: no }
+    status: { type: String, default: 'user' } # user or clubMember or admin
     createArticles: [{ lastAccessTime: Date, id: ObjectId }]
     createShares: [{ lastAccessTime: Date, id: ObjectId }]
     createDiscuss: [{ lastAccessTime: Date, id: ObjectId }]
@@ -24,14 +24,16 @@ UserModel = mongoose.model 'UserModel', UserSchema
 
 UserModel.createAdministrator = (callback)->
     callback = callback or ->
-    UserModel.findOne {isAdmin: yes}, (err, admin)->
+    UserModel.findOne { status: 'admin' }, (err, admin)->
         if not admin
             UserModel.create
                 username: 'admin'
                 password: util.encrypt 'miac-website'
                 email: 'ly.franky@gmail.com'
-                isAdmin: yes
+                status: 'admin'
             , callback
+        else
+            callback()
 
 UserModel.createUser = (username, password, email, callback)->
     UserModel.create
