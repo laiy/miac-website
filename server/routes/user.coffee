@@ -13,6 +13,10 @@ router = express.Router()
 UserModel = require '../db/models/user.coffee'
 util = require '../common/util.coffee'
 
+###
+* render 'userInfo' when get '/user/:id'
+* @param id: the ObjectId of the specific user
+###
 router.get '/:id', requireLogin, (req, res)->
     id = mongoose.Types.ObjectId req.params.id
     UserModel.findOne { _id: id }, (err, user)->

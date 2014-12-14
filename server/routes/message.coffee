@@ -8,6 +8,15 @@ router = express.Router()
 MessageModel = require '../db/models/message.coffee'
 {requireLogin} = require './helpers/authorization.coffee'
 
+###
+* handle when post '/message/create'
+* require user's login to continue process
+* return fail when bad params occur
+* create a new message in MessageModel with replyTo, type, content and user's id
+* @param replyTo: the id that the Message is replying to, it can be a article's id or discussion's id or a message's id
+* @param type: the type of the message, it could be 'comment' and 'reply'
+* @param content: the content of the message
+###
 router.post '/create', requireLogin, (req, res)->
     {replyTo, type, content} = req.body
     createdBy = req.session.user._id

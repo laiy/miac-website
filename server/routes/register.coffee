@@ -7,6 +7,15 @@ express = require 'express'
 UserModel = require '../db/models/user.coffee'
 router = express.Router()
 
+###
+* handle when post '/register/regist'
+* return fail when the username has already existed
+* return fail when bad params occur
+* create a new user with username, password and email
+* @param username: user's name(one and only)
+* @param password: user's password
+* @param email: user's email
+###
 router.post '/regist', (req, res)->
     {username, password, email} = req.body
     UserModel.findOne {username}, (err, user)->
@@ -22,6 +31,9 @@ router.post '/regist', (req, res)->
             UserModel.createUser username, password, email, ->
                 res.json {result: 'success'}
 
+###
+* render 'register' when get '/register'
+###
 router.get '/', (req, res)->
     res.render 'register'
 

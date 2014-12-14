@@ -6,6 +6,9 @@
 express = require 'express'
 router = express.Router()
 
+###
+* render 'works' when get '/works'
+###
 router.get '/', (req, res)->
     res.render('works')
 
