@@ -13,6 +13,10 @@ AlbumModel = require './models/album.coffee'
 
 db = null
 
+###
+* init database
+* create a administrator
+###
 init = ->
     initDB ->
         UserModel.createAdministrator ->
@@ -23,6 +27,11 @@ init = ->
             #DiscussionModel.drop ->
             #AlbumModel.drop ->
 
+###
+* set database URL in mongoose
+* connect database
+* @param callback: callback function that would call when function ended
+###
 initDB = (callback)->
     if process.env.NODE_ENV is "DEV"
         mongoose.connect config.TEST_DB_URI

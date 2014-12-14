@@ -16,6 +16,12 @@ AlbumSchema = new Schema
 
 AlbumModel = mongoose.model 'AlbumModel', AlbumSchema
 
+###
+* create a album in AlbumModel with title, user's id and cover
+* @param title: album's title
+* @param createdBy: user's id, to memorize who create the album
+* @param cover: the name of the cover piture, so later we could get image in front-end with 'path + name'
+###
 AlbumModel.createAlbum = (title, createdBy, cover, callback)->
     AlbumModel.create
         title: title
@@ -23,6 +29,9 @@ AlbumModel.createAlbum = (title, createdBy, cover, callback)->
         cover: cover
     , callback
 
+###
+* 
+###
 AlbumModel.addPicture = (albumId, picture, callback)->
     AlbumModel.findOne { _id: albumId }, (err, album)->
         if album
@@ -30,6 +39,9 @@ AlbumModel.addPicture = (albumId, picture, callback)->
             album.save ->
                 callback()
 
+###
+* drop all the albums in AlbumModel
+###
 AlbumModel.drop = (callback)->
     AlbumModel.remove {}, ->
         callback()

@@ -5,12 +5,16 @@
 
 config = exports
 
+###
+* set process environment
+###
 if not process.env.NODE_ENV
     process.env.DEBUG = "miac-website"
     process.env.NODE_ENV = "DEV"
 
-config.HOST = "http://localhost:2333"
-
+###
+* set database url
+###
 config.TEST_DB_URI = "mongodb://localhost/mocha-test"
 config.PRODUCTION_DB_URI = "mongodb://localhost/miac-website"
 config.SECRET_KEY = "-a052-31av5-4s2voo17sjasf-j2-s"
