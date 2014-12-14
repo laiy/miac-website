@@ -15,6 +15,9 @@ util = require '../common/util.coffee'
 
 ###
 * render 'userInfo' when get '/user/:id'
+* find a user with id
+* return fail when user not existed
+* render with user
 * @param id: the ObjectId of the specific user
 ###
 router.get '/:id', requireLogin, (req, res)->
@@ -25,6 +28,12 @@ router.get '/:id', requireLogin, (req, res)->
         else
             res.render 'userInfo', user: user
 
+###
+* handle when post '/user/updateEmail'
+* return fail when bad param occurs
+* update email of user with userId(get from user's session) and email
+* @param email: the new email that user would like to update
+###
 router.post '/updateEmail', requireLogin, (req, res)->
     { email } = req.body
     userId = req.session.user._id
@@ -36,6 +45,12 @@ router.post '/updateEmail', requireLogin, (req, res)->
         UserModel.updateEmail email, userId, ->
             return res.json { result: 'success' }
 
+###
+* handle when post '/user/updatePassword'
+* return fail when bad param occurs
+* update password of user with userId(get from user's session) and password
+* @param password: the new password that user would like to update
+###
 router.post '/updatePassword', requireLogin, (req, res)->
     { password } = req.body
     userId = req.session.user._id
@@ -48,6 +63,13 @@ router.post '/updatePassword', requireLogin, (req, res)->
         UserModel.updatePassword password, userId, ->
             return res.json { result: 'success' }
 
+###
+* handle when post '/user/uploadAvatar'
+* if file is not image return fail
+* resize image and write to server's local directory named by user's name
+* update avatar of user in UserModel and return success
+* @param req.filse.img: the image to replace the user's avatar
+###
 router.post '/uploadAvatar', requireLogin, (req, res)->
     if not req.files.img
         return res.status(500).send 'Server Error.'
