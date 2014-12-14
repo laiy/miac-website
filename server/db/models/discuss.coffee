@@ -22,6 +22,13 @@ DiscussionSchema = new Schema
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
+###
+* create a album in AlbumModel with title, user's id and cover
+* @param title: album's title
+* @param createdBy: user's id, to memorize who create the album
+* @param cover: the name of the cover piture, so later we could get image in front-end with 'path + name'
+# @param callback: the callback function that would execute when function ended
+###
 DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, callback)->
     DiscussionModel.create
         type: type

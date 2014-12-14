@@ -15,6 +15,14 @@ ArticleSchema = new Schema
 
 ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 
+###
+* create a article in ArticleModel with category, title, content and user's id and cover
+* @param category: article's category
+* @param title: article's title
+* @param content: article's content
+* @param createdBy: user's id, to memorize who create the article
+# @param callback: the callback function that would execute when function ended
+###
 ArticleModel.createArticle = (category, title, content, createdBy, callback)->
     callback = callback or ->
     ArticleModel.create
@@ -24,6 +32,9 @@ ArticleModel.createArticle = (category, title, content, createdBy, callback)->
         createdBy: createdBy
     , callback
 
+###
+* drop all the articles in ArticleModel
+###
 ArticleModel.drop = (callback)->
     ArticleModel.remove {}, ->
         callback()
