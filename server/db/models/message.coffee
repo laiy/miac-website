@@ -16,6 +16,13 @@ MessageSchema = new Schema
 
 MessageModel = mongoose.model 'MessageModel', MessageSchema
 
+###
+* create a message in MessageModel with replyTo, type, content and user's id
+* @param replyTo: the ObjectId that the message is replying to, it could be article's id or discussion's id or message's id,etc
+* @param type: the message's type, 'comment' or 'reply'
+* @param createdBy: user's id, to memorize who create the message
+* @param callback: the callback function that would execute when function ended
+###
 MessageModel.createMessage = (replyTo, type, content, createdBy, callback)->
     MessageModel.create
         replyTo: replyTo
@@ -24,6 +31,10 @@ MessageModel.createMessage = (replyTo, type, content, createdBy, callback)->
         createdBy: createdBy
     , callback
 
+###
+* drop all the messages in MessageModel
+* @param callback: the callback function that would execute when function ended
+###
 MessageModel.drop = (callback)->
     MessageModel.remove {}, ->
         callback()
