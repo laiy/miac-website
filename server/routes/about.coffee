@@ -6,6 +6,9 @@
 express = require 'express'
 router = express.Router()
 
+###
+* Render template 'about' when get '/about'
+###
 router.get '/', (req, res)->
     res.render('about')
 

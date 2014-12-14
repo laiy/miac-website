@@ -32,11 +32,7 @@ router.get '/createAlbum', requireLogin, (req, res)->
 
 ###
 * render 'childAlbum' when get '/album/:id'
-* find a album with album's id
-* find comments with album's id
-* find rpelys with comment's id for each comment in comments
-* render with album and comments(containing replys)
-* @param id: the ObjectId of the specific album
+* @param 
 ###
 router.get '/:id', (req, res)->
     id = mongoose.Types.ObjectId req.params.id
@@ -46,7 +42,7 @@ router.get '/:id', (req, res)->
         else
             MessageModel.find { replyTo: id , type: 'comment'}, (err, comments)->
                 if not comments
-                    res.render 'childAlbum', album: album
+                    res.render 'childArticle', article: article
                 else
                     async.each comments, (comment, callback)->
                         MessageModel.find { replyTo: comment._id, type: 'reply' }, (err, replys)->
@@ -58,10 +54,6 @@ router.get '/:id', (req, res)->
                     , (err)->
                         res.render 'childAlbum', { album: album, comments: comments }
 
-###
-* 
-* 
-###
 router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover
         return res.status(500).send 'Server Error.'
