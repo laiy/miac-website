@@ -21,7 +21,7 @@ ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 * @param title: article's title
 * @param content: article's content
 * @param createdBy: user's id, to memorize who create the article
-# @param callback: the callback function that would execute when function ended
+* @param callback: the callback function that would execute when function ended
 ###
 ArticleModel.createArticle = (category, title, content, createdBy, callback)->
     callback = callback or ->
@@ -34,6 +34,7 @@ ArticleModel.createArticle = (category, title, content, createdBy, callback)->
 
 ###
 * drop all the articles in ArticleModel
+* @param callback: the callback function that would execute when function ended
 ###
 ArticleModel.drop = (callback)->
     ArticleModel.remove {}, ->

@@ -21,7 +21,7 @@ AlbumModel = mongoose.model 'AlbumModel', AlbumSchema
 * @param title: album's title
 * @param createdBy: user's id, to memorize who create the album
 * @param cover: the name of the cover piture, so later we could get image in front-end with 'path + name'
-# @param callback: the callback function that would execute when function ended
+* @param callback: the callback function that would execute when function ended
 ###
 AlbumModel.createAlbum = (title, createdBy, cover, callback)->
     AlbumModel.create
@@ -36,7 +36,7 @@ AlbumModel.createAlbum = (title, createdBy, cover, callback)->
 * add picture to the array of album's pictures
 * @param albumId: the ObjectId that to add picture to
 * @param picture: the picture's name
-# @param callback: the callback function that would execute when function ended
+* @param callback: the callback function that would execute when function ended
 ###
 AlbumModel.addPicture = (albumId, picture, callback)->
     AlbumModel.findOne { _id: albumId }, (err, album)->
@@ -47,6 +47,7 @@ AlbumModel.addPicture = (albumId, picture, callback)->
 
 ###
 * drop all the albums in AlbumModel
+* @param callback: the callback function that would execute when function ended
 ###
 AlbumModel.drop = (callback)->
     AlbumModel.remove {}, ->

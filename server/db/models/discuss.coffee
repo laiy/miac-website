@@ -23,11 +23,13 @@ DiscussionSchema = new Schema
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
 ###
-* create a album in AlbumModel with title, user's id and cover
-* @param title: album's title
-* @param createdBy: user's id, to memorize who create the album
-* @param cover: the name of the cover piture, so later we could get image in front-end with 'path + name'
-# @param callback: the callback function that would execute when function ended
+* create a discussion in DiscussionModel with type, title, content, user's id and answerTo
+* @param type: discussion's type
+* @param title: discussion's title
+* @param content: discussion's content
+* @param createdBy: user's id, to memorize who create the discussion
+* @param answerTo: the discussion's id that the answer reply to if this is a answer, else answerTo is '
+* @param callback: the callback function that would execute when function ended
 ###
 DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, callback)->
     DiscussionModel.create
@@ -45,6 +47,13 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, c
         else
             callback()
 
+###
+* find a discussion with discussionId
+* add 1 to up and save
+* @param discussionId: the id of the discussion to add up
+* @param createdBy: the user's id to memorize who votes for it
+* @param callback: the callback function that would execute when function ended
+###
 DiscussionModel.up = (discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
@@ -56,6 +65,13 @@ DiscussionModel.up = (discussionId, createdBy, callback)->
             discussion.save ->
                 callback()
 
+###
+* find a discussion with discussionId
+* add 1 to down and save
+* @param discussionId: the id of the discussion to add down
+* @param createdBy: the user's id to memorize who votes for it
+* @param callback: the callback function that would execute when function ended
+###
 DiscussionModel.down = (discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
@@ -66,7 +82,14 @@ DiscussionModel.down = (discussionId, createdBy, callback)->
             discussion.save ->
                 callback()
 
-DiscussionModel.removeVote = (up, discussionId, createdBy, callback)->
+###
+* remove user's vote
+* @param removeUp: it is a boolean, whether removeUp, or remove down
+* @param discussionId: the id of the discussion to remove vote
+* @param createdBy: the user's id to memorize who is removing vote
+* @param callback: the callback function that would execute when function ended
+###
+DiscussionModel.removeVote = (removeUp, discussionId, createdBy, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
             console.log err
@@ -77,7 +100,7 @@ DiscussionModel.removeVote = (up, discussionId, createdBy, callback)->
                     discussion.votedUsers.splice(index, 1)
                     break
                 index++
-            if up
+            if removeUp
                 index = 0
                 while index < discussion.userVoteForUp.length
                     if discussion.userVoteForUp[index] is createdBy
@@ -90,6 +113,12 @@ DiscussionModel.removeVote = (up, discussionId, createdBy, callback)->
             discussion.save ->
                 callback()
 
+###
+* find a discussion by discussionId
+* add 1 to viewsCount
+* @param: discussionId: the id of the discussion to add views' count
+* @param callback: the callback function that would execute when function ended
+###
 DiscussionModel.addViewsCount = (discussionId, callback)->
     DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
         if err
@@ -99,6 +128,10 @@ DiscussionModel.addViewsCount = (discussionId, callback)->
             discussion.save ->
                 callback()
 
+###
+* drop all the discussions in DiscussionModel
+* @param callback: the callback function that would execute when function ended
+###
 DiscussionModel.drop = (callback)->
     DiscussionModel.remove {}, ->
         callback()
