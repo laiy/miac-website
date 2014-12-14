@@ -11,6 +11,11 @@ ArticleModel = require '../db/models/article.coffee'
 { requireLogin } = require './helpers/authorization.coffee'
 MessageModel = require '../db/models/message.coffee'
 
+###
+* render 'article' when get '/article'
+* find all the articles in ArticleModel
+* render with articles
+###
 router.get '/', (req, res)->
     ArticleModel.find {}, (err, articles)->
         if err
@@ -18,9 +23,20 @@ router.get '/', (req, res)->
         else
             res.render 'article', articles: articles
 
+###
+* render 'childArticle' when get '/article/create'
+###
 router.get '/create', requireLogin, (req, res)->
     res.render 'createArticle'
 
+###
+* render 'childArticle' when get '/article/:id'
+* find a article with the article's id
+* find comments in MessageModel with album's id
+* find reply in comment's id for each comment in comments
+* render with article as well as comments(containing replys)
+* @param id: the ObjectId of the specific article
+###
 router.get '/:id', (req, res)->
     id = mongoose.Types.ObjectId req.params.id
     ArticleModel.findOne { _id: id }, (err, article)->
@@ -41,6 +57,16 @@ router.get '/:id', (req, res)->
                     , (err)->
                         res.render 'childArticle', { article: article, comments: comments }
 
+###
+* handle when post '/article/create'
+* require user's login to continue process
+* return fail when title has already existed
+* return fail when params is not completed
+* create article in ArticleModel with title, content, user's id and category
+* @param category: the category of article
+* @param title: article's title, which is one and only
+* @param content: article's content
+###
 router.post '/create', requireLogin, (req, res)->
     { category, title, content } = req.body
     createdBy = req.session.user.username

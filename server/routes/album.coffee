@@ -15,7 +15,9 @@ AlbumModel = require '../db/models/album.coffee'
 MessageModel = require '../db/models/message.coffee'
 
 ###
-* search all the albums in AlbumModel and render 'album' with albums when get '/album'
+* render 'album' when get '/album'
+* find all the albums in AlbumModel
+* render with albums
 ###
 router.get '/', (req , res)->
     AlbumModel.find {}, (err, albums)->
@@ -33,8 +35,8 @@ router.get '/createAlbum', requireLogin, (req, res)->
 ###
 * render 'childAlbum' when get '/album/:id'
 * find a album with album's id
-* find comments with album's id
-* find rpelys with comment's id for each comment in comments
+* find comments in MessageModel with album's id
+* find rpelys in comment's id for each comment in comments
 * render with album and comments(containing replys)
 * @param id: the ObjectId of the specific album
 ###
