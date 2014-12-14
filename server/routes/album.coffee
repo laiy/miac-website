@@ -59,8 +59,14 @@ router.get '/:id', (req, res)->
                         res.render 'childAlbum', { album: album, comments: comments }
 
 ###
-* 
-* 
+* handle when post '/album/createAlbum'
+* require user's login to continue process
+* if file is not image, return fail
+* make a directory named album's title in server local assets
+* resize image and write cover's image to album's directory
+* createAlbum in AlbumModel with title, user's id as well as cover's filename
+* @param req.files.cover: image that belong to album's cover
+* @param title: album's title
 ###
 router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover
@@ -85,6 +91,17 @@ router.post '/createAlbum', requireLogin, (req, res)->
                                 AlbumModel.createAlbum title, req.session.user._id, coverName, ->
                                     res.redirect '/album'
 
+###
+* handle when post '/album/addPicture'
+* require user's login to continue process
+* validate if the albumId is legal
+* if file is not image, return fail
+* find the album with albumId
+* validate if the user is the one who create the album
+* write the file to the directory belonging to the album and redirect to album child page
+* @param req.files.picture: album's picture that user want to add
+* @param albumId: the ObjectId that belong to the album that the user want to add to
+###
 router.post '/addPicture', requireLogin, (req, res)->
     if not req.files.picture
         return res.status(500).send 'Server Error.'
