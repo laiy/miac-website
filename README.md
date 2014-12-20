@@ -6,12 +6,12 @@ Modern Internet Application Club（MIAC）Website
 ## Function Imagination
 * Index:
 	* Show club website latest infomations including articles, discussions, albums
-* Publish article:
+* Publish Article:
 	* Club members are capabile of publishing technology article
 	* Others could comment as well as reply
 	* Article classification: category
 	* Search article
-* Discussion wall:
+* Discussion Wall:
 	* （Stackoverflow of SYSU version）
 	* Publish a topic
 	* Capable of commenting and discussing
@@ -19,9 +19,9 @@ Modern Internet Application Club（MIAC）Website
 	* Search discussion
 * Album:
 	* Club members could upload club's photos
-* Works show:
+* Works Show:
 	* Showing works form MIAC
-* About us:
+* About Us:
 	* Introdution of club
 	* Appreciation
 	* Donation
@@ -52,13 +52,13 @@ Modern Internet Application Club（MIAC）Website
 	* Backstage manament
 
 ## Team construction
-* Share and discuss
+* Share and Discuss
 	* github wiki
 * Teamwork
 	* github
-* Assignment management
+* Assignment Management
 	* github issues
-* Document management
+* Document Management
 	* github wiki
 	* Markdown README
 
