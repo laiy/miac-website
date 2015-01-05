@@ -19,13 +19,13 @@ db = null
 ###
 init = ->
     initDB ->
-        UserModel.createAdministrator ->
-            #DiscussionModel.drop ->
-            #MessageModel.drop ->
-            #UserModel.drop ->
-            #ArticleModel.drop ->
-            #DiscussionModel.drop ->
-            #AlbumModel.drop ->
+        #UserModel.createAdministrator ->
+        #DiscussionModel.drop ->
+        #MessageModel.drop ->
+        #UserModel.drop ->
+        #ArticleModel.drop ->
+        #DiscussionModel.drop ->
+        #AlbumModel.drop ->
 
 ###
 * set database URL in mongoose

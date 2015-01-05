@@ -105,11 +105,11 @@ router.post '/up', requireLogin, (req, res)->
             hasVoted = false
             removeVote = false
             for user in discussion.votedUsers
-                if user is createdBy
+                if user.toString() is createdBy
                     hasVoted = true
             if hasVoted
                 for user in discussion.userVoteForUp
-                    if user is createdBy
+                    if user.toString() is createdBy
                         removeVote = true
             if removeVote and hasVoted
                 DiscussionModel.removeVote true, discussionId, createdBy, ->
@@ -142,11 +142,11 @@ router.post '/down', requireLogin, (req, res)->
             hasVoted = false
             removeVote = true
             for user in discussion.votedUsers
-                if user is createdBy
+                if user.toString() is createdBy
                     hasVoted = true
             if hasVoted
                 for user in discussion.userVoteForUp
-                    if user is createdBy
+                    if user.toString() is createdBy
                         removeVote = false
             if removeVote and hasVoted
                 DiscussionModel.removeVote false, discussionId, createdBy, ->

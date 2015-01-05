@@ -96,14 +96,14 @@ DiscussionModel.removeVote = (removeUp, discussionId, createdBy, callback)->
         else
             index = 0
             while index < discussion.votedUsers.length
-                if discussion.votedUsers[index] is createdBy
+                if discussion.votedUsers[index].toString() is createdBy
                     discussion.votedUsers.splice(index, 1)
                     break
                 index++
             if removeUp
                 index = 0
                 while index < discussion.userVoteForUp.length
-                    if discussion.userVoteForUp[index] is createdBy
+                    if discussion.userVoteForUp[index].toString() is createdBy
                         discussion.userVoteForUp.splice(index, 1)
                         break
                     index++
