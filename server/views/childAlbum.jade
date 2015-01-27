@@ -11,7 +11,7 @@ html
         if user
             form(action='/album/addPicture' method='post' enctype='multipart/form-data')
                 input(type='file' name='picture')
-                input(type='text' name='albumId' value=album._id)
+                input(type='text' name='albumId' value=album._id style="display: none;")
                 button submit
         br
         p title:
