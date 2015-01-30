@@ -12,5 +12,19 @@ body {
       float: right; }
       body div#header div#header-operation a:hover {
         color: red; }
+    body div#header div#pointer {
+      position: absolute;
+      width: 20px;
+      height: 20px;
+      background: black;
+      left: 10px;
+      transition: left 2s;
+      -moz-transition: left 2s;
+      -webkit-transition: left 2s;
+      -o-transition: left 2s;
+      transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+      -moz-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+      -webkit-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+      -o-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1); }
 
 /*# sourceMappingURL=header.css.map */

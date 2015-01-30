@@ -1,3 +1,13 @@
+@mixin _transition($lower_forth, $upper_forth)
+  transition: left 2s
+  -moz-transition: left 2s 
+  -webkit-transition: left 2s
+  -o-transition: left 2s
+  transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
+  -moz-transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
+  -webkit-transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
+  -o-transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
+
 body
   margin: 0
   div#header
@@ -16,3 +26,10 @@ body
       a
         &:hover
           color: red
+    div#pointer
+      position: absolute
+      width: 20px
+      height: 20px
+      background: black
+      left: 10px 
+      @include _transition(0.20, 0.55)
