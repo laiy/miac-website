@@ -5,7 +5,7 @@
 
 $('#logout').click ->
     $.ajax
-        url: '/log/session'
+        url: '/Log/session'
         type: 'delete'
         success: (data)->
             alert data.result + '\n' + (data.msg if data.msg)

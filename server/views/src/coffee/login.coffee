@@ -7,7 +7,7 @@ $('button').click ->
     username = $('#username').val()
     password = $('#password').val()
     $.ajax
-        url: '/log/session'
+        url: '/Log/session'
         data: {username: username, password:password}
         type: 'post'
         error: (XMLHttpRequest)->

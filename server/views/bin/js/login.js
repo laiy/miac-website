@@ -4,7 +4,7 @@
     username = $('#username').val();
     password = $('#password').val();
     return $.ajax({
-      url: '/log/session',
+      url: '/Log/session',
       data: {
         username: username,
         password: password

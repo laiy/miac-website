@@ -4,7 +4,7 @@
     username = $('#username').val();
     password = $('#password').val();
     email = $('#email').val();
-    return $.post('/register/regist', {
+    return $.post('/Register/regist', {
       username: username,
       password: password,
       email: email

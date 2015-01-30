@@ -1,7 +1,7 @@
 (function() {
   $('#logout').click(function() {
     return $.ajax({
-      url: '/log/session',
+      url: '/Log/session',
       type: 'delete',
       success: function(data) {
         alert(data.result + '\n' + (data.msg ? data.msg : void 0));
