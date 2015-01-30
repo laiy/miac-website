@@ -9,13 +9,13 @@ html
         include ./includes/header.jade
         p addPicture
         if user
-            form(action='/album/addPicture' method='post' enctype='multipart/form-data')
+            form(action='/Album/addPicture' method='post' enctype='multipart/form-data')
                 input(type='file' name='picture')
                 input(type='text' name='albumId' value=album._id style="display: none;")
                 button submit
         br
         p title:
-            a(href='/album/' + album._id)=album.title
+            a(href='/Album/' + album._id)=album.title
         p cratedAt:
             span=album.createdAt
         p createdBy:
