@@ -1,9 +1,9 @@
-- elements = ['index', 'article', 'discuss', 'album', 'works', 'about']
+- elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
 each element in elements
     a(href='/' + element)=element
 if user
     img(src='/assets/img/user/' + user.avatar alt='avatar')
-    a(href='/user/' + user._id) 个人
+    a(href='/user/' + user._id) profile
     a(id='logout') 登出
 else
     a(href='/log') 登录

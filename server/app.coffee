@@ -82,15 +82,15 @@ app.set 'view engine', 'jade'
 * use routes' handler
 ###
 app.use '/', indexRoute
-app.use '/register', registerRoute
-app.use '/log', logRoute
-app.use '/about', aboutRoute
-app.use '/article', articleRoute
-app.use '/message', messageRoute
-app.use '/works', worksRoute
-app.use '/discuss', discussRoute
-app.use '/user', userRoute
-app.use '/album', albumRoute
+app.use '/Register', registerRoute
+app.use '/Log', logRoute
+app.use '/About', aboutRoute
+app.use '/Article', articleRoute
+app.use '/Message', messageRoute
+app.use '/Works', worksRoute
+app.use '/Discuss', discussRoute
+app.use '/User', userRoute
+app.use '/Album', albumRoute
 
 ###
 * init database
