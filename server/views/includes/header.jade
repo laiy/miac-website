@@ -1,5 +1,8 @@
 div#header
     div#header-logo
+        div#triangle-small
+        div#triangle-big
+        h2 MIAC
     div#header-nav
         - elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
         each element in elements
@@ -12,4 +15,3 @@ div#header
         else
             a(href='/log') Sign in
             a(href='/register') Sign up
-script(src='../bin/js/header.js')
