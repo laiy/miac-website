@@ -4,6 +4,11 @@
 #	> Created Time: Wednesday, November 19, 2014 AM10:41:51 CST
 
 ###
+* profiling
+###
+#require('look').start()
+
+###
 * import package's module that would use
 ###
 express = require 'express'
@@ -21,7 +26,6 @@ require('nodetime').profile({
     accountKey: 'b4548cd536a0e53bc795df5044e9d57fc5459953',
     appName: 'Node.js Application'
 })
-require('look').start()
 
 ###
 * import module that would use writen by laiy
