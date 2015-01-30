@@ -8,12 +8,12 @@ html
         p album
         include ./includes/header.jade
         if user
-            a(href='/album/createAlbum') createNew
+            a(href='/Album/createAlbum') createNew
         if albums
             each album in albums
                 br
                 p title:
-                    a(href='/album/' + album._id)=album.title
+                    a(href='/Album/' + album._id)=album.title
                 p cratedAt:
                     span=album.createdAt
                 p createdBy:

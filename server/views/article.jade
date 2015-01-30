@@ -8,14 +8,14 @@ html
         p article
         include ./includes/header.jade
         if user
-            a(href='/article/create') createNew
+            a(href='/Article/create') createNew
         if articles
             each article in articles
                 br
                 p category:
                     span=article.category
                 p title:
-                    a(href='/article/' + article._id)=article.title
+                    a(href='/Article/' + article._id)=article.title
                 p content:
                     span=article.content
                 p createdBy:
