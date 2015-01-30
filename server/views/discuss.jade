@@ -8,14 +8,14 @@ html
         p discuss
         include ./includes/header.jade
         if user
-            a(href='/discuss/create') createNew
+            a(href='/Discuss/create') createNew
         if discussions
             each discussion in discussions
                 br
                 p type:
                     span=discussion.type
                 p title:
-                    a(href='/discuss/' + discussion._id)=discussion.title
+                    a(href='/Discuss/' + discussion._id)=discussion.title
                 p content:
                     span=discussion.content
                 p up:
