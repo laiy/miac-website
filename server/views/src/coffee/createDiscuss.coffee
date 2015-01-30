@@ -6,7 +6,7 @@
 $('button').click ->
     title = $('#title').val()
     content = $('#content').val()
-    $.post '/discuss/create', { type: 'question', title: title, content: content, answerTo: '' }, (data)->
+    $.post '/Discuss/create', { type: 'question', title: title, content: content, answerTo: '' }, (data)->
         alert data.result + '\n' + (data.msg if data.msg)
         if data.result is 'success'
-            $(location).attr 'href', '/discuss'
+            $(location).attr 'href', '/Discuss'

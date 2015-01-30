@@ -2,7 +2,7 @@
   $('.up').click(function() {
     var discussionId;
     discussionId = $(this).attr('discussion-id');
-    return $.post('/discuss/up', {
+    return $.post('/Discuss/up', {
       discussionId: discussionId
     }, function(data) {
       alert(data.result + '\n' + (data.msg ? data.msg : void 0));
@@ -15,7 +15,7 @@
   $('.down').click(function() {
     var discussionId;
     discussionId = $(this).attr('discussion-id');
-    return $.post('/discuss/down', {
+    return $.post('/Discuss/down', {
       discussionId: discussionId
     }, function(data) {
       alert(data.result + '\n' + (data.msg ? data.msg : void 0));
