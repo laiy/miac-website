@@ -41,3 +41,7 @@
 4. All of your work is on your own reposity, you can push to your own reposity for some stages
 5. When you finished, merge your code to souce code https://github.com/laiy/miac-website
 
+### Specific Work Division
+
+> I would make a division recently, all your work now is to learn basic skill and configure the developing environment
+
