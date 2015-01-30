@@ -30,7 +30,7 @@
 2. Coffeescript
 3. Sass
 4. Jade
-4. VueJS(MVVM Framework)
+4. VueJS (MVVM Framework, instead of DOM operation in jQuery)
 
 ### Teamwork
 
