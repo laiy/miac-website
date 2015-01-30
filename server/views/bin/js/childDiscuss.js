@@ -4,7 +4,7 @@
     content = $('#content').val();
     items = window.location.href.split('/');
     answerTo = items[items.length - 1];
-    return $.post('/discuss/create', {
+    return $.post('/Discuss/create', {
       type: 'answer',
       title: '',
       content: content,
@@ -21,7 +21,7 @@
     var ObjectId, content;
     content = $(this).siblings('input').val();
     ObjectId = $(this).attr('answer-id');
-    return $.post('/message/create', {
+    return $.post('/Message/create', {
       replyTo: ObjectId,
       type: 'reply',
       content: content
@@ -36,7 +36,7 @@
   $('.up').click(function() {
     var discussionId;
     discussionId = $(this).attr('discussion-id');
-    return $.post('/discuss/up', {
+    return $.post('/Discuss/up', {
       discussionId: discussionId
     }, function(data) {
       alert(data.result + '\n' + (data.msg ? data.msg : void 0));
@@ -49,7 +49,7 @@
   $('.down').click(function() {
     var discussionId;
     discussionId = $(this).attr('discussion-id');
-    return $.post('/discuss/down', {
+    return $.post('/Discuss/down', {
       discussionId: discussionId
     }, function(data) {
       alert(data.result + '\n' + (data.msg ? data.msg : void 0));
