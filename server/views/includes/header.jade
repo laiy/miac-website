@@ -1,12 +1,15 @@
-- elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
-each element in elements
-    a(href='/' + element)=element
-if user
-    img(src='/assets/img/user/' + user.avatar alt='avatar')
-    a(href='/user/' + user._id) Profile
-    a(id='logout') Sign out
-else
-    a(href='/log') Sign in
-    a(href='/register') Sign up
-
+div#header
+    div#header-logo
+    div#header-nav
+        - elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
+        each element in elements
+            a(href='/' + element)=element
+    div#header-operation
+        if user
+            img(src='/assets/img/user/' + user.avatar alt='avatar')
+            a(href='/user/' + user._id) Profile
+            a(id='logout') Sign out
+        else
+            a(href='/log') Sign in
+            a(href='/register') Sign up
 script(src='../bin/js/header.js')
