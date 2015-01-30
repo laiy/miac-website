@@ -66,7 +66,7 @@ Modern Internet Application Club（MIAC）Website
 * Version Management(git & github)
 * Back-end
 	* Language: Node.js
-	* MVC Frame: [Express](http://expressjs.com/)
+	* MVC Framework: [Express](http://expressjs.com/)
 	* Database: Mongoose
     * Project Structuring Tools: Grunt, Npm, Mocha
 * Front-end
@@ -74,6 +74,7 @@ Modern Internet Application Club（MIAC）Website
 	* [Jade](http://jade-lang.com/)
     * [Sass](http://sass-lang.com/)
     * [CoffeeScript](http://coffeescript.org/)
+    * MVVM Framework: [VueJS](http://vuejs.org/)
 
 ## License
 [MIT](http://mutedsolutions.mit-license.org/)

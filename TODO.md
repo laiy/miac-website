@@ -29,7 +29,8 @@
 1. jQuery
 2. Coffeescript
 3. Sass
-4. The framework would be told until it's desided (recently)
+4. Jade
+4. VueJS(MVVM Framework)
 
 ### Teamwork
 
