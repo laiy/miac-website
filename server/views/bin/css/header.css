@@ -1,34 +1,40 @@
 body {
   margin: 0; }
   body div#header {
-    overflow: hidden;
     background: #1B1B1B; }
     body div#header div#header-wrapper {
       width: 960px;
-      margin: 0 auto; }
+      margin: 0 auto;
+      overflow: hidden; }
       body div#header div#header-wrapper div#header-logo {
         display: inline-block;
         position: relative; }
         body div#header div#header-wrapper div#header-logo div#triangle-small {
+          float: left;
           display: inline-block;
-          border-left: 20px solid #666;
-          border-top: 17.2px solid transparent;
-          border-bottom: 17.2px solid transparent; }
+          margin-top: 8px;
+          margin-right: -10px;
+          border-left: 30px solid #666;
+          border-top: 25.8px solid transparent;
+          border-bottom: 25.8px solid transparent; }
         body div#header div#header-wrapper div#header-logo div#triangle-big {
+          float: left;
           display: inline-block;
-          border-left: 29px solid #3B3B3B;
-          border-top: 24.94px solid transparent;
-          border-bottom: 24.94px solid transparent; }
-        body div#header div#header-wrapper div#header-logo h2 {
+          border-left: 39px solid #3B3B3B;
+          border-top: 33.54px solid transparent;
+          border-bottom: 33.54px solid transparent; }
+        body div#header div#header-wrapper div#header-logo h3 {
           display: inline-block;
+          margin-top: 22px;
+          margin-left: -57px;
           color: white; }
         body div#header div#header-wrapper div#header-logo div#header-pointer {
           position: absolute;
-          left: 10px;
           bottom: 0;
-          border-bottom: 12px solid #00A1EA;
-          border-left: 10.32px solid transparent;
-          border-right: 10.32px solid transparent;
+          left: 160px;
+          border-bottom: 11px solid #00A1EA;
+          border-left: 9.46px solid transparent;
+          border-right: 9.46px solid transparent;
           transition: left 2s;
           -moz-transition: left 2s;
           -webkit-transition: left 2s;
@@ -38,8 +44,11 @@ body {
           -webkit-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
           -o-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1); }
       body div#header div#header-wrapper div#header-nav {
+        padding-left: 50px;
         display: inline-block; }
         body div#header div#header-wrapper div#header-nav a {
+          font-size: 18px;
+          padding-left: 40px;
           text-decoration: none;
           color: white; }
           body div#header div#header-wrapper div#header-nav a:hover {
@@ -47,6 +56,7 @@ body {
       body div#header div#header-wrapper div#header-operation {
         float: right; }
         body div#header div#header-wrapper div#header-operation a {
+          border: 1px solid white;
           text-decoration: none;
           color: white; }
           body div#header div#header-wrapper div#header-operation a:hover {
