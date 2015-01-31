@@ -62,8 +62,8 @@
 
 1. login + register + userInfo (win7)
 2. article + childArticle + createArticle (Jiawei)
-3. album + childAlbum + createAlbum
-4. discuss + childDiscuss + createDiscuss
-5. index + about + works
+3. album + childAlbum + createAlbum (Jiawei)
+4. discuss + childDiscuss + createDiscuss (win7)
+5. index + about + works (Qinghui)
 6. includes/ (LY coded as a demo)
 
