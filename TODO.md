@@ -44,9 +44,9 @@
 
 ### Other Requirement
 
-> Code style: Google style
-> Code model: OOP
-> Write some annotations if neccessary, at least those of a class or a module.
+1. Code style: Google style
+2. Code model: OOP
+3. Write some annotations if neccessary, at least those of a class or a module.
 
 ### Demo
 
