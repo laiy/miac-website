@@ -18,9 +18,15 @@
     border-top: $side_length*0.86 solid transparent
     border-bottom: $side_length*0.86 solid transparent
 
+@mixin _box_shadow($color, $offset: 1px, $v_shadow: 0)
+  -moz-box-shadow: 0 $v_shadow $offset $color
+  -webkit-box-shadow: 0 $v_shadow $offset $color
+  box-shadow: 0 $v_shadow $offset $color
+
 body
   margin: 0
   div#header
+    font-family: 'Microsoft YaHei'
     background: #1B1B1B
     div#header-wrapper
       width: 960px
@@ -47,7 +53,7 @@ body
         div#header-pointer
           position: absolute
           bottom: 0
-          left: 160px
+          left: 162px
           @include _triangle(11px, #00A1EA, 'up')
           @include _transition(0.20, 0.55)
       div#header-nav
@@ -61,13 +67,24 @@ body
           &:hover
             color: #00A1EA
       div#header-operation
+        margin-top: 14px
         float: right
         a
+          margin-left: 20px
+          font-size: 17px
+          display: inline-block
+          width: 75px 
+          height: 30px
           border: 1px solid white
+          border-radius: 7px
+          padding-top: 7px
+          text-align: center
           text-decoration: none
           color: white
+          @include _box_shadow(#EEE)
           &:hover
-            color: #00A1EA
+            color: #1B1B1B
+            background: white
     div#header-bottom
       background: #00A1EA
       height: 6px

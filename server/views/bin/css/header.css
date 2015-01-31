@@ -1,6 +1,7 @@
 body {
   margin: 0; }
   body div#header {
+    font-family: "Microsoft YaHei";
     background: #1B1B1B; }
     body div#header div#header-wrapper {
       width: 960px;
@@ -31,7 +32,7 @@ body {
         body div#header div#header-wrapper div#header-logo div#header-pointer {
           position: absolute;
           bottom: 0;
-          left: 160px;
+          left: 162px;
           border-bottom: 11px solid #00A1EA;
           border-left: 9.46px solid transparent;
           border-right: 9.46px solid transparent;
@@ -54,13 +55,26 @@ body {
           body div#header div#header-wrapper div#header-nav a:hover {
             color: #00A1EA; }
       body div#header div#header-wrapper div#header-operation {
+        margin-top: 14px;
         float: right; }
         body div#header div#header-wrapper div#header-operation a {
+          margin-left: 20px;
+          font-size: 17px;
+          display: inline-block;
+          width: 75px;
+          height: 30px;
           border: 1px solid white;
+          border-radius: 7px;
+          padding-top: 7px;
+          text-align: center;
           text-decoration: none;
-          color: white; }
+          color: white;
+          -moz-box-shadow: 0 0 1px #EEE;
+          -webkit-box-shadow: 0 0 1px #EEE;
+          box-shadow: 0 0 1px #EEE; }
           body div#header div#header-wrapper div#header-operation a:hover {
-            color: #00A1EA; }
+            color: #1B1B1B;
+            background: white; }
     body div#header div#header-bottom {
       background: #00A1EA;
       height: 6px; }
