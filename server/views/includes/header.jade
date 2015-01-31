@@ -4,6 +4,7 @@ div#header
             div#triangle-small
             div#triangle-big
             h2 MIAC
+            div#header-pointer
         div#header-nav
             - elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
             each element in elements
@@ -16,5 +17,4 @@ div#header
             else
                 a(href='/log') Sign in
                 a(href='/register') Sign up
-        div#header-pointer
     div#header-bottom

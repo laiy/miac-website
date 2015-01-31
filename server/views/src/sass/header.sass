@@ -8,6 +8,16 @@
   -webkit-transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
   -o-transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
 
+@mixin _triangle($side_length, $color, $direction)
+  @if $direction == 'up'
+    border-bottom: $side_length solid $color
+    border-left: $side_length*0.86 solid transparent
+    border-right: $side_length*0.86 solid transparent
+  @if $direction == 'right'
+    border-left: $side_length solid $color
+    border-top: $side_length*0.86 solid transparent
+    border-bottom: $side_length*0.86 solid transparent
+
 body
   margin: 0
   div#header
@@ -18,12 +28,22 @@ body
       margin: 0 auto
       div#header-logo
         display: inline-block
+        position: relative
         div#triangle-small
-          background: #666
+          display: inline-block
+          @include _triangle(20px, #666, 'right')
         div#triangle-big
-          background: #3B3B3B
+          display: inline-block
+          @include _triangle(29px, #3B3B3B, 'right')
         h2
+          display: inline-block
           color: white
+        div#header-pointer
+          position: absolute
+          left: 10px 
+          bottom: 0
+          @include _triangle(12px, #00A1EA, 'up')
+          @include _transition(0.20, 0.55)
       div#header-nav
         display: inline-block
         a
@@ -38,13 +58,6 @@ body
           color: white
           &:hover
             color: #00A1EA
-      div#header-pointer
-        position: absolute
-        width: 20px
-        height: 20px
-        background: #00A1EA
-        left: 10px 
-        @include _transition(0.20, 0.55)
     div#header-bottom
       background: #00A1EA
       height: 6px

@@ -7,13 +7,36 @@ body {
       width: 960px;
       margin: 0 auto; }
       body div#header div#header-wrapper div#header-logo {
-        display: inline-block; }
+        display: inline-block;
+        position: relative; }
         body div#header div#header-wrapper div#header-logo div#triangle-small {
-          background: #666; }
+          display: inline-block;
+          border-left: 20px solid #666;
+          border-top: 17.2px solid transparent;
+          border-bottom: 17.2px solid transparent; }
         body div#header div#header-wrapper div#header-logo div#triangle-big {
-          background: #3B3B3B; }
+          display: inline-block;
+          border-left: 29px solid #3B3B3B;
+          border-top: 24.94px solid transparent;
+          border-bottom: 24.94px solid transparent; }
         body div#header div#header-wrapper div#header-logo h2 {
+          display: inline-block;
           color: white; }
+        body div#header div#header-wrapper div#header-logo div#header-pointer {
+          position: absolute;
+          left: 10px;
+          bottom: 0;
+          border-bottom: 12px solid #00A1EA;
+          border-left: 10.32px solid transparent;
+          border-right: 10.32px solid transparent;
+          transition: left 2s;
+          -moz-transition: left 2s;
+          -webkit-transition: left 2s;
+          -o-transition: left 2s;
+          transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+          -moz-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+          -webkit-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+          -o-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1); }
       body div#header div#header-wrapper div#header-nav {
         display: inline-block; }
         body div#header div#header-wrapper div#header-nav a {
@@ -28,20 +51,6 @@ body {
           color: white; }
           body div#header div#header-wrapper div#header-operation a:hover {
             color: #00A1EA; }
-      body div#header div#header-wrapper div#header-pointer {
-        position: absolute;
-        width: 20px;
-        height: 20px;
-        background: #00A1EA;
-        left: 10px;
-        transition: left 2s;
-        -moz-transition: left 2s;
-        -webkit-transition: left 2s;
-        -o-transition: left 2s;
-        transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
-        -moz-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
-        -webkit-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
-        -o-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1); }
     body div#header div#header-bottom {
       background: #00A1EA;
       height: 6px; }
