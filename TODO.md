@@ -48,6 +48,14 @@
 > Code model: OOP
 > Write some annotations if neccessary, at least those of a class or a module.
 
+### Demo
+
+> I have writen a demo for you, you can consider it as a reference.
+
+1. https://github.com/laiy/miac-website/blob/master/server/views/src/sass/header.sass
+2. https://github.com/laiy/miac-website/blob/master/server/views/src/coffee/header.coffee
+3. https://github.com/laiy/miac-website/blob/master/server/views/includes/header.jade
+
 ### Specific Work Division
 
 > I would make a division recently, all your work now is to learn basic skill and configure the developing environment.
