@@ -2,8 +2,8 @@
 
 ### Current Mission
 
-1. Finish front-end UI based on design chart by Yujie. (win7, Qinghui)
-2. Front-back abutment. (win7, Qinghui)
+1. Finish front-end UI based on design chart by Yujie. (win7, Qinghui, Jiawei)
+2. Front-back abutment. (win7, Qinghui, Jiawei)
 3. Back-end work based on front-end requirement. (LY)
 
 ### Specific Illustration
@@ -60,8 +60,8 @@
 
 > I would make a division recently, all your work now is to learn basic skill and configure the developing environment.
 
-1. login + register + userInfo
-2. article + childArticle + createArticle
+1. login + register + userInfo (win7)
+2. article + childArticle + createArticle (Jiawei)
 3. album + childAlbum + createAlbum
 4. discuss + childDiscuss + createDiscuss
 5. index + about + works
