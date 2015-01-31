@@ -6,7 +6,6 @@ html
         link(href='/bin/css/header.css', rel='stylesheet')
         script(src='/bin/js/header.js')
     body
-        p createAlbum
         include ./includes/header.jade
         form(action='/Album/createAlbum' method='post' enctype='multipart/form-data')
             p title
