@@ -42,7 +42,7 @@
 4. All of your work is on your own reposity, you can push to your own reposity for some stages.
 5. When you finished, merge your code to souce code https://github.com/laiy/miac-website.
 
-### Other requirement
+### Other Requirement
 
 > Code style: Google style
 > Code model: OOP
