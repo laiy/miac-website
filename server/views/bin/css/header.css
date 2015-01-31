@@ -75,7 +75,8 @@ body {
           -o-box-shadow: 0 0 1px #EEE; }
           body div#header div#header-wrapper div#header-operation a:hover {
             color: #1B1B1B;
-            background: white; }
+            background: white;
+            cursor: pointer; }
     body div#header div#header-bottom {
       background: #00A1EA;
       height: 6px; }
