@@ -60,3 +60,10 @@
 
 > I would make a division recently, all your work now is to learn basic skill and configure the developing environment.
 
+1. login + register + userInfo
+2. article + childArticle + createArticle
+3. album + childAlbum + createAlbum
+4. discuss + childDiscuss + createDiscuss
+5. index + about + works
+6. includes/
+
