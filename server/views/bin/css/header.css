@@ -1,30 +1,49 @@
 body {
   margin: 0; }
   body div#header {
-    background: yellow; }
-    body div#header div#header-logo {
-      display: inline-block; }
-    body div#header div#header-nav {
-      display: inline-block; }
-      body div#header div#header-nav a:hover {
-        color: red; }
-    body div#header div#header-operation {
-      float: right; }
-      body div#header div#header-operation a:hover {
-        color: red; }
-    body div#header div#pointer {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      background: black;
-      left: 10px;
-      transition: left 2s;
-      -moz-transition: left 2s;
-      -webkit-transition: left 2s;
-      -o-transition: left 2s;
-      transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
-      -moz-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
-      -webkit-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
-      -o-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1); }
+    overflow: hidden;
+    background: #1B1B1B; }
+    body div#header div#header-wrapper {
+      width: 960px;
+      margin: 0 auto; }
+      body div#header div#header-wrapper div#header-logo {
+        display: inline-block; }
+        body div#header div#header-wrapper div#header-logo div#triangle-small {
+          background: #666; }
+        body div#header div#header-wrapper div#header-logo div#triangle-big {
+          background: #3B3B3B; }
+        body div#header div#header-wrapper div#header-logo h2 {
+          color: white; }
+      body div#header div#header-wrapper div#header-nav {
+        display: inline-block; }
+        body div#header div#header-wrapper div#header-nav a {
+          text-decoration: none;
+          color: white; }
+          body div#header div#header-wrapper div#header-nav a:hover {
+            color: #00A1EA; }
+      body div#header div#header-wrapper div#header-operation {
+        float: right; }
+        body div#header div#header-wrapper div#header-operation a {
+          text-decoration: none;
+          color: white; }
+          body div#header div#header-wrapper div#header-operation a:hover {
+            color: #00A1EA; }
+      body div#header div#header-wrapper div#header-pointer {
+        position: absolute;
+        width: 20px;
+        height: 20px;
+        background: #00A1EA;
+        left: 10px;
+        transition: left 2s;
+        -moz-transition: left 2s;
+        -webkit-transition: left 2s;
+        -o-transition: left 2s;
+        transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+        -moz-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+        -webkit-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1);
+        -o-transition-timing-function: cubic-bezier(0, 0.2, 0.55, 1); }
+    body div#header div#header-bottom {
+      background: #00A1EA;
+      height: 6px; }
 
 /*# sourceMappingURL=header.css.map */

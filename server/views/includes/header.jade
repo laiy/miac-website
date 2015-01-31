@@ -1,18 +1,20 @@
 div#header
-    div#header-logo
-        div#triangle-small
-        div#triangle-big
-        h2 MIAC
-    div#header-nav
-        - elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
-        each element in elements
-            a(href='/' + element)=element
-    div#header-operation
-        if user
-            img(src='/assets/img/user/' + user.avatar alt='avatar')
-            a(href='/user/' + user._id) Profile
-            a(id='logout') Sign out
-        else
-            a(href='/log') Sign in
-            a(href='/register') Sign up
-    div#pointer
+    div#header-wrapper
+        div#header-logo
+            div#triangle-small
+            div#triangle-big
+            h2 MIAC
+        div#header-nav
+            - elements = ['Index', 'Article', 'Discuss', 'Album', 'Works', 'About']
+            each element in elements
+                a(href='/' + element)=element
+        div#header-operation
+            if user
+                img(src='/assets/img/user/' + user.avatar alt='avatar')
+                a(href='/user/' + user._id) Profile
+                a(id='logout') Sign out
+            else
+                a(href='/log') Sign in
+                a(href='/register') Sign up
+        div#header-pointer
+    div#header-bottom

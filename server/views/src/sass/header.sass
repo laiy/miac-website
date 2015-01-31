@@ -11,25 +11,40 @@
 body
   margin: 0
   div#header
-    background: yellow 
-    div#header-logo
-      display: inline-block
-      div#triangle-small
-      div#triangle-big
-    div#header-nav
-      display: inline-block
-      a
-        &:hover
-          color: red
-    div#header-operation
-      float: right
-      a
-        &:hover
-          color: red
-    div#pointer
-      position: absolute
-      width: 20px
-      height: 20px
-      background: black
-      left: 10px 
-      @include _transition(0.20, 0.55)
+    overflow: hidden
+    background: #1B1B1B
+    div#header-wrapper
+      width: 960px
+      margin: 0 auto
+      div#header-logo
+        display: inline-block
+        div#triangle-small
+          background: #666
+        div#triangle-big
+          background: #3B3B3B
+        h2
+          color: white
+      div#header-nav
+        display: inline-block
+        a
+          text-decoration: none
+          color: white
+          &:hover
+            color: #00A1EA
+      div#header-operation
+        float: right
+        a
+          text-decoration: none
+          color: white
+          &:hover
+            color: #00A1EA
+      div#header-pointer
+        position: absolute
+        width: 20px
+        height: 20px
+        background: #00A1EA
+        left: 10px 
+        @include _transition(0.20, 0.55)
+    div#header-bottom
+      background: #00A1EA
+      height: 6px
