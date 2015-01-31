@@ -11,7 +11,6 @@ div#header
                 a(href='/' + element)=element
         div#header-operation
             if user
-                img(src='/assets/img/user/' + user.avatar alt='avatar')
                 a(href='/user/' + user._id) Profile
                 a(id='logout') Sign out
             else

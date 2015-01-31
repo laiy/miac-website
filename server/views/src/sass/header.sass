@@ -19,9 +19,10 @@
     border-bottom: $side_length*0.86 solid transparent
 
 @mixin _box_shadow($color, $offset: 1px, $v_shadow: 0)
+  box-shadow: 0 $v_shadow $offset $color
   -moz-box-shadow: 0 $v_shadow $offset $color
   -webkit-box-shadow: 0 $v_shadow $offset $color
-  box-shadow: 0 $v_shadow $offset $color
+  -o-box-shadow: 0 $v_shadow $offset $color
 
 body
   margin: 0

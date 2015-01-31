@@ -13,30 +13,26 @@ $ ->
             url: '/Log/session'
             type: 'delete'
             success: (data)->
-                alert data.result + '\n' + (data.msg if data.msg)
                 if data.result is 'success'
                     $(location).attr 'href', '/'
+                else
+                    alert 'fail!'
 
     ###
     * handle the logic of header-pointer's animation
     ###
-    class Pointer
-
+    class Pointer_Animation_Handler
         ###
         * init datastructure along with event handler
         * @param $navigators: nav elements in DOM
         * @param destinations: record the destinations for pointer to go
         * @param $pointer: pointer element in DOM
         ###
-        constructor: (@$navigators = $('div#header-nav a'),
-        @destinations = [
-            '162px',
-            '245px',
-            '340px',
-            '433px',
-            '525px',
-            '613px'
-        ], @$pointer = $('div#header-pointer'))->
+        constructor: (
+            @$navigators = $('div#header-nav a'),
+            @destinations = [],
+            @$pointer = $('div#header-pointer')
+        )->
             @add_event_handler()
 
         ###
@@ -45,9 +41,10 @@ $ ->
         add_event_handler: ()->
             that = @
             for navigator, i in @$navigators
+                @destinations[i] = (navigator.offsetLeft - @$pointer.position().left + (navigator.offsetWidth - 40) / 3) + "px"
                 navigator.onmouseover = do(i)->
                     ->
                         that.$pointer.css('left', that.destinations[i])
 
-    pointer = new Pointer
+    pointer_animation_handler = new Pointer_Animation_Handler
 

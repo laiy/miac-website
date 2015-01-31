@@ -69,9 +69,10 @@ body {
           text-align: center;
           text-decoration: none;
           color: white;
+          box-shadow: 0 0 1px #EEE;
           -moz-box-shadow: 0 0 1px #EEE;
           -webkit-box-shadow: 0 0 1px #EEE;
-          box-shadow: 0 0 1px #EEE; }
+          -o-box-shadow: 0 0 1px #EEE; }
           body div#header div#header-wrapper div#header-operation a:hover {
             color: #1B1B1B;
             background: white; }
