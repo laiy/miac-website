@@ -65,5 +65,5 @@
 3. album + childAlbum + createAlbum
 4. discuss + childDiscuss + createDiscuss
 5. index + about + works
-6. includes/
+6. includes/ (LY coded as a demo)
 
