@@ -28,12 +28,14 @@
       * @param $navigators: nav elements in DOM
       * @param destinations: record the destinations for pointer to go
       * @param $pointer: pointer element in DOM
+      * @param $wrapper: the header wrapper in DOM
       */
 
-      function Pointer_Animation_Handler($navigators, destinations, $pointer) {
+      function Pointer_Animation_Handler($navigators, destinations, $pointer, $wrapper) {
         this.$navigators = $navigators != null ? $navigators : $('div#header-nav a');
         this.destinations = destinations != null ? destinations : [];
         this.$pointer = $pointer != null ? $pointer : $('div#header-pointer');
+        this.$wrapper = $wrapper != null ? $wrapper : $('div#header-wrapper');
         this.add_event_handler();
       }
 
@@ -49,7 +51,7 @@
         _results = [];
         for (i = _i = 0, _len = _ref.length; _i < _len; i = ++_i) {
           navigator = _ref[i];
-          this.destinations[i] = (navigator.offsetLeft - this.$pointer.position().left + (navigator.offsetWidth - 40) / 3) + "px";
+          this.destinations[i] = (navigator.offsetLeft - this.$wrapper.offset().left + 50) + "px";
           _results.push(navigator.onmouseover = (function(i) {
             return function() {
               return that.$pointer.css('left', that.destinations[i]);

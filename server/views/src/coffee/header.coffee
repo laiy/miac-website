@@ -27,11 +27,13 @@ $ ->
         * @param $navigators: nav elements in DOM
         * @param destinations: record the destinations for pointer to go
         * @param $pointer: pointer element in DOM
+        * @param $wrapper: the header wrapper in DOM
         ###
         constructor: (
             @$navigators = $('div#header-nav a'),
             @destinations = [],
-            @$pointer = $('div#header-pointer')
+            @$pointer = $('div#header-pointer'),
+            @$wrapper = $('div#header-wrapper')
         )->
             @add_event_handler()
 
@@ -41,7 +43,7 @@ $ ->
         add_event_handler: ()->
             that = @
             for navigator, i in @$navigators
-                @destinations[i] = (navigator.offsetLeft - @$pointer.position().left + (navigator.offsetWidth - 40) / 3) + "px"
+                @destinations[i] = (navigator.offsetLeft - @$wrapper.offset().left + 50) + "px"
                 navigator.onmouseover = do(i)->
                     ->
                         that.$pointer.css('left', that.destinations[i])
