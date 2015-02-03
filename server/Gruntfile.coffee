@@ -42,12 +42,32 @@ module.exports = (grunt)->
                     dest: 'views/bin/css'
                     ext: '.css'
                 ]
+        uglify:
+            dist:
+                files: [
+                    expand: true
+                    cwd: 'views/bin/js/'
+                    src: '**/*.js'
+                    dest: 'views/bin/js'
+                ]
+        cssmin:
+            dist:
+                files: [
+                    expand: true
+                    cwd: 'views/bin/css/'
+                    src: '**/*.css'
+                    dest: 'views/bin/css'
+                ]
 
     grunt.loadNpmTasks 'grunt-simple-mocha'
     grunt.loadNpmTasks 'grunt-contrib-coffee'
     grunt.loadNpmTasks 'grunt-contrib-watch'
     grunt.loadNpmTasks 'grunt-browser-sync'
     grunt.loadNpmTasks 'grunt-contrib-sass'
+    grunt.loadNpmTasks 'grunt-contrib-uglify'
+    grunt.loadNpmTasks 'grunt-contrib-cssmin'
 
     grunt.registerTask 'test', 'simplemocha'
     grunt.registerTask 'default', ['browserSync', 'watch']
+    grunt.registerTask 'compress', ['uglify', 'cssmin']
+
