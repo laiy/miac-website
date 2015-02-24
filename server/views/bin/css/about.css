@@ -1,0 +1,26 @@
+#works-main {
+  position: relative;
+  height: auto; }
+  #works-main #works-content {
+    font-family: "Microsoft YaHei";
+    color: gray;
+    width: 70%;
+    text-align: justify;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 50px 50px 500px 50px; }
+    #works-main #works-content .works-discription {
+      overflow: hidden;
+      height: 30%;
+      margin-top: 50px; }
+      #works-main #works-content .works-discription h1 {
+        text-align: center; }
+      #works-main #works-content .works-discription #works-us {
+        float: right;
+        width: 50%;
+        height: 100%; }
+      #works-main #works-content .works-discription #works-connected {
+        height: 300px;
+        width: 100%; }
+
+/*# sourceMappingURL=about.css.map */

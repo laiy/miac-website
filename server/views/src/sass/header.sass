@@ -26,12 +26,14 @@
 
 body
   margin: 0
+  overflow-x: hidden
+  overflow-y: auto 
   div#header
     font-family: 'Microsoft YaHei'
     background: #1B1B1B
     div#header-wrapper
-      width: 960px
-      margin: 0 auto
+      width: 100%
+      padding-left: 30px
       overflow: hidden
       div#header-logo
         display: inline-block
@@ -54,7 +56,7 @@ body
         div#header-pointer
           position: absolute
           bottom: 0
-          left: 159px
+          left: 162px
           @include _triangle(11px, #00A1EA, 'up')
           @include _transition(0.20, 0.55)
       div#header-nav
@@ -69,6 +71,7 @@ body
             color: #00A1EA
       div#header-operation
         margin-top: 14px
+        margin-right: 140px
         float: right
         a
           margin-left: 20px
@@ -90,3 +93,9 @@ body
     div#header-bottom
       background: #00A1EA
       height: 6px
+@media screen and (max-width: 1000px)
+  body
+    overflow-x: auto
+    #header-wrapper
+      width: 1000px !important
+

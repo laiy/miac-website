@@ -1,0 +1,46 @@
+doctype html
+html
+    head
+        title works
+        script(src='./lib/jquery.js')
+        meta(charset='utf-8')
+        link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/works.css', rel='stylesheet')
+        script(src='/bin/js/header.js')
+    body
+        include ./includes/header.jade
+        img(src="/assets/works/img/works.jpg", alt="works")
+        div#content
+            div.pic
+                img(src="/assets/works/img/xiaotao.jpg", alt="xiaotao")
+            div.flip-container
+                div.front-cell
+                    p 校淘中大
+                div.back-cell
+                    p
+                        |blablablabalblabla
+                        |blablablabalblabla
+                        |blablablabalblabla
+            div.flip-container
+                div.front-cell
+                    p 校淘中大
+                div.back-cell
+                    p
+                        |blablablabalblabla
+                        |blablablabalblabla
+                        |blablablabalblabla            
+            div.pic
+                img(src="/assets/works/img/iqshu.jpg", alt="xiaotao")
+            div.flip-container
+                div.front-cell
+                    p 校淘中大
+                div.back-cell
+                    p
+                        |blablablabalblabla
+                        |blablablabalblabla
+                        |blablablabalblabla            
+            div.pic
+                img(src="/assets/works/img/zhuhai.jpg", alt="xiaotao")
+        div#footer
+            p @2015MIAC
+

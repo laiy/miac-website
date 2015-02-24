@@ -1,1 +1,25 @@
-(function(){$("button").click(function(){var a,b;return b=$("#username").val(),a=$("#password").val(),$.ajax({url:"/Log/session",data:{username:b,password:a},type:"post",error:function(a){return alert(a.status+" "+a.statusText)},success:function(a){return alert(a.result+"\n"+(a.msg?a.msg:void 0)),"success"===a.result?$(location).attr("href","/"):void 0}})})}).call(this);
+(function() {
+  $('button').click(function() {
+    var password, username;
+    username = $('#username').val();
+    password = $('#password').val();
+    return $.ajax({
+      url: '/Log/session',
+      data: {
+        username: username,
+        password: password
+      },
+      type: 'post',
+      error: function(XMLHttpRequest) {
+        return alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText);
+      },
+      success: function(data) {
+        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return $(location).attr('href', '/');
+        }
+      }
+    });
+  });
+
+}).call(this);
