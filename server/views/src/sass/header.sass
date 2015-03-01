@@ -1,6 +1,6 @@
 @mixin _transition($lower_forth, $upper_forth)
   transition: left 0.8s
-  -moz-transition: left 0.8s 
+  -moz-transition: left 0.8s
   -webkit-transition: left 0.8s
   -o-transition: left 0.8s
   transition-timing-function: cubic-bezier(0, $lower_forth, $upper_forth, 1)
@@ -25,6 +25,7 @@
   -o-box-shadow: 0 $v_shadow $offset $color
 
 body
+  height: 100%
   margin: 0
   div#header
     font-family: 'Microsoft YaHei'
@@ -74,7 +75,7 @@ body
           margin-left: 20px
           font-size: 17px
           display: inline-block
-          width: 75px 
+          width: 75px
           height: 30px
           border: 1px solid white
           border-radius: 7px
