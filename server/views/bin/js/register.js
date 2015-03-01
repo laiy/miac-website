@@ -1,1 +1,19 @@
-(function(){$("button").click(function(){var a,b,c;return c=$("#username").val(),b=$("#password").val(),a=$("#email").val(),$.post("/Register/regist",{username:c,password:b,email:a},function(a){return alert(a.result+"\n"+(a.msg?a.msg:void 0)),"success"===a.result?$(location).attr("href","/"):void 0})})}).call(this);
+(function() {
+  $('button').click(function() {
+    var email, password, username;
+    username = $('#username').val();
+    password = $('#password').val();
+    email = $('#email').val();
+    return $.post('/Register/regist', {
+      username: username,
+      password: password,
+      email: email
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      if (data.result === 'success') {
+        return $(location).attr('href', '/');
+      }
+    });
+  });
+
+}).call(this);
