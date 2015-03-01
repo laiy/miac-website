@@ -8,10 +8,11 @@ html
     link(href='/bin/css/works.css', rel='stylesheet')
     link(href='/bin/css/footer.css', rel='stylesheet')
     script(src='/bin/js/header.js')
+    script(src='/bin/js/works.js')
   body
     include ./includes/header.jade
     div#works-wrapper
-      img(src="/src/img/works/works.jpg", alt="works")
+      img(id='works-logo' src="/src/img/works/works.jpg", alt="works")
       div#works-content
         div.works-pic
           img(src="/src/img/works/xiaotao.jpg", alt="中大校淘")
@@ -32,7 +33,7 @@ html
               p
                 |blablablabalblabla
                 |blablablabalblabla
-                |blablablabalblabla 
+                |blablablabalblabla
         div.works-pic
           img(src="/src/img/works/iqshu.jpg", alt="爱情树")
         div.works-flip-container
@@ -40,7 +41,7 @@ html
             div.works-front
               p What?
             div.works-back
-              p   
+              p
                 |blablablabalblabla
                 |blablablabalblabla
         div.works-pic
