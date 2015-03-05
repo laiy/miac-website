@@ -1,0 +1,35 @@
+@mixin center($value: 20%)
+    margin-left: 5%
+    margin-right: $value
+
+
+#create-article
+    background-color: #F1EFF0
+    margin-left: 20%
+    margin-right: 20%
+    *
+        margin: 0 auto
+    p
+        @include center
+    #header
+        color: grey
+        font-size: 40pt
+    #create-new-article
+        @include center
+        button
+            color: white
+            font-size: 18pt
+            height: 30pt
+            width: 90pt
+            border-radius: 5px
+            margin-right: 30px
+        #title
+            width: 400px
+            height: 20px
+        #container
+            *
+                margin: 0
+        .submit
+            background-color: #31AAFD
+        .cancel
+            background-color: #484848

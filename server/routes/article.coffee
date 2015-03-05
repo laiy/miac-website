@@ -21,13 +21,13 @@ router.get '/', (req, res)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'article', articles: articles
+            res.render 'article', articles: articles, title: 'article'
 
 ###
 * render 'childArticle' when get '/article/create'
 ###
 router.get '/create', requireLogin, (req, res)->
-    res.render 'createArticle'
+    res.render 'createArticle', title: 'createAritcle'
 
 ###
 * render 'childArticle' when get '/article/:id'
@@ -55,7 +55,7 @@ router.get '/:id', (req, res)->
                                 comment.replys = replys
                                 callback()
                     , (err)->
-                        res.render 'childArticle', { article: article, comments: comments }
+                        res.render 'childArticle', { article: article, comments: comments, title: 'childArticle' }
 
 ###
 * handle when post '/article/create'

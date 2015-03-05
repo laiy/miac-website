@@ -1,0 +1,44 @@
+#article-list {
+  margin-left: 13%;
+  margin-right: 13%;
+  background-color: white;
+  padding: 5% 5% 5% 5%; }
+  #article-list h1 {
+    color: grey;
+    font-size: 60pt; }
+  #article-list #article-search {
+    border: solid 2px;
+    margin-bottom: 5px; }
+    #article-list #article-search * {
+      display: inline;
+      height: 26px; }
+    #article-list #article-search .submit {
+      float: right;
+      height: 26px;
+      margin-top: 3px; }
+  #article-list #main {
+    overflow: hidden; }
+    #article-list #main #list {
+      border: solid 2px;
+      display: inline-block;
+      width: 620px;
+      min-height: 400px; }
+      #article-list #main #list #articles {
+        border: solid 2px;
+        margin: 2px 2px 2px 2px; }
+        #article-list #main #list #articles .one-article {
+          overflow: hidden; }
+          #article-list #main #list #articles .one-article #title {
+            font-size: 28pt; }
+          #article-list #main #list #articles .one-article #article-time {
+            text-align: right; }
+          #article-list #main #list #articles .one-article #link {
+            float: right; }
+    #article-list #main #choose {
+      float: right; }
+      #article-list #main #choose #label {
+        overflow: hidden; }
+        #article-list #main #choose #label p {
+          margin: 2px; }
+        #article-list #main #choose #label ul {
+          float: left; }

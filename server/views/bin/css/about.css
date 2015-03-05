@@ -1,0 +1,32 @@
+#about #main-information div {
+  margin-top: 15px;
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: #f1eff0;
+  color: #818181; }
+  #about #main-information div header {
+    font-size: 28pt; }
+  #about #main-information div p {
+    font-size: 14pt; }
+#about #more {
+  overflow: hidden;
+  background-color: #1b1b1b; }
+  #about #more header {
+    font-size: 40pt;
+    color: #009fe9; }
+  #about #more p {
+    font-size: 20pt;
+    color: white; }
+  #about #more #container {
+    margin: 5% 20% 5% 20%;
+    overflow: hidden; }
+    #about #more #container #thanks {
+      display: inline-block; }
+    #about #more #container #contact-and-donate {
+      float: right; }
+      #about #more #container #contact-and-donate #donate {
+        border: #009fe9 solid 2px;
+        font-size: 37pt;
+        color: #009fe9;
+        padding: 5% 5% 5% 5%;
+        text-align: center; }

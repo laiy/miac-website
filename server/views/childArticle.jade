@@ -1,58 +1,33 @@
-doctype html
-html
-    head
-        title childArticle
-        script(src='../lib/jquery.js')
-        link(href='/bin/css/test.css', rel='stylesheet')
-    body
-        p childArticle
-        include ./includes/header.jade
-        p category:
-            span=article.category
-        p title:
-            span=article.title
-        p content:
-            span=article.content
-        p createdBy:
-            span=article.createdBy
-        p cratedAt:
-            span=moment(article.cratedAt).format('MMM D,YY')
-        p saySomethingHere:
-        input(type='text')
-        button(type='button' id='comment-submit') submit
-        br
-        if comments
-            p comments
-            each comment in comments
-                div
-                    p comment:
-                    p ObjectId:
-                        span=comment._id
-                    p type:
-                        span=comment.type
-                    p content:
-                        span=comment.content
-                    p createdBy(OI):
-                        span=comment.createdBy
-                    p createdAt:
-                        span=moment(comment.createdAt).format('MMM D,YY')
-                    p saySomethingHere:
-                    input(type='text')
-                    button(type='button' class='reply-submit' comment-id=comment._id) submit
-                    if comment.replys
-                        p replys:
-                        each reply in comment.replys
-                            p reply:
-                            p ObjectId:
-                                span=reply._id
-                            p type:
-                                span=reply.type
-                            p content:
-                                span=reply.content
-                            p createdBy(OI):
-                                span=reply.createdBy
-                            p createdAt:
-                                span=moment(reply.createdAt).format('MMM D,YY')
-                br
-        script(src='../bin/js/childArticle.js')
+extends ./includes/layout.jade
 
+block content
+    div#childArticle
+        div#container
+            p category: #{article.category}
+            div#content
+                header #{article.title}
+                p !{article.content}
+                footer Created by #{article.createdBy} at #{moment(article.createAt).format('MMM D,YY')}
+                div#write-comment
+                    | Say something here:
+                    form(mothod='POST', action='')
+                        input.text(type='text' name='content')
+                        br
+                        input(type='submit' value='submit') 
+            div#comments
+               if comments
+                   each comment in comments
+                        div(name=comment._id)
+                            p.words !{comment.content}
+                            p.type #{comment.type}
+                            p.footer #{comment.createdBy} commented at #{moment(comment.createdAt).format('MMM D,YY')}
+                            div#say-sth
+                                form(action= '')
+                                    input.text(type='text' name='content')
+                                    input(type='submit' value='submit')
+                            div#replys
+                                each reply in comment.replys
+                                     div(name=reply._id)
+                                         p.words #{reply.content}
+                                         p.type type: #{reply.type}
+                                         p.footer #{reply.createdBy} replyed at #{moment(reply.createdAt).format('MMM D,YY')}

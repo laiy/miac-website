@@ -1,0 +1,17 @@
+#childArticle {
+  margin-left: 20%;
+  margin-right: 20%;
+  background-color: white; }
+  #childArticle #container {
+    margin: 10px; }
+    #childArticle #container #content p {
+      text-align: center; }
+    #childArticle #container #content header {
+      font-size: 40pt;
+      text-align: center;
+      color: #00a0e6; }
+    #childArticle #container #content footer {
+      text-align: right; }
+    #childArticle #container #content #write-comment form .text {
+      width: "400px";
+      height: "400px"; }

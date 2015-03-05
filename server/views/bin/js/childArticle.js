@@ -19,7 +19,7 @@
   $('.reply-submit').click(function() {
     var ObjectId, content;
     content = $(this).siblings('input').val();
-    ObjectId = $(this).attr('comment-id');
+    ObjectId = $(this).parent('div').attr('name');
     return $.post('/message/create', {
       replyTo: ObjectId,
       type: 'reply',

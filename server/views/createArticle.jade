@@ -1,18 +1,26 @@
-doctype html
-html
-    head
-        title createArticle
-        script(src='../lib/jquery.js')
-        link(href='/bin/css/test.css', rel='stylesheet')
-    body
-        p createArticle
-        include ./includes/header.jade
-        p category
-        input(type='text' id='category')
-        p title
-        input(type='text' id='title')
-        p content
-        input(type='textarea' id='content')
-        button(type='button') submit
-        script(src='../bin/js/createArticle.js')
+extends ./includes/layout.jade
 
+block content
+    div#create-article
+        p#header 发表新文章
+
+        script(type= 'text/javascript', src= '/lib/ueditor1_4_3-utf8-php/ueditor.config.js')      
+
+        script(type= 'text/javascript', src= '/lib/ueditor1_4_3-utf8-php/ueditor.all.js')      
+
+        script(type= 'text/javascript' src= '/lib/ueditor1_4_3-utf8-php/ueEditor.js')      
+
+        link(rel="stylesheet", href="/stylesheets/style.css")      
+
+        form#create-new-article(method= 'POST', action= '/article/create')
+            | 标题：
+            input#title(type=- "submit" name= 'title' placeholder= '请键入标题')
+            scirpt#container(name= 'content', type= 'text/plain')
+            | 类别：
+            input(type= "text", name= "category")
+            br
+            | 标签：
+            input(type= "text", name= "label")
+            br
+            button.submit(type = 'submit') 发表
+            button.cancel(type = 'button', onclick = "location.href= './'")取消

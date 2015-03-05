@@ -7,7 +7,7 @@ $('button').click ->
     category = $('#category').val()
     title = $('#title').val()
     content = $('#content').val()
-    $.post '/article/create', { category: category, title: title, content: content }, (data)->
+    $.post '/article/create', {category: category, title: title, content: content}, (data)->
         alert data.result + '\n' + (data.msg if data.msg)
         if data.result is 'success'
             $(location).attr 'href', '/article'

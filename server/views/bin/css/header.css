@@ -1,0 +1,55 @@
+#navigator {
+  background-color: #1b1b1b;
+  overflow: hidden; }
+  #navigator div {
+    display: inline-block; }
+  #navigator .link {
+    text-align: center;
+    color: #fefefe;
+    margin-right: 15px;
+    font-size: 10pt; }
+    #navigator .link a {
+      color: #fefefe;
+      text-decoration: none; }
+    #navigator .link span {
+      font-size: 30pt; }
+  #navigator .light {
+    color: #009fe9; }
+    #navigator .light a {
+      color: #009fe9; }
+  #navigator .dark {
+    color: #fefefe; }
+    #navigator .dark a {
+      color: #fefefe; }
+  #navigator #user-poccess {
+    position: absolute;
+    right: 10px;
+    top: 10px; }
+    #navigator #user-poccess .button {
+      padding: 5px 5px 5px 5px;
+      font-size: 20pt;
+      border: white solid 2px;
+      margin-left: 15px;
+      border-radius: 15%; }
+      #navigator #user-poccess .button span a {
+        color: #fefefe; }
+    #navigator #user-poccess .button:hover {
+      border-color: #009fe9; }
+      #navigator #user-poccess .button:hover span a {
+        color: #009fe9; }
+  #navigator .triangle {
+    position: absolute;
+    top: 64px;
+    left: 30px;
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 10px solid white;
+    border-bottom-color: #009fe9;
+    -webkit-transition: left 0.7s; }
+  #navigator #divided-line {
+    margin-top: 10px;
+    display: block;
+    height: 5px;
+    background-color: #009fe9; }

@@ -1,0 +1,50 @@
+@mixin center($value: 13%)
+    margin-left: $value
+    margin-right: $value
+
+@mixin border-style()
+    border: solid 2px
+
+#article-list
+    @include center
+    background-color: #FFFFFF
+    padding: 5% 5% 5% 5%
+    h1
+        color: grey
+        font-size: 60pt
+    #article-search
+        @include border-style
+        margin-bottom: 5px
+        *
+            display: inline
+            height: 26px
+        .submit
+            float: right
+            height: 26px
+            margin-top: 3px
+    #main
+        overflow: hidden
+        #list
+            @include border-style
+            display: inline-block
+            width: 620px
+            min-height: 400px
+            #articles
+                @include border-style
+                margin: 2px 2px 2px 2px
+                .one-article
+                    overflow: hidden
+                    #title
+                        font-size: 28pt
+                    #article-time
+                        text-align: right
+                    #link
+                        float: right 
+        #choose
+            float: right
+            #label
+                p
+                    margin: 2px
+                overflow: hidden
+                ul
+                    float: left
