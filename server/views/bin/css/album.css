@@ -8,9 +8,18 @@
   padding: 2% 2% 2% 2%; }
   #album #album-search form {
     display: inline; }
+    #album #album-search form .search-query {
+      margin-right: 1%; }
   #album #album-search .submit {
     float: right; }
   #album header {
     color: grey;
     font-size: 60pt;
     padding: 0px 0px 0px 0px; }
+  #album #content {
+    padding: 1% 1% 1% 1%; }
+    #album #content .pic {
+      margin-bottom: 1%; }
+      #album #content .pic span {
+        margin-right: 5%;
+        font-size: 25pt; }

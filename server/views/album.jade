@@ -12,5 +12,5 @@ block content
         div#content
             for album in albums
                 div.pic
-                    p album.title
-                    img.cover(src='./assets', onclick="window.open('./'' + album.Id)")
+                    span #{album.title}
+                    img.cover(src='assets/img/album/' + album.title + '/' + album.cover, onclick="window.open('./album/' + " + "\'" + (album._id) + "\'" + ")")

@@ -1,7 +1,7 @@
-#	> File Name: album.coffee
-#	> Author: LY
-#	> Mail: ly.franky@gmail.com
-#	> Created Time: Wednesday, December 10, 2014 AM09:58:47 CST
+#   > File Name: album.coffee
+#   > Author: LY
+#   > Mail: ly.franky@gmail.com
+#   > Created Time: Wednesday, December 10, 2014 AM09:58:47 CST
 
 express = require 'express'
 fs = require 'fs'
@@ -72,7 +72,7 @@ router.get '/:id', (req, res)->
 ###
 router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover
-        return res.status(500).send 'Server Error.'
+        res.status(500).send 'Server Error.'
     else
         { title } = req.body
         coverPath = req.files.cover.path
@@ -83,9 +83,10 @@ router.post '/createAlbum', requireLogin, (req, res)->
         else
             fs.mkdir 'views/assets/img/album/' + title, ->
                 imageMagick(coverPath)
-                    .resize 150, 150, '!'
+                    .resize(150, 150)
                     .autoOrient()
                     .write 'views/assets/img/album/' + title + '/' + coverName, (err)->
+                        console.log('views/assets/img/album/' + title + '/' + coverName)
                         if err
                             return res.status(500).send 'Server Error.'
                         else
@@ -134,4 +135,3 @@ router.post '/addPicture', requireLogin, (req, res)->
                                         res.redirect '/album/' + albumId
 
 module.exports = router
-
