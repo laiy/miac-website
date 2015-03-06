@@ -7,31 +7,37 @@
 
 #article-list
     @include center
-    background-color: #FFFFFF
-    padding: 5% 5% 5% 5%
+    background-color: white
+    padding: 2% 5% 5% 5%
+    margin-top: 1%
+    margin-bottom: 1%
+    border-radius: 5%
     h1
         color: grey
         font-size: 60pt
+        padding: 0px 0px 0px 0px
     #article-search
-        @include border-style
         margin-bottom: 5px
+        padding: 1% 1% 1% 1%
+        background-color: white
         *
             display: inline
             height: 26px
+        #search
+            #search-word
+                margin-right: 1%
         .submit
             float: right
-            height: 26px
-            margin-top: 3px
     #main
         overflow: hidden
+        background-color: white
         #list
-            @include border-style
+            padding: 1% 1% 1% 1%
             display: inline-block
             width: 620px
             min-height: 400px
             #articles
-                @include border-style
-                margin: 2px 2px 2px 2px
+                margin: 2% 2% 2% 2%
                 .one-article
                     overflow: hidden
                     #title

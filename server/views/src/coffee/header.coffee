@@ -34,7 +34,7 @@ check = ->
 
 arrow_move = (num)->
     now_arrow = num
-    $('.triangle').css "left", (num * 95 + 30) + "px"
+    $('.triangle').css "left", (num * 93 + 37) + "px"
     check()
 
 init()

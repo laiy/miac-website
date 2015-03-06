@@ -2,12 +2,13 @@ extends ./includes/layout.jade
 
 block content
     div#article-list
-        h1 文章列表
+        h1.page-header 文章列表
         div#article-search
-            form#search(action= "./search")
-                input#search-word(type= "text", name= "words", onblur= "this.value= '搜索文章'", onFocus= "this.value= ''", value= "search articles")
-                button(type= "submit") Search
-                button.submit(type= "button", onclick= "window.open('./article/create')") 发表文章
+            form#search(action= "./search").input-group.navbar-search
+                input#search-word(type= "text", name= "words", placeholder= '搜索文章').search-query
+                button(type= "submit").btn Search
+                button.submit(type= "button", onclick= "window.open('./article/create')").btn 发表文章
+        br
         div#main
             div
                 div#list
@@ -39,24 +40,20 @@ block content
                         div
                             input.checkblock(type= 'checkbox', name= 'talk' value= '吐槽')
                             | 吐槽
+                    br
                     div#label
                         p 标签
-                        ul
+                        ul.unstyled
                             li
                                 a(href= "./?label='javasript'") javascript
-                            hr
                             li
                                 a(href= "./?label='PHP'") PHP
-                            hr
                             li
                                 a(href= "./?label='CSS'") CSS
-                            hr
                             li
                                 a(href= "./?label='Angular JS'") Angular JS
-                            hr
                             li
                                 a(href= "./?label='Architecture'") Architecture
-                            hr
                             li
                                 a(href= "./?label='Dream'") Dream
                 div#more

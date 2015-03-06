@@ -2,30 +2,35 @@
   margin-left: 13%;
   margin-right: 13%;
   background-color: white;
-  padding: 5% 5% 5% 5%; }
+  padding: 2% 5% 5% 5%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  border-radius: 5%; }
   #article-list h1 {
     color: grey;
-    font-size: 60pt; }
+    font-size: 60pt;
+    padding: 0px 0px 0px 0px; }
   #article-list #article-search {
-    border: solid 2px;
-    margin-bottom: 5px; }
+    margin-bottom: 5px;
+    padding: 1% 1% 1% 1%;
+    background-color: white; }
     #article-list #article-search * {
       display: inline;
       height: 26px; }
+    #article-list #article-search #search #search-word {
+      margin-right: 1%; }
     #article-list #article-search .submit {
-      float: right;
-      height: 26px;
-      margin-top: 3px; }
+      float: right; }
   #article-list #main {
-    overflow: hidden; }
+    overflow: hidden;
+    background-color: white; }
     #article-list #main #list {
-      border: solid 2px;
+      padding: 1% 1% 1% 1%;
       display: inline-block;
       width: 620px;
       min-height: 400px; }
       #article-list #main #list #articles {
-        border: solid 2px;
-        margin: 2px 2px 2px 2px; }
+        margin: 2% 2% 2% 2%; }
         #article-list #main #list #articles .one-article {
           overflow: hidden; }
           #article-list #main #list #articles .one-article #title {

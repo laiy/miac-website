@@ -21,13 +21,13 @@ router.get '/', (req, res)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'article', articles: articles, title: 'article'
+            res.render 'article', articles: articles, name: 'article'
 
 ###
 * render 'childArticle' when get '/article/create'
 ###
 router.get '/create', requireLogin, (req, res)->
-    res.render 'createArticle', title: 'createAritcle'
+    res.render 'createArticle', name: 'createArticle'
 
 ###
 * render 'childArticle' when get '/article/:id'
@@ -45,7 +45,7 @@ router.get '/:id', (req, res)->
         else
             MessageModel.find { replyTo: id , type: 'comment'}, (err, comments)->
                 if not comments
-                    res.render 'childArticle', article: article
+                    res.render 'childArticle', article: article, name: 'childArticle'
                 else
                     async.each comments, (comment, callback)->
                         MessageModel.find { replyTo: comment._id, type: 'reply' }, (err, replys)->
@@ -55,7 +55,7 @@ router.get '/:id', (req, res)->
                                 comment.replys = replys
                                 callback()
                     , (err)->
-                        res.render 'childArticle', { article: article, comments: comments, title: 'childArticle' }
+                        res.render 'childArticle', { article: article, comments: comments, name: 'childArticle' }
 
 ###
 * handle when post '/article/create'

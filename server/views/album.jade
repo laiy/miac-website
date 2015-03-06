@@ -1,24 +1,16 @@
-doctype html
-html
-    head
-        title album
-        script(src='../lib/jquery.js')
-        link(href='/bin/css/test.css', rel='stylesheet')
-    body
-        p album
-        include ./includes/header.jade
-        if user
-            a(href='/album/createAlbum') createNew
-        if albums
-            each album in albums
-                br
-                p title:
-                    a(href='/album/' + album._id)=album.title
-                p cratedAt:
-                    span=album.createdAt
-                p createdBy:
-                    span=album.createdBy
-                p pictures:
-                    span=album.pictures
-                p cover
-                img(src= '/assets/img/album/' + album.title + '/' + album.cover alt='cover')
+extends ./includes/layout.jade
+
+block content
+    div#album
+        header 相册
+        div#album-search
+            form(action='#').input-group.navbar-search
+                input(type="text", name="title", placeholder="输入关键词搜索相册").search-query
+                button(type="submit").btn search
+            button(type="button", onclick="window.open('album/createAlbum')").btn.submit 创建新相册
+        br
+        div#content
+            for album in albums
+                div.pic
+                    p album.title
+                    img.cover(src='./assets', onclick="window.open('./'' + album.Id)")

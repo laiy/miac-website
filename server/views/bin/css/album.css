@@ -1,0 +1,16 @@
+#album {
+  margin-left: 13%;
+  margin-right: 13%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  background-color: white;
+  border-radius: 5%;
+  padding: 2% 2% 2% 2%; }
+  #album #album-search form {
+    display: inline; }
+  #album #album-search .submit {
+    float: right; }
+  #album header {
+    color: grey;
+    font-size: 60pt;
+    padding: 0px 0px 0px 0px; }
