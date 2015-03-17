@@ -74,6 +74,7 @@ router.post '/createAlbum', requireLogin, (req, res)->
     if not req.files.cover
         res.status(500).send 'Server Error.'
     else
+        console.log('hehe')
         { title } = req.body
         coverPath = req.files.cover.path
         coverName = req.files.cover.name
@@ -106,18 +107,23 @@ router.post '/createAlbum', requireLogin, (req, res)->
 * @param albumId: the ObjectId that belong to the album that the user want to add to
 ###
 router.post '/addPicture', requireLogin, (req, res)->
+    console.log(req.files)
     if not req.files.picture
         return res.status(500).send 'Server Error.'
     else
         { albumId } = req.body
+        console.log(albumId)
         if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(albumId)
             return res.json { result: 'fail', msg: 'Invalid albumId.' }
         else
+            console.log('success')
             albumId = mongoose.Types.ObjectId(albumId)
             AlbumModel.findOne { _id: albumId }, (err, album)->
                 if err
                     return res.status(500).send 'Server Error.'
                 else
+                    console.log(req.session.user._id)
+                    console.log(album.createdBy.toString())
                     if req.session.user._id isnt album.createdBy.toString()
                         return res.json { result: 'fail', msg: 'U r not permitted 2 add picture 2 @ album.' }
                     else

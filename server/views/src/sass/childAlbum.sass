@@ -8,14 +8,48 @@
     margin-right: $value
     margin-top: 2%
     margin-bottom: 2%
+    padding: 2% 2% 2% 2%
 
 #childAlbum
     @include center
+    background-color: white
+    margin-bottom: 2%
+    width: 70%
+    min-height: 700px
+    position: relative
     header
         @include page-title
-    #addPicture
-        position: absolute
-        display: block
+    #pictures
+        .picture
+            background-color: grey
+            padding: 1% 1% 1% 1%
+            border-radius: 5%
+            text-align: center
+            height: 200px
+            width: 200px
+            img
+                height: 95%
+                width: 95%
+    #container
+        display: none
+        background-color: grey
+        padding: 1% 1% 1% 1%
+        position: fixed
         border: solid 2px
         border-radius: 10%
-        margin: 0 auto
+        left: 50%
+        top: 50%
+        margin-left: -15%
+        margin-top: -15%
+        height: 30%
+        width: 30%
+        #addPicture
+            background-color: white 
+            text-align: center
+            padding: 2% 2% 2% 2%
+            display: block
+            border: solid 2px
+            border-radius: 10%
+            height: 100%
+            .id
+                display: none

@@ -7,22 +7,12 @@
   background-color: white;
   margin-bottom: 2%;
   width: 70%;
-  min-height: 700px;
+  height: 700px;
   position: relative; }
   #childAlbum header {
     color: grey;
     font-size: 60pt;
     padding: 0px 0px 0px 0px; }
-  #childAlbum #pictures .picture {
-    background-color: grey;
-    padding: 1% 1% 1% 1%;
-    border-radius: 5%;
-    text-align: center;
-    height: 200px;
-    width: 200px; }
-    #childAlbum #pictures .picture img {
-      height: 95%;
-      width: 95%; }
   #childAlbum #container {
     display: none;
     background-color: grey;
@@ -44,5 +34,3 @@
       border: solid 2px;
       border-radius: 10%;
       height: 100%; }
-      #childAlbum #container #addPicture .id {
-        display: none; }

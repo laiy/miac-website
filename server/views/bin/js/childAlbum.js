@@ -33,8 +33,9 @@
   });
 
   $(function() {
-    return $('#adderButton').click(function() {
-      return $('addPictrue').css("display", "block");
+    return $('.adderButton').click(function(e) {
+      e.preventDefault();
+      return $('#container').css("display", "block");
     });
   });
 

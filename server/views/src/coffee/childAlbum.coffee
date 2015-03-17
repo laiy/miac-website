@@ -22,6 +22,8 @@ $('.reply-submit').click ->
 
 
 $(->
-    $('#adderButton').click ->
-        $('addPictrue').css "display", "block"
+    $('.adderButton').click (e)->
+        e.preventDefault();
+        $('#container').css "display", "block"
 );
+
