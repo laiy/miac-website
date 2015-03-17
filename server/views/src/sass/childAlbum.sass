@@ -1,0 +1,21 @@
+@mixin page-title()
+    color: grey
+    font-size: 60pt
+    padding: 0px 0px 0px 0px
+
+@mixin center($value: 13%)
+    margin-left: $value
+    margin-right: $value
+    margin-top: 2%
+    margin-bottom: 2%
+
+#childAlbum
+    @include center
+    header
+        @include page-title
+    #addPicture
+        position: absolute
+        display: block
+        border: solid 2px
+        border-radius: 10%
+        margin: 0 auto

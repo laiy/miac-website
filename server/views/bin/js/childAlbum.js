@@ -32,4 +32,10 @@
     });
   });
 
+  $(function() {
+    return $('#adderButton').click(function() {
+      return $('addPictrue').css("display", "block");
+    });
+  });
+
 }).call(this);

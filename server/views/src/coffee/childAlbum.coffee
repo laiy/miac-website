@@ -19,3 +19,9 @@ $('.reply-submit').click ->
         alert data.result + '\n' + (data.msg if data.msg)
         if data.result is 'success'
             window.location.reload()
+
+
+$(->
+    $('#adderButton').click ->
+        $('addPictrue').css "display", "block"
+);

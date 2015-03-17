@@ -1,0 +1,15 @@
+#childAlbum {
+  margin-left: 13%;
+  margin-right: 13%;
+  margin-top: 2%;
+  margin-bottom: 2%; }
+  #childAlbum header {
+    color: grey;
+    font-size: 60pt;
+    padding: 0px 0px 0px 0px; }
+  #childAlbum #addPicture {
+    position: absolute;
+    display: block;
+    border: solid 2px;
+    border-radius: 10%;
+    margin: 0 auto; }
