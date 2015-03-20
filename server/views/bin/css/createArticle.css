@@ -29,3 +29,7 @@
       background-color: #31aafd; }
     #create-article #create-new-article .cancel {
       background-color: #484848; }
+
+footer {
+  margin-bottom: 2%;
+  text-align: center; }

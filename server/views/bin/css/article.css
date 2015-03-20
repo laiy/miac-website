@@ -47,3 +47,7 @@
           margin: 2px; }
         #article-list #main #choose #label ul {
           float: left; }
+
+footer {
+  margin-bottom: 2%;
+  text-align: center; }

@@ -1,33 +1,47 @@
-extends ./includes/layout.jade
-
-block content
-    div#childArticle
-        div#container
-            p category: #{article.category}
-            div#content
-                header #{article.title}
-                p !{article.content}
-                footer Created by #{article.createdBy} at #{moment(article.createAt).format('MMM D,YY')}
-                div#write-comment
-                    | Say something here:
-                    form(mothod='POST', action='')
-                        input.text(type='text' name='content')
-                        br
-                        input(type='submit' value='submit') 
-            div#comments
-               if comments
-                   each comment in comments
-                        div(name=comment._id)
-                            p.words !{comment.content}
-                            p.type #{comment.type}
-                            p.footer #{comment.createdBy} commented at #{moment(comment.createdAt).format('MMM D,YY')}
-                            div#say-sth
-                                form(action= '')
-                                    input.text(type='text' name='content')
-                                    input(type='submit' value='submit')
-                            div#replys
-                                each reply in comment.replys
-                                     div(name=reply._id)
-                                         p.words #{reply.content}
-                                         p.type type: #{reply.type}
-                                         p.footer #{reply.createdBy} replyed at #{moment(reply.createdAt).format('MMM D,YY')}
+doctype html
+html
+    head
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/childArticle.js')
+        script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/childArticle.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+    body
+        header
+            include ./includes/header.jade
+        div#childArticle
+            div#container
+                p category: #{article.category}
+                div#content
+                    header #{article.title}
+                    p !{article.content}
+                    footer Created by #{article.createdBy} at #{moment(article.createAt).format('MMM D,YY')}
+                    div#write-comment
+                        | Say something here:
+                        form(mothod='POST', action='')
+                            input.text(type='text' name='content')
+                            br
+                            input(type='submit' value='submit') 
+                div#comments
+                   if comments
+                       each comment in comments
+                            div(name=comment._id)
+                                p.words !{comment.content}
+                                p.type #{comment.type}
+                                p.footer #{comment.createdBy} commented at #{moment(comment.createdAt).format('MMM D,YY')}
+                                div#say-sth
+                                    form(action= '')
+                                        input.text(type='text' name='content')
+                                        input(type='submit' value='submit')
+                                div#replys
+                                    each reply in comment.replys
+                                         div(name=reply._id)
+                                             p.words #{reply.content}
+                                             p.type type: #{reply.type}
+                                             p.footer #{reply.createdBy} replyed at #{moment(reply.createdAt).format('MMM D,YY')}
+        footer
+            p#writer Copyright ©2014 MIAC

@@ -1,22 +1,36 @@
-extends ./includes/layout.jade
-
-block content
-    div#childAlbum
-        header #{album.title}
-        section#pictures
-            if !album.pictures
-                p There are not any pictrue in this album. 
-                    a(href="#", target="_blank" class="adderButton") Add some?
-            else
-                for picture in album.pictures
-                    div.picture
-                        img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
-                a(href="#", target="_blank" class="adderButton") Add more pictures.
-        div#container
-            div#addPicture
-                form(action='./addPicture', method='POST', enctype='multipart/form-data')
-                    label
-                        |请选择图片:
-                    input(type="file", name="picture")
-                    input(type='text' name='albumId' value=album._id class="id")
-                    button.btn(type="submit") 添加
+doctype html
+html
+    head
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/childAlbum.js')
+        script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/childAlbum.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+    body
+        header
+            include ./includes/header.jade
+        div#childAlbum
+            header #{album.title}
+            section#pictures
+                if !album.pictures
+                    p There are not any pictrue in this album. 
+                        a(href="#", target="_blank" class="adderButton") Add some?
+                else
+                    for picture in album.pictures
+                        div.picture
+                            img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
+                    a(href="#", target="_blank" class="adderButton") Add more pictures.
+            div#container
+                div#addPicture
+                    form(action='./addPicture', method='POST', enctype='multipart/form-data')
+                        label
+                            |请选择图片:
+                        input(type="file", name="picture")
+                        input(type='text' name='albumId' value=album._id class="id")
+                        button.btn(type="submit") 添加
+        footer
+            p#writer Copyright ©2014 MIAC
