@@ -1,0 +1,47 @@
+#childAlbum {
+  margin-left: 13%;
+  margin-right: 13%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2% 2% 2% 2%;
+  background-color: white;
+  margin-bottom: 2%;
+  width: 70%;
+  min-height: 700px;
+  position: relative; }
+  #childAlbum header {
+    color: grey;
+    font-size: 60pt;
+    padding: 0px 0px 0px 0px; }
+  #childAlbum #pictures .picture {
+    background-color: grey;
+    padding: 1% 1% 1% 1%;
+    border-radius: 5%;
+    text-align: center; }
+  #childAlbum #container {
+    display: none;
+    background-color: grey;
+    padding: 1% 1% 1% 1%;
+    position: fixed;
+    border: solid 2px;
+    border-radius: 10%;
+    left: 50%;
+    top: 50%;
+    margin-left: -15%;
+    margin-top: -15%;
+    height: 30%;
+    width: 30%; }
+    #childAlbum #container #addPicture {
+      background-color: white;
+      text-align: center;
+      padding: 2% 2% 2% 2%;
+      display: block;
+      border: solid 2px;
+      border-radius: 10%;
+      height: 100%; }
+      #childAlbum #container #addPicture .id {
+        display: none; }
+
+footer {
+  margin-bottom: 2%;
+  text-align: center; }

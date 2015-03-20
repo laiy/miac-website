@@ -1,18 +1,40 @@
 doctype html
 html
     head
-        title createArticle
-        script(src='../lib/jquery.js')
-        link(href='/bin/css/header.css', rel='stylesheet')
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/createArticle.js')
         script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/createArticle.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
     body
-        include ./includes/header.jade
-        p category
-        input(type='text' id='category')
-        p title
-        input(type='text' id='title')
-        p content
-        input(type='textarea' id='content')
-        button(type='button') submit
-        script(src='../bin/js/createArticle.js')
+        header
+            include ./includes/header.jade
+        div#create-article
+            p#header 发表新文章    
 
+            script(type= 'text/javascript', src= '/lib/ueditor1_4_3-utf8-php/ueditor.config.js')          
+
+            script(type= 'text/javascript', src= '/lib/ueditor1_4_3-utf8-php/ueditor.all.js')          
+
+            script(type= 'text/javascript' src= '/lib/ueditor1_4_3-utf8-php/ueEditor.js')          
+
+            link(rel="stylesheet", href="/stylesheets/style.css")          
+
+            form#create-new-article(method= 'POST', action= '/article/create')
+                | 标题：
+                input#title(type=- "submit" name= 'title' placeholder= '请键入标题')
+                scirpt#container(name= 'content', type= 'text/plain')
+                | 类别：
+                input(type= "text", name= "category")
+                br
+                | 标签：
+                input(type= "text", name= "label")
+                br
+                button.submit(type = 'submit') 发表
+                button.cancel(type = 'button', onclick = "location.href= './'")取消
+        footer
+            p#writer Copyright ©2014 MIAC

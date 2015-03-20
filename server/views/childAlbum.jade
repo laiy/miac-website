@@ -1,69 +1,36 @@
 doctype html
 html
     head
-        title childAlbum
-        script(src='../lib/jquery.js')
-        link(href='/bin/css/header.css', rel='stylesheet')
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/childAlbum.js')
         script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/childAlbum.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
     body
-        include ./includes/header.jade
-        p addPicture
-        if user
-            form(action='/Album/addPicture' method='post' enctype='multipart/form-data')
-                input(type='file' name='picture')
-                input(type='text' name='albumId' value=album._id style="display: none;")
-                button submit
-        br
-        p title:
-            a(href='/Album/' + album._id)=album.title
-        p cratedAt:
-            span=album.createdAt
-        p createdBy:
-            span=album.createdBy
-        if album.pictures
-            p pictures:
-                each picture in album.pictures
-                    br
-                    p=picture
-                    img(src='/assets/img/album/' + album.title + '/' + picture alt='picture')
-        p cover
-        img(src= '/assets/img/album/' + album.title + '/' + album.cover)
-        p saySomethingHere:
-        input(type='text')
-        button(type='button' id='comment-submit') submit
-        br
-        if comments
-            p comments
-            each comment in comments
-                div
-                    p comment:
-                    p ObjectId:
-                        span=comment._id
-                    p type:
-                        span=comment.type
-                    p content:
-                        span=comment.content
-                    p createdBy(OI):
-                        span=comment.createdBy
-                    p createdAt:
-                        span=moment(comment.createdAt).format('MMM D,YY')
-                    p saySomethingHere:
-                    input(type='text')
-                    button(type='button' class='reply-submit' comment-id=comment._id) submit
-                    if comment.replys
-                        p replys:
-                        each reply in comment.replys
-                            p reply:
-                            p ObjectId:
-                                span=reply._id
-                            p type:
-                                span=reply.type
-                            p content:
-                                span=reply.content
-                            p createdBy(OI):
-                                span=reply.createdBy
-                            p createdAt:
-                                span=moment(reply.createdAt).format('MMM D,YY')
-                br
-        script(src='../bin/js/childAlbum.js')
-
+        header
+            include ./includes/header.jade
+        div#childAlbum
+            header #{album.title}
+            section#pictures
+                if !album.pictures
+                    p There are not any pictrue in this album. 
+                        a(href="#", target="_blank" class="adderButton") Add some?
+                else
+                    for picture in album.pictures
+                        div.picture
+                            img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
+                    a(href="#", target="_blank" class="adderButton") Add more pictures.
+            div#container
+                div#addPicture
+                    form(action='./addPicture', method='POST', enctype='multipart/form-data')
+                        label
+                            |请选择图片:
+                        input(type="file", name="picture")
+                        input(type='text' name='albumId' value=album._id class="id")
+                        button.btn(type="submit") 添加
+        footer
+            p#writer Copyright ©2014 MIAC

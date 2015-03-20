@@ -4,7 +4,7 @@
     content = $(this).siblings('input').val();
     items = window.location.href.split('/');
     ObjectId = items[items.length - 1];
-    return $.post('/Message/create', {
+    return $.post('/message/create', {
       replyTo: ObjectId,
       type: 'comment',
       content: content
@@ -20,7 +20,7 @@
     var ObjectId, content;
     content = $(this).siblings('input').val();
     ObjectId = $(this).attr('comment-id');
-    return $.post('/Message/create', {
+    return $.post('/message/create', {
       replyTo: ObjectId,
       type: 'reply',
       content: content
@@ -29,6 +29,13 @@
       if (data.result === 'success') {
         return window.location.reload();
       }
+    });
+  });
+
+  $(function() {
+    return $('.adderButton').click(function(e) {
+      e.preventDefault();
+      return $('#container').css("display", "block");
     });
   });
 

@@ -1,0 +1,30 @@
+@mixin center($value: 20%)
+    margin-left: $value
+    margin-right: $value
+
+@mixin text($width: "400px")
+    width: $width
+    height: $width
+
+#childArticle
+    @include center
+    background-color: #FFFFFF
+    #container
+        margin: 10px
+        #content
+            p            
+                text-align: center
+            header
+                font-size: 40pt
+                text-align: center
+                color: #00A0E6
+            footer
+                text-align: right
+            #write-comment
+                form
+                    .text
+                        @include text
+
+footer
+    margin-bottom: 2%
+    text-align: center
