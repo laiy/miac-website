@@ -1,37 +1,45 @@
+body {
+  background-color: #eeeeee !important; }
+
 #article-list {
   margin-left: 13%;
   margin-right: 13%;
-  background-color: white;
+  background-color: #eeeeee;
   padding: 2% 5% 5% 5%;
-  margin-top: 1%;
-  margin-bottom: 1%;
-  border-radius: 5%; }
+  margin-top: 5%;
+  margin-bottom: 1%; }
   #article-list h1 {
     color: grey;
     font-size: 60pt;
     padding: 0px 0px 0px 0px; }
   #article-list #article-search {
     margin-bottom: 5px;
-    padding: 1% 1% 1% 1%;
-    background-color: white; }
+    padding: 1% 1% 1% 1%; }
     #article-list #article-search * {
       display: inline;
       height: 26px; }
-    #article-list #article-search #search #search-word {
-      margin-right: 1%; }
     #article-list #article-search .submit {
       float: right; }
+    #article-list #article-search #search-word {
+      padding: 2px 2px 2px 2px;
+      border: none;
+      background-color: white; }
+    #article-list #article-search #search-button {
+      background-color: white;
+      border: none; }
+      #article-list #article-search #search-button i {
+        background-color: white; }
   #article-list #main {
-    overflow: hidden;
-    background-color: white; }
+    overflow: hidden; }
     #article-list #main #list {
       padding: 1% 1% 1% 1%;
       display: inline-block;
-      width: 620px;
+      width: 60%;
       min-height: 400px; }
       #article-list #main #list #articles {
         margin: 2% 2% 2% 2%; }
         #article-list #main #list #articles .one-article {
+          background-color: white;
           overflow: hidden; }
           #article-list #main #list #articles .one-article #title {
             font-size: 28pt; }
@@ -40,14 +48,29 @@
           #article-list #main #list #articles .one-article #link {
             float: right; }
     #article-list #main #choose {
-      float: right; }
+      background-color: white;
+      float: right;
+      width: 25%; }
       #article-list #main #choose #label {
         overflow: hidden; }
-        #article-list #main #choose #label p {
-          margin: 2px; }
+        #article-list #main #choose #label header {
+          background-color: #1B1B1B; }
+          #article-list #main #choose #label header span {
+            color: white; }
+        #article-list #main #choose #label #arrow-line {
+          background-color: blue;
+          height: 10px; }
+          #article-list #main #choose #label #arrow-line .triangle {
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-top: 20px solid blue; }
         #article-list #main #choose #label ul {
           float: left; }
 
 footer {
   margin-bottom: 2%;
   text-align: center; }
+
+/*# sourceMappingURL=article.css.map */

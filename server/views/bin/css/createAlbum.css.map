@@ -1,0 +1,7 @@
+{
+"version": 3,
+"mappings": "AAWA,aAAa;EAVT,WAAW,EADO,GAAG;EAErB,YAAY,EAFM,GAAG;EAGrB,UAAU,EAAE,EAAE;EACd,aAAa,EAAE,EAAE;EASjB,OAAO,EAAE,WAAW;EACpB,oBAAM;IAPN,KAAK,EAAE,IAAI;IACX,SAAS,EAAE,IAAI;IACf,OAAO,EAAE,eAAe;;AAQ5B,MAAM;EACF,aAAa,EAAE,EAAE;EACjB,UAAU,EAAE,MAAM",
+"sources": ["../../src/sass/createAlbum.sass"],
+"names": [],
+"file": "createAlbum.css"
+}

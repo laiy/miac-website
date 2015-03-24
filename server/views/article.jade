@@ -18,9 +18,10 @@ html
             h1.page-header 文章列表
             div#article-search
                 form#search(action= "./search").input-group.navbar-search
-                    input#search-word(type= "text", name= "words", placeholder= '搜索文章').search-query
-                    button(type= "submit").btn Search
-                    button.submit(type= "button", onclick= "window.open('./article/create')").btn 发表文章
+                    input#search-word(type= "text", name= "words", placeholder= '搜索文章')
+                    button#search-button(type= "submit")
+                        i.glyphicon.glyphicon-search
+                    button.submit(type= "button", onclick= "window.open('./article/create')").btn.btn-info 发表文章
             br
             div#main
                 div
@@ -55,7 +56,10 @@ html
                                 | 吐槽
                         br
                         div#label
-                            p 标签
+                            header
+                                span 标签
+                            div#arrow-line
+                                div.triangle
                             ul.unstyled
                                 li
                                     a(href= "./?label='javasript'") javascript

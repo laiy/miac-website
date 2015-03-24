@@ -5,13 +5,15 @@
 @mixin border-style()
     border: solid 2px
 
+body
+    background-color: #eeeeee !important
+
 #article-list
     @include center
-    background-color: white
+    background-color: #eeeeee
     padding: 2% 5% 5% 5%
-    margin-top: 1%
+    margin-top: 5%
     margin-bottom: 1%
-    border-radius: 5%
     h1
         color: grey
         font-size: 60pt
@@ -19,26 +21,31 @@
     #article-search
         margin-bottom: 5px
         padding: 1% 1% 1% 1%
-        background-color: white
         *
             display: inline
             height: 26px
-        #search
-            #search-word
-                margin-right: 1%
         .submit
             float: right
+        #search-word
+            padding: 2px 2px 2px 2px
+            border: none
+            background-color: white
+        #search-button
+            i
+                background-color: white
+            background-color: white
+            border: none
     #main
         overflow: hidden
-        background-color: white
         #list
             padding: 1% 1% 1% 1%
             display: inline-block
-            width: 620px
+            width: 60%
             min-height: 400px
             #articles
                 margin: 2% 2% 2% 2%
                 .one-article
+                    background-color: white
                     overflow: hidden
                     #title
                         font-size: 28pt
@@ -47,10 +54,23 @@
                     #link
                         float: right 
         #choose
+            background-color: white
             float: right
+            width: 25%
             #label
-                p
-                    margin: 2px
+                header
+                    background-color: #1B1B1B
+                    span
+                        color: white
+                #arrow-line
+                    background-color: blue
+                    height: 10px
+                    .triangle
+                        width: 0
+                        height: 0
+                        border-left: 10px solid transparent
+                        border-right: 10px solid transparent
+                        border-top: 20px solid blue
                 overflow: hidden
                 ul
                     float: left
