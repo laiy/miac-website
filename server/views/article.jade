@@ -29,7 +29,7 @@ html
                             if articles
                                 each article in articles
                                     div.one-article
-                                        img(alt="no-image").user-image
+                                        img(src="./src/img/us.jpg" alt="no-image").user-image
                                         div.user-header(onclick="window.open('/article/' + '#{article._id}')")
                                             div.contain
                                                 p#title #{article.title}

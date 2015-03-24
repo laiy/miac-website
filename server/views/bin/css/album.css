@@ -1,17 +1,40 @@
+body {
+  background-color: #eeeeee !important; }
+
 #album {
   margin-left: 13%;
   margin-right: 13%;
   margin-top: 2%;
   margin-bottom: 2%;
-  background-color: white;
+  margin-top: 0;
   border-radius: 5%;
-  padding: 2% 2% 2% 2%; }
-  #album #album-search form {
-    display: inline; }
-    #album #album-search form .search-query {
-      margin-right: 1%; }
-  #album #album-search .submit {
-    float: right; }
+  padding: 0 2% 2% 2%; }
+  #album header {
+    margin-bottom: 5%; }
+    #album header img {
+      width: 100%; }
+  #album #album-search {
+    margin-bottom: 5px;
+    padding: 0 1% 1% 1%; }
+    #album #album-search * {
+      display: inline;
+      height: 30px; }
+    #album #album-search .submit {
+      float: right;
+      text-align: center; }
+    #album #album-search #search-word {
+      background-color: white;
+      border: solid #49474a 0.5px;
+      padding: 2px 2px 2px 2px;
+      border: none;
+      background-color: white; }
+    #album #album-search #search-button {
+      background-color: white;
+      border: solid #49474a 0.5px;
+      background-color: white;
+      border: none; }
+      #album #album-search #search-button i {
+        background-color: white; }
   #album header {
     color: grey;
     font-size: 60pt;
@@ -19,10 +42,44 @@
   #album #content {
     padding: 1% 1% 1% 1%; }
     #album #content .pic {
-      margin-bottom: 1%; }
-      #album #content .pic span {
-        margin-right: 5%;
-        font-size: 25pt; }
+      display: inline-block;
+      width: 250px;
+      background-color: white;
+      border: solid #49474a 0.5px;
+      margin: 2% 2% 2% 2%; }
+      #album #content .pic img {
+        display: block;
+        height: 250px;
+        width: 250px; }
+      #album #content .pic img:hover {
+        cursor: pointer; }
+      #album #content .pic .info {
+        padding: 4% 4% 4% 4%; }
+        #album #content .pic .info span {
+          font-size: 15pt; }
+        #album #content .pic .info span.title {
+          margin-right: 5%;
+          font-size: 25pt; }
+        #album #content .pic .info span.num {
+          float: right; }
+          #album #content .pic .info span.num span.number {
+            color: #00a1ea;
+            font-size: 1.5em;
+            font-weight: bold; }
+      #album #content .pic .time {
+        padding: 4% 4% 2% 4%; }
+        #album #content .pic .time p {
+          text-align: right;
+          color: grey; }
+    #album #content .pic:hover {
+      box-shadow: 2px 2px 2px #c7c4c4; }
+    #album #content .year header {
+      text-align: center;
+      font-weight: bold;
+      color: #c7c4c4;
+      margin-bottom: 0; }
+    #album #content .year .row {
+      text-align: center; }
 
 footer {
   margin-bottom: 2%;
