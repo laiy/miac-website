@@ -2,28 +2,50 @@
     margin-left: $value
     margin-right: $value
 
-@mixin text($width: "400px")
+@mixin text($width: 800px)
     width: $width
-    height: $width
+    height: $width / 4
+
+@mixin paper
+    background-color: white
+    border: solid #49474A 0.5px
+
+body
+    background-color: #eeeeee !important
 
 #childArticle
     @include center
-    background-color: #FFFFFF
+    // background-color: #FFFFFF
     #container
-        margin: 10px
-        #content
-            p            
-                text-align: center
-            header
-                font-size: 40pt
-                text-align: center
-                color: #00A0E6
-            footer
-                text-align: right
-            #write-comment
-                form
-                    .text
-                        @include text
+        margin-top: 10%
+        margin-bottom: 10%
+        #pack
+            @include paper
+            padding: 40px 40px 40px 40px
+            #content
+                margin: 40px 40px 40px 40px
+                p            
+                    text-align: center
+                    font-size: 20pt
+                header
+                    font-size: 70pt
+                    text-align: center
+                    color: #00A0E6
+                footer
+                    text-align: right
+                    span
+                        font-size: 1.5em
+                        color: red
+                #write-comment
+                    form
+                        overflow: hidden
+                        .text
+                            @include text
+                        #button
+                            float: right
+                    margin-bottom: 5%
+    #comments
+        margin-bottom: 5%
 
 footer
     margin-bottom: 2%

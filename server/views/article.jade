@@ -13,7 +13,6 @@ html
     body
         header
             include ./includes/header.jade
-
         div#article-list
             h1.page-header 文章列表
             div#article-search
@@ -24,57 +23,62 @@ html
                     button.submit(type= "button", onclick= "window.open('./article/create')").btn.btn-info 发表文章
             br
             div#main
-                div
+                div.contain
                     div#list
                         div#articles
                             if articles
                                 each article in articles
                                     div.one-article
-                                        img#user-image
-                                        p#title #{article.title}
-                                        p#article-time #{article.createdBy} 于#{moment(article.cratedAt).format('MMM D.YY')}发表了新文章
-                                        a#link(href= '/article/' + article._id) 详细内容......
+                                        img(alt="no-image").user-image
+                                        div.user-header(onclick="window.open('/article/' + '#{article._id}')")
+                                            div.contain
+                                                p#title #{article.title}
+                                                p#article-time #{article.createdBy} 于#{moment(article.cratedAt).format('MMM D.YY')}发表了新文章
                     div#choose
-                        div#menu 分类目录
-                            div
-                                input.checkblock(type= 'checkbox', name= 'technology' value= '技术')
-                                | 技术
-                            divv
-                                input.checkblock(type= 'checkbox', name= 'product' value= '产品')
-                                | 产品
-                            div
-                                input.checkblock(type= 'checkbox', name= 'funnystory' value= '趣闻')
-                                |趣闻
-                            div
-                                input.checkblock(type= 'checkbox', name= 'history' value= '纪事')
-                                | 纪事
-                            div
-                                input.checkblock(type= 'checkbox', name= 'mood' value= '心情')
-                                | 心情
-                            div
-                                input.checkblock(type= 'checkbox', name= 'talk' value= '吐槽')
-                                | 吐槽
-                        br
+                        //- div#menu 分类目录
+                        //-     div
+                        //-         input.checkblock(type= 'checkbox', name= 'technology' value= '技术')
+                        //-         | 技术
+                        //-     divv
+                        //-         input.checkblock(type= 'checkbox', name= 'product' value= '产品')
+                        //-         | 产品
+                        //-     div
+                        //-         input.checkblock(type= 'checkbox', name= 'funnystory' value= '趣闻')
+                        //-         |趣闻
+                        //-     div
+                        //-         input.checkblock(type= 'checkbox', name= 'history' value= '纪事')
+                        //-         | 纪事
+                        //-     div
+                        //-         input.checkblock(type= 'checkbox', name= 'mood' value= '心情')
+                        //-         | 心情
+                        //-     div
+                        //-         input.checkblock(type= 'checkbox', name= 'talk' value= '吐槽')
+                        //-         | 吐槽
+                        //- br
                         div#label
                             header
-                                span 标签
+                                p 标签
                             div#arrow-line
                                 div.triangle
                             ul.unstyled
                                 li
+                                    span.glyphicon.glyphicon-paperclip
                                     a(href= "./?label='javasript'") javascript
                                 li
+                                    span.glyphicon.glyphicon-paperclip
                                     a(href= "./?label='PHP'") PHP
                                 li
+                                    span.glyphicon.glyphicon-paperclip
                                     a(href= "./?label='CSS'") CSS
                                 li
+                                    span.glyphicon.glyphicon-paperclip
                                     a(href= "./?label='Angular JS'") Angular JS
                                 li
+                                    span.glyphicon.glyphicon-paperclip
                                     a(href= "./?label='Architecture'") Architecture
                                 li
+                                    span.glyphicon.glyphicon-paperclip
                                     a(href= "./?label='Dream'") Dream
-                    div#more
-                        button(type= "button") more *
         footer
             p#writer Copyright ©2014 MIAC
 

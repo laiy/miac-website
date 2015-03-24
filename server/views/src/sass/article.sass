@@ -1,9 +1,13 @@
-@mixin center($value: 13%)
+@mixin center($value: 10%)
     margin-left: $value
     margin-right: $value
 
 @mixin border-style()
     border: solid 2px
+
+@mixin paper
+    background-color: white
+    border: solid #49474A 0.5px
 
 body
     background-color: #eeeeee !important
@@ -12,7 +16,7 @@ body
     @include center
     background-color: #eeeeee
     padding: 2% 5% 5% 5%
-    margin-top: 5%
+    margin-top: 1%
     margin-bottom: 1%
     h1
         color: grey
@@ -23,57 +27,105 @@ body
         padding: 1% 1% 1% 1%
         *
             display: inline
-            height: 26px
+            height: 30px
         .submit
             float: right
+            text-align: center
         #search-word
+            @include paper
             padding: 2px 2px 2px 2px
             border: none
             background-color: white
         #search-button
+            @include paper
             i
                 background-color: white
             background-color: white
             border: none
     #main
         overflow: hidden
+        .contain
+            overflow: hidden
         #list
-            padding: 1% 1% 1% 1%
+            padding: 0 1% 0 1%
             display: inline-block
-            width: 60%
+            width: 70%
             min-height: 400px
+            display: inline-block !important
             #articles
                 margin: 2% 2% 2% 2%
                 .one-article
-                    background-color: white
                     overflow: hidden
-                    #title
-                        font-size: 28pt
-                    #article-time
-                        text-align: right
-                    #link
-                        float: right 
+                    padding: 4px 4px 4px 4px
+                    .user-image
+                        border-radius: 50%
+                        display: inline
+                        height: 80px
+                        width: 80px
+                        margin-top: 10px
+                        background-color: white
+                        text-align: center
+                    .user-header
+                        float: right
+                        width: 80%
+                        @include paper
+                        .contain
+                            overflow: hidden
+                            margin: 10px 10px 10px 10px
+                            #title
+                                font-size: 28pt
+                                color: #00a1ea
+                            #article-time
+                                text-align: right
+                            #link
+                                float: right
+                    .user-header:hover
+                        cursor: pointer 
         #choose
-            background-color: white
             float: right
             width: 25%
+            padding: 2px 2px 2px 2px
             #label
+                @include paper
                 header
+                    height: 70px
                     background-color: #1B1B1B
-                    span
+                    width: 100%
+                    position: relative
+                    p
+                        height: 60px
+                        width: 160px
                         color: white
+                        font-size: 40px
+                        position: absolute
+                        left: 20px
+                        top: 10px
                 #arrow-line
-                    background-color: blue
-                    height: 10px
+                    background-color: #00a1ea
+                    height: 5px
+                    margin-bottom: 5%
                     .triangle
                         width: 0
                         height: 0
-                        border-left: 10px solid transparent
-                        border-right: 10px solid transparent
-                        border-top: 20px solid blue
+                        border-left: 8px solid transparent
+                        border-right: 8px solid transparent
+                        border-top: 16px solid #00a1ea
+                        position: relative
+                        right: -20px
                 overflow: hidden
                 ul
                     float: left
+                    list-style: none
+                    li
+                        a
+                            color: #454346
+                        a:hover
+                            color: #00a1ea
+                        span
+                            left: -20px
+                        margin-top: 10px
+                        margin-bottom: 10px
+
 
 footer
     margin-bottom: 2%

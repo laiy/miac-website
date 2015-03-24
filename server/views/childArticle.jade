@@ -15,17 +15,21 @@ html
             include ./includes/header.jade
         div#childArticle
             div#container
-                p category: #{article.category}
-                div#content
-                    header #{article.title}
-                    p !{article.content}
-                    footer Created by #{article.createdBy} at #{moment(article.createAt).format('MMM D,YY')}
-                    div#write-comment
-                        | Say something here:
-                        form(mothod='POST', action='')
-                            input.text(type='text' name='content')
-                            br
-                            input(type='submit' value='submit') 
+                div#pack
+                    div#content
+                        header #{article.title}
+                        p !{article.content}
+                        footer Created by 
+                           span #{article.createdBy} 
+                           | at 
+                           span
+                               | #{moment(article.createAt).format('MMM D,YY')}
+                        div#write-comment
+                            | Say something here:
+                            form#comment(mothod='POST', action='')
+                                textarea.text(type='text' name='content' form="comment")
+                                input#button(type='submit' value='submit')
+                            br 
                 div#comments
                    if comments
                        each comment in comments

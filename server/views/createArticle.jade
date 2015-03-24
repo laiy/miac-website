@@ -25,14 +25,11 @@ html
             link(rel="stylesheet", href="/stylesheets/style.css")          
 
             form#create-new-article(method= 'POST', action= '/article/create')
-                | 标题：
+                label 标题：
                 input#title(type=- "submit" name= 'title' placeholder= '请键入标题')
                 scirpt#container(name= 'content', type= 'text/plain')
-                | 类别：
-                input(type= "text", name= "category")
-                br
-                | 标签：
-                input(type= "text", name= "label")
+                input.attr(type= "text", name= "category" placeholder="分类目录")
+                input.attr(type= "text", name= "label" placeholder="标签")
                 br
                 button.submit(type = 'submit') 发表
                 button.cancel(type = 'button', onclick = "location.href= './'")取消

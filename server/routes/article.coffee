@@ -26,7 +26,7 @@ router.get '/', (req, res)->
 ###
 * render 'childArticle' when get '/article/create'
 ###
-router.get '/create', requireLogin, (req, res)->
+router.get '/create', (req, res)->
     res.render 'createArticle'
 
 ###
