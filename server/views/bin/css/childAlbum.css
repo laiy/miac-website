@@ -1,10 +1,13 @@
+body {
+  background-color: #eeeeee !important; }
+
 #childAlbum {
   margin-left: 13%;
   margin-right: 13%;
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 2% 2% 2% 2%;
-  background-color: white;
+  background-color: #eeeeee;
   margin-bottom: 2%;
   width: 70%;
   min-height: 700px;
@@ -13,11 +16,91 @@
     color: grey;
     font-size: 60pt;
     padding: 0px 0px 0px 0px; }
-  #childAlbum #pictures .picture {
-    background-color: grey;
-    padding: 1% 1% 1% 1%;
-    border-radius: 5%;
-    text-align: center; }
+  #childAlbum #pictures {
+    text-align: center;
+    background-color: #eeeeee; }
+    #childAlbum #pictures #pic-content .loop {
+      display: block; }
+      #childAlbum #pictures #pic-content .loop a {
+        position: absolute;
+        margin: 0 30px;
+        width: 50px;
+        height: 50px;
+        display: block; }
+      #childAlbum #pictures #pic-content .loop a:hover {
+        cursor: pointer; }
+      #childAlbum #pictures #pic-content .loop a::before {
+        content: "";
+        background: #c3bbbb;
+        opacity: 0;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 0px; }
+      #childAlbum #pictures #pic-content .loop a:hover::before {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transition: transform 0.3s, opacity 0.3s; }
+      #childAlbum #pictures #pic-content .loop .icon-wrap {
+        position: relative;
+        display: block;
+        margin: 10% 0 0 10%;
+        width: 80%;
+        height: 80%; }
+      #childAlbum #pictures #pic-content .loop .icon-wrap::before {
+        position: absolute;
+        left: 25%;
+        width: 3px;
+        height: 50%;
+        background: grey;
+        content: ""; }
+      #childAlbum #pictures #pic-content .loop .icon-wrap::after {
+        position: absolute;
+        left: 25%;
+        width: 3px;
+        height: 50%;
+        background: grey;
+        content: ""; }
+      #childAlbum #pictures #pic-content .loop .icon-wrap::before {
+        transform: translateX(-50%) rotate(45deg);
+        transform-origin: 0 100%; }
+      #childAlbum #pictures #pic-content .loop .icon-wrap::after {
+        top: 50%;
+        transform: translateX(-50%) rotate(-45deg);
+        transform-origin: 0 0; }
+      #childAlbum #pictures #pic-content .loop .prev {
+        top: 500px;
+        left: -30px; }
+      #childAlbum #pictures #pic-content .loop .next {
+        left: 1150px;
+        top: 500px; }
+        #childAlbum #pictures #pic-content .loop .next .icon-wrap {
+          transform: rotate(180deg); }
+    #childAlbum #pictures #pic-content .adderButton {
+      top: 50px;
+      position: relative;
+      top: -40px;
+      left: 400px; }
+    #childAlbum #pictures #pic-content .picture {
+      display: inline-block;
+      height: 230px;
+      width: 230px;
+      padding: 1% 1% 1% 1%;
+      text-align: center;
+      margin-right: 30px;
+      margin-bottom: 50px;
+      background-color: white;
+      border: solid #49474a 0.5px; }
+      #childAlbum #pictures #pic-content .picture img {
+        height: 200px;
+        width: 200px;
+        margin: 0 auto; }
+    #childAlbum #pictures #pic-content .picture:hover {
+      cursor: pointer; }
+    #childAlbum #pictures nav {
+      margin-left: auto;
+      margin-right: auto; }
   #childAlbum #container {
     display: none;
     background-color: grey;
@@ -41,6 +124,84 @@
       height: 100%; }
       #childAlbum #container #addPicture .id {
         display: none; }
+      #childAlbum #container #addPicture #close {
+        margin-left: 30px; }
+  #childAlbum #screen {
+    display: none;
+    position: absolute;
+    height: 700px;
+    width: 1400px; }
+    #childAlbum #screen .loop {
+      position: relative;
+      display: block; }
+      #childAlbum #screen .loop a {
+        position: absolute;
+        margin: 0 30px;
+        width: 50px;
+        height: 50px;
+        display: block; }
+      #childAlbum #screen .loop a:hover {
+        cursor: pointer; }
+      #childAlbum #screen .loop a::before {
+        content: "";
+        background: #c3bbbb;
+        opacity: 0;
+        border-radius: 50%;
+        width: 50px;
+        height: 50px;
+        position: absolute;
+        right: 0px; }
+      #childAlbum #screen .loop a:hover::before {
+        opacity: 1;
+        transform: scale(1);
+        -webkit-transition: transform 0.3s, opacity 0.3s; }
+      #childAlbum #screen .loop .icon-wrap {
+        position: relative;
+        display: block;
+        margin: 10% 0 0 10%;
+        width: 80%;
+        height: 80%; }
+      #childAlbum #screen .loop .icon-wrap::before {
+        position: absolute;
+        left: 25%;
+        width: 3px;
+        height: 50%;
+        background: grey;
+        content: ""; }
+      #childAlbum #screen .loop .icon-wrap::after {
+        position: absolute;
+        left: 25%;
+        width: 3px;
+        height: 50%;
+        background: grey;
+        content: ""; }
+      #childAlbum #screen .loop .icon-wrap::before {
+        transform: translateX(-50%) rotate(45deg);
+        transform-origin: 0 100%; }
+      #childAlbum #screen .loop .icon-wrap::after {
+        top: 50%;
+        transform: translateX(-50%) rotate(-45deg);
+        transform-origin: 0 0; }
+      #childAlbum #screen .loop .prev {
+        top: 250px;
+        left: -120px; }
+      #childAlbum #screen .loop .next {
+        left: 1390px;
+        top: 250px; }
+        #childAlbum #screen .loop .next .icon-wrap {
+          transform: rotate(180deg); }
+    #childAlbum #screen #image {
+      background-color: white;
+      border-radius: 5%;
+      text-align: center;
+      margin: 0 auto;
+      padding: 2% 1% 2% 1%;
+      width: 1300px;
+      height: 700px; }
+      #childAlbum #screen #image img {
+        margin: 0 auto;
+        height: 600px;
+        width: 1200px; }
 
 footer {
   margin-bottom: 2%;

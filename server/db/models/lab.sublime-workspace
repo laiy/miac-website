@@ -1,0 +1,653 @@
+{
+	"auto_complete":
+	{
+		"selected_items":
+		[
+			[
+				"op",
+				"opacity	opacity()"
+			],
+			[
+				"bu",
+				"buttons"
+			],
+			[
+				"L",
+				"lastMessage"
+			],
+			[
+				"add",
+				"add"
+			],
+			[
+				"get",
+				"getElementById"
+			],
+			[
+				"but",
+				"button"
+			],
+			[
+				"re",
+				"remove"
+			],
+			[
+				"fun",
+				"function"
+			],
+			[
+				"getEl",
+				"getElementById"
+			],
+			[
+				"err",
+				"errHandler"
+			],
+			[
+				"su",
+				"success"
+			],
+			[
+				"suc",
+				"successHandler"
+			],
+			[
+				"ne",
+				"nextSibling"
+			],
+			[
+				"butt",
+				"button"
+			],
+			[
+				"b",
+				"bHandler"
+			],
+			[
+				"r",
+				"result"
+			],
+			[
+				"rel",
+				"result"
+			],
+			[
+				"ran",
+				"randomNum"
+			],
+			[
+				"button",
+				"buttons"
+			],
+			[
+				"show",
+				"showTheSum"
+			],
+			[
+				"compl",
+				"completedButtons"
+			],
+			[
+				"getElementBy",
+				"getElementsByClassName"
+			],
+			[
+				"sho",
+				"showTheSum"
+			],
+			[
+				"cli",
+				"clickable"
+			],
+			[
+				"in",
+				"info-bar"
+			],
+			[
+				"co",
+				"color"
+			],
+			[
+				"un",
+				"unable"
+			],
+			[
+				"fone",
+				"font-weight"
+			],
+			[
+				"cl",
+				"classList"
+			],
+			[
+				"ab",
+				"absolute"
+			],
+			[
+				"no",
+				"normal"
+			],
+			[
+				"app",
+				"appendTo"
+			],
+			[
+				"dom",
+				"domYear"
+			],
+			[
+				"row",
+				"Rows"
+			],
+			[
+				"pic",
+				"picture"
+			],
+			[
+				"pi",
+				"pictures"
+			],
+			[
+				"tim",
+				"timeB"
+			],
+			[
+				"mar",
+				"margin-bottom"
+			],
+			[
+				"mr",
+				"margin-right"
+			],
+			[
+				"create",
+				"createAlbum"
+			],
+			[
+				"sear",
+				"search-query"
+			],
+			[
+				"border-s",
+				"border-style"
+			],
+			[
+				"pla",
+				"placeholder"
+			],
+			[
+				"fon",
+				"font-size"
+			],
+			[
+				"ge",
+				"grey"
+			],
+			[
+				"imp",
+				"important"
+			],
+			[
+				"inl",
+				"inline-block"
+			],
+			[
+				"di",
+				"display"
+			],
+			[
+				"min",
+				"min-height"
+			],
+			[
+				"con",
+				"content"
+			],
+			[
+				"flo",
+				"float"
+			],
+			[
+				"inclu",
+				"include	@include"
+			],
+			[
+				"ari",
+				"article"
+			],
+			[
+				"ins",
+				"instance-variable"
+			],
+			[
+				"proto",
+				"prototype"
+			],
+			[
+				"pto",
+				"prototype"
+			],
+			[
+				"stat",
+				"staticMethod"
+			],
+			[
+				"de",
+				"Derived"
+			],
+			[
+				"star",
+				"sataticVariable"
+			],
+			[
+				"new",
+				"newobj"
+			],
+			[
+				"pro",
+				"prototype"
+			],
+			[
+				"pr",
+				"prototype"
+			],
+			[
+				"insta",
+				"instanceMethod"
+			],
+			[
+				"cla",
+				"class"
+			],
+			[
+				"wid",
+				"width"
+			],
+			[
+				"wi",
+				"width"
+			],
+			[
+				"ce",
+				"center"
+			],
+			[
+				"ma",
+				"margin"
+			],
+			[
+				"al",
+				"album"
+			],
+			[
+				"album",
+				"albumId"
+			],
+			[
+				"to",
+				"toString"
+			],
+			[
+				"a",
+				"album"
+			],
+			[
+				"margin",
+				"margin-top"
+			],
+			[
+				"bdcol",
+				"background-color"
+			],
+			[
+				"cov",
+				"coverName"
+			],
+			[
+				"cover",
+				"coverPath"
+			]
+		]
+	},
+	"buffers":
+	[
+		{
+			"file": "/home/william/Software-Improvement/hw4/S5/index.js",
+			"settings":
+			{
+				"buffer_size": 12857,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/william/Software-Improvement/hw4/S5/index.html",
+			"settings":
+			{
+				"buffer_size": 2022,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/william/Software-Improvement/hw4/S4/index.js",
+			"settings":
+			{
+				"buffer_size": 3869,
+				"line_ending": "Unix"
+			}
+		},
+		{
+			"file": "/home/william/Software-Improvement/hw4/S5/index.scss",
+			"settings":
+			{
+				"buffer_size": 7674,
+				"line_ending": "Unix"
+			}
+		}
+	],
+	"build_system": "",
+	"command_palette":
+	{
+		"height": 75.0,
+		"selected_items":
+		[
+			[
+				"Package Control: list",
+				"Package Control: List Packages"
+			],
+			[
+				"install",
+				"Package Control: Install Package"
+			],
+			[
+				"Package Control: install",
+				"Package Control: Install Package"
+			]
+		],
+		"width": 449.0
+	},
+	"console":
+	{
+		"height": 139.0
+	},
+	"distraction_free":
+	{
+		"menu_visible": true,
+		"show_minimap": false,
+		"show_open_files": false,
+		"show_tabs": false,
+		"side_bar_visible": false,
+		"status_bar_visible": false
+	},
+	"file_history":
+	[
+		"/home/william/Software-Improvement/hw4/S2/index.js",
+		"/home/william/Software-Improvement/hw4/S4/index.js",
+		"/home/william/Software-Improvement/hw4/S3/index.html",
+		"/home/william/Software-Improvement/hw4/S3/index.js",
+		"/home/william/Software-Improvement/hw4/S3/index.css",
+		"/home/william/Software-Improvement/hw4/S2/index.html",
+		"/home/william/Software-Improvement/hw4/S1/index.js",
+		"/home/william/Software-Improvement/hw4/S1/index.html",
+		"/home/william/Software-Improvement/hw4/index.scss",
+		"/home/william/Software-Improvement/hw4/server.js",
+		"/home/william/Software-Improvement/hw4/index.html",
+		"/home/william/Software-Improvement/hw4/part1/async.js",
+		"/home/william/Software-Improvement/hw4/S1/async.js",
+		"/home/william/Software-Improvement/hw4/index.css",
+		"/home/william/miac-website-1/server/views/src/coffee/album.coffee",
+		"/home/william/miac-website-1/server/views/childArticle.jade",
+		"/home/william/miac-website-1/server/views/src/sass/childArticle.sass",
+		"/home/william/miac-website-1/server/views/src/sass/article.sass",
+		"/home/william/miac-website-1/server/views/about.jade",
+		"/home/william/miac-website-1/server/views/album.jade",
+		"/home/william/miac-website-1/server/views/src/sass/about.sass",
+		"/home/william/miac-website-1/server/views/src/sass/album.sass",
+		"/home/william/miac-website-1/server/views/src/sass/childAlbum.sass",
+		"/home/william/miac-website-1/server/views/src/sass/createAlbum.sass",
+		"/home/william/miac-website-1/server/views/src/sass/createArticle.sass",
+		"/home/william/miac-website-1/server/views/src/coffee/childAlbum.coffee",
+		"/home/william/miac-website-1/server/views/src/sass/childAlbum.css",
+		"/home/william/miac-website-1/server/views/src/sass/test.sass",
+		"/home/william/miac-website-1/server/views/article.jade",
+		"/home/william/miac-website-1/server/views/createArticle.jade",
+		"/home/william/miac-website-1/server/views/createAlbum.jade",
+		"/home/william/miac-website-1/server/views/childAlbum.jade",
+		"/home/william/miac-website-1/server/views/src/sass/.index.sass.swp",
+		"/home/william/Software-Improvement/hw3/object.js",
+		"/home/william/miac-website-1/server/views/src/sass/footer.sass",
+		"/home/william/.config/sublime-text-2/Packages/User/Preferences.sublime-settings",
+		"/home/william/miac-website-1/server/views/includes/layout.jade",
+		"/home/william/Software-Improvement/README.md",
+		"/home/william/miac-website-1/server/routes/album.coffee",
+		"/home/william/miac-website-1/server/views/src/coffee/header.coffee",
+		"/home/william/miac-website-1/server/db/models/album.coffee",
+		"/home/william/miac-website-1/server/views/src/sass/layout.sass",
+		"/home/william/miac-website-1/server/views/includes/header.jade",
+		"/home/william/miac-website-1/server/views/src/coffee/album.coffe",
+		"/home/william/miac-website-1/server/views/src/coffee/article.coffee",
+		"/home/william/miac-website-1/server/db/models/article.coffee"
+	],
+	"find":
+	{
+		"height": 0.0
+	},
+	"find_in_files":
+	{
+		"height": 0.0,
+		"where_history":
+		[
+		]
+	},
+	"find_state":
+	{
+		"case_sensitive": false,
+		"find_history":
+		[
+			".');\n",
+			", ",
+			"requireLogin",
+			"bold",
+			"important",
+			"text",
+			"picture",
+			" \n",
+			"'\n",
+			"album"
+		],
+		"highlight": true,
+		"in_selection": false,
+		"preserve_case": false,
+		"regex": false,
+		"replace_history":
+		[
+		],
+		"reverse": false,
+		"show_context": true,
+		"use_buffer2": true,
+		"whole_word": false,
+		"wrap": true
+	},
+	"groups":
+	[
+		{
+			"selected": 0,
+			"sheets":
+			[
+				{
+					"buffer": 0,
+					"file": "/home/william/Software-Improvement/hw4/S5/index.js",
+					"settings":
+					{
+						"buffer_size": 12857,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								11051,
+								11051
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 3617.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "/home/william/Software-Improvement/hw4/S5/index.html",
+					"settings":
+					{
+						"buffer_size": 2022,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								1330,
+								1330
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "/home/william/Software-Improvement/hw4/S4/index.js",
+					"settings":
+					{
+						"buffer_size": 3869,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								0,
+								0
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 255.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "/home/william/Software-Improvement/hw4/S5/index.scss",
+					"settings":
+					{
+						"buffer_size": 7674,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								4250,
+								4250
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Sass/Syntaxes/Sass.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 1785.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				}
+			]
+		}
+	],
+	"incremental_find":
+	{
+		"height": 0.0
+	},
+	"input":
+	{
+		"height": 33.0
+	},
+	"layout":
+	{
+		"cells":
+		[
+			[
+				0,
+				0,
+				1,
+				1
+			]
+		],
+		"cols":
+		[
+			0.0,
+			1.0
+		],
+		"rows":
+		[
+			0.0,
+			1.0
+		]
+	},
+	"menu_visible": true,
+	"output.exec":
+	{
+		"height": 112.0
+	},
+	"replace":
+	{
+		"height": 0.0
+	},
+	"save_all_on_build": true,
+	"select_file":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"select_project":
+	{
+		"height": 0.0,
+		"selected_items":
+		[
+		],
+		"width": 0.0
+	},
+	"show_minimap": true,
+	"show_open_files": true,
+	"show_tabs": true,
+	"side_bar_visible": true,
+	"side_bar_width": 150.0,
+	"status_bar_visible": true
+}

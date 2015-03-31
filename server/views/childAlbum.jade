@@ -16,14 +16,28 @@ html
         div#childAlbum
             header #{album.title}
             section#pictures
-                if !album.pictures
+                if album.pictures.length == 0
                     p There are not any pictrue in this album. 
-                        a(href="#", target="_blank" class="adderButton") Add some?
+                        a(href="#", class="adderButton") Add some?
                 else
-                    for picture in album.pictures
-                        div.picture
-                            img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
-                    a(href="#", target="_blank" class="adderButton") Add more pictures.
+                    div#pic-content
+                        nav.loop
+                            a.prev
+                                span.icon-wrap
+                            a.next
+                                span.icon-wrap
+                        -var num = 0
+                        for picture in album.pictures
+                            -var num = num + 1
+                            div.picture
+                                img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
+                        a(href="#", class="adderButton") Add more pictures.
+                    nav
+                        ul.pagination
+                            -var n = 0
+                            while n < (num - 1) / 12 + 1
+                                li(id="p-" + (n + 1))
+                                    a(href="#" + (n + 1)) #{++n}
             div#container
                 div#addPicture
                     form(action='./addPicture', method='POST', enctype='multipart/form-data')
@@ -32,5 +46,15 @@ html
                         input(type="file", name="picture")
                         input(type='text' name='albumId' value=album._id class="id")
                         button.btn(type="submit") 添加
+                        button#close.btn 取消
+
+            div#screen
+                nav.loop
+                    a.prev
+                        span.icon-wrap
+                    a.next
+                        span.icon-wrap
+                div#image
+                    img(src="", alt="no-image")
         footer
             p#writer Copyright ©2014 MIAC
