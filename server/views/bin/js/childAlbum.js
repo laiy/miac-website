@@ -40,7 +40,7 @@
     });
     return $('.adderButton').click(function(e) {
       e.preventDefault();
-      return $('#container').css("display", "block");
+      return $('#container').css("display", "inline-block");
     });
   };
 

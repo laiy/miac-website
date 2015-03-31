@@ -31,7 +31,7 @@ body {
         cursor: pointer; }
       #childAlbum #pictures #pic-content .loop a::before {
         content: "";
-        background: #c3bbbb;
+        background: #C3BBBB;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -91,7 +91,7 @@ body {
       margin-right: 30px;
       margin-bottom: 50px;
       background-color: white;
-      border: solid #49474a 0.5px; }
+      border: solid #49474A 0.5px; }
       #childAlbum #pictures #pic-content .picture img {
         height: 200px;
         width: 200px;
@@ -128,11 +128,13 @@ body {
         margin-left: 30px; }
   #childAlbum #screen {
     display: none;
-    position: absolute;
-    height: 700px;
-    width: 1400px; }
+    position: fixed;
+    height: 500px;
+    width: 1000px;
+    background-color: white;
+    left: 30px;
+    top: 10px; }
     #childAlbum #screen .loop {
-      position: relative;
       display: block; }
       #childAlbum #screen .loop a {
         position: absolute;
@@ -144,7 +146,7 @@ body {
         cursor: pointer; }
       #childAlbum #screen .loop a::before {
         content: "";
-        background: #c3bbbb;
+        background: #C3BBBB;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -196,13 +198,15 @@ body {
       text-align: center;
       margin: 0 auto;
       padding: 2% 1% 2% 1%;
-      width: 1300px;
-      height: 700px; }
+      position: absolute;
+      top: 40%;
+      left: 40%;
+      display: inline-block; }
       #childAlbum #screen #image img {
-        margin: 0 auto;
-        height: 600px;
-        width: 1200px; }
+        margin: 0 auto; }
 
 footer {
   margin-bottom: 2%;
   text-align: center; }
+
+/*# sourceMappingURL=childAlbum.css.map */

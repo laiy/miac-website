@@ -36,6 +36,6 @@ window.onload = ()->
 
     $('.adderButton').click (e)->
         e.preventDefault()
-        $('#container').css "display", "block"
+        $('#container').css "display", "inline-block"
 
 
