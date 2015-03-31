@@ -10,11 +10,11 @@
     });
     length = pictures.length;
     $("#p-1").addClass("active");
-    $('.loop').find('.prev').attr("href", "#" + length);
+    $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + length);
     if (length > 1) {
-      $('.loop').find('.next').attr("href", "#" + 2);
+      $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 2);
     } else {
-      $('.loop').find('.next').attr("href", "#" + 1);
+      $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 1);
     }
     if (length > 0) {
       for (i = _i = 0, _ref = (length - 1) / 12; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
@@ -38,9 +38,45 @@
       e.preventDefault();
       return $("#container").css("display", "none");
     });
-    return $('.adderButton').click(function(e) {
+    $('.adderButton').click(function(e) {
       e.preventDefault();
       return $('#container').css("display", "inline-block");
+    });
+    $('#light').click(function(e) {
+      e.preventDefault();
+      return $('#screen').css("display", "none");
+    });
+    $('#screen').find('.prev').click(function(e) {
+      var newUrl, num, picture, url, _l, _len;
+      url = $("#screen").find("img").attr("src");
+      num = 0;
+      for (_l = 0, _len = pictures.length; _l < _len; _l++) {
+        picture = pictures[_l];
+        if ($(picture).find("img").attr("src") === url) {
+          break;
+        }
+        ++num;
+      }
+      if (num > 0) {
+        newUrl = $(pictures[num - 1]).find("img").attr("src");
+        return $("#screen").find("img").attr("src", newUrl);
+      }
+    });
+    return $('#screen').find('.next').click(function(e) {
+      var newUrl, num, picture, url, _l, _len;
+      url = $("#screen").find("img").attr("src");
+      num = 0;
+      for (_l = 0, _len = pictures.length; _l < _len; _l++) {
+        picture = pictures[_l];
+        if ($(picture).find("img").attr("src") === url) {
+          break;
+        }
+        ++num;
+      }
+      if (num < pictures.length - 1) {
+        newUrl = $(pictures[num + 1]).find("img").attr("src");
+        return $("#screen").find("img").attr("src", newUrl);
+      }
     });
   };
 

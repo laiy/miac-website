@@ -132,8 +132,9 @@ body {
     height: 500px;
     width: 1000px;
     background-color: white;
-    left: 30px;
-    top: 10px; }
+    left: 120px;
+    top: 10px;
+    border-radius: 2%; }
     #childAlbum #screen .loop {
       display: block; }
       #childAlbum #screen .loop a {
@@ -185,11 +186,11 @@ body {
         transform: translateX(-50%) rotate(-45deg);
         transform-origin: 0 0; }
       #childAlbum #screen .loop .prev {
-        top: 250px;
+        top: 200px;
         left: -120px; }
       #childAlbum #screen .loop .next {
-        left: 1390px;
-        top: 250px; }
+        left: 1000px;
+        top: 200px; }
         #childAlbum #screen .loop .next .icon-wrap {
           transform: rotate(180deg); }
     #childAlbum #screen #image {
@@ -199,7 +200,7 @@ body {
       margin: 0 auto;
       padding: 2% 1% 2% 1%;
       position: absolute;
-      top: 40%;
+      top: 30%;
       left: 40%;
       display: inline-block; }
       #childAlbum #screen #image img {

@@ -1,7 +1,6 @@
 #	> File Name: childAlbum.coffee
-#	> Author: LY
-#	> Mail: ly.franky@gmail.com
-#	> Created Time: Thursday, December 11, 2014 PM02:36:54 CST
+#	> Author: William.D.King
+#	> Mail: williamjwking@gmail.com
 
 window.onload = ()->
     pictures = $(".picture") 
@@ -11,11 +10,11 @@ window.onload = ()->
         $("#screen").css("display", "block")
     length = pictures.length
     $("#p-1").addClass("active")
-    $('.loop').find('.prev').attr("href", "#" + length)
+    $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + length)
     if (length > 1)
-        $('.loop').find('.next').attr("href", "#" + 2)
+        $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 2)
     else 
-        $('.loop').find('.next').attr("href", "#" + 1)
+        $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 1)
     if length > 0
         for i in [0..(length - 1) / 12]
             page = $("<div></div>").attr("id", i + 1).attr("name", i + 1)
@@ -38,4 +37,28 @@ window.onload = ()->
         e.preventDefault()
         $('#container').css "display", "inline-block"
 
+    $('#light').click (e)->
+        e.preventDefault()
+        $('#screen').css "display", "none"
 
+    $('#screen').find('.prev').click (e)->
+        url = $("#screen").find("img").attr("src")
+        num = 0
+        for picture in pictures
+            if $(picture).find("img").attr("src") == url
+                break
+            ++num
+        if (num > 0)
+            newUrl = $(pictures[num - 1]).find("img").attr("src")
+            $("#screen").find("img").attr("src", newUrl)
+
+    $('#screen').find('.next').click (e)->
+        url = $("#screen").find("img").attr("src")
+        num = 0
+        for picture in pictures
+            if $(picture).find("img").attr("src") == url
+                break
+            ++num
+        if (num < pictures.length - 1)
+            newUrl = $(pictures[num + 1]).find("img").attr("src")
+            $("#screen").find("img").attr("src", newUrl)
