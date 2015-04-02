@@ -58,5 +58,16 @@
       }
     });
   });
+  
+  $('.hide').click(function() {
+    $(this).children().eq(1).slideDown();
+  });
+
+  $(document).mouseup(function(e){
+    var _con = $('.hide');   // 设置目标区域
+    if(!_con.is(e.target) && _con.has(e.target).length === 0){ // Mark 1
+      $('.show').slideUp();   // 功能代码
+    }
+  });
 
 }).call(this);
