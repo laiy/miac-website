@@ -1,0 +1,82 @@
+@mixin _transform($parameter)
+  -webkit-transform: $parameter /* Chrome, Safari */
+  -moz-transform: $parameter/* Firefox */
+  -ms-transform: $parameter /* IE 9 */
+  -o-transform: $parameter /* Opera */
+  transform: $parameter
+
+@mixin _backface-visibility($parameter)
+  -webkit-backface-visibility: $parameter /* Chrome, Safari */
+  -moz-backface-visibility: $parameter /* Firefox */
+  -ms-backface-visibility: $parameter /* IE 9 */
+  backface-visibility: $parameter
+
+#works-wrapper
+  position: relative
+  height: auto
+  img
+    width: 100%
+    height: 400px
+  #works-content
+    width: 660px
+    margin-left: auto
+    margin-right: auto
+    overflow: hidden
+    padding: 50px 50px 500px 50px
+    div
+      //The picture
+      &:nth-of-type(1)
+        img
+          width: 200px
+      &:nth-of-type(4)
+        img
+          width: 200px
+      &:nth-of-type(6)
+        img
+          width: 350px
+      //The flip
+      &:nth-of-type(2)
+        width: 400px
+      &:nth-of-type(3)
+        width: 400px
+      &:nth-of-type(5)
+        width: 250px
+    .works-pic
+      margin-top: 40px
+      margin-left: 20px
+      float: left
+      height: 180px
+      img
+        height: 180px
+    .works-flip-container
+      color: white
+      margin-top: 40px
+      margin-left: 20px
+      float: left
+      height: 180px
+      perspective: 1000
+      -webkit-perspective: 1000
+      &:hover
+        .works-flipper
+          @include _transform(rotateY(180deg))
+      .works-flipper
+        height: 180px
+        width: 100%
+        transition: 0.6s
+        -webkit-transition: 0.6s
+        -webkit-transform-style: preserve-3d
+        transform-style: preserve-3d
+        position: relative
+        .works-front, .works-back
+          width: 100%
+          height: 100%
+          background-color: #00A1EA
+          @include _backface-visibility(hidden)
+          position: absolute
+          top: 0
+          left: 0
+        .works-front
+          z-index: 2
+        .works-back
+          @include _transform(rotateY(180deg))
+

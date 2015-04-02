@@ -21,11 +21,6 @@ session = require 'express-session'
 logger = require 'morgan'
 moment = require 'moment'
 multer = require 'multer'
-AsyncProfile = require 'async-profile'
-require('nodetime').profile({
-    accountKey: 'b4548cd536a0e53bc795df5044e9d57fc5459953',
-    appName: 'Node.js Application'
-})
 
 ###
 * import module that would use writen by laiy
@@ -101,7 +96,6 @@ db.init()
 * let server listening at port 2333
 ###
 app.listen 2333
-
 
 module.exports = app
 

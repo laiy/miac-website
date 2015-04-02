@@ -1,9 +1,40 @@
 doctype html
 html
-    head
-        title Index
-        script(src='./lib/jquery.js')
-        link(href='/bin/css/header.css', rel='stylesheet')
-        script(src='/bin/js/header.js')
-    body
-        include ./includes/header.jade
+  head
+    title Index
+    script(src='./lib/jquery.js')
+    link(href='/bin/css/header.css', rel='stylesheet')
+    link(href='/bin/css/footer.css', rel='stylesheet')
+    link(href='/bin/css/index.css', rel='stylesheet')
+    script(src='/bin/js/header.js')
+    script(src='/bin/js/index.js')
+  body
+    include ./includes/header.jade
+    div#index
+      div#index-wrapper
+        div#index-sidebar
+          div#index-nav
+            p 公告
+          div#index-nav-bottom
+          div#index-pointer
+          div#index-subnav
+            ul
+              li
+                a(href="http://", target="_blank") 什么是现代互联网应用？
+              li
+                a(href="http://", target="_blank") 在俱乐部中能学到什么样的东西？
+              li
+                a(href="http://", target="_blank") 学互联网应用开发有什么用
+              li
+                a(href="http://", target="_blank") 我们我等什么？
+        div#index-article
+          div.column
+            img.article-pic(src='/src/img/index/article-pic.jpg')
+            h2.index-article-title
+              |如何看待罗永浩《关于产能不足，关于感激和致歉》？
+            div.author
+              img(src="/src/img/index/author.jpg", alt="")
+              p
+                |罗永浩 10分钟前 发布了新文章
+            div.article-pointer
+      include ./includes/footer.jade

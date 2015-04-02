@@ -1,1 +1,19 @@
-(function(){$("button").click(function(){var a,b;return b=$("#title").val(),a=$("#content").val(),$.post("/Discuss/create",{type:"question",title:b,content:a,answerTo:""},function(a){return alert(a.result+"\n"+(a.msg?a.msg:void 0)),"success"===a.result?$(location).attr("href","/Discuss"):void 0})})}).call(this);
+(function() {
+  $('button').click(function() {
+    var content, title;
+    title = $('#title').val();
+    content = $('#content').val();
+    return $.post('/Discuss/create', {
+      type: 'question',
+      title: title,
+      content: content,
+      answerTo: ''
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      if (data.result === 'success') {
+        return $(location).attr('href', '/Discuss');
+      }
+    });
+  });
+
+}).call(this);

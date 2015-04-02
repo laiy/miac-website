@@ -1,0 +1,36 @@
+.flip-container {
+  perspective: 1000;
+  -webkit-perspective: 1000; }
+  .flip-container:hover .flipper {
+    -webkit-transform: rotateY(180deg);
+    -moz-transform: rotateY(180deg);
+    -ms-transform: rotateY(180deg);
+    -o-transform: rotateY(180deg);
+    transform: rotateY(180deg); }
+  .flip-container .flipper {
+    width: 100%;
+    height: 100%;
+    background-color: #00A1EA;
+    position: relative;
+    transition: 0.6s;
+    -webkit-transition: 0.6s;
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d; }
+    .flip-container .flipper .cell {
+      -webkit-backface-visibility: hidden;
+      -moz-backface-visibility: hidden;
+      -ms-backface-visibility: hidden;
+      backface-visibility: hidden;
+      position: absolute; }
+    .flip-container .flipper .front {
+      z-index: 2;
+      width: 100%; }
+    .flip-container .flipper .back {
+      -webkit-transform: rotateY(180deg);
+      -moz-transform: rotateY(180deg);
+      -ms-transform: rotateY(180deg);
+      -o-transform: rotateY(180deg);
+      transform: rotateY(180deg);
+      width: 100% !important; }
+
+/*# sourceMappingURL=flip.css.map */
