@@ -132,8 +132,8 @@ body {
     height: 500px;
     width: 1000px;
     background-color: white;
-    left: 120px;
-    top: 10px;
+    left: 12%;
+    top: 8%;
     border-radius: 2%; }
     #childAlbum #screen .loop {
       display: block; }
@@ -198,13 +198,17 @@ body {
       border-radius: 5%;
       text-align: center;
       margin: 0 auto;
+      max-width: 90%;
+      max-height: 80%;
       padding: 2% 1% 2% 1%;
       position: absolute;
-      top: 30%;
-      left: 40%;
+      top: 36%;
+      left: 46%;
       display: inline-block; }
       #childAlbum #screen #image img {
-        margin: 0 auto; }
+        margin: 0 auto;
+        width: 100%;
+        height: 100%; }
 
 footer {
   margin-bottom: 2%;

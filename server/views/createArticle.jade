@@ -22,8 +22,6 @@ html
 
             script(type= 'text/javascript' src= '/lib/ueditor1_4_3-utf8-php/ueEditor.js')          
 
-            link(rel="stylesheet", href="/stylesheets/style.css")          
-
             form#create-new-article(method= 'POST', action= '/article/create')
                 label 标题：
                 input#title(type=- "submit" name= 'title' placeholder= '请键入标题')
@@ -31,7 +29,7 @@ html
                 input.attr(type= "text", name= "category" placeholder="分类目录")
                 input.attr(type= "text", name= "label" placeholder="标签")
                 br
-                button.submit(type = 'submit') 发表
+                button.submit(type= "button") 发表
                 button.cancel(type = 'button', onclick = "location.href= './'")取消
         footer
             p#writer Copyright ©2014 MIAC
