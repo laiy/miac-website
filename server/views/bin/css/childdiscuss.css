@@ -1,0 +1,218 @@
+body {
+	background-color: #F1EFF0;
+}
+
+.main {
+	width: 750px;
+	margin: 0 auto;
+	padding-top: 50px;
+	clear: both;
+}
+
+.discussion {
+	margin: 10px 0 0 0;
+	clear: both;
+	overflow: hidden;
+}
+
+/*avatar*/
+.avatar {
+	height: 75px;
+	margin: 0 12.5px;
+	width: 75px;
+}
+
+.avatar img {
+	border-radius: 50%;
+	height: 60px;
+	margin: 7.5px 7.5px;
+	width: 60px;
+}
+/*avatar*/
+/*css of up and down*/
+.up_box, .down_box {
+	height: 32px;
+	margin: 0 12.5px;
+	width: 75px;
+	overflow: hidden;
+}
+
+.up_box p, .down_box p{
+	color: #1BA6EB;
+	margin-top:10px;
+	font-size: 18px;
+}
+
+.up_box span, .down_box span {
+	padding-left: 8px;
+}
+
+.up, .down {
+	border: none;
+	color: #fff;
+	float: left;
+	height: 25px;
+	width: 25px;
+	margin: 6px 0 0 15px;
+}
+
+.up {
+	background-image: url(/bin/css/image/up.png);
+}
+
+.down {
+	background-image: url(/bin/css/image/down.png);
+}
+/*css of up and down*/
+/*DiscussionContent*/
+.discussion_left {
+	height: 150px;
+	float: left;
+	width: 100px;
+}
+
+.discussion_right {
+	height: auto;
+	float: right;
+	width: 650px;
+}
+/*DiscussionContent*/
+/*MainDiscussion*/
+.discussion_right_top {
+	background-color: #fff;
+	height: auto;
+	padding: 10px 20px;
+}
+
+.size {
+	width: 615px;
+}
+
+.reply_size {
+	width: 515px;
+	float: right;
+}
+
+.discussion_MainPart{
+	min-height: 85px;
+}
+
+.discussion_title {
+	color: #1BA6EB;
+	font-size: 20px;
+	margin: 10px;
+}
+
+.discussion_content {
+	color: #000;
+	font-size: 17px;
+}
+
+.discussion_detail {
+	margin: 10px;
+}
+
+.gray {
+	color: #808080;
+	margin-right: 10px;
+}
+
+.blue {
+	color: #1BA6EB;
+	margin-right: 20px;
+}
+
+.discussion_right_down {
+	height: auto;
+	width: 650px;
+}
+
+.discussion_join {
+	margin: 15px 0 0 0;
+	font-size: 16px;
+}
+.show {
+	display: none;
+}
+/*MainDiscussion*/
+/*css of input and button*/
+input {
+	border: none;
+	font-size: 16px;
+	height: 30px;
+	margin-top: 10px;
+	padding: 0 10px;
+	width: 630px;
+}
+
+.discussion_right_down button {
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	margin: 10px 0;
+	background-color: #00A0EA;
+	float: right;
+	border: none;
+	padding: 0 25px;
+}
+/*css of input and botton*/
+/*reply*/
+.discussion_reply {
+	float: right;
+	margin: 5px 0 0 0;
+	min-height: 75px;
+	width: 650px;
+}
+
+.discussion_left_reply {
+	width: 75px;
+	float: left;
+}
+
+.discussion_part {
+	min-height: 25px;
+}
+/*reply*/
+/*bottom*/
+#discuss_bottom {
+	text-align: center;
+	color: #000;
+	font-size: 18px;
+}
+/*bottom*/
+/*shadow*/
+.discussion_s {
+	width: 750px;
+	height: auto;
+	margin-bottom: 50px;
+	position: relative;
+}
+
+.discussion_s:after {
+    width: 600px;
+    height: 100px;
+    right: 45px;
+    top: 65px;
+}
+.shadow:after {
+    width: 550px;
+    height: 100px;
+    right: 45px;
+    top: 75px;
+}
+.shadow {
+	position: relative;
+	margin-bottom: 20px;
+}
+.shadow:after,.discussion_s:after {
+	position: absolute;
+    content: '';
+    background-color: #DDDBDC;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg);  /* Opera */
+}
+/*shadow*/

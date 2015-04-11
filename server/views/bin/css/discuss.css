@@ -1,0 +1,283 @@
+body {
+	margin: 0;
+	padding: 0;
+	color: #1BA6EB;
+	background-color: #F1EFF0;
+}
+
+.main {
+	width: 1000px;
+	margin: 0 auto;
+	padding-top: 50px;
+	clear: both;
+}
+
+a {
+	text-decoration: none;
+	color: #1BA6EB;
+}
+/*avatar*/
+.avatar {
+	height: 75px;
+	margin: 0 12.5px;
+	width: 75px;
+}
+
+.avatar img {
+	border-radius: 50%;
+	height: 60px;
+	margin: 7.5px 7.5px;
+	width: 60px;
+}
+
+.avatar_image_style{
+	width: 30px;
+	height: 30px;
+	border-radius:50%; 
+	float: right;
+	vertical-align: text-top;
+}
+/*avatar*/
+/*Discussion*/
+.discuss {
+	margin: 10px 0 20px 0;
+	overflow: hidden;
+	width: 650px;
+}
+
+.discussion_left {
+	width: 100px;
+	height: 150px;
+	float: left;
+}
+
+.discussion_right {
+	width: 500px;
+	height: 140px;
+	float: left;
+	padding: 10px 20px;
+	background-color: #fff;
+}
+/*shadow*/
+.discussion {
+	width: 650px;
+	height: auto;
+	position: relative;
+}
+
+.discussion:after {
+	position: absolute;
+    content: '';
+    width: 480px;
+    height: 100px;
+    background-color: #DDDBDC;
+    right: 50px;
+    top: 65px;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg);  /* Opera */
+}
+/*shadow*/
+
+.discussion_right_top {
+	min-height: 90px;
+}
+
+.discussion_title {
+	font-size: 20px;
+	max-height: 30px;
+	margin: 10px 0;
+}
+
+.discussion_content {
+	color: #000;
+	font-size: 17px;
+	margin: 8px 0;
+}
+
+.discussion_right_down {
+	margin: 10px 0 0 0;
+	height: auto;
+	width: 300px;
+}
+
+.gray {
+	color: #808080;
+	margin-right: 10px;
+}
+
+.blue {
+	color: #1BA6EB;
+	margin-right: 20px;
+}
+
+/*Disscussion*//*css of up and down*/
+.up_box, .down_box {
+	height: 32px;
+	margin: 0 12.5px;
+	width: 75px;
+	overflow: hidden;
+}
+
+.up_box p, .down_box p{
+	color: #1BA6EB;
+	margin-top:10px;
+	font-size: 18px;
+}
+
+.up_box span, .down_box span {
+	padding-left: 8px;
+}
+
+.up, .down {
+	border: none;
+	color: #fff;
+	float: left;
+	height: 25px;
+	width: 25px;
+	margin: 6px 0 0 15px;
+}
+
+.up {
+	background-image: url(/bin/css/image/up.png);
+}
+
+.down {
+	background-image: url(/bin/css/image/down.png);
+}
+/*css of up and down*/
+/*bottom*/
+#discuss_bottom {
+	width: 650px;
+	text-align: center;
+	color: #C8C8C8;
+	font-size: 18px;
+}
+.bottom {
+	text-align: center;
+	font-size: 18px;
+	color: #000;
+}
+/*bottom*/
+input {
+	border: none;
+	width: 250px;
+	height: 30px;
+	padding: 5px;
+	background-color: #fff;
+}
+/*Pageright*/
+#creatnew {
+	background-color: #1BA6EB;
+	width: 250px;
+	height: 30px;
+	padding: 5px;
+	text-align: center;
+	color: #fff;
+	font-size: 20px;
+}
+.createdpeople_img {
+	width: 70px;
+	height: 70px;
+	border-radius:50%;
+	overflow:hidden;
+	margin: 0 15px
+}
+
+.tips {
+	width: 260px;
+	height: auto;
+	position: relative;
+}
+
+.tips_head {
+	background-color: #1B1B1B;
+	color: #fff;
+	height: 50px;
+	font-size: 20px;
+}
+
+.tips_head p {
+	padding: 10px 0px 10px 20px;
+}
+
+.tips_head_1 {
+	height: 5px;
+	background-color: #00A1EA;
+}
+
+.tips_head_2 {
+	width:0;
+	height:0;
+    line-height:0;  
+    border-width:7.5px;  
+    border-style:solid;
+    margin-left: 30px;
+    border-color: #00A1EA transparent transparent transparent; 
+}
+
+.tips_clip {
+	background-color: #fff;
+}
+
+.tips_index {
+	margin: 0;
+}
+
+li {
+	list-style: url("/bin/css/image/Discuss_tag.png") outside circle;
+	margin: 0px 0px 7.5px 15px;
+}
+
+li a {
+	vertical-align: top;
+	color: #747474;
+
+}
+
+.sreach {
+	width: 300px;
+	margin-left: 40px;
+	float: right;
+}
+
+.input_shadow {
+	width: 300px;
+	height: auto;
+	position: relative;
+}
+
+.input_shadow:after {
+	position: absolute;
+    content: '';
+    width: 250px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 45px;
+    top: 23px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+.tips:after {
+	position: absolute;
+    content: '';
+    width: 225px;
+    height: 100px;
+    background-color: #DDDBDC;
+    right: 10px;
+    top: 150px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+/*Pageright*/

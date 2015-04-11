@@ -4,30 +4,64 @@ html
         title discuss
         script(src='./lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/discuss.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        if user
-            a(href='/Discuss/create') createNew
-        if discussions
-            each discussion in discussions
-                br
-                p type:
-                    span=discussion.type
-                p title:
-                    a(href='/Discuss/' + discussion._id)=discussion.title
-                p content:
-                    span=discussion.content
-                p up:
-                    button(class='up' discussion-id=discussion._id)=discussion.up
-                p down:
-                    button(class='down' discussion-id=discussion._id)=discussion.down
-                p viewsCount:
-                    span=discussion.viewsCount
-                p createdBy:
-                    span=discussion.createdBy
-                p cratedAt:
-                    span=moment(discussion.cratedAt).format('MMM D,YY')
-                p votedUsers:
-                    span=discussion.votedUsers
+        .main
+            .sreach
+                .input_shadow
+                    input(type='text' id='sreach' placeholder='sreach')
+                if user
+                    .input_shadow
+                        a(href='/Discuss/create')
+                            p#creatnew New
+                .tips
+                    .tips_head
+                        p 标签
+                    .tips_head_1
+                    .tips_clip
+                        .tips_head_2
+                        .tips_index
+                            ul
+                                li 
+                                    a(href="http://www.baidu.com", target="_blank") Javascript
+                                li 
+                                    a(href="#", target="_blank") PHP
+                                li 
+                                    a(href="#", target="_blank") CSS
+                                li 
+                                    a(href="#", target="_blank") Dream
+
+
+            if discussions
+                each discussion in discussions
+                    .discussion
+                        .discuss
+                            .discussion_left
+                                .avatar
+                                    img(src= '/bin/css/image/win7.jpg' alt='avatar')
+                                .up_box
+                                    button(class='up' discussion-id=discussion._id)
+                                    p 
+                                        span=discussion.up
+                                .down_box
+                                    button(class='down' discussion-id=discussion._id)
+                                    p 
+                                        span=discussion.down
+                            .discussion_right
+                                .discussion_right_top
+                                    p.discussion_title
+                                        a(href='/Discuss/' + discussion._id)=discussion.title
+                                    p.discussion_content
+                                        span!=discussion.content
+                                p.discussion_right_down
+                                    img(src= '/bin/css/image/win7.jpg' alt='avatar' class='avatar_image_style')
+                                    span.gray 浏览
+                                    span.blue=discussion.viewsCount
+                                    span.gray 创建于
+                                    span.blue=moment(discussion.cratedAt).format('MMM D,YY')
+            p#discuss_bottom 没有更多内容了
+        .bottom
+            p © 2014 MIAC
         script(src='./bin/js/discuss.js')

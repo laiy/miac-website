@@ -1,4 +1,8 @@
 (function() {
+  $('#submit').click(function() {
+    var content, title;
+    title = $('#title').val();
+    content = tinyMCE.activeEditor.getContent();
   $('button').click(function() {
     var content, title;
     title = $('#title').val();
