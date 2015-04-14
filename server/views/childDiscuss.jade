@@ -63,6 +63,7 @@ html
                                             p.discussion_content
                                                 span=answer.content
                                         p.discussion_detail
+                                            span=answer.username
                                             span.gray 创建于
                                             span.blue=moment(answer.cratedAt).format('MMM D,YY')
                                             span.blue 回复
@@ -81,6 +82,7 @@ html
                                                     p.discussion_content
                                                         span=reply.content
                                                 p.discussion_detail
+                                                    span=reply.username
                                                     span.gray 创建于
                                                     span.blue=moment(reply.createdAt).format('MMM D,YY')
         #discuss_bottom

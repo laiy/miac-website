@@ -52,7 +52,8 @@ router.post '/create', requireLogin, (req, res)->
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
         avatar = req.session.user.avatar
-        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, ->
+        username = req.session.user.username
+        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, username, ->
             res.json { result: 'success' }
 
 ###

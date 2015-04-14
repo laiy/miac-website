@@ -14,6 +14,7 @@ MessageSchema = new Schema
     createdBy: ObjectId
     createdAt: { type: Date, default: Date.now }
     avatar: { type: String, default: 'default.jpg' }
+    username: String
 
 MessageModel = mongoose.model 'MessageModel', MessageSchema
 
@@ -24,13 +25,14 @@ MessageModel = mongoose.model 'MessageModel', MessageSchema
 * @param createdBy: user's id, to memorize who create the message
 * @param callback: the callback function that would execute when function ended
 ###
-MessageModel.createMessage = (replyTo, type, content, createdBy, avatar, callback)->
+MessageModel.createMessage = (replyTo, type, content, createdBy, avatar, username, callback)->
     MessageModel.create
         replyTo: replyTo
         type: type
         content: content
         createdBy: createdBy
         avatar: avatar
+        username: username
     , callback
 
 ###

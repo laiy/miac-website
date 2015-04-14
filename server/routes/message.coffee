@@ -28,7 +28,8 @@ router.post '/create', requireLogin, (req, res)->
         return res.json {result: 'fail', msg: 'Bad type.'}
     else
         avatar = req.session.user.avatar
-        MessageModel.createMessage replyTo, type, content, createdBy, avatar, ->
+        username = req.session.user.username
+        MessageModel.createMessage replyTo, type, content, createdBy, avatar, username, ->
             res.json {result: 'success'}
 
 module.exports = router
