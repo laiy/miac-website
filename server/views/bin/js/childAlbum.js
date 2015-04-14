@@ -2,11 +2,16 @@
   window.onload = function() {
     var i, j, k, length, newBlock, page, pictures, row, _i, _j, _k, _ref;
     pictures = $(".picture");
+    ($('#player')).modal({
+      keyboard: true,
+      show: false
+    });
+    ($('#player')).modal('hide');
     pictures.click(function(e) {
       var url;
       url = $(e.currentTarget.firstChild).attr("src");
       $("#screen").find("#image").find("img").attr("src", url);
-      return $("#screen").css("display", "block");
+      return ($('#player')).modal('show');
     });
     length = pictures.length;
     $("#p-1").addClass("active");
@@ -36,7 +41,7 @@
     }
     $("#close").click(function(e) {
       e.preventDefault();
-      return $("#container").css("display", "none");
+      return $("#container").css("display", block);
     });
     $('.adderButton').click(function(e) {
       e.preventDefault();
@@ -44,7 +49,7 @@
     });
     $('#light').click(function(e) {
       e.preventDefault();
-      return $('#screen').css("display", "none");
+      return ($('#player')).modal('hide');
     });
     $('#screen').find('.prev').click(function(e) {
       var newUrl, num, picture, url, _l, _len;

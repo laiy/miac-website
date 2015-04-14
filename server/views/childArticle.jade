@@ -28,12 +28,13 @@ html
                             | Say something here:
                             form#comment(mothod='POST', action='')
                                 textarea.text(type='text' name='content' form="comment")
-                                input#button(type='submit' value='submit')
+                                input#comment-submit.btn.comment-submit(type='submit' value='submit')
                             br 
                 div#comments
                    if comments
                        each comment in comments
-                            div(name=comment._id)
+                            div.comment-block(name=comment._id)
+                                img(src="./src/img/us.img").user-image
                                 p.words !{comment.content}
                                 p.type #{comment.type}
                                 p.footer #{comment.createdBy} commented at #{moment(comment.createdAt).format('MMM D,YY')}
@@ -41,11 +42,12 @@ html
                                     form(action= '')
                                         input.text(type='text' name='content')
                                         input(type='submit' value='submit')
-                                div#replys
+                                div.replys
                                     each reply in comment.replys
-                                         div(name=reply._id)
-                                             p.words #{reply.content}
-                                             p.type type: #{reply.type}
-                                             p.footer #{reply.createdBy} replyed at #{moment(reply.createdAt).format('MMM D,YY')}
+                                         div(name=reply._id).reply-block
+                                         
+                                            p.words #{reply.content}
+                                            p.type type: #{reply.type}
+                                            p.footer #{reply.createdBy} replyed at #{moment(reply.createdAt).format('MMM D,YY')}
         footer
             p#writer Copyright ©2014 MIAC

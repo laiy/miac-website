@@ -3,11 +3,27 @@
 #	> Mail: williamjwking@gmail.com
 
 window.onload = ()->
-    pictures = $(".picture") 
+    pictures = $(".picture")
+    ($ '#player').modal({
+        keyboard: true
+        show: false
+    })
+    ($ '#player').modal('hide')
+    # $('#screen').addClass("hidden")
+    # ($ '#screen').css 'width', '0px'
+    # ($ '#screen').css 'height', '0px'
     pictures.click (e)->
         url = $(e.currentTarget.firstChild).attr("src")
         $("#screen").find("#image").find("img").attr("src", url)
-        $("#screen").css("display", "block")
+        ($ '#player').modal 'show'
+        # $("#screen").addClass("appear")
+        # $("#screen").removeClass("hidden")
+
+        # ($ '#screen').css 'display', 'block'
+        # ($ '#screen').css 'width', '600px'
+        # ($ '#screen').css 'height', '600px'
+
+
     length = pictures.length
     $("#p-1").addClass("active")
     $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + length)
@@ -31,7 +47,7 @@ window.onload = ()->
 
     $("#close").click (e)->
         e.preventDefault()
-        $("#container").css "display", "none"
+        $("#container").css("display", block)
 
     $('.adderButton').click (e)->
         e.preventDefault()
@@ -39,7 +55,11 @@ window.onload = ()->
 
     $('#light').click (e)->
         e.preventDefault()
-        $('#screen').css "display", "none"
+        # $('#screen').css 'height', '0'
+        # $('#screen').css 'width', '0'
+        # $('#screen').removeClass("appear")
+        # $('#screen').addClass("hidden")
+        ($ '#player').modal('hide')
 
     $('#screen').find('.prev').click (e)->
         url = $("#screen").find("img").attr("src")

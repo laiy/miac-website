@@ -48,15 +48,18 @@ html
                         button.btn(type="submit") 添加
                         button#close.btn 取消
 
-            div#screen
-                nav.loop
-                    a.prev
-                        span.icon-wrap
-                    a.next
-                        span.icon-wrap
-                div#image
-                    img(src="", alt="no-image")
-                button#light.btn 关闭幻灯片 
+            div#player.modal.fade(role="dialog")
+                div.modal-dialog
+                    div.modal-content
+                        div#screen
+                            nav.loop
+                                a.prev
+                                    span.icon-wrap
+                                a.next
+                                    span.icon-wrap
+                            div#image
+                                img(src="", alt="no-image")
+                            button#light.btn 关闭幻灯片 
 
         footer
             p#writer Copyright ©2014 MIAC

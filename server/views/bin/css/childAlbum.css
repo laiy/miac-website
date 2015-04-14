@@ -31,7 +31,7 @@ body {
         cursor: pointer; }
       #childAlbum #pictures #pic-content .loop a::before {
         content: "";
-        background: #C3BBBB;
+        background: #c3bbbb;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -70,11 +70,11 @@ body {
         transform: translateX(-50%) rotate(-45deg);
         transform-origin: 0 0; }
       #childAlbum #pictures #pic-content .loop .prev {
-        top: 500px;
-        left: -30px; }
+        top: 50%;
+        left: 10%; }
       #childAlbum #pictures #pic-content .loop .next {
-        left: 1150px;
-        top: 500px; }
+        left: 110%;
+        top: 50%; }
         #childAlbum #pictures #pic-content .loop .next .icon-wrap {
           transform: rotate(180deg); }
     #childAlbum #pictures #pic-content .adderButton {
@@ -91,7 +91,7 @@ body {
       margin-right: 30px;
       margin-bottom: 50px;
       background-color: white;
-      border: solid #49474A 0.5px; }
+      border: solid #49474a 0.5px; }
       #childAlbum #pictures #pic-content .picture img {
         height: 200px;
         width: 200px;
@@ -126,15 +126,25 @@ body {
         display: none; }
       #childAlbum #container #addPicture #close {
         margin-left: 30px; }
+  #childAlbum #screen.hidden .loop {
+    height: 0;
+    width: 0; }
+  #childAlbum #screen.hidden #light {
+    height: 0;
+    width: 0; }
   #childAlbum #screen {
-    display: none;
     position: fixed;
-    height: 500px;
-    width: 1000px;
-    background-color: white;
-    left: 12%;
-    top: 8%;
-    border-radius: 2%; }
+    top: 0%;
+    left: -65%;
+    transition: height 2s, width 2s;
+    -webkit-transition: height 2s, width 2s;
+    z-index: 2;
+    height: 900px;
+    width: 1400px;
+    background-color: pink; }
+    #childAlbum #screen * {
+      transition: height 2s, width 2s;
+      -webkit-transition: height 2s, width 2s; }
     #childAlbum #screen .loop {
       display: block; }
       #childAlbum #screen .loop a {
@@ -147,7 +157,7 @@ body {
         cursor: pointer; }
       #childAlbum #screen .loop a::before {
         content: "";
-        background: #C3BBBB;
+        background: #c3bbbb;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -186,11 +196,13 @@ body {
         transform: translateX(-50%) rotate(-45deg);
         transform-origin: 0 0; }
       #childAlbum #screen .loop .prev {
-        top: 200px;
-        left: -120px; }
+        top: 40%;
+        left: 5%;
+        z-index: 2; }
       #childAlbum #screen .loop .next {
-        left: 1000px;
-        top: 200px; }
+        right: 5%;
+        top: 40%;
+        z-index: 2; }
         #childAlbum #screen .loop .next .icon-wrap {
           transform: rotate(180deg); }
     #childAlbum #screen #image {
@@ -198,20 +210,21 @@ body {
       border-radius: 5%;
       text-align: center;
       margin: 0 auto;
-      max-width: 90%;
-      max-height: 80%;
+      width: 90%;
+      height: 90%;
       padding: 2% 1% 2% 1%;
+      left: 5%;
+      top: 4%;
+      bottom: 1%;
       position: absolute;
-      top: 36%;
-      left: 46%;
       display: inline-block; }
       #childAlbum #screen #image img {
         margin: 0 auto;
-        width: 100%;
-        height: 100%; }
+        top: 5%;
+        left: 5%;
+        width: auto;
+        height: 90%; }
 
 footer {
   margin-bottom: 2%;
   text-align: center; }
-
-/*# sourceMappingURL=childAlbum.css.map */
