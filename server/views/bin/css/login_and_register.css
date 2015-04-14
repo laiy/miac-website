@@ -1,0 +1,108 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-weight: 100;
+    background-color: #F1EFF0;
+    /*Arial,'Times New Roman','Microsoft YaHei',SimHei*/
+    font-family: "Microsoft YaHei",微软雅黑,"MicrosoftJhengHei",华文细黑,STHeiti,MingLiu
+}
+
+p {
+    padding: 0 auto;
+    margin: 0 auto;
+    font-size: 18px;
+}
+
+input {
+    width: 73%;
+    height: 30px;
+    border: 1px solid #AEAEAE;
+    font-size: 18px;
+    padding: 5px 5px 5px 60px;
+}
+
+button {
+    width: 100%;
+    color: #fff;
+    border: none;
+    background-color: #00A0EA;
+    font-size: 32px;
+    padding: 5px 5px;
+    margin: 10px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #00A0EA;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+.main {
+    margin: 0 auto;
+    width: 350px;
+    clear: both;
+    margin-top: 50px;
+}
+
+.top {
+    position: relative;
+    padding: 25px 50px;
+    background-color: #fff;
+    color: #AEAEAE;
+    /*filter:progid:DXImageTransform.Microsoft.Shadow(color=#909090,direction=120,strength=3);/*ie*/
+    /*-moz-box-shadow: 2px 2px 10px #909090;/*firefox*/
+    /*-webkit-box-shadow: 2px 2px 10px #909090;/*safari或chrome*/
+    /*box-shadow:2px 2px 10px #909090;/*opera或ie9*/
+}
+
+.shadow:after {
+    position: absolute;
+    content: '';
+    width: 300px;
+    height: 200px;
+    background-color: #DDDBDC;
+    right: 35px;
+    top: 31%;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 20%;
+}
+#login_and_register {
+    color: #00A0EA;
+    font-size: 32px;
+}
+
+#top_login_or_register {
+    text-align: center;
+    font-size: 12px;
+}
+
+#username {
+    background: url(/bin/css/image/username.png) no-repeat;
+}
+
+#password {
+    background: url(/bin/css/image/password.png) no-repeat;
+}
+
+
+#username_tip {
+    background-color: #fff;
+    color: #fff;
+    float: right;
+}
+
+#username,#password {
+    margin-top: 12px;
+}

@@ -13,6 +13,7 @@ MessageSchema = new Schema
     content: String
     createdBy: ObjectId
     createdAt: { type: Date, default: Date.now }
+    avatar: { type: String, default: 'default.jpg' }
 
 MessageModel = mongoose.model 'MessageModel', MessageSchema
 
@@ -23,12 +24,13 @@ MessageModel = mongoose.model 'MessageModel', MessageSchema
 * @param createdBy: user's id, to memorize who create the message
 * @param callback: the callback function that would execute when function ended
 ###
-MessageModel.createMessage = (replyTo, type, content, createdBy, callback)->
+MessageModel.createMessage = (replyTo, type, content, createdBy, avatar, callback)->
     MessageModel.create
         replyTo: replyTo
         type: type
         content: content
         createdBy: createdBy
+        avatar: avatar
     , callback
 
 ###

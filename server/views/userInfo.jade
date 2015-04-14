@@ -4,30 +4,28 @@ html
         title userInfo
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/userlnfo.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        p username:
-            span=user.username
-        p status:
-            span=user.status
-        p password:
-            span=user.password
-        div
-            p update:
-            input(type='text')
-            button(type='button' class='password-update') submit
-        p email:
-            span=user.email
-        div
-            p update:
-            input(type='text')
-            button(type='button' class='email-update') submit
-        p avatar
-        img(src= '/assets/img/user/' + user.avatar alt='avatar')
-        p chooseImage:
-        form(action='/User/uploadAvatar' method='post' enctype='multipart/form-data')
-            input(type='file' name='img')
-            button upload
+        .main
+            .main_son
+                p.head 头像:
+                p
+                    img(src='/assets/img/user/' + user.avatar alt='avatar')
+                    button(type='button' id='change_pic_js')修改头像
+                    .js_avatar
+                        form(action='/User/uploadAvatar' method='post' enctype='multipart/form-data')
+                            input(type='file' name='img')
+                            button upload
+            .main_son
+                p.head 密码:
+                p
+                    input(type='text')
+                    button(type='button' class='password-update')修 改
+            .main_son
+                p.head 邮箱:
+                p
+                    input(type='text' value=user.email)
+                    button(type='button' class='email-update') 修 改
         script(src='../bin/js/userInfo.js')
-

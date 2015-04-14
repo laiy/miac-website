@@ -1,0 +1,43 @@
+body {
+	padding: 0;
+	margin: 0;
+	background-color: #F1EFF0;
+}
+
+.main {
+	width: 800px;
+	margin: 50px auto;
+}
+
+.js_avatar,.js_username, .js_email{
+	display: none;
+}
+
+.head {
+	font-size: 18px;
+}
+
+span {
+	display: block;
+	width: 235px;
+	float: left;
+}
+
+button {
+	margin-left: 20px;
+	border: none;
+	background-color: #7C7C7C;
+	color: #fff;
+	height: 40px;
+	padding: 5px 10px;
+}
+
+input {
+	height: 40px;
+	padding-left: 10px;
+	font-size: 20px;
+	border-radius: none;
+	border: none;
+	color: #808083;
+}
+
