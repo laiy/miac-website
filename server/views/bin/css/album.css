@@ -24,13 +24,13 @@ body {
       text-align: center; }
     #album #album-search #search-word {
       background-color: white;
-      border: solid #49474a 0.5px;
+      border: solid #49474A 0.5px;
       padding: 2px 2px 2px 2px;
       border: none;
       background-color: white; }
     #album #album-search #search-button {
       background-color: white;
-      border: solid #49474a 0.5px;
+      border: solid #49474A 0.5px;
       background-color: white;
       border: none; }
       #album #album-search #search-button i {
@@ -45,7 +45,7 @@ body {
       display: inline-block;
       width: 250px;
       background-color: white;
-      border: solid #49474a 0.5px;
+      border: solid #49474A 0.5px;
       margin: 2% 2% 2% 2%; }
       #album #content .pic img {
         display: block;
@@ -84,3 +84,5 @@ body {
 footer {
   margin-bottom: 2%;
   text-align: center; }
+
+/*# sourceMappingURL=album.css.map */

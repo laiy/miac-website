@@ -7,6 +7,8 @@
       show: false
     });
     ($('#player')).modal('hide');
+    ($('#screen')).css('width', $(window).width() * 0.9);
+    ($('#screen')).css('height', $(window).height() * 0.9);
     pictures.click(function(e) {
       var url;
       url = $(e.currentTarget.firstChild).attr("src");

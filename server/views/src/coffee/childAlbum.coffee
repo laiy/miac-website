@@ -10,8 +10,8 @@ window.onload = ()->
     })
     ($ '#player').modal('hide')
     # $('#screen').addClass("hidden")
-    # ($ '#screen').css 'width', '0px'
-    # ($ '#screen').css 'height', '0px'
+    ($ '#screen').css 'width', $(window).width() * 0.9
+    ($ '#screen').css 'height', $(window).height() * 0.9
     pictures.click (e)->
         url = $(e.currentTarget.firstChild).attr("src")
         $("#screen").find("#image").find("img").attr("src", url)
