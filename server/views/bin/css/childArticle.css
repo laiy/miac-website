@@ -9,7 +9,7 @@ body {
     margin-bottom: 10%; }
     #childArticle #container #pack {
       background-color: white;
-      border: solid #49474A 0.5px;
+      border: solid #49474a 0.5px;
       padding: 40px 40px 40px 40px; }
       #childArticle #container #pack #content {
         margin: 40px 40px 40px 40px; }
@@ -19,7 +19,7 @@ body {
         #childArticle #container #pack #content header {
           font-size: 70pt;
           text-align: center;
-          color: #00A0E6; }
+          color: #00a0e6; }
         #childArticle #container #pack #content footer {
           text-align: right; }
           #childArticle #container #pack #content footer span {
@@ -40,5 +40,3 @@ body {
 footer {
   margin-bottom: 2%;
   text-align: center; }
-
-/*# sourceMappingURL=childArticle.css.map */

@@ -9,13 +9,22 @@ window.onload = ()->
         show: false
     })
     ($ '#player').modal('hide')
+    ($ 'contain').modal('hide')
     # $('#screen').addClass("hidden")
     ($ '#screen').css 'width', $(window).width() * 0.9
-    ($ '#screen').css 'height', $(window).height() * 0.9
+    ($ '#screen').css 'height', $(window).height() * 0.9    
+    ($ '.carousel').carousel {interval: 7000}
+    $(($ '.item')[0]).addClass 'active'
     pictures.click (e)->
         url = $(e.currentTarget.firstChild).attr("src")
         $("#screen").find("#image").find("img").attr("src", url)
         ($ '#player').modal 'show'
+        pictures = $('.picture')
+        num = 0
+        for picture, i in pictures
+            if picture is e.currentTarget
+                num = i
+        ($ '.carousel').carousel(num)
         # $("#screen").addClass("appear")
         # $("#screen").removeClass("hidden")
 

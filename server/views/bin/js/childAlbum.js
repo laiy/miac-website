@@ -7,13 +7,27 @@
       show: false
     });
     ($('#player')).modal('hide');
+    ($('contain')).modal('hide');
     ($('#screen')).css('width', $(window).width() * 0.9);
     ($('#screen')).css('height', $(window).height() * 0.9);
+    ($('.carousel')).carousel({
+      interval: 7000
+    });
+    $(($('.item'))[0]).addClass('active');
     pictures.click(function(e) {
-      var url;
+      var i, num, picture, url, _i, _len;
       url = $(e.currentTarget.firstChild).attr("src");
       $("#screen").find("#image").find("img").attr("src", url);
-      return ($('#player')).modal('show');
+      ($('#player')).modal('show');
+      pictures = $('.picture');
+      num = 0;
+      for (i = _i = 0, _len = pictures.length; _i < _len; i = ++_i) {
+        picture = pictures[i];
+        if (picture === e.currentTarget) {
+          num = i;
+        }
+      }
+      return ($('.carousel')).carousel(num);
     });
     length = pictures.length;
     $("#p-1").addClass("active");

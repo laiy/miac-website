@@ -43,7 +43,7 @@ body {
       width: 300px; }
     #create-article #create-new-article .submit {
       border-style: none;
-      background-color: #31AAFD; }
+      background-color: #31aafd; }
     #create-article #create-new-article .cancel {
       border-style: none;
       background-color: #484848; }
@@ -51,5 +51,3 @@ body {
 footer {
   margin-bottom: 2%;
   text-align: center; }
-
-/*# sourceMappingURL=createArticle.css.map */

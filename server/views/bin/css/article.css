@@ -23,13 +23,13 @@ body {
       text-align: center; }
     #article-list #article-search #search-word {
       background-color: white;
-      border: solid #49474A 0.5px;
+      border: solid #49474a 0.5px;
       padding: 2px 2px 2px 2px;
       border: none;
       background-color: white; }
     #article-list #article-search #search-button {
       background-color: white;
-      border: solid #49474A 0.5px;
+      border: solid #49474a 0.5px;
       background-color: white;
       border: none; }
       #article-list #article-search #search-button i {
@@ -61,7 +61,7 @@ body {
             float: right;
             width: 80%;
             background-color: white;
-            border: solid #49474A 0.5px; }
+            border: solid #49474a 0.5px; }
             #article-list #main #list #articles .one-article .user-header .contain {
               overflow: hidden;
               margin: 10px 10px 10px 10px; }
@@ -80,11 +80,11 @@ body {
       padding: 2px 2px 2px 2px; }
       #article-list #main #choose #label {
         background-color: white;
-        border: solid #49474A 0.5px;
+        border: solid #49474a 0.5px;
         overflow: hidden; }
         #article-list #main #choose #label header {
           height: 70px;
-          background-color: #1B1B1B;
+          background-color: #1b1b1b;
           width: 100%;
           position: relative; }
           #article-list #main #choose #label header p {
@@ -123,5 +123,3 @@ body {
 footer {
   margin-bottom: 2%;
   text-align: center; }
-
-/*# sourceMappingURL=article.css.map */
