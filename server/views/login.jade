@@ -4,15 +4,19 @@ html
         title login
         script(src='./lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/login_and_register.css', rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        p username
-        input(type='text' id='username')
-        p password
-        input(type='text' id='password')
-        button submit
-        script(src='./bin/js/login.js')
-
+        .main
+            .top.shadow
+                p#login_and_register LOGIN
+                input(type='text' id='username' placeholder='username')
+                input(type='password' id='password' placeholder='password')
+                button SIGN IN
+                script(src='./bin/js/login.js')
+                p#top_login_or_register Not a member? <a href="/register">sign up now→</a>
+            .bottom
+                p  © 2014 MIAC
 
 

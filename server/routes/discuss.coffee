@@ -51,7 +51,9 @@ router.post '/create', requireLogin, (req, res)->
     else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(answerTo) and answerTo isnt ''
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
-        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, ->
+        avatar = req.session.user.avatar
+        username = req.session.user.username
+        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, username, ->
             res.json { result: 'success' }
 
 ###

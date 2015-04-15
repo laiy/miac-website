@@ -1,0 +1,95 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F1EFF0;
+}
+
+#content_textarea {
+	width: 830px;
+	height: 400px;
+	position: relative;
+}
+
+textarea {
+	width: 830px;
+	height: 300px;
+}
+
+.main {
+	width: 850px;
+	margin: 25px auto 0 auto;
+}
+
+input,textarea {
+	border: 1px solid #AEAEAE;
+}
+
+input {
+	width: 500px;
+	height: 40px;
+	margin: 20px 0;
+	border: none;
+	font-size: 18px;
+	padding: 3px 8px;
+}
+
+button {
+	height: 40px;
+	font-size: 16px;
+	color: #fff;
+	margin: 10px 25px 10px 0;
+	border: none;
+	border-radius: 10%;
+	padding: 0 25px;
+}
+
+#submit{
+	background-color: #00A0EA;
+}
+
+#cancel {
+	background-color: #484848;
+}
+
+.bottom {
+	color: black;
+	text-align: center;
+	font-size: 18px;
+}
+
+.add_shadow {
+	width: 500px;
+	height: auto;
+	position: relative;
+}
+
+.add_shadow:after {
+	position: absolute;
+    content: '';
+    width: 450px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 45px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+#content_textarea:after {
+	position: absolute;
+    content: '';
+    width: 800px;
+    height: 100px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 275px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
