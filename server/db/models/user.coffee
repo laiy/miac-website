@@ -11,7 +11,7 @@ util = require '../../common/util.coffee'
 UserSchema = new Schema
     username: String
     password: String
-    avatar: { type: String, default: 'default.jpg' }
+    avatar: { type: String }
     email: String
     status: { type: String, default: 'user' } # user or clubMember or admin
     createArticles: [{ lastAccessTime: Date, id: ObjectId }]

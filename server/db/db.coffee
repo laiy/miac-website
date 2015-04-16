@@ -24,7 +24,6 @@ init = ->
         # MessageModel.drop ->
         # UserModel.drop ->
         # ArticleModel.drop ->
-        # DiscussionModel.drop ->
         # AlbumModel.drop ->
 
 ###
