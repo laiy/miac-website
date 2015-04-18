@@ -37,9 +37,10 @@ html
                     nav
                         ul.pagination
                             -var n = 0
+                            -var num = album.pictures.length
                             while n < (num - 1) / 12 + 1
                                 li(id="p-" + (n + 1))
-                                    a(href="#" + (n + 1)) #{++n}
+                                    a(href="#" + (n + 1)).page-nav #{++n}
             div#contain.modal.fate(role="dialog")
                 div.modal-dialog.modal-lg
                     div.modal-content
@@ -49,9 +50,8 @@ html
                                     |请选择图片:
                                 input(type="file", name="picture", multiple="multiple")
                                 input#albumId(type="text", name="albumId", value=album._id)
-                                div.modal-footer
-                                    button.btn(type="submit") 添加
-                                        button#close.btn(data-dismiss="modal") 取消
+                                button.btn(type="submit") 添加
+                                button#close.btn(data-dismiss="modal") 取消
 
             div#player.modal.fade(role="dialog")
                 div.modal-dialog.modal-lg

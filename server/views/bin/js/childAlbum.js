@@ -29,9 +29,12 @@
       }
       return ($('.carousel')).carousel(num);
     });
-    length = pictures.length;
-    $("#p-1").addClass("active");
-    $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + length);
+    if (pictures.length === 0) {
+      length = 1;
+    } else {
+      length = pictures.length;
+    }
+    $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + 1);
     if (length > 1) {
       $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 2);
     } else {
@@ -39,7 +42,7 @@
     }
     if (length > 0) {
       for (i = _i = 0, _ref = (length - 1) / 12; 0 <= _ref ? _i <= _ref : _i >= _ref; i = 0 <= _ref ? ++_i : --_i) {
-        page = $("<div></div>").attr("id", i + 1).attr("name", i + 1);
+        page = $("<div></div>").attr("id", i + 1).attr("name", i + 1).css("display", "none").addClass('page');
         for (j = _j = 0; _j <= 2; j = ++_j) {
           row = $("<div></div>").attr("class", "pic-row");
           for (k = _k = 0; _k <= 3; k = ++_k) {
@@ -54,7 +57,51 @@
         }
         $("#pic-content").append(page);
       }
+      $("#1").addClass("active");
     }
+    $(".page-nav").click(function(e) {
+      var currentPage, href, target, _l, _len, _ref1;
+      href = $(e.currentTarget).attr("href");
+      target = $("" + href)[0];
+      _ref1 = $('.page');
+      for (_l = 0, _len = _ref1.length; _l < _len; _l++) {
+        page = _ref1[_l];
+        if (page !== target) {
+          $(page).removeClass('active');
+        }
+      }
+      $(target).addClass('active');
+      currentPage = parseInt(target[1]);
+      length = $(".picture").length;
+      if (length === 0) {
+        length = 1;
+      }
+      if (currentPage > 1) {
+        $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + (cuurentPage - 1));
+      } else {
+        $('#pic-content').find($('.loop')).find('.prev').attr("href", "#1");
+      }
+      if (currentPage < length) {
+        return $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + (currentPage + 1));
+      } else {
+        return $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + parseInt((length - 1) / 12 + 1));
+      }
+    });
+    $('#pic-content').find($('.loop')).find($('a')).click(function(e) {
+      var button, href, _l, _len, _ref1, _results;
+      href = $(e.currentTarget).attr('href');
+      _ref1 = $('.page-nav');
+      _results = [];
+      for (_l = 0, _len = _ref1.length; _l < _len; _l++) {
+        button = _ref1[_l];
+        if ($(button).attr('href') === href) {
+          _results.push(button.click());
+        } else {
+          _results.push(void 0);
+        }
+      }
+      return _results;
+    });
     $("#close").click(function(e) {
       e.preventDefault();
       return $("#container").css("display", block);

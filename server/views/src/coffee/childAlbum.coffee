@@ -33,16 +33,18 @@ window.onload = ()->
         # ($ '#screen').css 'height', '600px'
 
 
-    length = pictures.length
-    $("#p-1").addClass("active")
-    $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + length)
+    if (pictures.length == 0)
+        length = 1
+    else
+        length = pictures.length
+    $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + 1)
     if (length > 1)
         $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 2)
     else 
         $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + 1)
     if length > 0
         for i in [0..(length - 1) / 12]
-            page = $("<div></div>").attr("id", i + 1).attr("name", i + 1)
+            page = $("<div></div>").attr("id", i + 1).attr("name", i + 1).css("display", "none").addClass('page')
             for j in [0..2]
                 row = $("<div></div>").attr "class", "pic-row"
                 for k in [0..3]
@@ -53,6 +55,35 @@ window.onload = ()->
                         row.append(newBlock)
                 page.append row
             $("#pic-content").append page
+        $("#1").addClass "active"
+
+    $(".page-nav").click (e)->
+        href = $(e.currentTarget).attr("href")
+        target = $("" + href)[0]
+        for page in $('.page')
+            if page isnt target
+                $(page).removeClass 'active'
+        $(target).addClass 'active'
+        currentPage = parseInt(target[1])
+        length = $(".picture").length
+        if length == 0
+            length = 1
+        if currentPage > 1
+            $('#pic-content').find($('.loop')).find('.prev').attr("href", "#" + (cuurentPage - 1))
+        else
+            $('#pic-content').find($('.loop')).find('.prev').attr("href", "#1")
+        if currentPage < length
+            $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + (currentPage + 1))
+        else
+            $('#pic-content').find($('.loop')).find('.next').attr("href", "#" + parseInt((length - 1) / 12 + 1))
+
+    $('#pic-content').find($('.loop')).find($('a')).click (e)->
+        href = $(e.currentTarget).attr('href')
+        for button in $('.page-nav')
+            if $(button).attr('href') is href
+                button.click()
+
+
 
     $("#close").click (e)->
         e.preventDefault()
