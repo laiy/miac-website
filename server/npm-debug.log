@@ -1,0 +1,86 @@
+0 info it worked if it ends with ok
+1 verbose cli [ '/usr/local/bin/node',
+1 verbose cli   '/usr/local/bin/npm',
+1 verbose cli   'install',
+1 verbose cli   '-g',
+1 verbose cli   'Livescript' ]
+2 info using npm@1.4.28
+3 info using node@v0.10.33
+4 verbose cache add [ 'Livescript', null ]
+5 verbose cache add name=undefined spec="Livescript" args=["Livescript",null]
+6 verbose parsed url { protocol: null,
+6 verbose parsed url   slashes: null,
+6 verbose parsed url   auth: null,
+6 verbose parsed url   host: null,
+6 verbose parsed url   port: null,
+6 verbose parsed url   hostname: null,
+6 verbose parsed url   hash: null,
+6 verbose parsed url   search: null,
+6 verbose parsed url   query: null,
+6 verbose parsed url   pathname: 'Livescript',
+6 verbose parsed url   path: 'Livescript',
+6 verbose parsed url   href: 'Livescript' }
+7 silly lockFile f90255e4-Livescript Livescript
+8 verbose lock Livescript /home/william/.npm/f90255e4-Livescript.lock
+9 silly lockFile f90255e4-Livescript Livescript
+10 silly lockFile f90255e4-Livescript Livescript
+11 verbose addNamed [ 'Livescript', '' ]
+12 verbose addNamed [ null, '*' ]
+13 silly lockFile 12b9634a-Livescript Livescript@
+14 verbose lock Livescript@ /home/william/.npm/12b9634a-Livescript.lock
+15 silly addNameRange { name: 'Livescript', range: '*', hasData: false }
+16 verbose request where is /Livescript
+17 verbose request registry https://registry.npmjs.org/
+18 verbose request id f566605039c454f9
+19 verbose url raw /Livescript
+20 verbose url resolving [ 'https://registry.npmjs.org/', './Livescript' ]
+21 verbose url resolved https://registry.npmjs.org/Livescript
+22 verbose request where is https://registry.npmjs.org/Livescript
+23 info trying registry request attempt 1 at 14:09:43
+24 http GET https://registry.npmjs.org/Livescript
+25 http 404 https://registry.npmjs.org/Livescript
+26 verbose headers { date: 'Sat, 04 Apr 2015 06:09:45 GMT',
+26 verbose headers   server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+26 verbose headers   'content-type': 'application/json',
+26 verbose headers   'cache-control': 'max-age=0',
+26 verbose headers   'content-length': '51',
+26 verbose headers   'accept-ranges': 'bytes',
+26 verbose headers   via: '1.1 varnish',
+26 verbose headers   age: '0',
+26 verbose headers   'x-served-by': 'cache-nrt6127-NRT',
+26 verbose headers   'x-cache': 'MISS',
+26 verbose headers   'x-cache-hits': '0',
+26 verbose headers   'x-timer': 'S1428127784.260922,VS0,VE760',
+26 verbose headers   'keep-alive': 'timeout=10, max=50',
+26 verbose headers   connection: 'Keep-Alive' }
+27 silly registry.get cb [ 404,
+27 silly registry.get   { date: 'Sat, 04 Apr 2015 06:09:45 GMT',
+27 silly registry.get     server: 'CouchDB/1.5.0 (Erlang OTP/R16B03)',
+27 silly registry.get     'content-type': 'application/json',
+27 silly registry.get     'cache-control': 'max-age=0',
+27 silly registry.get     'content-length': '51',
+27 silly registry.get     'accept-ranges': 'bytes',
+27 silly registry.get     via: '1.1 varnish',
+27 silly registry.get     age: '0',
+27 silly registry.get     'x-served-by': 'cache-nrt6127-NRT',
+27 silly registry.get     'x-cache': 'MISS',
+27 silly registry.get     'x-cache-hits': '0',
+27 silly registry.get     'x-timer': 'S1428127784.260922,VS0,VE760',
+27 silly registry.get     'keep-alive': 'timeout=10, max=50',
+27 silly registry.get     connection: 'Keep-Alive' } ]
+28 silly lockFile 12b9634a-Livescript Livescript@
+29 silly lockFile 12b9634a-Livescript Livescript@
+30 error 404 404 Not Found: Livescript
+30 error 404
+30 error 404 'Livescript' is not in the npm registry.
+30 error 404 You should bug the author to publish it
+30 error 404
+30 error 404 Note that you can also install from a
+30 error 404 tarball, folder, or http url, or git url.
+31 error System Linux 3.13.0-32-generic
+32 error command "/usr/local/bin/node" "/usr/local/bin/npm" "install" "-g" "Livescript"
+33 error cwd /home/william/miac-website-1/server
+34 error node -v v0.10.33
+35 error npm -v 1.4.28
+36 error code E404
+37 verbose exit [ 1, true ]

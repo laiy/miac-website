@@ -1,0 +1,42 @@
+body {
+  background-color: #eeeeee !important; }
+
+#childArticle {
+  margin-left: 20%;
+  margin-right: 20%; }
+  #childArticle #container {
+    margin-top: 10%;
+    margin-bottom: 10%; }
+    #childArticle #container #pack {
+      background-color: white;
+      border: solid #49474a 0.5px;
+      padding: 40px 40px 40px 40px; }
+      #childArticle #container #pack #content {
+        margin: 40px 40px 40px 40px; }
+        #childArticle #container #pack #content p {
+          text-align: center;
+          font-size: 20pt; }
+        #childArticle #container #pack #content header {
+          font-size: 70pt;
+          text-align: center;
+          color: #00a0e6; }
+        #childArticle #container #pack #content footer {
+          text-align: right; }
+          #childArticle #container #pack #content footer span {
+            font-size: 1.5em;
+            color: red; }
+        #childArticle #container #pack #content #write-comment {
+          margin-bottom: 5%; }
+          #childArticle #container #pack #content #write-comment form {
+            overflow: hidden; }
+            #childArticle #container #pack #content #write-comment form .text {
+              width: 800px;
+              height: 200px; }
+            #childArticle #container #pack #content #write-comment form #comment-submit {
+              float: right; }
+  #childArticle #comments {
+    margin-bottom: 5%; }
+
+footer {
+  margin-bottom: 2%;
+  text-align: center; }

@@ -1,0 +1,125 @@
+body {
+  background-color: #eeeeee !important; }
+
+#article-list {
+  margin-left: 10%;
+  margin-right: 10%;
+  background-color: #eeeeee;
+  padding: 2% 5% 5% 5%;
+  margin-top: 1%;
+  margin-bottom: 1%; }
+  #article-list h1 {
+    color: grey;
+    font-size: 60pt;
+    padding: 0px 0px 0px 0px; }
+  #article-list #article-search {
+    margin-bottom: 5px;
+    padding: 1% 1% 1% 1%; }
+    #article-list #article-search * {
+      display: inline;
+      height: 30px; }
+    #article-list #article-search .submit {
+      float: right;
+      text-align: center; }
+    #article-list #article-search #search-word {
+      background-color: white;
+      border: solid #49474a 0.5px;
+      padding: 2px 2px 2px 2px;
+      border: none;
+      background-color: white; }
+    #article-list #article-search #search-button {
+      background-color: white;
+      border: solid #49474a 0.5px;
+      background-color: white;
+      border: none; }
+      #article-list #article-search #search-button i {
+        background-color: white; }
+  #article-list #main {
+    overflow: hidden; }
+    #article-list #main .contain {
+      overflow: hidden; }
+    #article-list #main #list {
+      padding: 0 1% 0 1%;
+      display: inline-block;
+      width: 70%;
+      min-height: 400px;
+      display: inline-block !important; }
+      #article-list #main #list #articles {
+        margin: 2% 2% 2% 2%; }
+        #article-list #main #list #articles .one-article {
+          overflow: hidden;
+          padding: 4px 4px 4px 4px; }
+          #article-list #main #list #articles .one-article .user-image {
+            border-radius: 50%;
+            display: inline;
+            height: 80px;
+            width: 80px;
+            margin-top: 10px;
+            background-color: white;
+            text-align: center; }
+          #article-list #main #list #articles .one-article .user-header {
+            float: right;
+            width: 80%;
+            background-color: white;
+            border: solid #49474a 0.5px; }
+            #article-list #main #list #articles .one-article .user-header .contain {
+              overflow: hidden;
+              margin: 10px 10px 10px 10px; }
+              #article-list #main #list #articles .one-article .user-header .contain #title {
+                font-size: 28pt;
+                color: #00a1ea; }
+              #article-list #main #list #articles .one-article .user-header .contain #article-time {
+                text-align: right; }
+              #article-list #main #list #articles .one-article .user-header .contain #link {
+                float: right; }
+          #article-list #main #list #articles .one-article .user-header:hover {
+            cursor: pointer; }
+    #article-list #main #choose {
+      float: right;
+      width: 25%;
+      padding: 2px 2px 2px 2px; }
+      #article-list #main #choose #label {
+        background-color: white;
+        border: solid #49474a 0.5px;
+        overflow: hidden; }
+        #article-list #main #choose #label header {
+          height: 70px;
+          background-color: #1b1b1b;
+          width: 100%;
+          position: relative; }
+          #article-list #main #choose #label header p {
+            height: 60px;
+            width: 160px;
+            color: white;
+            font-size: 40px;
+            position: absolute;
+            left: 20px;
+            top: 10px; }
+        #article-list #main #choose #label #arrow-line {
+          background-color: #00a1ea;
+          height: 5px;
+          margin-bottom: 5%; }
+          #article-list #main #choose #label #arrow-line .triangle {
+            width: 0;
+            height: 0;
+            border-left: 8px solid transparent;
+            border-right: 8px solid transparent;
+            border-top: 16px solid #00a1ea;
+            position: relative;
+            right: -20px; }
+        #article-list #main #choose #label ul {
+          float: left;
+          list-style: none; }
+          #article-list #main #choose #label ul li {
+            margin-top: 10px;
+            margin-bottom: 10px; }
+            #article-list #main #choose #label ul li a {
+              color: #454346; }
+            #article-list #main #choose #label ul li a:hover {
+              color: #00a1ea; }
+            #article-list #main #choose #label ul li span {
+              left: -20px; }
+
+footer {
+  margin-bottom: 2%;
+  text-align: center; }

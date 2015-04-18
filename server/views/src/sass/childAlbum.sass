@@ -1,0 +1,264 @@
+@mixin page-title()
+    color: grey
+    font-size: 60pt
+    padding: 0px 0px 0px 0px
+
+@mixin center($value: 13%)
+    margin-left: $value
+    margin-right: $value
+    margin-top: 2%
+    margin-bottom: 2%
+    padding: 2% 2% 2% 2%
+
+@mixin paper
+    background-color: white
+    border: solid #49474A 0.5px
+
+body
+    background-color: #eeeeee !important
+
+#childAlbum
+    @include center
+    background-color: #eeeeee
+    margin-bottom: 2%
+    width: 70%
+    min-height: 700px
+    position: relative
+    header
+        @include page-title
+    #pictures
+        text-align: center
+        background-color: #eeeeee
+        #pic-content
+            .loop
+                display: block
+                a
+                    position: absolute
+                    margin: 0 30px
+                    width: 50px
+                    height: 50px
+                    display: block
+                a:hover
+                    cursor: pointer
+                a::before
+                    content: ''
+                    background: #C3BBBB
+                    opacity: 0
+                    border-radius: 50%
+                    width: 50px
+                    height: 50px
+                    position: absolute
+                    right: 0px
+                a:hover::before
+                    opacity: 1
+                    transform: scale(1)
+                    -webkit-transition: transform 0.3s, opacity 0.3s
+                .icon-wrap
+                    position: relative
+                    display: block
+                    margin: 10% 0 0 10%
+                    width: 80%
+                    height: 80%
+                .icon-wrap::before
+                    position: absolute
+                    left: 25%
+                    width: 3px
+                    height: 50%
+                    background: grey
+                    content: ''
+                .icon-wrap::after
+                    position: absolute
+                    left: 25%
+                    width: 3px
+                    height: 50%
+                    background: grey
+                    content: ''
+                .icon-wrap::before
+                    transform: translateX(-50%) rotate(45deg)
+                    transform-origin: 0 100%
+                .icon-wrap::after
+                    top: 50%
+                    transform: translateX(-50%) rotate(-45deg)
+                    transform-origin: 0 0
+                .prev
+                    top: 50%
+                    left: -10%
+                .next
+                    right: -10%
+                    top: 50%
+                    .icon-wrap
+                        transform: rotate(180deg)
+
+            .adderButton
+                top: 50px
+                position: relative
+                top: -40px
+                left: 400px
+                a
+                    color: white
+            .picture
+                display: inline-block
+                height: 160px
+                width: 160px
+                img
+                    height: 140px
+                    width: 140px
+                    margin: 0 auto
+                padding: 1% 1% 1% 1%
+                text-align: center
+                margin-right: 30px
+                margin-bottom: 50px
+                @include paper
+            .picture:hover
+                cursor: pointer
+        nav
+            margin-left: auto
+            margin-right: auto
+    #container
+        display: none
+        background-color: grey
+        padding: 1% 1% 1% 1%
+        position: fixed
+        border: solid 2px
+        border-radius: 10%
+        left: 50%
+        top: 50%
+        margin-left: -15%
+        margin-top: -15%
+        height: 30%
+        width: 30%
+        #addPicture
+            background-color: white 
+            text-align: center
+            padding: 2% 2% 2% 2%
+            display: block
+            border: solid 2px
+            border-radius: 10%
+            height: 100%
+            .id
+                display: none
+            #close
+                margin-left: 30px
+
+    #screen.hidden
+        .loop
+            height: 0
+            width: 0
+        #light
+            height: 0
+            width: 0
+
+    #screen
+        position: fixed
+        top: 0%
+        left: -45%
+        transition: height 2s, width 2s
+        -webkit-transition: height 2s, width 2s
+        z-index: 2
+        background-color: black
+        *
+            transition: height 2s, width 2s
+            -webkit-transition: height 2s, width 2s
+        #light
+            width: 5%
+        .loop
+            display: block
+            a
+                position: absolute
+                margin: 0 30px
+                width: 50px
+                height: 50px
+                display: block
+            a:hover
+                cursor: pointer
+            a::before
+                content: ''
+                background: #C3BBBB
+                opacity: 0
+                border-radius: 50%
+                width: 50px
+                height: 50px
+                position: absolute
+                right: 0px
+            a:hover::before
+                opacity: 1
+                transform: scale(1)
+                -webkit-transition: transform 0.3s, opacity 0.3s
+            .icon-wrap
+                position: relative
+                display: block
+                margin: 10% 0 0 10%
+                width: 80%
+                height: 80%
+            .icon-wrap::before
+                position: absolute
+                left: 25%
+                width: 3px
+                height: 50%
+                background: grey
+                content: ''
+            .icon-wrap::after
+                position: absolute
+                left: 25%
+                width: 3px
+                height: 50%
+                background: grey
+                content: ''
+            .icon-wrap::before
+                transform: translateX(-50%) rotate(45deg)
+                transform-origin: 0 100%
+            .icon-wrap::after
+                top: 50%
+                transform: translateX(-50%) rotate(-45deg)
+                transform-origin: 0 0
+            .prev
+                top: 40%
+                left: 5%
+                z-index: 2
+            .next
+                right: -15%
+                top: 40%
+                z-index: 2
+                .icon-wrap
+                    transform: rotate(180deg)
+        #image
+            background-color: white
+            border-radius: 5%
+            text-align: center
+            margin: 0 auto
+            width: 90%
+            height: 90%
+            padding: 2% 1% 2% 1%
+            left: 5%
+            top: 4%
+            bottom: 1%
+            position: absolute
+            display: inline-block
+            img
+                margin: 0 auto
+                top: 5%
+                left: 5%
+                width: auto
+                height: 90%
+
+.album-pic
+    width: auto
+    display: inline-block !important
+    margin-top: 30px
+    margin-bottom: 30px
+
+footer
+    margin-bottom: 2%
+    text-align: center
+
+.picture-page
+    text-align: center
+    img
+        width: auto
+        max-height: 900px
+
+#albumId
+    display: none
+
+.active
+    display: block !important
