@@ -67,12 +67,12 @@ html
                         //-     button#light.btn 关闭
 
                         div#carousel-example.carousel.slide(data-ride="carousel")
-                            ol.carousel-indicators
-                                - for (var i = 0; i < album.pictures.length; ++i)
-                                    if i == 0
-                                        li.active(data-target="#carousel-example", data-slide-to = i)
-                                    else
-                                        li(data-target="#carousel-example", data-slide-to = i)
+                            //- ol.carousel-indicators
+                            //-     - for (var i = 0; i < album.pictures.length; ++i)
+                            //-         if i == 0
+                            //-             li.active(data-target="#carousel-example", data-slide-to = i)
+                            //-         else
+                            //-             li(data-target="#carousel-example", data-slide-to = i)
                             div.carousel-inner(role="listbox")
                                 -var i = 0
                                 for picture in album.pictures
