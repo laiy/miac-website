@@ -1,0 +1,101 @@
+@mixin page-title()
+    color: grey
+    font-size: 60pt
+    padding: 0px 0px 0px 0px
+
+@mixin center($value: 20%)
+    margin-left: 20%
+    margin-right: $value
+    margin-top: 2%
+    margin-bottom: 2%
+
+@mixin paper
+    background-color: white
+    border: solid #49474A 0.5px
+
+body
+    background-color: #eeeeee !important
+
+#album
+    @include center
+    margin-top: 0
+    border-radius: 5%
+    padding: 0 2% 2% 2%
+    header
+        text-align: center
+        img
+            width: 100%
+            height: 300px
+        margin-bottom: 5%
+    #album-search
+        margin-bottom: 5px
+        padding: 0 1% 1% 1%
+        *
+            display: inline
+            height: 30px
+        .submit
+            float: right
+            text-align: center
+            font-size: 18px
+            height: 40px
+        #search-word
+            @include paper
+            padding: 2px 2px 2px 2px
+            border: none
+            background-color: white
+            font-size: 18px
+        #search-button
+            @include paper
+            i
+                background-color: white
+            background-color: white
+            border: none
+    header
+        @include page-title
+    #content
+        padding: 1% 1% 1% 1%
+        .pic
+            display: inline-block
+            width: 300px
+            @include paper
+            margin: 2% 2% 2% 2%
+            img
+                display: block
+                height: 250px
+                width: 100%
+            img:hover
+                cursor: pointer
+            .info
+                padding: 4% 4% 4% 4%
+                span
+                    font-size: 15pt
+                span.title
+                    margin-right: 5%
+                    font-size: 25pt
+                span.num
+                    float: right
+                    span.number
+                        color: #00a1ea
+                        font-size: 1.5em
+                        font-weight: bold
+            .time
+                padding: 4% 4% 2% 4%
+                p
+                    text-align: right
+                    color: grey
+        .pic:hover
+            box-shadow: 2px 2px 2px #c7c4c4
+        .year
+            header
+                text-align: center
+                font-size: 40pt
+                font-weight: bold
+                color: #c7c4c4
+                margin-bottom: 0
+            .row
+                text-align: center
+            
+footer
+    margin-bottom: 2%
+    text-align: center
+    font-size: 18px
