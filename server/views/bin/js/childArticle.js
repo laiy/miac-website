@@ -4,7 +4,7 @@
     content = $(this).siblings('input').val();
     items = window.location.href.split('/');
     ObjectId = items[items.length - 1];
-    return $.post('/message/create', {
+    return $.post('/Message/create', {
       replyTo: ObjectId,
       type: 'comment',
       content: content
@@ -19,8 +19,8 @@
   $('.reply-submit').click(function() {
     var ObjectId, content;
     content = $(this).siblings('input').val();
-    ObjectId = $(this).parent('div').attr('name');
-    return $.post('/message/create', {
+    ObjectId = $(this).attr('comment-id');
+    return $.post('/Message/create', {
       replyTo: ObjectId,
       type: 'reply',
       content: content

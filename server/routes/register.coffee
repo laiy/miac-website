@@ -4,14 +4,18 @@
 #	> Created Time: Wednesday, November 19, 2014 PM02:57:38 CST
 
 express = require 'express'
+gm = require 'gm'
 UserModel = require '../db/models/user.coffee'
+imageMagick = gm.subClass { imageMagick: true }
 router = express.Router()
+util = require '../common/util.coffee'
 
 ###
 * handle when post '/register/regist'
 * return fail when the username has already existed
 * return fail when bad params occur
 * create a new user with username, password and email
+* create avatar named user._id + '.png'
 * @param username: user's name(one and only)
 * @param password: user's password
 * @param email: user's email
@@ -29,7 +33,14 @@ router.post '/regist', (req, res)->
             return res.json {result: 'fail', msg: 'The form of email is invalid.'}
         else
             UserModel.createUser username, password, email, ->
-                res.json {result: 'success'}
+                UserModel.findOne { username: username, password: util.encrypt(password) }, (err, user)->
+                    if err or not user
+                        return res.status(500).send 'Server Error.'
+                    user.avatar = user._id + '.png';
+                    user.save ->
+                        imageMagick('views/assets/img/user/default.jpg')
+                            .write 'views/assets/img/user/' + user.avatar, (err)->
+                                res.json {result: 'success'}
 
 ###
 * render 'register' when get '/register'

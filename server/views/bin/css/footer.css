@@ -4,7 +4,7 @@ body {
     width: 96%;
     position: absolute;
     bottom: 0;
-    background-color: #1b1b1b;
+    background-color: #1B1B1B;
     padding: 2%; }
     body #footer #footer-content {
       width: 850px;
@@ -18,11 +18,11 @@ body {
         width: 300px;
         float: left; }
         body #footer #footer-content .footer-siteinfo h1 {
-          color: #00a1ea; }
+          color: #00A1EA; }
         body #footer #footer-content .footer-siteinfo p {
           color: white; }
         body #footer #footer-content .footer-siteinfo #footer-donation {
-          border: 2px #00a1ea solid;
+          border: 2px #00A1EA solid;
           border-radius: 5px;
           height: 60;
           width: 200px;
@@ -31,13 +31,13 @@ body {
           transition: background-color 0.4s; }
           body #footer #footer-content .footer-siteinfo #footer-donation p {
             text-align: center;
-            color: #00a1ea;
+            color: #00A1EA;
             font-size: 30px;
             margin-top: 10px;
             margin-bottom: 10px; }
           body #footer #footer-content .footer-siteinfo #footer-donation:hover {
             cursor: pointer;
-            background-color: #00a1ea; }
+            background-color: #00A1EA; }
             body #footer #footer-content .footer-siteinfo #footer-donation:hover p {
               color: white; }
     body #footer #footer-miac {
@@ -46,3 +46,5 @@ body {
       text-align: center;
       clear: both;
       width: 100%; }
+
+/*# sourceMappingURL=footer.css.map */

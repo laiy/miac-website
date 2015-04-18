@@ -1,4 +1,4 @@
-@mixin center($value: 13%)
+@mixin center($value: 20%)
     margin-left: $value
     margin-right: $value
     margin-top: 2%
@@ -12,9 +12,26 @@
 #create-album
     @include center
     padding: 2% 2% 2% 2%
+    font-size: 18px !important
     header
         @include page-title
+        font-size: 30px
+
+    .panel-body
+        button
+            float: right
+        .input-group
+            margin-bottom: 20px !important
+
+    .panel-footer
+        font-size: 18px
+        button
+            font-size: 18px !important
+
+.fileAdder
+    font-size: 18px !important
 
 footer
     margin-bottom: 2%
     text-align: center
+    font-size: 18px

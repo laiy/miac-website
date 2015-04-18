@@ -1,0 +1,33 @@
+doctype html
+html
+    head
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/createAlbum.js')
+        script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/createAlbum.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+    body
+        header
+            include ./includes/header.jade
+        div#create-album
+            div.panel.panel-info
+                div.panel-heading
+                    创建新相册
+                div.panel-body
+                    form(action="./createAlbum", method="POST", enctype="multipart/form-data")
+                        label 相册标题:
+                        div.input-group
+                            span.input-group-addon Title
+                            input(type="text", name="title", placeholder="Input the title").form-control
+                        label 上传相册封面:
+                        div.input-group
+                            input(type="file", name="cover").btn.fileAdder
+                        br
+                        div.panel-footer
+                            button.btn(type="submit").btn.btn-primary 创建完毕
+        footer
+            p#writer Copyright ©2014 MIAC

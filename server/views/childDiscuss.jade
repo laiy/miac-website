@@ -4,67 +4,87 @@ html
         title childDiscuss
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/childdiscuss.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        br
-        p type:
-            span=discussion.type
-        p title:
-            span=discussion.title
-        p content:
-            span=discussion.content
-        p up:
-            button(class='up' discussion-id=discussion._id)=discussion.up
-        p down:
-            button(class='down' discussion-id=discussion._id)=discussion.down
-        p viewsCount:
-            span=discussion.viewsCount
-        p createdBy:
-            span=discussion.createdBy
-        p cratedAt:
-            span=moment(discussion.cratedAt).format('MMM D,YY')
-        p votedUsers:
-            span=discussion.votedUsers
-        br
-        p writeDownUrAnswerHere:
-        input(type='text' id='content')
-        button(type='button' id='answer-submit') submit
-        br
-        if answers
-            div
-                p answers
+        .main
+            .discussion_s
+                .discussion
+                    .discussion_left
+                        .avatar
+                            img(src='/assets/img/user/' + discussion.avatar alt='avatar')
+                        .up_box
+                            button(class='up' discussion-id=discussion._id)
+                            p
+                                span=discussion.up
+                        .down_box
+                            button(class='down' discussion-id=discussion._id)
+                            p
+                                span=discussion.down
+                    .discussion_right
+                        .discussion_right_top.size
+                            .discussion_MainPart
+                                p.discussion_title
+                                    span=discussion.title
+                                p.discussion_content
+                                    span#change_content!=discussion.content
+                            p.discussion_detail
+                                span.gray 评论
+                                -var size = 0
+                                if answers
+                                    -for(var answer in answers) size++
+                                span.blue #{size}
+                                span.gray 浏览
+                                span.blue=discussion.viewsCount
+                        .discussion_right_down
+                            p.discussion_join 参与讨论
+                            input(type='textarea' id='content')
+                            button(type='button' id='answer-submit') 发 布
+            if answers
                 each answer in answers
-                    p type:
-                        span=answer.type
-                    p content:
-                        span=answer.content
-                    p up:
-                        button(class='up' discussion-id=answer._id)=answer.up
-                    p down:
-                        button(class='down' discussion-id=answer._id)=answer.down
-                    p createdBy:
-                        span=answer.createdBy
-                    p cratedAt:
-                        span=moment(answer.cratedAt).format('MMM D,YY')
-                    p votedUsers:
-                        span=answer.votedUsers
-                    p saySomethingsHere:
-                    input(type='text')
-                    button(type='button' class='reply-submit' answer-id=answer._id) submit
-                    if answer.replys
-                        p replys
-                        each reply in answer.replys
-                            p reply:
-                            p ObjectId:
-                                span=reply._id
-                            p type:
-                                span=reply.type
-                            p content:
-                                span=reply.content
-                            p createdBy(OI):
-                                span=reply.createdBy
-                            p createdAt:
-                                span=moment(reply.createdAt).format('MMM D,YY')
-                    br
+                    .discussion_answer
+                        .discussion
+                            .discussion_left
+                                .avatar
+                                    img(src='/assets/img/user/' + answer.avatar alt='avatar')
+                                .up_box
+                                    button(class='up' discussion-id=answer._id)
+                                    p
+                                        span=answer.up
+                                .down_box
+                                    button(class='down' discussion-id=answer._id)
+                                    p
+                                        span=answer.down
+                            .discussion_right.shadow
+                                .hide
+                                    .discussion_right_top.size
+                                        .discussion_MainPart
+                                            p.discussion_content
+                                                span=answer.content
+                                        p.discussion_detail
+                                            span=answer.username
+                                            span.gray 创建于
+                                            span.blue=moment(answer.cratedAt).format('MMM D,YY')
+                                            span.blue 回复
+                                    .discussion_right_down.show
+                                        input(type='text')
+                                        button(type='button' answer-id=answer._id class='reply-submit') 发 布
+                            if answer.replys
+                                each reply in answer.replys
+                                    .discussion_reply
+                                        .discussion_left_reply
+                                            .avatar
+                                                img(src='/assets/img/user/' + reply.avatar alt='avatar')
+                                        .discussion_right_reply
+                                            .discussion_right_top.reply_size
+                                                .discussion_part
+                                                    p.discussion_content
+                                                        span=reply.content
+                                                p.discussion_detail
+                                                    span=reply.username
+                                                    span.gray 创建于
+                                                    span.blue=moment(reply.createdAt).format('MMM D,YY')
+        #discuss_bottom
+            p  © 2014 MIAC
         script(src='../bin/js/childDiscuss.js')

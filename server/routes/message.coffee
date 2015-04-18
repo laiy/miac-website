@@ -27,7 +27,9 @@ router.post '/create', requireLogin, (req, res)->
     else if type isnt 'comment' and type isnt 'reply'
         return res.json {result: 'fail', msg: 'Bad type.'}
     else
-        MessageModel.createMessage replyTo, type, content, createdBy, ->
+        avatar = req.session.user.avatar
+        username = req.session.user.username
+        MessageModel.createMessage replyTo, type, content, createdBy, avatar, username, ->
             res.json {result: 'success'}
 
 module.exports = router

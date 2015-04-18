@@ -1,76 +1,25 @@
 doctype html
 html
     head
-        title index
-        script(src='/lib/jquery.js')
-        script(src='/bin/js/article.js')
+        title article
+        script(src='./lib/jquery.js')
+        link(href='/bin/css/header.css', rel='stylesheet')
         script(src='/bin/js/header.js')
-        script(src='/lib/bootstrap/js/bootstrap.min.js')
-        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
-        link(rel="stylesheet", href="/bin/css/article.css")
-        link(rel="stylesheet", href="/bin/css/header.css")
-        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
     body
-        header
-            include ./includes/header.jade
-
-        div#article-list
-            h1.page-header 文章列表
-            div#article-search
-                form#search(action= "./search").input-group.navbar-search
-                    input#search-word(type= "text", name= "words", placeholder= '搜索文章').search-query
-                    button(type= "submit").btn Search
-                    button.submit(type= "button", onclick= "window.open('./article/create')").btn 发表文章
-            br
-            div#main
-                div
-                    div#list
-                        div#articles
-                            if articles
-                                each article in articles
-                                    div.one-article
-                                        img#user-image
-                                        p#title #{article.title}
-                                        p#article-time #{article.createdBy} 于#{moment(article.cratedAt).format('MMM D.YY')}发表了新文章
-                                        a#link(href= '/article/' + article._id) 详细内容......
-                    div#choose
-                        div#menu 分类目录
-                            div
-                                input.checkblock(type= 'checkbox', name= 'technology' value= '技术')
-                                | 技术
-                            divv
-                                input.checkblock(type= 'checkbox', name= 'product' value= '产品')
-                                | 产品
-                            div
-                                input.checkblock(type= 'checkbox', name= 'funnystory' value= '趣闻')
-                                |趣闻
-                            div
-                                input.checkblock(type= 'checkbox', name= 'history' value= '纪事')
-                                | 纪事
-                            div
-                                input.checkblock(type= 'checkbox', name= 'mood' value= '心情')
-                                | 心情
-                            div
-                                input.checkblock(type= 'checkbox', name= 'talk' value= '吐槽')
-                                | 吐槽
-                        br
-                        div#label
-                            p 标签
-                            ul.unstyled
-                                li
-                                    a(href= "./?label='javasript'") javascript
-                                li
-                                    a(href= "./?label='PHP'") PHP
-                                li
-                                    a(href= "./?label='CSS'") CSS
-                                li
-                                    a(href= "./?label='Angular JS'") Angular JS
-                                li
-                                    a(href= "./?label='Architecture'") Architecture
-                                li
-                                    a(href= "./?label='Dream'") Dream
-                    div#more
-                        button(type= "button") more *
-        footer
-            p#writer Copyright ©2014 MIAC
+        include ./includes/header.jade
+        if user
+            a(href='/Article/create') createNew
+        if articles
+            each article in articles
+                br
+                p category:
+                    span=article.category
+                p title:
+                    a(href='/Article/' + article._id)=article.title
+                p content:
+                    span=article.content
+                p createdBy:
+                    span=article.createdBy
+                p cratedAt:
+                    span=moment(article.cratedAt).format('MMM D,YY')
 

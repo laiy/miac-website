@@ -1,8 +1,8 @@
 (function() {
-  $('button').click(function() {
+  $('#submit').click(function() {
     var content, title;
     title = $('#title').val();
-    content = $('#content').val();
+    content = tinyMCE.activeEditor.getContent();
     return $.post('/Discuss/create', {
       type: 'question',
       title: title,

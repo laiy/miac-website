@@ -76,8 +76,7 @@ router.post '/uploadAvatar', requireLogin, (req, res)->
     else
         path = req.files.img.path
         size = req.files.img.size
-        items = req.files.img.name.split '.'
-        fileName = req.session.user._id + '.' + items[items.length - 1]
+        fileName = req.session.user._id + '.png'
         if req.files.img.mimetype.split('/')[0] isnt 'image'
             fs.unlink path, ->
                 res.json { result: 'fail', msg: 'Not a image!' }

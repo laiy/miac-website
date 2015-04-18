@@ -24,5 +24,13 @@
       }
     });
   });
-
+  var change_pic = 0;
+  $("#change_pic_js").click(function() {
+    if (change_pic == 0) {
+      $(".js_avatar").show();
+      change_pic = 1;
+    } else {
+      $(".js_avatar").hide();
+    }
+  });
 }).call(this);

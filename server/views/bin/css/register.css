@@ -1,0 +1,32 @@
+#email {
+    background: url(/src/img/email.png) no-repeat;
+    margin-top: 12px;
+}
+
+#username_tip,#password_tip {
+	background-color: #ED7785;
+	height: 15px;
+	margin: 0;
+	color: #fff;
+	float: right;
+}
+
+#username_tip p,#password_tip p{
+	font-size: 12px;
+}
+
+.register_shadow:after {
+	position: absolute;
+    content: '';
+    width: 300px;
+    height: 200px;
+    background-color: #DDDBDC;
+    right: 35px;
+    top: 42%;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
