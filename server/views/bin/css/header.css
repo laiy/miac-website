@@ -3,7 +3,7 @@ body {
   margin: 0; }
   body div#header {
     font-family: "Microsoft YaHei";
-    background: #1B1B1B; }
+    background: #1b1b1b; }
     body div#header div#header-wrapper {
       width: 960px;
       margin: 0 auto;
@@ -16,13 +16,13 @@ body {
           display: inline-block;
           margin-top: 8px;
           margin-right: -10px;
-          border-left: 30px solid #666;
+          border-left: 30px solid #666666;
           border-top: 25.8px solid transparent;
           border-bottom: 25.8px solid transparent; }
         body div#header div#header-wrapper div#header-logo div#triangle-big {
           float: left;
           display: inline-block;
-          border-left: 39px solid #3B3B3B;
+          border-left: 39px solid #3b3b3b;
           border-top: 33.54px solid transparent;
           border-bottom: 33.54px solid transparent; }
         body div#header div#header-wrapper div#header-logo h3 {
@@ -34,7 +34,7 @@ body {
           position: absolute;
           bottom: 0;
           left: 159px;
-          border-bottom: 11px solid #00A1EA;
+          border-bottom: 11px solid #00a1ea;
           border-left: 9.46px solid transparent;
           border-right: 9.46px solid transparent;
           transition: left 0.8s;
@@ -54,7 +54,7 @@ body {
           text-decoration: none;
           color: white; }
           body div#header div#header-wrapper div#header-nav a:hover {
-            color: #00A1EA; }
+            color: #00a1ea; }
       body div#header div#header-wrapper div#header-operation {
         margin-top: 14px;
         float: right; }
@@ -70,16 +70,14 @@ body {
           text-align: center;
           text-decoration: none;
           color: white;
-          box-shadow: 0 0 1px #EEE;
-          -moz-box-shadow: 0 0 1px #EEE;
-          -webkit-box-shadow: 0 0 1px #EEE;
-          -o-box-shadow: 0 0 1px #EEE; }
+          box-shadow: 0 0 1px #eeeeee;
+          -moz-box-shadow: 0 0 1px #eeeeee;
+          -webkit-box-shadow: 0 0 1px #eeeeee;
+          -o-box-shadow: 0 0 1px #eeeeee; }
           body div#header div#header-wrapper div#header-operation a:hover {
-            color: #1B1B1B;
+            color: #1b1b1b;
             background: white;
             cursor: pointer; }
     body div#header div#header-bottom {
-      background: #00A1EA;
+      background: #00a1ea;
       height: 6px; }
-
-/*# sourceMappingURL=header.css.map */

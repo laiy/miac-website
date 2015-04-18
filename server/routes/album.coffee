@@ -105,6 +105,7 @@ router.post '/createAlbum', requireLogin, (req, res)->
 * @param albumId: the ObjectId that belong to the album that the user want to add to
 ###
 router.post '/addPicture', requireLogin, (req, res)->
+    console.log req.files
     if not req.files.picture
         return res.status(500).send 'Server Error.'
     else
@@ -113,6 +114,7 @@ router.post '/addPicture', requireLogin, (req, res)->
             return res.json { result: 'fail', msg: 'Invalid albumId.' }
         else
             albumId = mongoose.Types.ObjectId(albumId)
+            console.log albumId
             AlbumModel.findOne { _id: albumId }, (err, album)->
                 if err
                     return res.status(500).send 'Server Error.'

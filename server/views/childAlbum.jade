@@ -44,10 +44,11 @@ html
                 div.modal-dialog.modal-lg
                     div.modal-content
                         div.modal-body
-                            form(action='./addPicture', method='POST', enctype='multipart/form-data')
+                            form(action='/Album/addPicture', method='post', enctype='multipart/form-data')
                                 label
                                     |请选择图片:
-                                input(type="file", name="picture")
+                                input(type="file", name="picture", multiple="multiple")
+                                input#albumId(type="text", name="albumId", value=album._id)
                                 div.modal-footer
                                     button.btn(type="submit") 添加
                                         button#close.btn(data-dismiss="modal") 取消

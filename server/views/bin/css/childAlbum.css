@@ -31,7 +31,7 @@ body {
         cursor: pointer; }
       #childAlbum #pictures #pic-content .loop a::before {
         content: "";
-        background: #C3BBBB;
+        background: #c3bbbb;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -93,7 +93,7 @@ body {
       margin-right: 30px;
       margin-bottom: 50px;
       background-color: white;
-      border: solid #49474A 0.5px; }
+      border: solid #49474a 0.5px; }
       #childAlbum #pictures #pic-content .picture img {
         height: 140px;
         width: 140px;
@@ -159,7 +159,7 @@ body {
         cursor: pointer; }
       #childAlbum #screen .loop a::before {
         content: "";
-        background: #C3BBBB;
+        background: #c3bbbb;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -240,4 +240,5 @@ footer {
 .picture-page {
   text-align: center; }
 
-/*# sourceMappingURL=childAlbum.css.map */
+#albumId {
+  display: none; }
