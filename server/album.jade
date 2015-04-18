@@ -1,0 +1,38 @@
+doctype html
+html
+    head
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/album.js')
+        script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/album.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+    body
+        header
+            include ./includes/header.jade
+        div#album
+            header
+                img(src="./src/img/works/zhuhai.jpg")
+            div#album-search
+                form#search(action= "#").input-group.navbar-search
+                    input#search-word(type= "text", name= "words", placeholder= '输入关键词搜索相册')
+                    button#search-button(type= "submit")
+                        i.glyphicon.glyphicon-search
+                    button.submit(type= "button", onclick= "window.open('album/createAlbum')").btn.btn-info 创建新相册
+            br
+            div#content
+                for album in albums
+                    div.pic
+                        img.cover(src='assets/img/album/' + album.title + '/' + album.cover, onclick="window.open('./album/' + " + "\'" + (album._id) + "\'" + ")")
+                        div.info
+                            span.title #{album.title}
+                            span.num 共
+                                span.number #{album.pictures.length}
+                                |张
+                        div.time
+                            p #{album.createdAt.getFullYear()}/#{album.createdAt.getMonth() + 1}/#{album.createdAt.getDate()}
+        footer
+            p#writer Copyright ©2014 MIAC

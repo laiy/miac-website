@@ -1,0 +1,98 @@
+doctype html
+html
+    head
+        title index
+        script(src='/lib/jquery.js')
+        script(src='/bin/js/childAlbum.js')
+        script(src='/bin/js/header.js')
+        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
+        link(rel="stylesheet", href="/bin/css/childAlbum.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+    body
+        header
+            include ./includes/header.jade
+        div#childAlbum
+            header.page-header 
+                h1 #{album.title}
+            section#pictures
+                if album.pictures.length == 0
+                    div.panel.panel-default
+                        div.panel-body
+                            p There are not any picture in this album. 
+                                Button.btn.btn-primary
+                                    a(href="#", class="adderButton", data-toggle="modal", data-target="#contain") Add some?
+                else
+                    div#pic-content
+                        nav.loop
+                            a.prev
+                                span.icon-wrap
+                            a.next
+                                span.icon-wrap
+                        -var num = 0
+                        for picture in album.pictures
+                            -var num = num + 1
+                            div.picture
+                                img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
+                        button.btn.btn-primary.adderButton-two
+                            a(href="#", data-toggle="modal", data-target="#contain") Add more pictures.
+                    nav
+                        ul.pagination
+                            -var n = 0
+                            -var num = album.pictures.length
+                            while n < (num - 1) / 12 + 1
+                                li(id="p-" + (n + 1))
+                                    a(href="#" + (n + 1)).page-nav #{++n}
+            div#contain.modal.fate(role="dialog")
+                div.modal-dialog.modal-lg
+                    div.modal-content
+                        div.modal-body
+                            form(action='/Album/addPicture', method='post', enctype='multipart/form-data')
+                                label
+                                    |请选择图片:
+                                input(type="file", name="picture", multiple="multiple")
+                                input#albumId(type="text", name="albumId", value=album._id)
+                                div.modal-footer
+                                    button.btn.btn-primary(type="submit") 添加
+                                    button#close.btn(data-dismiss="modal") 取消
+
+            div#player.modal.fade(role="dialog")
+                div.modal-dialog.modal-lg
+                    div.modal-content
+                        //- div#screen
+                        //-     nav.loop
+                        //-         a.prev
+                        //-             span.icon-wrap
+                        //-         a.next
+                        //-             span.icon-wrap
+                        //-     div#image
+                        //-         img(src="", alt="no-image")
+                        //-     button#light.btn 关闭
+
+                        div#carousel-example.carousel.slide(data-ride="carousel")
+                            //- ol.carousel-indicators
+                            //-     - for (var i = 0; i < album.pictures.length; ++i)
+                            //-         if i == 0
+                            //-             li.active(data-target="#carousel-example", data-slide-to = i)
+                            //-         else
+                            //-             li(data-target="#carousel-example", data-slide-to = i)
+                            div.carousel-inner(role="listbox")
+                                -var i = 0
+                                for picture in album.pictures
+                                    div.item.picture-page
+                                        img.album-pic(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
+                                        div.carousel-caption            
+
+                            a.left.carousel-control(href="#carousel-example" role="button" data-slide="prev")
+                                span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
+                                span.sr-only Previous               
+
+                            a.right.carousel-control(href="#carousel-example" role="button" data-slide="next")
+                                span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
+                                span.sr-only Next
+
+
+
+        footer
+            p#writer Copyright ©2014 MIAC
