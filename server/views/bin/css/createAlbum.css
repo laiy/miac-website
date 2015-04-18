@@ -1,0 +1,30 @@
+#create-album {
+  margin-left: 20%;
+  margin-right: 20%;
+  margin-top: 2%;
+  margin-bottom: 2%;
+  padding: 2% 2% 2% 2%;
+  font-size: 18px !important; }
+  #create-album header {
+    color: grey;
+    font-size: 60pt;
+    padding: 0px 0px 0px 0px;
+    font-size: 30px; }
+  #create-album .panel-body button {
+    float: right; }
+  #create-album .panel-body .input-group {
+    margin-bottom: 20px !important; }
+  #create-album .panel-footer {
+    font-size: 18px; }
+    #create-album .panel-footer button {
+      font-size: 18px !important; }
+
+.fileAdder {
+  font-size: 18px !important; }
+
+footer {
+  margin-bottom: 2%;
+  text-align: center;
+  font-size: 18px; }
+
+/*# sourceMappingURL=createAlbum.css.map */
