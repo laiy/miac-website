@@ -31,7 +31,7 @@ body {
         cursor: pointer; }
       #childAlbum #pictures #pic-content .loop a::before {
         content: "";
-        background: #c3bbbb;
+        background: #C3BBBB;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -82,19 +82,21 @@ body {
       position: relative;
       top: -40px;
       left: 400px; }
+      #childAlbum #pictures #pic-content .adderButton a {
+        color: white; }
     #childAlbum #pictures #pic-content .picture {
       display: inline-block;
-      height: 230px;
-      width: 230px;
+      height: 160px;
+      width: 160px;
       padding: 1% 1% 1% 1%;
       text-align: center;
       margin-right: 30px;
       margin-bottom: 50px;
       background-color: white;
-      border: solid #49474a 0.5px; }
+      border: solid #49474A 0.5px; }
       #childAlbum #pictures #pic-content .picture img {
-        height: 200px;
-        width: 200px;
+        height: 140px;
+        width: 140px;
         margin: 0 auto; }
     #childAlbum #pictures #pic-content .picture:hover {
       cursor: pointer; }
@@ -157,7 +159,7 @@ body {
         cursor: pointer; }
       #childAlbum #screen .loop a::before {
         content: "";
-        background: #c3bbbb;
+        background: #C3BBBB;
         opacity: 0;
         border-radius: 50%;
         width: 50px;
@@ -226,8 +228,16 @@ body {
         height: 90%; }
 
 .album-pic {
-  width: auto; }
+  width: auto;
+  display: inline-block !important;
+  margin-top: 30px;
+  margin-bottom: 30px; }
 
 footer {
   margin-bottom: 2%;
   text-align: center; }
+
+.picture-page {
+  text-align: center; }
+
+/*# sourceMappingURL=childAlbum.css.map */

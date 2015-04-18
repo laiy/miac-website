@@ -46,7 +46,7 @@
             if (pictures[i * 12 + j * 4 + k]) {
               row.append(pictures[i * 12 + j * 4 + k]);
             } else {
-              newBlock = $("<div class='picture'></div>").append($("<img></img>"));
+              newBlock = $("<div class='picture'></div>").append($("<img alt='Wait for upload'></img>"));
               row.append(newBlock);
             }
           }

@@ -17,8 +17,9 @@ html
             header #{album.title}
             section#pictures
                 if album.pictures.length == 0
-                    p There are not any pictrue in this album. 
-                        a(href="#", class="adderButton") Add some?
+                    p There are not any pictrue in this album.
+                        Button.btn.btn-primary
+                            a(href="#", class="adderButton") Add some?
                 else
                     div#pic-content
                         nav.loop
@@ -31,7 +32,8 @@ html
                             -var num = num + 1
                             div.picture
                                 img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
-                        a(href="#", class="adderButton", data-toggle="modal", data-target="#contain") Add more pictures.
+                        button.btn.btn-primary.adderButton
+                            a(href="#", data-toggle="modal", data-target="#contain") Add more pictures.
                     nav
                         ul.pagination
                             -var n = 0
@@ -46,10 +48,9 @@ html
                                 label
                                     |请选择图片:
                                 input(type="file", name="picture")
-                                input(type='text' name='albumId' value=album._id class="id")
-                        div.modal-footer
-                            button.btn(type="submit") 添加
-                            button#close.btn(data-dismiss="modal") 取消
+                                div.modal-footer
+                                    button.btn(type="submit") 添加
+                                        button#close.btn(data-dismiss="modal") 取消
 
             div#player.modal.fade(role="dialog")
                 div.modal-dialog.modal-lg
@@ -74,7 +75,7 @@ html
                             div.carousel-inner(role="listbox")
                                 -var i = 0
                                 for picture in album.pictures
-                                    div.item
+                                    div.item.picture-page
                                         img.album-pic(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
                                         div.carousel-caption            
 
