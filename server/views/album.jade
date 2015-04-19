@@ -1,15 +1,15 @@
 doctype html
 html
     head
-        title index
+        title album
+        link(rel="stylesheet", href="/bin/css/album.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
         script(src='/lib/jquery.js')
         script(src='/bin/js/album.js')
         script(src='/bin/js/header.js')
         script(src='/lib/bootstrap/js/bootstrap.min.js')
         meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
-        link(rel="stylesheet", href="/bin/css/album.css")
-        link(rel="stylesheet", href="/bin/css/header.css")
-        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
     body
         header
             include ./includes/header.jade
