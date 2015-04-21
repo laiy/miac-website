@@ -27,4 +27,9 @@ footer {
   text-align: center;
   font-size: 18px; }
 
-/*# sourceMappingURL=createAlbum.css.map */
+#header {
+  box-sizing: content-box; }
+  #header * {
+    box-sizing: content-box; }
+  #header h3 {
+    font-weight: bold; }
