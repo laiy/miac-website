@@ -76,7 +76,8 @@ router.post '/create', requireLogin, (req, res)->
         else if not title or not content or not createdBy
             return res.json { result: 'fail', msg: 'Info not completed.' }
         else
-            ArticleModel.createArticle category, title, content, createdBy, ->
+            username = req.session.user.username
+            ArticleModel.createArticle category, title, content, createdBy, username, ->
                 res.json { result: 'success' }
 
 module.exports = router
