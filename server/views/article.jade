@@ -14,7 +14,7 @@ html
                     input(type='text' placeholder='search')
                 if user
                     .box1.createnew
-                        a(href='/Article/create') 
+                        a(href='/Article/create')
                             p New
                 .tips
                     .tips_head
@@ -41,8 +41,8 @@ html
                                 a(href='/Article/' + article._id)=article.title
                             .content
                                 span!=article.content
-                        .article_detail       
-                            p.name win77
+                        .article_detail
+                            p.name=article.username
                             p.name 创建于
                             p.blue
                                 span=moment(article.cretedAt).format('MMM D,YY')
