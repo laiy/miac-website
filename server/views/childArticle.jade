@@ -4,55 +4,52 @@ html
         title childArticle
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/childarticle.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        p category:
-            span=article.category
-        p title:
-            span=article.title
-        p content:
-            span=article.content
-        p createdBy:
-            span=article.createdBy
-        p cratedAt:
-            span=moment(article.cratedAt).format('MMM D,YY')
-        p saySomethingHere:
-        input(type='text')
-        button(type='button' id='comment-submit') submit
-        br
-        if comments
-            p comments
-            each comment in comments
-                div
-                    p comment:
-                    p ObjectId:
-                        span=comment._id
-                    p type:
-                        span=comment.type
-                    p content:
-                        span=comment.content
-                    p createdBy(OI):
-                        span=comment.createdBy
-                    p createdAt:
-                        span=moment(comment.createdAt).format('MMM D,YY')
-                    p saySomethingHere:
+        .main
+            .article
+                .article_page
+                    p.article_page_title
+                        span=article.title
+                    p.article_page_writer
+                        span=article.username
+                    .article_page_content
+                        span!=article.content
+                .article_comment
                     input(type='text')
-                    button(type='button' class='reply-submit' comment-id=comment._id) submit
-                    if comment.replys
-                        p replys:
-                        each reply in comment.replys
-                            p reply:
-                            p ObjectId:
-                                span=reply._id
-                            p type:
-                                span=reply.type
-                            p content:
-                                span=reply.content
-                            p createdBy(OI):
-                                span=reply.createdBy
-                            p createdAt:
-                                span=moment(reply.createdAt).format('MMM D,YY')
-                br
+                    button(type='button' id='comment-submit') submit
+            if comments
+                each comment in comments
+                    .comment_reply
+                        .comment
+                            .avatar
+                                img(src='/assets/img/user/' + comment.avatar alt='avatar')
+                            .comment_content.comment_content_width
+                                p
+                                    span=comment.content
+                                p.click_to_reply
+                                    span.gray.style=comment.username
+                                    span.gray.style 创建于
+                                    span.blue.style=moment(comment.cratedAt).format('MMM D,YY')
+                                    span.blue.reply_style 回复
+                                    
+                            .comment_comment.hide
+                                input(type='text')
+                                button(type='button' class='reply-submit' comment-id=comment._id) submit
+                        if comment.replys
+                            each reply in comment.replys
+                                .reply
+                                    .avatar
+                                        img(src='/assets/img/user/' + reply.avatar alt='avatar')
+                                    .reply_content.comment_content
+                                        p
+                                            span=reply.content
+                                        p.click_to_reply
+                                            span.gray.style=reply.username
+                                            span.gray.style 创建于
+                                            span.blue.style=moment(reply.cratedAt).format('MMM D,YY')
+            .bottom
+                p  © 2014 MIAC
         script(src='../bin/js/childArticle.js')
-

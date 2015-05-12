@@ -40,7 +40,7 @@ a {
 /*avatar*/
 /*Discussion*/
 .discuss {
-	margin: 10px 0 20px 0;
+	margin-bottom: 20px;
 	overflow: hidden;
 	width: 650px;
 }
@@ -57,6 +57,7 @@ a {
 	float: left;
 	padding: 10px 20px;
 	background-color: #fff;
+	border: 1px solid #DEDEDE;
 }
 /*shadow*/
 .discussion {
@@ -163,8 +164,8 @@ a {
 }
 /*bottom*/
 input {
-	border: none;
-	width: 250px;
+	border: 1px solid #DEDEDE;
+	width: 248px;
 	height: 30px;
 	padding: 5px;
 	background-color: #fff;

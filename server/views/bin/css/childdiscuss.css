@@ -10,7 +10,6 @@ body {
 }
 
 .discussion {
-	margin: 10px 0 0 0;
 	clear: both;
 	overflow: hidden;
 }
@@ -82,15 +81,18 @@ body {
 	background-color: #fff;
 	height: auto;
 	padding: 10px 20px;
+	border:1px solid #DEDEDE;
 }
 
 .size {
-	width: 615px;
+	width: 608px;
+	position: relative;
 }
 
 .reply_size {
 	width: 515px;
 	float: right;
+	position: relative;
 }
 
 .discussion_MainPart{
@@ -109,17 +111,24 @@ body {
 }
 
 .discussion_detail {
-	margin: 10px;
+	margin: 5px;
+}
+
+.style {
+	margin-right: 10px;
+	font-size: 15px;
 }
 
 .gray {
 	color: #808080;
-	margin-right: 10px;
 }
 
 .blue {
 	color: #1BA6EB;
-	margin-right: 20px;
+}
+
+.reply_style {
+	float: right;
 }
 
 .discussion_right_down {
@@ -137,12 +146,12 @@ body {
 /*MainDiscussion*/
 /*css of input and button*/
 input {
-	border: none;
+	border: 1px solid #DEDEDE;
 	font-size: 16px;
 	height: 30px;
 	margin-top: 10px;
-	padding: 0 10px;
-	width: 630px;
+	padding: 5px 10px;
+	width: 629px;
 }
 
 .discussion_right_down button {
@@ -156,10 +165,9 @@ input {
 	padding: 0 25px;
 }
 /*css of input and botton*/
-/*reply*/
-.discussion_reply {
-	float: right;
-	margin: 5px 0 0 0;
+.discussion_reply{
+	float:right;
+	margin-bottom: 10px;
 	min-height: 75px;
 	width: 650px;
 }
@@ -188,14 +196,14 @@ input {
 	position: relative;
 }
 
-.discussion_s:after {
+.size:after {
 	position: absolute;
     content: '';
     width: 600px;
-    height: 100px;
+    height: 80px;
     background-color: #DDDBDC;
-    right: 45px;
-    top: 65px;
+    right: 10px;
+    bottom: 0;
     z-index: -1;
     transform: rotate(2deg);
     -ms-transform:rotate(2deg);    /* IE 9 */
@@ -203,18 +211,40 @@ input {
     -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
     -o-transform:rotate(2deg);  /* Opera */
 }
-.shadow {
+.add_discussion_right {
 	position: relative;
-	margin-bottom: 20px;
+	margin-bottom: 10px;
 }
-.shadow:after {
+.reply_size:after {
+	position: absolute;
+    content: '';
+    width: 400px;
+    height: 80px;
+    background-color: #DDDBDC;
+    right: 10px;
+    bottom: 0;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg);  /* Opera */
+}
+
+.input_shadow {
+	width: 650px;
+	height: auto;
+	position: relative;
+}
+
+.input_shadow:after {
 	position: absolute;
     content: '';
     width: 550px;
-    height: 100px;
+    height: 10px;
     background-color: #DDDBDC;
-    right: 45px;
-    top: 75px;
+    right: 10px;
+    bottom: 3px;
     z-index: -1;
     transform: rotate(2deg);
     -ms-transform:rotate(2deg);    /* IE 9 */

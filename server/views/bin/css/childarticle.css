@@ -1,0 +1,251 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F1EFF0;
+}
+
+input {
+	border: 1px solid #DEDEDE;
+	height: 30px;
+	padding: 5px 10px;
+}
+
+p {
+	font-size: 15px;
+}
+
+.article_comment input {
+	width: 778px;
+}
+
+button {
+	height: 40px;
+	color: #fff;
+	font-size: 16px;
+	margin-top: 10px;
+	background-color: #00A0EA;
+	float: right;
+	border: none;
+	padding: 0 25px;
+}
+
+img {
+	border-radius: 50%;
+	height: 60px;
+	width: 60px;
+	margin: 7.5px;
+}
+
+.main {
+	clear: both;
+	margin: 0 auto;
+	padding-top: 50px;
+	width: 800px;
+}
+
+.article {
+	height: auto;
+	width: 800px;
+}
+
+.article_page {
+	background-color: #fff;
+	border: 1px solid #DEDEDE;
+	padding: 40px;
+	position: relative;
+	width: 718px;
+}
+
+.article_page:after {
+	position: absolute;
+    content: '';
+    width: 700px;
+    height: 150px;
+    background-color: #DDDBDC;
+    right: 20px;
+    bottom: 0px;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg); 
+}
+
+.comment_reply {
+	overflow: hidden;
+	width: 800px;
+}
+
+.article_page_title {
+	text-align: center;
+	color: #1BA6EB;
+	font-size: 24px;
+	margin: 0;
+	white-space: normal;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+
+.article_page_writer {
+	text-align: center;
+	color: #808080;
+	font-size: 16px;
+	margin: 10px 0;
+}
+
+.article_page_content {
+	white-space: normal;
+	word-break:break-all;
+	word-wrap:break-word;
+}
+
+.article_comment {
+	overflow: hidden;
+	margin: 20px 0;
+	position: relative;
+}
+
+.article_comment:after {
+	position: absolute;
+    content: '';
+    width: 700px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 18px;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg); 
+}
+
+.comment {
+	width: 800px;
+	overflow: hidden;
+}
+
+.comment_content {
+	float: right;
+	background-color: #fff;
+	padding: 12px 24px;
+	position: relative;
+	border: 1px solid #DEDEDE;
+	margin-bottom: 10px;
+}
+
+.comment_content_width {
+	width: 675px;
+}
+
+.avatar {
+	float: left;
+	height: 75px;
+	width: 75px;
+	overflow: hidden;
+}
+
+.click_to_reply {
+	margin: 0;
+	text-align: left;
+	font-size: 16px;
+}
+
+.left {
+	float: left;
+	margin-right: 10px;
+	color: #808080;
+	font-size: 14px;
+}
+
+.right {
+	float: right;
+	color: #1BA6EB;
+}
+
+.comment_comment {
+	position: relative;
+	overflow: hidden;
+	width: 725px;
+	float: right;
+}
+
+.comment_comment input {
+	width: 702px;
+}
+
+.comment_comment:after {
+	position: absolute;
+    content: '';
+    width: 700px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 18px;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg); 
+}
+
+.comment_content:after {
+	position: absolute;
+    content: '';
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    bottom: 3px;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg); 
+}
+
+.comment_content_width:after {
+    width: 700px;
+}
+
+.reply_content:after {
+	width:  600px;
+}
+
+.reply {
+	float: right;
+	width: 725px;
+	overflow: hidden;
+}
+
+.reply_content {
+	width: 600px;
+}
+
+.hide {
+	display: none;
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 20%;
+}
+.style {
+	margin-right: 10px;
+	font-size: 15px;
+}
+
+.gray {
+	color: #808080;
+}
+
+.blue {
+	color: #1BA6EB;
+}
+
+.reply_style {
+	float: right;
+}

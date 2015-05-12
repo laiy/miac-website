@@ -31,6 +31,7 @@
       change_pic = 1;
     } else {
       $(".js_avatar").hide();
+      change_pic = 0;
     }
   });
 }).call(this);

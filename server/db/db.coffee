@@ -19,7 +19,7 @@ db = null
 ###
 init = ->
     initDB ->
-        #UserModel.createAdministrator ->
+        # UserModel.createAdministrator ->
         # DiscussionModel.drop ->
         # MessageModel.drop ->
         # UserModel.drop ->

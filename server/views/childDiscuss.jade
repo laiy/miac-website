@@ -30,16 +30,17 @@ html
                                 p.discussion_content
                                     span#change_content!=discussion.content
                             p.discussion_detail
-                                span.gray 评论
+                                span.gray.style 评论
                                 -var size = 0
                                 if answers
                                     -for(var answer in answers) size++
-                                span.blue #{size}
-                                span.gray 浏览
-                                span.blue=discussion.viewsCount
+                                span.blue.style #{size}
+                                span.gray.style 浏览
+                                span.blue.style=discussion.viewsCount
                         .discussion_right_down
                             p.discussion_join 参与讨论
-                            input(type='textarea' id='content')
+                            .input_shadow
+                                input(type='textarea' id='content')
                             button(type='button' id='answer-submit') 发 布
             if answers
                 each answer in answers
@@ -56,19 +57,20 @@ html
                                     button(class='down' discussion-id=answer._id)
                                     p
                                         span=answer.down
-                            .discussion_right.shadow
+                            .discussion_right.add_discussion_right
                                 .hide
                                     .discussion_right_top.size
                                         .discussion_MainPart
                                             p.discussion_content
                                                 span=answer.content
                                         p.discussion_detail
-                                            span=answer.username
-                                            span.gray 创建于
-                                            span.blue=moment(answer.cratedAt).format('MMM D,YY')
-                                            span.blue 回复
+                                            span.gray.style=answer.username
+                                            span.blue.style 回复于
+                                            span.gray.style=moment(answer.cratedAt).format('MMM D,YY')
+                                            span.blue.reply_style 回复
                                     .discussion_right_down.show
-                                        input(type='text')
+                                        .input_shadow
+                                            input(type='text')
                                         button(type='button' answer-id=answer._id class='reply-submit') 发 布
                             if answer.replys
                                 each reply in answer.replys
@@ -82,9 +84,9 @@ html
                                                     p.discussion_content
                                                         span=reply.content
                                                 p.discussion_detail
-                                                    span=reply.username
-                                                    span.gray 创建于
-                                                    span.blue=moment(reply.createdAt).format('MMM D,YY')
+                                                    span.gray.style=reply.username
+                                                    span.blue.style 回复于
+                                                    span.gray.style=moment(reply.createdAt).format('MMM D,YY')
         #discuss_bottom
             p  © 2014 MIAC
         script(src='../bin/js/childDiscuss.js')

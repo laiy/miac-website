@@ -57,7 +57,7 @@ html
                                     img(src='/assets/img/user/' + discussion.avatar alt='avatar' class='avatar_image_style')
                                     span.gray 浏览
                                     span.blue=discussion.viewsCount
-                                    span=discussion.username
+                                    span.gray=discussion.username
                                     span.gray 创建于
                                     span.blue=moment(discussion.cratedAt).format('MMM D,YY')
             p#discuss_bottom 没有更多内容了
