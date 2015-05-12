@@ -5,6 +5,7 @@ html
         link(rel="stylesheet", href="/bin/css/album.css")
         link(rel="stylesheet", href="/bin/css/header.css")
         link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
+        link(href='/bin/css/footer.css', rel='stylesheet')
         script(src='/lib/jquery.js')
         script(src='/bin/js/album.js')
         script(src='/bin/js/header.js')
@@ -34,5 +35,4 @@ html
                                 |张
                         div.time
                             p #{album.createdAt.getFullYear()}/#{album.createdAt.getMonth() + 1}/#{album.createdAt.getDate()}
-        footer
-            p#writer Copyright ©2014 MIAC
+        include ./includes/footer.jade
