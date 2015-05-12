@@ -10,6 +10,10 @@ body {
 	position: relative;
 }
 
+#content_textarea_border {
+	border:1px solid #D8D8D8;
+}
+
 textarea {
 	width: 830px;
 	height: 300px;
@@ -20,15 +24,10 @@ textarea {
 	margin: 25px auto 0 auto;
 }
 
-input,textarea {
-	border: 1px solid #AEAEAE;
-}
-
 input {
-	width: 500px;
 	height: 40px;
 	margin: 20px 0;
-	border: none;
+	border: 1px solid #D8D8D8;
 	font-size: 18px;
 	padding: 3px 8px;
 }
@@ -57,13 +56,17 @@ button {
 	font-size: 18px;
 }
 
-.add_shadow {
+.add_shadow_title {
 	width: 500px;
 	height: auto;
 	position: relative;
 }
 
-.add_shadow:after {
+.add_shadow_title input {
+	width: 500px;
+}
+
+.add_shadow_title:after {
 	position: absolute;
     content: '';
     width: 450px;
@@ -78,6 +81,32 @@ button {
     -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
     -o-transform:rotate(3deg);  /* Opera */
 }
+
+.add_shadow_tag {
+	width: 300px;
+	height: auto;
+	position: relative;
+}
+
+.add_shadow_tag input {
+	width: 250px;
+}
+
+.add_shadow_tag:after {
+	position: absolute;
+    content: '';
+    width: 150px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 50px;
+    top: 50px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
 #content_textarea:after {
 	position: absolute;
     content: '';
@@ -85,11 +114,15 @@ button {
     height: 100px;
     background-color: #DDDBDC;
     right: 20px;
-    top: 275px;
+    top: 270px;
     z-index: -1;
     transform: rotate(3deg);
     -ms-transform:rotate(3deg);    /* IE 9 */
     -moz-transform:rotate(3deg);    /* Firefox */
     -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
     -o-transform:rotate(3deg);  /* Opera */
+}
+
+button {
+	border: none;
 }

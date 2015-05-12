@@ -4,17 +4,18 @@ html
         title createDiscuss
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
-        link(href='/bin/css/creatediscuss.css' rel='stylesheet')
+        link(href='/bin/css/create.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
         script(src='/lib/tinymce/js/tinymce/tinymce.min.js')
         script(src='/bin/js/creatediscuss_tinymce.js')
         .main
-            .add_shadow
+            .add_shadow_title
                 input(type='text' id='title' placeholder='标题')
             #content_textarea
-                textarea(id='content')
+                #content_textarea_border
+                    textarea(id='content')
             button(type='button' id='submit') 发 表
             button(type='button' onclick="location.href='./'" id="cancel") 取 消
         .bottom

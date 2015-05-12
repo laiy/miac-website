@@ -1,0 +1,196 @@
+body {
+	margin: 0;
+	padding: 0;
+	background-color: #F1EFF0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.main {
+	margin: 0 auto;
+	padding-top: 50px;
+	width: 900px;
+}
+
+.main_left {
+	margin-right: 50px;
+	width: 600px;
+}
+
+.main_right {
+	float: right;
+	margin-left: 50px;
+	width: 250px;
+}
+
+.article {
+	background-color: #fff;
+	border: 1px solid #DEDEDE;
+	height: 150px;
+	padding: 12px 24px 0 24px;
+	position: relative;
+	width: 550px;
+	margin-bottom: 25px;
+}
+
+.article:after {
+	position: absolute;
+    content: '';
+    width: 550px;
+    height: 150px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 15px;
+    z-index: -1;
+    transform: rotate(2deg);
+    -ms-transform:rotate(2deg);    /* IE 9 */
+    -moz-transform:rotate(2deg);    /* Firefox */
+    -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+    -o-transform:rotate(2deg); 
+}
+
+.title{
+	color: #1BA6EB;
+	font-size: 20px;
+	height: 24px;
+	margin: 0;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	width: 400px;
+}
+
+.content {
+	font-size: 15px;
+	height: 90px;
+	overflow: hidden;
+	white-space: normal;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
+}
+
+.article_detail {
+	height: 20px;
+	padding: 7.5px 0;
+}
+
+.name {
+	color: #808080;
+	margin: 0 10px 0 0;
+	max-width: 80px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+	float: left;
+	font-size: 15px;
+}
+
+.blue {
+	color: #1BA6EB;
+	font-size: 15px;
+	margin: 0 10px 0 0;
+}
+
+.box1 {
+	margin-bottom: 25px;
+	position: relative;
+}
+
+.box1 input {
+	border: 1px solid #DEDEDE;
+	height: 40px;
+	padding: 0 10px;
+	width: 228px;
+}
+
+.box1:after {
+	position: absolute;
+    content: '';
+    width: 200px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 10px;
+    top: 25px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.createnew {
+	background-color: #1BA6EB;
+	height: 30px;
+	padding: 5px 0;
+	text-align: center;
+	width: 250px;
+}
+
+.createnew a{
+	text-decoration: none;
+	color: #fff;
+	font-size: 20px;
+	padding: 5px 0;
+}
+.createnew a p {
+	margin: 0;
+}
+
+.tips {
+	width: 250px;
+	height: auto;
+	position: relative;
+}
+
+.tips_head {
+	background-color: #1B1B1B;
+	color: #fff;
+	height: 50px;
+	font-size: 20px;
+}
+
+.tips_head p {
+	padding: 10px 0px 10px 20px;
+}
+
+.tips_head_1 {
+	height: 5px;
+	background-color: #00A1EA;
+}
+
+.tips_head_2 {
+	width:0;
+	height:0;
+    line-height:0;
+    border-width:7.5px;
+    border-style:solid;
+    margin-left: 30px;
+    border-color: #00A1EA transparent transparent transparent;
+}
+
+.tips_clip {
+	background-color: #fff;
+}
+
+.tips_index {
+	margin: 0;
+}
+
+li {
+	list-style: url("/src/img/Discuss_tag.png") outside circle;
+	margin: 0px 0px 7.5px 15px;
+}
+
+li a {
+	vertical-align: top;
+	color: #747474;
+
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 20%;
+}

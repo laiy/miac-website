@@ -32,4 +32,14 @@
     });
   });
 
+  $('.comment').click(function() {
+    $(this).children().eq(2).slideDown();
+  });
+
+  $(document).mouseup(function(e){
+    var _con = $('.comment');   // 设置目标区域
+    if(!_con.is(e.target) && _con.has(e.target).length === 0){ // Mark 1
+      $('.hide').slideUp();   // 功能代码
+    }
+  });
 }).call(this);

@@ -4,22 +4,48 @@ html
         title article
         script(src='./lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/article.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        if user
-            a(href='/Article/create') createNew
-        if articles
-            each article in articles
-                br
-                p category:
-                    span=article.category
-                p title:
-                    a(href='/Article/' + article._id)=article.title
-                p content:
-                    span=article.content
-                p createdBy:
-                    span=article.createdBy
-                p cratedAt:
-                    span=moment(article.cratedAt).format('MMM D,YY')
-
+        .main
+            .main_right
+                .box1
+                    input(type='text' placeholder='search')
+                if user
+                    .box1.createnew
+                        a(href='/Article/create') 
+                            p New
+                .tips
+                    .tips_head
+                        p 标签
+                    .tips_head_1
+                    .tips_clip
+                        .tips_head_2
+                        .tips_index
+                            ul
+                                li
+                                    a(href="http://www.baidu.com", target="_blank") Javascript
+                                li
+                                    a(href="#", target="_blank") PHP
+                                li
+                                    a(href="#", target="_blank") CSS
+                                li
+                                    a(href="#", target="_blank") Dream
+            if articles
+            .main_left
+                each article in articles
+                    .article
+                        .article_content
+                            .title
+                                a(href='/Article/' + article._id)=article.title
+                            .content
+                                span!=article.content
+                        .article_detail       
+                            p.name win77
+                            p.name 创建于
+                            p.blue
+                                span=moment(article.cretedAt).format('MMM D,YY')
+            .bottom
+                p  © 2014 MIAC
+        script(src='./bin/js/article.js')

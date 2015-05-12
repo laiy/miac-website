@@ -3,7 +3,7 @@
     var category, content, title;
     category = $('#category').val();
     title = $('#title').val();
-    content = $('#content').val();
+    content = tinyMCE.activeEditor.getContent();
     return $.post('/Article/create', {
       category: category,
       title: title,
