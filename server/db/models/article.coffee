@@ -31,6 +31,7 @@ ArticleModel.createArticle = (category, title, content, createdBy, username, cal
         title: title
         content: content
         createdBy: createdBy
+        createdAt: Date.now()
         username: username
     , callback
 

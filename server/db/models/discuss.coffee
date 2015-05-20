@@ -42,6 +42,7 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, a
         down: 0
         viewsCount: 0
         createdBy: createdBy
+        createdAt: Date.now()
         answerTo: answerTo if answerTo isnt ''
         avatar: avatar
         username: username
