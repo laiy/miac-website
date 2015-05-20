@@ -4,6 +4,7 @@ html
         title childDiscuss
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/childdiscuss.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
@@ -87,6 +88,6 @@ html
                                                     span.gray.style=reply.username
                                                     span.blue.style 回复于
                                                     span.gray.style=moment(reply.createdAt).format('MMM D,YY')
-        #discuss_bottom
-            p  © 2014 MIAC
+        include ./includes/footer.jade
+        script(src='./bin/js/footer.js')
         script(src='../bin/js/childDiscuss.js')

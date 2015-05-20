@@ -4,6 +4,7 @@ html
         title childArticle
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/childarticle.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
@@ -50,6 +51,6 @@ html
                                             span.gray.style=reply.username
                                             span.gray.style 创建于
                                             span.blue.style=moment(reply.cratedAt).format('MMM D,YY')
-            .bottom
-                p  © 2014 MIAC
+        include ./includes/footer.jade
+        script(src='./bin/js/footer.js')
         script(src='../bin/js/childArticle.js')

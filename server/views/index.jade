@@ -10,7 +10,7 @@ html
     script(src='/bin/js/index.js')
   body
     include ./includes/header.jade
-    div#index
+    div.main
       div#index-wrapper
         div#index-sidebar
           div#index-nav
@@ -37,4 +37,5 @@ html
               p
                 |罗永浩 10分钟前 发布了新文章
             div.article-pointer
-      include ./includes/footer.jade
+    include ./includes/footer.jade
+    script(src='/bin/js/footer.js')

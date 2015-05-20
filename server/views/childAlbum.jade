@@ -2,18 +2,19 @@ doctype html
 html
     head
         title index
+        link(rel="stylesheet", href="/bin/css/childAlbum.css")
+        link(rel="stylesheet", href="/bin/css/header.css")
+        link(rel="stylesheet", href="/bin/css/footer.css")
+        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
         script(src='/lib/jquery.js')
         script(src='/bin/js/childAlbum.js')
         script(src='/bin/js/header.js')
         script(src='/lib/bootstrap/js/bootstrap.min.js')
         meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
-        link(rel="stylesheet", href="/bin/css/childAlbum.css")
-        link(rel="stylesheet", href="/bin/css/header.css")
-        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
     body
         header
             include ./includes/header.jade
-        div#childAlbum
+        .main
             header.page-header 
                 h1 #{album.title}
             section#pictures
@@ -21,7 +22,7 @@ html
                     div.panel.panel-default
                         div.panel-body
                             p There are not any picture in this album. 
-                                Button.btn.btn-primary
+                                Button.btn.btn-primary.submit_style
                                     a(href="#", class="adderButton", data-toggle="modal", data-target="#contain") Add some?
                 else
                     div#pic-content
@@ -35,7 +36,7 @@ html
                             -var num = num + 1
                             div.picture
                                 img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
-                        button.btn.btn-primary.adderButton-two
+                        button.btn.btn-primary.adderButton-two.submit_style
                             a(href="#", data-toggle="modal", data-target="#contain") Add more pictures.
                     nav
                         ul.pagination
@@ -94,5 +95,5 @@ html
 
 
 
-        footer
-            p#writer Copyright ©2014 MIAC
+        include ./includes/footer.jade
+        script(src='./bin/js/footer.js')

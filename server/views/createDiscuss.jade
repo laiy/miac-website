@@ -4,6 +4,7 @@ html
         title createDiscuss
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/create.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
@@ -18,6 +19,6 @@ html
                     textarea(id='content')
             button(type='button' id='submit') 发 表
             button(type='button' onclick="location.href='./'" id="cancel") 取 消
-        .bottom
-            p © 2014 MIAC
+        include ./includes/footer.jade
+        script(src='./bin/js/footer.js')
         script(src='../bin/js/createDiscuss.js')

@@ -1,7 +1,6 @@
 body {
 	margin: 0;
 	padding: 0;
-	color: #1BA6EB;
 	background-color: #F1EFF0;
 }
 
@@ -10,6 +9,12 @@ body {
 	margin: 0 auto;
 	padding-top: 50px;
 	clear: both;
+}
+
+p {
+	white-space: normal;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
 }
 
 a {
@@ -53,7 +58,7 @@ a {
 
 .discussion_right {
 	width: 500px;
-	height: 140px;
+	height: 145px;
 	float: left;
 	padding: 10px 20px;
 	background-color: #fff;
@@ -84,7 +89,7 @@ a {
 /*shadow*/
 
 .discussion_right_top {
-	min-height: 90px;
+	min-height: 95px;
 }
 
 .discussion_title {
@@ -95,8 +100,11 @@ a {
 
 .discussion_content {
 	color: #000;
-	font-size: 17px;
+	font-size: 14.5px;
 	margin: 8px 0;
+	white-space: normal;
+	word-break:break-all; /*支持IE，chrome，FF不支持*/
+	word-wrap:break-word;/*支持IE，chrome，FF*/
 }
 
 .discussion_right_down {

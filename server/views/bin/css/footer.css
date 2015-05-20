@@ -38,7 +38,7 @@ body {
             body #footer #footer-content .footer-siteinfo #footer-donation:hover p {
               color: white; }
     body #footer #footer-miac {
-      padding: 5px;
+      padding: 5px 5px 30px 5px;
       margin-top: 10px;
       color: white;
       text-align: center;
