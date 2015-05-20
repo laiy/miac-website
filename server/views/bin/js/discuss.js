@@ -25,4 +25,24 @@
     });
   });
 
+  String.prototype.stripHTML = function() {  
+        var reTag = /<(?:.|\s)*?>/g;  
+        return this.replace(reTag,"");  
+  }  
+
+
+  function cutstr(str) {
+    var n = str.length;
+    if (n > 130) {
+      var str = str.substring(0,130);
+      str = str + "...";
+    }
+    return str;
+  }
+  $(".discussion_content").each(function() {
+    var sTest = $(this).html();
+    $(this).empty();
+    $(this).append(cutstr(sTest.stripHTML()));
+  });
+
 }).call(this);

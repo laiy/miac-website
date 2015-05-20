@@ -20,7 +20,7 @@ html
                 .tips
                     .tips_head
                         p 标签
-                    .tips_head_1
+                    .tips_head_1 
                     .tips_clip
                         .tips_head_2
                         .tips_index
@@ -47,5 +47,7 @@ html
                             p.name 创建于
                             p.blue
                                 span=moment(article.cretedAt).format('MMM D,YY')
+                p#article_bottom 没有更多内容了
         include ./includes/footer.jade
         script(src='./bin/js/article.js')
+        script(src='./bin/js/footer.js')

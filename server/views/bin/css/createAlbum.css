@@ -1,22 +1,23 @@
-#create-album {
+.main {
   margin-left: 20%;
   margin-right: 20%;
   margin-top: 2%;
   margin-bottom: 2%;
   padding: 2% 2% 2% 2%;
-  font-size: 18px !important; }
-  #create-album header {
+  font-size: 18px !important;
+}
+  .main header {
     color: grey;
     font-size: 60pt;
     padding: 0px 0px 0px 0px;
     font-size: 30px; }
-  #create-album .panel-body button {
+  .main .panel-body button {
     float: right; }
-  #create-album .panel-body .input-group {
+  .main .panel-body .input-group {
     margin-bottom: 20px !important; }
-  #create-album .panel-footer {
+  .main .panel-footer {
     font-size: 18px; }
-    #create-album .panel-footer button {
+    .main .panel-footer button {
       font-size: 18px !important; }
 
 .fileAdder {
@@ -33,5 +34,36 @@ footer {
     box-sizing: content-box; }
   #header h3 {
     font-weight: bold; }
+.panel-footer {
+  overflow: hidden;
+}
+.panel-son-body {
+  background-color: #fff;
+  border-left: 1px solid #D8D8D8;
+  border-right: 1px solid #D8D8D8;
+  border-bottom: 1px solid #D8D8D8;
+  padding: 15px;
+  position: relative;
+}
+.panel-son-body:after {
+  position: absolute;
+  content: '';
+  width: 600px;
+  height: 200px;
+  background-color: #DDDBDC;
+  right: 10px;
+  bottom: 0;
+  z-index: -1;
+  transform: rotate(2deg);
+  -ms-transform:rotate(2deg);    /* IE 9 */
+  -moz-transform:rotate(2deg);    /* Firefox */
+  -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
+  -o-transform:rotate(2deg); 
+}
 
+.buttom-style {
+  border: none;
+  padding: 10px;
+  border-radius: 4px;
+}
 /*# sourceMappingURL=createAlbum.css.map */

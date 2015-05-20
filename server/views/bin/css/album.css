@@ -1,90 +1,87 @@
 body {
   background-color: #eeeeee !important; }
 
-#album {
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  margin-top: 0;
-  border-radius: 5%;
-  padding: 0 2% 2% 2%; }
-  #album header {
+.main {
+  width: 900px;
+  margin: 0 auto; }
+  .main header {
     text-align: center;
     margin-bottom: 5%; }
-    #album header img {
+    .main header img {
       width: 100%;
       height: 300px; }
-  #album #album-search {
+  .main #album-search {
     margin-bottom: 5px;
-    padding: 0 1% 1% 1%; }
-    #album #album-search * {
+    padding: 0; }
+    .main #album-search * {
       display: inline;
       height: 30px; }
-    #album #album-search .submit {
+    .main #album-search .submit {
       float: right;
       text-align: center;
       font-size: 18px;
       height: 40px; }
-    #album #album-search #search-word {
+    .main #album-search #search-word {
       background-color: white;
       border: solid #49474A 0.5px;
       padding: 2px 2px 2px 2px;
       border: none;
       background-color: white;
       font-size: 18px; }
-    #album #album-search #search-button {
+    .main #album-search #search-button {
       background-color: white;
       border: solid #49474A 0.5px;
       background-color: white;
       border: none; }
-      #album #album-search #search-button i {
+      .main #album-search #search-button i {
         background-color: white; }
-  #album header {
+  .main header {
     color: grey;
     font-size: 60pt;
     padding: 0px 0px 0px 0px; }
-  #album #content {
-    padding: 1% 1% 1% 1%; }
-    #album #content .pic {
+  .main #content {
+    padding: 1% 1% 5% 1%; }
+    .main #content .pic {
       display: inline-block;
-      width: 300px;
+      width: 250px;
       background-color: white;
       border: solid #49474A 0.5px;
       margin: 2% 2% 2% 2%; }
-      #album #content .pic img {
+      .main #content .pic img {
         display: block;
         height: 250px;
         width: 100%; }
-      #album #content .pic img:hover {
+      .main #content .pic img:hover {
         cursor: pointer; }
-      #album #content .pic .info {
-        padding: 4% 4% 4% 4%; }
-        #album #content .pic .info span {
-          font-size: 15pt; }
-        #album #content .pic .info span.title {
+      .main #content .pic .info {
+        padding: 4% 4% 4% 4%;
+        height: auto; 
+        overflow: hidden;}
+        .main #content .pic .info span {
+          font-size: 12pt; }
+        .main #content .pic .info span.title {
           margin-right: 5%;
-          font-size: 25pt; }
-        #album #content .pic .info span.num {
+          font-size: 14pt; }
+        .main #content .pic .info span.num {
           float: right; }
-          #album #content .pic .info span.num span.number {
+          .main #content .pic .info span.num span.number {
             color: #00a1ea;
             font-size: 1.5em;
             font-weight: bold; }
-      #album #content .pic .time {
-        padding: 4% 4% 2% 4%; }
-        #album #content .pic .time p {
+      .main #content .pic .time {
+        padding: 10px 10px 5px 0; }
+        .main #content .pic .time p {
           text-align: right;
-          color: grey; }
-    #album #content .pic:hover {
+          color: #ebebeb; }
+    .main #content .pic:hover {
       box-shadow: 2px 2px 2px #c7c4c4; }
-    #album #content .year header {
+    .main #content .year header {
       text-align: center;
       font-size: 40pt;
       font-weight: bold;
       color: #c7c4c4;
       margin-bottom: 0; }
-    #album #content .year .row {
+    .main #content .year .row {
       text-align: center; }
 
 footer {
@@ -98,5 +95,39 @@ footer {
     box-sizing: content-box; }
   #header h3 {
     font-weight: bold; }
+  .time p {
+    margin:  0 0 5px 0;
+    color: #c7c4c4;
+  }
+  .album_style {
+    height: 29px;
+    vertical-align: -webkit-baseline-middle;
+  }
 
+  .title {
+    color: #99989e;
+  }
+
+  .pic {
+    position: relative;
+  }
+  .pic:after {
+    position: absolute;
+    content: '';
+    width: 200px;
+    height: 200px;
+    background-color: #DDDBDC;
+    right: 10px;
+    bottom: -5px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+  }
+.submit_style {
+  border: none;
+  border-radius: 4px;
+}
 /*# sourceMappingURL=album.css.map */

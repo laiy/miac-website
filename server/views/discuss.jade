@@ -4,6 +4,7 @@ html
         title discuss
         script(src='./lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/discuss.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
@@ -51,7 +52,7 @@ html
                                 .discussion_right_top
                                     p.discussion_title
                                         a(href='/Discuss/' + discussion._id)=discussion.title
-                                    p.discussion_content
+                                    .discussion_content
                                         span!=discussion.content
                                 p.discussion_right_down
                                     img(src='/assets/img/user/' + discussion.avatar alt='avatar' class='avatar_image_style')
@@ -61,6 +62,6 @@ html
                                     span.gray 创建于
                                     span.blue=moment(discussion.cratedAt).format('MMM D,YY')
             p#discuss_bottom 没有更多内容了
-        .bottom
-            p © 2014 MIAC
         script(src='./bin/js/discuss.js')
+        include ./includes/footer.jade
+        script(src='./bin/js/footer.js')

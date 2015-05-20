@@ -5,7 +5,7 @@ body {
 }
 
 a {
-	text-decoration: none;
+	text-decoration: none; 
 }
 
 .main {
@@ -193,4 +193,10 @@ li a {
 .bottom {
     text-align: center;
     margin-top: 20%;
+}
+#article_bottom {
+	width: 650px;
+	text-align: center;
+	color: #C8C8C8;
+	font-size: 18px;
 }
