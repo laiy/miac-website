@@ -26,7 +26,6 @@ AlbumModel = mongoose.model 'AlbumModel', AlbumSchema
 AlbumModel.createAlbum = (title, createdBy, cover, callback)->
     AlbumModel.create
         title: title
-        createdAt: Date.now()
         createdBy: createdBy
         cover: cover
     , callback

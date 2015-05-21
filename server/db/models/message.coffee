@@ -31,7 +31,6 @@ MessageModel.createMessage = (replyTo, type, content, createdBy, avatar, usernam
         type: type
         content: content
         createdBy: createdBy
-        createdAt: Date.now()
         avatar: avatar
         username: username
     , callback

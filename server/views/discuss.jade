@@ -60,7 +60,7 @@ html
                                     span.blue=discussion.viewsCount
                                     span.gray=discussion.username
                                     span.gray 创建于
-                                    span.blue=moment(discussion.cratedAt).format('MMM D,YY')
+                                    span.blue=moment(discussion.createdAt).format('MMM D,YY')
             p#discuss_bottom 没有更多内容了
         script(src='./bin/js/discuss.js')
         include ./includes/footer.jade
