@@ -93,9 +93,9 @@ app.use '/Album', albumRoute
 db.init()
 
 ###
-* let server listening at port 2333
+* let server listening at port 5500
 ###
-app.listen 2333
+app.listen 5500
 
 module.exports = app
 
