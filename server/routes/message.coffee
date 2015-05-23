@@ -32,4 +32,26 @@ router.post '/create', requireLogin, (req, res)->
         MessageModel.createMessage replyTo, type, content, createdBy, avatar, username, ->
             res.json {result: 'success'}
 
+###
+* handle when post '/message/delete'
+* require user's login to continue process
+* return fail if invalid message id occurs
+* return fail if current user is not the author of the message
+* @param messageId: the id of the message to be deleted
+###
+router.post '/delete', requireLogin, (req, res)->
+    { messageId } = req.body
+    MessageModel.findOne { _id: messageId }, (err, message)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not message
+                return res.json { result: 'fail', msg: 'Invalid message id.' }
+            else
+                if message.createdBy is req.session.user._id
+                    MessageModel.deleteMessage message._id, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The message is not created by current user.' }
+
 module.exports = router
