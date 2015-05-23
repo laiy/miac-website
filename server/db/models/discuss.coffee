@@ -140,4 +140,13 @@ DiscussionModel.drop = (callback)->
     DiscussionModel.remove {}, ->
         callback()
 
+###
+* delete discussion by ObjectId
+* @param discussionId: the id fo the discussion to be deleted
+* @param callback: the callback function that would execute when function ended
+###
+DiscussionModel.deleteDiscussion = (discussionId, callback)->
+    DiscussionModel.remove { _id: discussionId }, ->
+        callback()
+
 module.exports = DiscussionModel
