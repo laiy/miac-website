@@ -43,4 +43,13 @@ MessageModel.drop = (callback)->
     MessageModel.remove {}, ->
         callback()
 
+###
+* delete message by ObjectId
+* @param messageId: the id of the message to be deleted
+* @param callback: the callback function that would execute when function ended
+###
+MessageModel.deleteMessage = (messageId, callback)->
+    MessageModel.remove { _id: messageId }, ->
+        callback()
+
 module.exports = MessageModel
