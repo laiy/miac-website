@@ -159,4 +159,26 @@ router.post '/down', requireLogin, (req, res)->
             else
                 return res.json { result: 'fail', msg: 'Bad removing.' }
 
+###
+* handle when post '/discuss/delete'
+* require user's login to continue process
+* return fail if invalid discussion id occurs
+* return fail if current user is not the author of the discussion
+* @param discussionId: the id of the discussion to be deleted
+###
+router.post '/delete', requireLogin, (req, res)->
+    { discussionId } = req.body
+    DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not discussion
+                return res.json { result: 'fail', msg: 'Invalid discussion id.' }
+            else
+                if discussion.createdBy is req.session.user._id
+                    DiscussionModel.deleteDiscussion discussion._id, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The discussion is not created by current user.' }
+
 module.exports = router
