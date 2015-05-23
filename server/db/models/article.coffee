@@ -42,4 +42,12 @@ ArticleModel.drop = (callback)->
     ArticleModel.remove {}, ->
         callback()
 
+###
+* delete article throught _id
+* @param articleId: the id of the article to be deleted
+###
+ArticleModel.deleteArticle = (articleId, callback)->
+    ArticleModel.remove { _id: articleId }, ->
+        callback()
+
 module.exports = ArticleModel
