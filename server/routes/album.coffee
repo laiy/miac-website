@@ -133,5 +133,27 @@ router.post '/addPicture', requireLogin, (req, res)->
                                     AlbumModel.addPicture albumId, name, ->
                                         res.redirect '/album/' + albumId
 
+###
+* handle when post '/album/deleteAlbum'
+* require user's login to continue process
+* return fail if invalid album id occurs
+* return fail if current user is not the author of the album
+* @param albumId: the id of the album to be deleted
+###
+router.post '/deleteAlbum', requireLogin, (req, res)->
+    { albumId } = req.body
+    AlbumModel.findOne { _id: albumId }, (err, album)->
+        if (err)
+            return res.status(500).send 'Server Error.'
+        else
+            if not album
+                return res.json { result: 'fail', msg: 'Invalid album id.' }
+            else
+                if album.createdBy is req.session.user._id
+                    AlbumModel.deleteAlbum album._id, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The album is not created by current user.' }
+
 module.exports = router
 
