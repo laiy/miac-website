@@ -80,4 +80,26 @@ router.post '/create', requireLogin, (req, res)->
             ArticleModel.createArticle category, title, content, createdBy, username, ->
                 res.json { result: 'success' }
 
+###
+* handle when post '/article/delete'
+* require user's login to continue process
+* return fail if invalid article id occurs
+* return fail if current user is not the author of the article
+* @param articleId: the id of the article to be deleted
+###
+router.post '/delete', requireLogin, (req, res)->
+    { articleId } = req.body
+    ArticleModel.findOne { _id: articleId }, (err, article)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not article
+                return res.json { result: 'fail', msg: 'Invalid article id.' }
+            else
+                if article.createdBy is req.session.user._id
+                    ArticleModel.deleteArticle article._id, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The article is not created by current user.' }
+
 module.exports = router
