@@ -53,5 +53,14 @@ AlbumModel.drop = (callback)->
     AlbumModel.remove {}, ->
         callback()
 
+###
+* delete album by ObjectId
+* @param albumId: the id of the album to be deleted
+* @param callback: the callback function that would execute when function ended
+###
+AlbumModel.deleteAlbum = (albumId, callback)->
+    AlbumModel.remove { _id: albumId }, ->
+        callback()
+
 module.exports = AlbumModel
 
