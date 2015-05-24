@@ -149,7 +149,7 @@ router.post '/deleteAlbum', requireLogin, (req, res)->
             if not album
                 return res.json { result: 'fail', msg: 'Invalid album id.' }
             else
-                if album.createdBy is req.session.user._id
+                if album.createdBy.toString() is req.session.user._id
                     AlbumModel.deleteAlbum album._id, ->
                         res.json { result: 'success' }
                 else

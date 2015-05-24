@@ -48,7 +48,7 @@ router.post '/delete', requireLogin, (req, res)->
             if not message
                 return res.json { result: 'fail', msg: 'Invalid message id.' }
             else
-                if message.createdBy is req.session.user._id
+                if message.createdBy.toString() is req.session.user._id
                     MessageModel.deleteMessage message._id, ->
                         res.json { result: 'success' }
                 else

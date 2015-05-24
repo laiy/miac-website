@@ -96,7 +96,7 @@ router.post '/delete', requireLogin, (req, res)->
             if not article
                 return res.json { result: 'fail', msg: 'Invalid article id.' }
             else
-                if article.createdBy is req.session.user._id
+                if article.createdBy is req.session.user.username
                     ArticleModel.deleteArticle article._id, ->
                         res.json { result: 'success' }
                 else

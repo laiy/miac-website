@@ -175,7 +175,7 @@ router.post '/delete', requireLogin, (req, res)->
             if not discussion
                 return res.json { result: 'fail', msg: 'Invalid discussion id.' }
             else
-                if discussion.createdBy is req.session.user._id
+                if discussion.createdBy.toString() is req.session.user._id
                     DiscussionModel.deleteDiscussion discussion._id, ->
                         res.json { result: 'success' }
                 else
