@@ -261,7 +261,7 @@ input {
 	font-size: 15px;
 }
 
-#delete_answer {
+.delete_answer {
 	border: none;
 	color: #1BA6EB;
 	background-color: #fff;
@@ -270,7 +270,7 @@ input {
 	margin: 0;
 }
 
-#delete_reply {
+.delete_reply {
 	border: none;
 	color: #1BA6EB;
 	background-color: #fff;

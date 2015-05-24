@@ -5,7 +5,7 @@
     items = window.location.href.split('/');
     ObjectId = items[items.length - 1];
     return $.post('/Message/create', {
-      replyTo: ObjectId, 
+      replyTo: ObjectId,
       type: 'comment',
       content: content
     }, function(data) {
@@ -28,7 +28,7 @@
       });
   });
 
-  $('#delete_reply').click(function() {
+  $('.delete_reply').click(function() {
     var id = $(this).attr('replyid');
     return $.post('/message/delete', {
       messageId: id
@@ -56,7 +56,7 @@
     });
   });
 
-  $('#delete_discussion').click(function() {
+  $('.delete_discussion').click(function() {
     var id = $(this).attr('messageid');
     return $.post('/message/delete', {
       messageId: id

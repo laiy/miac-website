@@ -261,14 +261,14 @@ img {
 	left: 630px;
 }
 
-#delete_discussion {
+.delete_discussion {
 	height: 20px;
 	background-color: #fff;
 	color: #1BA6EB;
 	margin-top: 0;
 }
 
-#delete_reply {
+.delete_reply {
 	border: none;
 	color: #1BA6EB;
 	background-color: #fff;

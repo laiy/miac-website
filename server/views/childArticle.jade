@@ -41,7 +41,7 @@ html
                                     if user
                                         if comment.createdBy == user._id
                                             span
-                                                button(type='button' id='delete_discussion' messageid=comment._id) 删除
+                                                button(type='button' class='delete_discussion' messageid=comment._id) 删除
                             .comment_comment.hide
                                 input(type='text')
                                 button(type='button' class='reply-submit' comment-id=comment._id) submit
@@ -59,7 +59,7 @@ html
                                             span.blue.style=moment(reply.createdAt).format('MMM D,YY')
                                             if user
                                                 if reply.createdBy == user._id
-                                                    button(type='button' id='delete_reply' replyid=reply._id) 删除    
+                                                    button(type='button' class='delete_reply' replyid=reply._id) 删除
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
         script(src='../bin/js/childArticle.js')

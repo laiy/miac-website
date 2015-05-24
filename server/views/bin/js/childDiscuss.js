@@ -29,7 +29,7 @@
       });
   });
 
-  $('#delete_reply').click(function() {
+  $('.delete_reply').click(function() {
     var id = $(this).attr('replyid');
     return $.post('/message/delete', {
       messageId: id
@@ -39,9 +39,9 @@
           return window.location.reload();
         }
     });
-  }); 
+  });
 
-  $('#delete_answer').click(function() {
+  $('.delete_answer').click(function() {
     var id = $(this).attr('answerid');
       return $.post('/discuss/delete', {
           discussionId: id
@@ -55,7 +55,7 @@
 
   $('.reply-submit').click(function() {
     var ObjectId, content;
-    content = $('#reply_content').val();
+    content = $(this).prev().children('input').val();
     ObjectId = $(this).attr('answer-id');
     return $.post('/Message/create', {
       replyTo: ObjectId,
