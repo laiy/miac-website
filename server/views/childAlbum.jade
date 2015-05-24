@@ -38,6 +38,9 @@ html
                                 img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
                         button.btn.btn-primary.adderButton-two.submit_style
                             a(href="#", data-toggle="modal", data-target="#contain") Add more pictures.
+                        if user
+                            if album.createdBy == user._id
+                                button(type='button' id='delete_album' albumid=album._id) Delete.
                     nav
                         ul.pagination
                             -var n = 0

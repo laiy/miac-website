@@ -67,3 +67,9 @@ footer {
   border-radius: 4px;
 }
 /*# sourceMappingURL=createAlbum.css.map */
+#delete_album {
+  border: none;
+  background-color: #1BA6EB;
+  color: #fff;
+  float: right;
+}

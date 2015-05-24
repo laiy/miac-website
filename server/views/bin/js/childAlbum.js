@@ -1,5 +1,16 @@
 (function() {
   window.onload = function() {
+    $('#delete_album').click(function() {
+        var id = $(this).attr('albumid');
+        return $.post('/album/deleteAlbum', {
+            albumId: id
+        }, function(data) {
+          alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+          if (data.result === 'success') {
+            return $(location).attr('href', '/Album');
+          }
+        });
+    });
     var i, j, k, length, page, pictures, row, _i, _j, _k, _ref;
     pictures = $(".picture");
     ($('#player')).modal({
@@ -148,4 +159,5 @@
     });
   };
 
+  
 }).call(this);

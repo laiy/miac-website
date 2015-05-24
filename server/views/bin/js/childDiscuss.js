@@ -17,9 +17,45 @@
     });
   });
 
+  $('#delete_discussion').click(function() {
+    var id = $(this).attr('discussionid');
+      return $.post('/discuss/delete', {
+          discussionId: id
+      }, function(data) {
+        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return $(location).attr('href', '/Discuss');
+        }
+      });
+  });
+
+  $('#delete_reply').click(function() {
+    var id = $(this).attr('replyid');
+    return $.post('/message/delete', {
+      messageId: id
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return window.location.reload();
+        }
+    });
+  }); 
+
+  $('#delete_answer').click(function() {
+    var id = $(this).attr('answerid');
+      return $.post('/discuss/delete', {
+          discussionId: id
+      }, function(data) {
+        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return window.location.reload();
+        }
+      });
+  })
+
   $('.reply-submit').click(function() {
     var ObjectId, content;
-    content = $(this).siblings('input').val();
+    content = $('#reply_content').val();
     ObjectId = $(this).attr('answer-id');
     return $.post('/Message/create', {
       replyTo: ObjectId,

@@ -5,7 +5,7 @@
     items = window.location.href.split('/');
     ObjectId = items[items.length - 1];
     return $.post('/Message/create', {
-      replyTo: ObjectId,
+      replyTo: ObjectId, 
       type: 'comment',
       content: content
     }, function(data) {
@@ -15,6 +15,30 @@
       }
     });
   });
+
+  $('#delete_article').click(function() {
+      var id = $(this).attr('article_id');
+      return $.post('/article/delete', {
+          articleId: id
+      }, function(data) {
+        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return $(location).attr('href', '/Article');
+        }
+      });
+  });
+
+  $('#delete_reply').click(function() {
+    var id = $(this).attr('replyid');
+    return $.post('/message/delete', {
+      messageId: id
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return window.location.reload();
+        }
+    });
+  })
 
   $('.reply-submit').click(function() {
     var ObjectId, content;
@@ -29,6 +53,18 @@
       if (data.result === 'success') {
         return window.location.reload();
       }
+    });
+  });
+
+  $('#delete_discussion').click(function() {
+    var id = $(this).attr('messageid');
+    return $.post('/message/delete', {
+      messageId: id
+    }, function(data) {
+      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        if (data.result === 'success') {
+          return window.location.reload();
+        }
     });
   });
 
