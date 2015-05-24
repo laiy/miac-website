@@ -17,7 +17,7 @@ p {
 .article_comment input {
 	width: 778px;
 }
-
+ 
 button {
 	height: 40px;
 	color: #fff;
@@ -60,7 +60,7 @@ img {
 	position: absolute;
     content: '';
     width: 700px;
-    height: 150px;
+    height: 100px;
     background-color: #DDDBDC;
     right: 20px;
     bottom: 0px;
@@ -248,4 +248,33 @@ img {
 
 .reply_style {
 	float: right;
+	margin-right: 10px;
+}
+
+#delete_article {
+	border: none;
+	color: #1BA6EB;
+	font-size: 12px;
+	background-color: #fff;
+	float: none;
+	position: relative;
+	left: 630px;
+}
+
+#delete_discussion {
+	height: 20px;
+	background-color: #fff;
+	color: #1BA6EB;
+	margin-top: 0;
+}
+
+#delete_reply {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+	float: right;
+	margin: 0;
+	padding-right: 10px;
+	height: 20px;
 }

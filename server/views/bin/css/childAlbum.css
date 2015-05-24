@@ -31,7 +31,7 @@ body {
       margin-top: 20px; }
       .main #pictures #pic-content .adderButton-two {
         top: -10px;
-        right: -37%;
+        right: -40%;
         position: relative;
         z-index: 2; }
         .main #pictures #pic-content .adderButton-two a {
@@ -271,3 +271,15 @@ footer {
   padding: 10px; 
 }
 /*# sourceMappingURL=childAlbum.css.map */
+
+#delete_album {
+  border: none;
+  background-color: #1BA6EB;
+  color: #fff;
+  float: right;
+  padding: 10px;
+  border-radius: 4px;
+  position: relative;
+  top: -10px;
+  right: 27%;
+}

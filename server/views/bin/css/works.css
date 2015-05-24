@@ -71,4 +71,12 @@
           -o-transform: rotateY(180deg);
           transform: rotateY(180deg); }
 
+.works-front p {
+  margin: 15px 10px;
+}
+
+.works-back p{
+  font-size: 14px;
+  margin: 8px 10px;
+}
 /*# sourceMappingURL=works.css.map */

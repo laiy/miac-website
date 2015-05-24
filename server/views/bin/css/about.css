@@ -4,14 +4,14 @@
   .main #works-content {
     font-family: "Microsoft YaHei";
     color: gray;
-    width: 70%;
+    width: 900px;
     text-align: justify;
     margin-left: auto;
     margin-right: auto;
     padding: 50px; }
     .main #works-content .works-discription {
       overflow: hidden;
-      height: 30%;
+      height: auto;
       margin-top: 50px; }
       .main #works-content .works-discription h1 {
         text-align: center; }
@@ -20,7 +20,7 @@
         width: 50%;
         height: 100%; }
       .main #works-content .works-discription #works-connected {
-        height: 300px;
+        height: auto;
         width: 100%; }
 
 /*# sourceMappingURL=about.css.map */

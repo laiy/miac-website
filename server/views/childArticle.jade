@@ -18,6 +18,9 @@ html
                         span=article.username
                     .article_page_content
                         span!=article.content
+                    if user
+                        if user.username == article.username
+                            button(type='button' id='delete_article' article_id=article._id) 删除文章
                 .article_comment
                     input(type='text')
                     button(type='button' id='comment-submit') submit
@@ -35,6 +38,10 @@ html
                                     span.gray.style 创建于
                                     span.blue.style=moment(comment.createdAt).format('MMM D,YY')
                                     span.blue.reply_style 回复
+                                    if user
+                                        if comment.createdBy == user._id
+                                            span
+                                                button(type='button' id='delete_discussion' messageid=comment._id) 删除
                             .comment_comment.hide
                                 input(type='text')
                                 button(type='button' class='reply-submit' comment-id=comment._id) submit
@@ -50,6 +57,9 @@ html
                                             span.gray.style=reply.username
                                             span.gray.style 创建于
                                             span.blue.style=moment(reply.createdAt).format('MMM D,YY')
+                                            if user
+                                                if reply.createdBy == user._id
+                                                    button(type='button' id='delete_reply' replyid=reply._id) 删除    
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
         script(src='../bin/js/childArticle.js')

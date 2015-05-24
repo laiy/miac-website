@@ -253,3 +253,28 @@ input {
     -o-transform:rotate(2deg);  /* Opera */
 }
 /*shadow*/
+
+#delete_discussion {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+}
+
+#delete_answer {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+	float: right;
+	margin: 0;
+}
+
+#delete_reply {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+	float: right;
+	margin: 0;
+}

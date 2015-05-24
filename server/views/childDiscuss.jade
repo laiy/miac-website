@@ -38,6 +38,9 @@ html
                                 span.blue.style #{size}
                                 span.gray.style 浏览
                                 span.blue.style=discussion.viewsCount
+                                if user
+                                    if discussion.username == user.username
+                                        button(type='button' id='delete_discussion' discussionid=discussion._id) 删除
                         .discussion_right_down
                             p.discussion_join 参与讨论
                             .input_shadow
@@ -69,9 +72,12 @@ html
                                             span.blue.style 回复于
                                             span.gray.style=moment(answer.createdAt).format('MMM D,YY')
                                             span.blue.reply_style 回复
+                                            if user
+                                                if answer.username == user.username
+                                                    button(type='button' id='delete_answer' answerid=answer._id) 删除
                                     .discussion_right_down.show
                                         .input_shadow
-                                            input(type='text')
+                                            input(type='text' id='reply_content')
                                         button(type='button' answer-id=answer._id class='reply-submit') 发 布
                             if answer.replys
                                 each reply in answer.replys
@@ -88,6 +94,9 @@ html
                                                     span.gray.style=reply.username
                                                     span.blue.style 回复于
                                                     span.gray.style=moment(reply.createdAt).format('MMM D,YY')
+                                                    if user
+                                                        if reply.username == user.username
+                                                            button(type='button' id='delete_reply' replyid=reply._id) 删除
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
         script(src='../bin/js/childDiscuss.js')
