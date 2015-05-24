@@ -1,5 +1,5 @@
 (function() {
-  $('button').click(function() {
+  $('#submit').click(function() {
     var category, content, title;
     category = $('#category').val();
     title = $('#title').val();
