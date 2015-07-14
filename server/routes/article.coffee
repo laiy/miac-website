@@ -68,7 +68,7 @@ router.get '/:id', (req, res)->
 * @param content: article's content
 ###
 router.post '/create', requireLogin, (req, res)->
-    { category, title, content } = req.body
+    { category, title, content, tags } = req.body
     createdBy = req.session.user.username
     ArticleModel.findOne { title }, (err, article)->
         if article
@@ -76,8 +76,11 @@ router.post '/create', requireLogin, (req, res)->
         else if not title or not content or not createdBy
             return res.json { result: 'fail', msg: 'Info not completed.' }
         else
+            for tag in tags
+                if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software Design' and tag isnt 'Software Engineering' and tag isnt 'Database' and tag isnt 'Other'
+                    return res.json { result: 'fail', msg: 'Invalid tags.' }
             username = req.session.user.username
-            ArticleModel.createArticle category, title, content, createdBy, username, ->
+            ArticleModel.createArticle category, title, content, createdBy, username, tags, ->
                 res.json { result: 'success' }
 
 ###

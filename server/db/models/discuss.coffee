@@ -21,6 +21,7 @@ DiscussionSchema = new Schema
     userVoteForUp: [ObjectId]
     avatar: { type: String, default: 'default.jpg' }
     username: String
+    tags: [String]
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
@@ -33,7 +34,7 @@ DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 * @param answerTo: the discussion's id that the answer reply to if this is a answer, else answerTo is '
 * @param callback: the callback function that would execute when function ended
 ###
-DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, avatar, username, callback)->
+DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, avatar, username, tags, callback)->
     DiscussionModel.create
         type: type
         title: title if title isnt ''
@@ -45,6 +46,7 @@ DiscussionModel.createDiscussion = (type, title, content, createdBy, answerTo, a
         answerTo: answerTo if answerTo isnt ''
         avatar: avatar
         username: username
+        tags: tags
     , (err)->
         if err
             console.log err

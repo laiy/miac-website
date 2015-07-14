@@ -42,7 +42,7 @@ router.get '/create', requireLogin, (req, res)->
 * @param answerTo: the discussion id which is answered(if this is a answer, or answerTo is just '')
 ###
 router.post '/create', requireLogin, (req, res)->
-    { type, title, content, answerTo } = req.body
+    { type, title, content, answerTo, tags } = req.body
     createdBy = req.session.user._id
     if not title and type is 'question' or not type or not content
         return res.json { result: 'fail', msg: 'Info not completed.' }
@@ -51,9 +51,12 @@ router.post '/create', requireLogin, (req, res)->
     else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(answerTo) and answerTo isnt ''
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
+        for tag in tags
+            if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software Design' and tag isnt 'Software Engineering' and tag isnt 'Database' and tag isnt 'Other'
+                return res.json { result: 'fail', msg: 'Invalid tags.' }
         avatar = req.session.user.avatar
         username = req.session.user.username
-        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, username, ->
+        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, username, tags, ->
             res.json { result: 'success' }
 
 ###

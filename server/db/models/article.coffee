@@ -13,6 +13,7 @@ ArticleSchema = new Schema
     createdBy: String
     createdAt: { type: Date, default: Date.now }
     username: String
+    tags: [String]
 
 ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 
@@ -24,7 +25,7 @@ ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 * @param createdBy: user's id, to memorize who create the article
 * @param callback: the callback function that would execute when function ended
 ###
-ArticleModel.createArticle = (category, title, content, createdBy, username, callback)->
+ArticleModel.createArticle = (category, title, content, createdBy, username, tags, callback)->
     callback = callback or ->
     ArticleModel.create
         category: category
@@ -32,6 +33,7 @@ ArticleModel.createArticle = (category, title, content, createdBy, username, cal
         content: content
         createdBy: createdBy
         username: username
+        tags: tags
     , callback
 
 ###
