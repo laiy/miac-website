@@ -76,11 +76,14 @@ router.post '/create', requireLogin, (req, res)->
         else if not title or not content or not createdBy
             return res.json { result: 'fail', msg: 'Info not completed.' }
         else
+            tagsString = ""
             for tag in tags
                 if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software Design' and tag isnt 'Software Engineering' and tag isnt 'Database' and tag isnt 'Other'
                     return res.json { result: 'fail', msg: 'Invalid tags.' }
+                else
+                    tagsString += tag
             username = req.session.user.username
-            ArticleModel.createArticle category, title, content, createdBy, username, tags, ->
+            ArticleModel.createArticle category, title, content, createdBy, username, tagsString, ->
                 res.json { result: 'success' }
 
 ###

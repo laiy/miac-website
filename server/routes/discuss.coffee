@@ -51,12 +51,15 @@ router.post '/create', requireLogin, (req, res)->
     else if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(answerTo) and answerTo isnt ''
         return res.json { result: 'fail', msg: 'Bad ObjectId.' }
     else
+        tagsString = ""
         for tag in tags
             if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software Design' and tag isnt 'Software Engineering' and tag isnt 'Database' and tag isnt 'Other'
                 return res.json { result: 'fail', msg: 'Invalid tags.' }
+            else
+                tagsString += tag
         avatar = req.session.user.avatar
         username = req.session.user.username
-        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, username, tags, ->
+        DiscussionModel.createDiscussion type, title, content, createdBy, answerTo, avatar, username, tagsString, ->
             res.json { result: 'success' }
 
 ###

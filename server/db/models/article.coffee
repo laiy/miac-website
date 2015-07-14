@@ -13,7 +13,7 @@ ArticleSchema = new Schema
     createdBy: String
     createdAt: { type: Date, default: Date.now }
     username: String
-    tags: [String]
+    tags: String
 
 ArticleModel = mongoose.model 'ArticleModel', ArticleSchema
 

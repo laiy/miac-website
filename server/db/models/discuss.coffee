@@ -21,7 +21,7 @@ DiscussionSchema = new Schema
     userVoteForUp: [ObjectId]
     avatar: { type: String, default: 'default.jpg' }
     username: String
-    tags: [String]
+    tags: String
 
 DiscussionModel = mongoose.model 'DiscussionModel', DiscussionSchema
 
