@@ -54,4 +54,27 @@ router.post '/delete', requireLogin, (req, res)->
                 else
                     return res.json { result: 'fail', msg: 'The message is not created by current user.' }
 
+###
+* handle when post '/message/updateContent'
+* require user's login to continue process
+* return fail if invalid message id occurs
+* return fail if current user is not the author of the message
+* @param messageId: the id of the message to be updated
+* @param content: the content to cover the existed content
+###
+router.post '/updateContent', requireLogin, (req, res)->
+    { messageId, content } = req.body
+    MessageModel.findOne { _id: messageId }, (err, message)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not message
+                return res.json { result: 'fail', msg: 'Invalid message id.' }
+            else
+                if message.createdBy.toString() is req.session.user._id
+                    MessageModel.updateContent message._id, content, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The message is not created by current user.' }
+
 module.exports = router
