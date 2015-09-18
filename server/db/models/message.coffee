@@ -52,4 +52,18 @@ MessageModel.deleteMessage = (messageId, callback)->
     MessageModel.remove { _id: messageId }, ->
         callback()
 
+###
+* update the content of message through message id
+* @param messageId: the id of the message to be updated
+* @param content: the content to cover the existed content
+###
+MessageModel.updateContent = (messageId, content, callback)->
+    MessageModel.findOne {_id: messageId}, (err, message)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            message.content = content
+            message.save ->
+                callback()
+
 module.exports = MessageModel

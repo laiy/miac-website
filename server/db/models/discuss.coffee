@@ -151,4 +151,18 @@ DiscussionModel.deleteDiscussion = (discussionId, callback)->
     DiscussionModel.remove { _id: discussionId }, ->
         callback()
 
+###
+* update the content of discussion through discussion id
+* @param discussionId: the id of the discussion to be updated
+* @param content: the content to cover the existed content
+###
+DiscussionModel.updateContent = (discussionId, content, callback)->
+    DiscussionModel.findOne {_id: discussionId}, (err, discussion)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            discussion.content = content
+            discussion.save ->
+                callback()
+
 module.exports = DiscussionModel

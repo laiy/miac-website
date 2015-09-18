@@ -108,4 +108,21 @@ router.post '/delete', requireLogin, (req, res)->
                 else
                     return res.json { result: 'fail', msg: 'The article is not created by current user.' }
 
+###
+###
+router.post '/updateContent', requireLogin, (req, res)->
+    { articleId, content } = req.body
+    ArticleModel.findOne { _id: articleId }, (err, article)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not article
+                return res.json { result: 'fail', msg: 'Invalid article id.' }
+            else
+                if article.createdBy is req.session.user.username
+                    ArticleModel.updateContent article._id, content, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The article is not created by current user.' }
+
 module.exports = router
