@@ -109,6 +109,12 @@ router.post '/delete', requireLogin, (req, res)->
                     return res.json { result: 'fail', msg: 'The article is not created by current user.' }
 
 ###
+* handle when post '/article/updateContent'
+* require user's login to continue process
+* return fail if invalid article id occurs
+* return fail if current user is not the author of the article
+* @param articleId: the id of the article to be updated
+* @param content: the content to cover the existed content
 ###
 router.post '/updateContent', requireLogin, (req, res)->
     { articleId, content } = req.body
