@@ -35,6 +35,53 @@ a {
 	margin-bottom: 25px;
 }
 
+.page-nav {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-button {
+    display: inline-block;
+    color: white!important;
+    background-color: rgb(13, 125, 168);
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.page-button a{
+    text-align: center;
+    top: 5px;
+    position: relative;
+    color: white!important
+}
+
+.page-button-2 {
+    display: inline-block;
+    color: white;
+    background-color: rgb(13, 125, 168);
+    height: 30px;
+    width: 56px;
+    border-radius: 5px;
+}
+
+.page-button-2 a{
+    text-align: center;
+    top: 5px;
+    position: relative;
+    color: white!important
+}
+
+#prev-page {
+    margin-right: 15%;
+}
+
+#next-page {
+    margin-left: 15%;
+}
+
 .article:after {
 	position: absolute;
     content: '';
