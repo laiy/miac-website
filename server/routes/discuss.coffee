@@ -187,4 +187,27 @@ router.post '/delete', requireLogin, (req, res)->
                 else
                     return res.json { result: 'fail', msg: 'The discussion is not created by current user.' }
 
+###
+* handle when post '/discuss/updateContent'
+* require user's login to continue process
+* return fail if invalid discussion id occurs
+* return fail if current user is not the author of the discussion
+* @param discussionId: the id of the discussion to be updated
+* @param content: the content to cover the existed content
+###
+router.post '/updateContent', requireLogin, (req, res)->
+    { discussionId, content } = req.body
+    DiscussionModel.findOne { _id: discussionId }, (err, discussion)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not discussion
+                return res.json { result: 'fail', msg: 'Invalid discussion id.' }
+            else
+                if discussion.createdBy.toString() is req.session.user._id
+                    DiscussionModel.updateContent discussion._id, content, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The discussion is not created by current user.' }
+
 module.exports = router
