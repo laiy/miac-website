@@ -43,11 +43,13 @@ html
                                 button(type='button' id='delete_album' albumid=album._id) Delete.
                     nav
                         ul.pagination
-                            -var n = 0
-                            -var num = album.pictures.length
-                            while n < (num - 1) / 12 + 1
+                            -var num = album.pictures.length;
+                            -var exa = parseInt((num - 1)) % 12;
+                            -var pages = (num - exa) / 12;
+                            -for (var n = 0; n < pages; ++n) {
                                 li(id="p-" + (n + 1))
-                                    a(href="#" + (n + 1)).page-nav #{++n}
+                                    a(href="#" + (n + 1)).page-nav #{n + 1}
+                            -}
             div#contain.modal.fate(role="dialog")
                 div.modal-dialog.modal-lg
                     div.modal-content

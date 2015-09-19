@@ -12,7 +12,7 @@ html
         .main
             .sreach
                 .input_shadow
-                    input(type='text' id='sreach' placeholder='sreach')
+                    input#search-input(type='text' id='sreach' placeholder='sreach')
                 if user
                     .input_shadow
                         a(href='/Discuss/create')
@@ -26,13 +26,17 @@ html
                         .tips_index
                             ul
                                 li
-                                    a(href="http://www.baidu.com", target="_blank") Javascript
+                                    a(href="/Discuss?page=1?&tag=Front-end", target="_blank") 前端
                                 li
-                                    a(href="#", target="_blank") PHP
+                                    a(href="/Discuss?page=1&tag=Back-end", target="_blank") 后端
                                 li
-                                    a(href="#", target="_blank") CSS
+                                    a(href="/Discuss?page=1&tag=Software_Design", target="_blank") 软件设计
                                 li
-                                    a(href="#", target="_blank") Dream
+                                    a(href="/Discuss?page=1&tag=Softare_Engineering", target="_blank") 软件工程
+                                li
+                                    a(href="/Discuss?page=1&tag=Database", target="_blank") 数据库
+                                li
+                                    a(href="/Discuss?page=1&tag=Other", target="_blank") 其它 
             if discussions
                 each discussion in discussions
                     .discussion
@@ -61,7 +65,15 @@ html
                                     span.gray=discussion.username
                                     span.gray 创建于
                                     span.blue=moment(discussion.createdAt).format('MMM D,YY')
-            p#discuss_bottom 没有更多内容了
+                .page-nav
+                    #prev-page.page-button-2
+                        a prev
+                    -for (var i = 0; i < 5; ++i) {
+                        .page-button
+                            a #{i + 1}
+                    -}
+                    #next-page.page-button-2
+                        a next
         script(src='./bin/js/discuss.js')
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')

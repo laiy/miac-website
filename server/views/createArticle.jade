@@ -14,12 +14,26 @@ html
         .main
             .add_shadow_title
                 input(type='text' id='title' placeholder='标题')
+            .article_tag
+                input(type='checkbox' value="Front-end")
+                |前端
+                input(type='checkbox' value="Back-end")
+                |后端
+                input(type='checkbox' value="Software_Design") 
+                |软件设计
+                input(type='checkbox' value="Software_Engineering")
+                |软件工程
+                input(type='checkbox' value="Database")
+                |数据库
+                input(type='checkbox' value="other")
+                |其它
+
             #content_textarea
                 #content_textarea_border
                     textarea(id='content')
             .add_shadow_tag
                 input(type='text' id='category' placeholder='标签')
-            button(type='button' id='submit') 发 表
+            button#submit(type='button') 发 表
             button(type='button' onclick="location.href='../Article'" id="cancel") 取 消
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')

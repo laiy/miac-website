@@ -40,10 +40,25 @@ $(function() {
         var num = $(this).find('a').text();
         $(this).find('a').attr("href", "/Article?page=" + num + "&tag=" + tag);
         if (parseInt(num) == page) {
-            $(this).addClass('choosen-page');
+            $(this).addClass('chosen-page');
         } else {
-            $(this).removeClass('choosen-page');
+            $(this).removeClass('chosen-page');
         }
     });
+
+    //Listen to the search event
+   $("#search-input").on("input propertychange", function() {
+    var key = $(this).val(),
+        patt = new RegExp(key);
+    $(".article").each(function() {
+        var title = $(this).find(".article_content").find(".title").find("a").text();
+        if (!patt.test(title)) {
+            $(this).addClass("invisible");
+        } else {
+            $(this).removeClass("invisible");
+        } 
+    });    
+
+});
 
 });
