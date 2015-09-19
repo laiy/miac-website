@@ -32,7 +32,7 @@ router.get '/', (req, res)->
         else
             numbersOfArticles = articles.length
             pages = Math.ceil numbersOfArticles / 10
-            pages = pages is 0 ? 1 : pages
+            pages = if pages is 0 then 1 else pages
             if page > pages
                 return res.json { result: 'fail', msg: 'Invalid page.' }
             else
