@@ -18,6 +18,8 @@ html
                         span=article.username
                     .article_page_content
                         span!=article.content
+                    -var tags = {"Front-end": "前端", "Database": "数据库", "Software_Engineering": "软件工程", "Back-end": "后端", "Software_Design": "软件设计", "Other": "其它"}
+                    .article_tag 标签:
                     if user
                         if user.username == article.username
                             button(type='button' id='delete_article' article_id=article._id) 删除文章

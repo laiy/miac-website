@@ -33,7 +33,7 @@ html
                                 li
                                     a(href="/Article?page=1&tag=Software_Design", target="_blank") 软件设计
                                 li
-                                    a(href="/Article?page=1&tag=Softare_Engineering", target="_blank") 软件工程
+                                    a(href="/Article?page=1&tag=Software_Engineering", target="_blank") 软件工程
                                 li
                                     a(href="/Article?page=1&tag=Database", target="_blank") 数据库
                                 li
@@ -53,10 +53,12 @@ html
                             p.name 创建于
                             p.blue
                                 span=moment(article.createdAt).format('MMM D,YY')
+                            -var tags = {"Front-end": "前端", "Database": "数据库", "Software_Engineering": "软件工程", "Back-end": "后端", "Software_Design": "软件设计", "Other": "其它"}
+                            p.tag 标签: #{tags[article.tags]}
                 .page-nav
                     #prev-page.page-button-2
                         a prev
-                    -for (var i = 0; i < 5; ++i) {
+                    -for (var i = 0; i < pages; ++i) {
                         .page-button
                             a #{i + 1}
                     -}

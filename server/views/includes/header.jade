@@ -6,9 +6,12 @@ div#header
             h3 MIAC
             div#header-pointer
         div#header-nav
-            - elements = ['Home', 'Article', 'Discuss', 'Album', 'Works', 'About']
-            each element in elements
-                a(href='/' + element)=element
+            a(href='/Home') Home
+            a(href="/Article?page=1&tag=") Article
+            a(href="/Discuss?page=1&tag=") Discuss
+            a(href="/Album?page=1&tag=") Album
+            a(href="/Works") Works
+            a(href='About') About
         div#header-operation
             if user
                 a(href='/user/' + user._id) Profile

@@ -25,14 +25,12 @@ html
                 |软件工程
                 input(type='checkbox' value="Database")
                 |数据库
-                input(type='checkbox' value="other")
+                input(type='checkbox' value="Other")
                 |其它
 
             #content_textarea
                 #content_textarea_border
                     textarea(id='content')
-            .add_shadow_tag
-                input(type='text' id='category' placeholder='标签')
             button#submit(type='button') 发 表
             button(type='button' onclick="location.href='../Article'" id="cancel") 取 消
         include ./includes/footer.jade
