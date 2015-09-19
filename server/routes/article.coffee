@@ -17,11 +17,26 @@ MessageModel = require '../db/models/message.coffee'
 * render with articles
 ###
 router.get '/', (req, res)->
-    ArticleModel.find {}, (err, articles)->
+    { tag, page } = req.body
+    page = parseInt page
+    if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software_Design' and tag isnt 'Software_Engineering' and tag isnt 'Database' and tag isnt 'Other' and tag isnt 'none'
+        return res.json { result: 'fail', msg: 'Invalid tags.' }
+    if typeof(page) isnt "number"
+        return res.json { result: 'fail', msg: 'Invalid page.' }
+    ArticleModel.find { tag: new RegExp(tag) }, null, { sort: [['_id': -1]] }, (err, articles)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'article', articles: articles
+            numbersOfArticles = articles.length
+            pages = Math.ceil numbersOfArticles / 10
+            if page > pages
+                return res.json { result: 'fail', msg: 'Invalid page.' }
+            else
+                articlesInAPage = []
+                for (int pageIndex = (page - 1) * 10; pageIndex < page * 10; pageIndex++)
+                    if pageIndex < numbersOfArticles
+                        articlesInAPage.push articles[pageIndex]
+                res.render 'article', articles: articlesInAPage
 
 ###
 * render 'childArticle' when get '/article/create'
