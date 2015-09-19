@@ -36,9 +36,11 @@ router.get '/', (req, res)->
                 return res.json { result: 'fail', msg: 'Invalid page.' }
             else
                 articlesInAPage = []
-                for (int pageIndex = (page - 1) * 10; pageIndex < page * 10; pageIndex++)
+                pageIndex = (page - 1) * 10
+                while pageIndex < page * 10
                     if pageIndex < numbersOfArticles
                         articlesInAPage.push articles[pageIndex]
+                    pageIndex++
                 res.render 'article', articles: articlesInAPage, pages: pages
 
 ###
