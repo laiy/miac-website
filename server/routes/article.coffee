@@ -13,8 +13,11 @@ MessageModel = require '../db/models/message.coffee'
 
 ###
 * render 'article' when get '/article'
-* find all the articles in ArticleModel
+* find articles in the designate page from the specific tag
+* if tag is none means that find all articles
 * render with articles
+* @param tag: the tag to specify the finding region
+* @param page: the index of the page to be response to articles(one page equals 10 articles)
 ###
 router.get '/', (req, res)->
     { tag, page } = req.body
@@ -36,7 +39,7 @@ router.get '/', (req, res)->
                 for (int pageIndex = (page - 1) * 10; pageIndex < page * 10; pageIndex++)
                     if pageIndex < numbersOfArticles
                         articlesInAPage.push articles[pageIndex]
-                res.render 'article', articles: articlesInAPage
+                res.render 'article', articles: articlesInAPage, pages: pages
 
 ###
 * render 'childArticle' when get '/article/create'
