@@ -78,7 +78,7 @@ router.post '/create', requireLogin, (req, res)->
         else
             tagsString = ""
             for tag in tags
-                if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software Design' and tag isnt 'Software Engineering' and tag isnt 'Database' and tag isnt 'Other'
+                if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software_Design' and tag isnt 'Software_Engineering' and tag isnt 'Database' and tag isnt 'Other'
                     return res.json { result: 'fail', msg: 'Invalid tags.' }
                 else
                     tagsString += tag
