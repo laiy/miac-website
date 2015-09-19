@@ -20,9 +20,9 @@ MessageModel = require '../db/models/message.coffee'
 * @param page: the index of the page to be response to articles(one page equals 10 articles)
 ###
 router.get '/', (req, res)->
-    { tag, page } = req.body
+    { tag, page } = req.query
     page = parseInt page
-    if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software_Design' and tag isnt 'Software_Engineering' and tag isnt 'Database' and tag isnt 'Other' and tag isnt 'none'
+    if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software_Design' and tag isnt 'Software_Engineering' and tag isnt 'Database' and tag isnt 'Other' and tag isnt ''
         return res.json { result: 'fail', msg: 'Invalid tags.' }
     if typeof(page) isnt "number"
         return res.json { result: 'fail', msg: 'Invalid page.' }
@@ -32,6 +32,7 @@ router.get '/', (req, res)->
         else
             numbersOfArticles = articles.length
             pages = Math.ceil numbersOfArticles / 10
+            pages = pages is 0 ? 1 : pages
             if page > pages
                 return res.json { result: 'fail', msg: 'Invalid page.' }
             else
