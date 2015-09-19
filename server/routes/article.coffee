@@ -78,7 +78,7 @@ router.post '/create', requireLogin, (req, res)->
         else
             tagsString = ""
             for tag in tags
-                if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software Design' and tag isnt 'Software Engineering' and tag isnt 'Database' and tag isnt 'Other'
+                if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software_Design' and tag isnt 'Software_Engineering' and tag isnt 'Database' and tag isnt 'Other'
                     return res.json { result: 'fail', msg: 'Invalid tags.' }
                 else
                     tagsString += tag
@@ -104,6 +104,29 @@ router.post '/delete', requireLogin, (req, res)->
             else
                 if article.createdBy is req.session.user.username
                     ArticleModel.deleteArticle article._id, ->
+                        res.json { result: 'success' }
+                else
+                    return res.json { result: 'fail', msg: 'The article is not created by current user.' }
+
+###
+* handle when post '/article/updateContent'
+* require user's login to continue process
+* return fail if invalid article id occurs
+* return fail if current user is not the author of the article
+* @param articleId: the id of the article to be updated
+* @param content: the content to cover the existed content
+###
+router.post '/updateContent', requireLogin, (req, res)->
+    { articleId, content } = req.body
+    ArticleModel.findOne { _id: articleId }, (err, article)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            if not article
+                return res.json { result: 'fail', msg: 'Invalid article id.' }
+            else
+                if article.createdBy is req.session.user.username
+                    ArticleModel.updateContent article._id, content, ->
                         res.json { result: 'success' }
                 else
                     return res.json { result: 'fail', msg: 'The article is not created by current user.' }

@@ -45,11 +45,25 @@ ArticleModel.drop = (callback)->
         callback()
 
 ###
-* delete article throught _id
+* delete article through _id
 * @param articleId: the id of the article to be deleted
 ###
 ArticleModel.deleteArticle = (articleId, callback)->
     ArticleModel.remove { _id: articleId }, ->
         callback()
+
+###
+* update the content of article through article id
+* @param articleId: the id of the article to be updated
+* @param content: the content to cover the existed content
+###
+ArticleModel.updateContent = (articleId, content, callback)->
+    ArticleModel.findOne {_id: articleId}, (err, article)->
+        if err
+            return res.status(500).send 'Server Error.'
+        else
+            article.content = content
+            article.save ->
+                callback()
 
 module.exports = ArticleModel
