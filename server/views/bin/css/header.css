@@ -82,4 +82,133 @@ body {
       background: #00A1EA;
       height: 6px; }
 
+
+@-webkit-keyframes extent-in {
+  from {
+    width: 0px;
+    height: 0px; }
+  to {
+    width: 500px;
+    height: default; } }
+@keyframes extent-in {
+  from {
+    width: 0px;
+    height: 0px; }
+  to {
+    width: 500px;
+    height: default; } }
+@keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: auto; } }
+@-webkit-keyframes fade-in {
+  from {
+    opacity: 0; }
+  to {
+    opacity: default; } }
+.extent-in-animate {
+  animation: extent-in 0.5s forwards;
+  -webkit-animation: extent-in 0.5s forwards; }
+  .extent-in-animate * {
+    animation: fade-in 0.5s forwards;
+    -webkit-animation: fade-in 0.5s forwards; }
+
+@-webkit-keyframes extent-out {
+  from {
+    width: 500px;
+    height: default; }
+  to {
+    width: 0px;
+    height: 0px; } }
+@keyframes extent-out {
+  from {
+    width: 500px;
+    height: default; }
+  to {
+    width: 0px;
+    height: 0px; } }
+@keyframes fade-out {
+  from {
+    opacity: default; }
+  to {
+    opacity: 0; } }
+@-webkit-keyframes fade-out {
+  from {
+    opacity: default; }
+  to {
+    opacity: 0; } }
+.extent-out-animate {
+  animation: extent-out 0.5s forwards;
+  -webkit-animation: extent-out 0.5s forwards; }
+  .extent-out-animate * {
+    animation: fade-out 0.5s forwards;
+    -webkit-animation: fade-out 0.5s forwards; }
+
+
+.hz-line {
+    width: 95%;
+    margin: 0 auto;
+    height: 1px;
+    background-color: #38a7db;
+    z-index: -1;
+    margin-bottom: 10px;
+}
+
+.close {
+    -webkit-appearance: none;
+    appearance: none;
+    padding: 0;
+    cursor: pointer;
+    background: 0 0;
+    border: 0;
+    font-size: 21px;
+    font-weight: 700;
+    line-height: 1;
+    color: #000;
+    text-shadow: 0 1px 0 #fff;
+    opacity: 0.2;
+}
+
+    #message {
+      position: fixed;
+      left: 43%;
+      top: 50%;
+      border-radius: 6px;
+      border: 1px solid rgba(0, 0, 0, 0.2);
+      box-shadow: 0 5px 15px rgba(0, 0, 0, 0.5);
+      border-width: 1px;
+      margin-left: -12.5%;
+      margin-top: -12.5%;
+      width: 40%;
+      padding: 10px;
+      z-index: 2;
+      text-align: center;
+      background-color: white;
+      transition: 1s; }
+      #message header {
+        margin: 0 auto;
+        text-align: left;
+        width: 90%; }
+        #message header h4 {
+          display: inline-block;
+          margin-bottom: 10px;
+          color: #38f; }
+        #message header button {
+          float: right; }
+      #message #message-content {
+        width: 60%;
+        margin: 0 auto; }
+        #message #message-content * {
+          margin: 5px auto; }
+        #message #message-content p {
+          text-align: center; }
+        #message #message-content a {
+          margin-top: 5px;
+          margin-left: 42%; }
+
+.invisible {
+    display: none;
+}
+
 /*# sourceMappingURL=header.css.map */

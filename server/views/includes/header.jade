@@ -18,5 +18,14 @@ div#header
                 a(id='logout') Sign out
             else
                 a(href='/log') Sign in
-                a(href='/register') Sign up
+                a(href='/register') Sign 
+        div#message.animate.invisible
+            header
+                h4 Message
+                button.close
+                    span(aria-hidden="true") x
+            div.hz-line
+            div#message-content
+                p XXX
+            a.button.button-action.button-pill OK
     div#header-bottom
