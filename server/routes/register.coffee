@@ -40,6 +40,8 @@ router.post '/regist', (req, res)->
                     user.save ->
                         imageMagick('views/assets/img/user/default.jpg')
                             .write 'views/assets/img/user/' + user.avatar, (err)->
+                                req.session.status = user.status
+                                req.session.user = user.toJSON()
                                 res.json {result: 'success'}
 
 ###
