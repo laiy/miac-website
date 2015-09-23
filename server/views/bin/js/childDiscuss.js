@@ -10,9 +10,12 @@
       content: content,
       answerTo: answerTo
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            $(location).attr('href', '/Discuss');
+          };
       }
     });
   });
@@ -22,9 +25,13 @@
       return $.post('/discuss/delete', {
           discussionId: id
       }, function(data) {
-        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
         if (data.result === 'success') {
-          return $(location).attr('href', '/Discuss');
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            $(location).attr('href', '/Discuss');
+          };
+          $("#message-confirm").bind("click", messageCallback);
         }
       });
   });
@@ -34,9 +41,13 @@
     return $.post('/message/delete', {
       messageId: id
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
         if (data.result === 'success') {
-          return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
         }
     });
   });
@@ -46,9 +57,13 @@
       return $.post('/discuss/delete', {
           discussionId: id
       }, function(data) {
-        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
         if (data.result === 'success') {
-          return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
         }
       });
   })
@@ -62,9 +77,13 @@
       type: 'reply',
       content: content
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });
@@ -75,9 +94,13 @@
     return $.post('/Discuss/up', {
       discussionId: discussionId
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });
@@ -88,9 +111,13 @@
     return $.post('/Discuss/down', {
       discussionId: discussionId
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });

@@ -12,6 +12,7 @@ a {
 	margin: 0 auto;
 	padding-top: 50px;
 	width: 900px;
+    overflow: hidden;
 }
 
 .main_left {

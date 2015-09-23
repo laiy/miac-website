@@ -19,7 +19,7 @@ div#header
 
             else
                 a#sign-in-btn Sign in
-                a(href='/register')#register-btn Sign 
+                a(href='/register')#register-btn Sign up 
                 
         div#message.animate.invisible
             header
@@ -27,7 +27,7 @@ div#header
             div.hz-line
             div#message-content
                 p XXX
-            a.button.button-action.button-pill#message-confirm OK
+            a.button.button-primary.button-pill#message-confirm OK
 
         div#login-modal.main.invisible
             .top.shadow
@@ -37,7 +37,7 @@ div#header
                 input(type='text' id='username' placeholder='username')
                 input(type='password' id='password' placeholder='password')
                 button.sign-in-submit SIGN IN
-                script(src='./bin/js/message.js')
-                script(src='./bin/js/login.js')
+                script(src='/bin/js/message.js')
+                script(src='/bin/js/login.js')
                 p#top_login_or_register Not a member? <a href="/register">sign up now→</a>
     div#header-bottom

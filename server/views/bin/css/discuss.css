@@ -9,6 +9,7 @@ body {
 	margin: 0 auto;
 	padding-top: 50px;
 	clear: both;
+    overflow: hidden;
 }
 
 p {
@@ -300,6 +301,7 @@ li a {
     padding-left: 10px;
     margin-bottom: 20px;
     text-align: center;
+    width: 70%;
 }
 
 .page-button {

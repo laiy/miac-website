@@ -5,9 +5,13 @@
     return $.post('/Discuss/up', {
       discussionId: discussionId
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });
@@ -18,9 +22,13 @@
     return $.post('/Discuss/down', {
       discussionId: discussionId
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg != undefined? data.msg : ''));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });
@@ -84,4 +92,5 @@
             $(this).removeClass("invisible");
         } 
     });    
+   });
 }).call(this);
