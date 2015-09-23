@@ -1,9 +1,9 @@
 (function() {
-  $('button').click(function() {
+  $('.sign-up-submit').click(function() {
     var email, password, username;
-    username = $('#username').val();
-    password = $('#password').val();
-    email = $('#email').val();
+    username = $('#new-username').val();
+    password = $('#new-password').val();
+    email = $('#new-email').val();
     return $.post('/Register/regist', {
       username: username,
       password: password,

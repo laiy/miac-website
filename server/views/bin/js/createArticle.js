@@ -15,7 +15,7 @@
       content: content,
       tags: tags
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
         return $(location).attr('href', '/Article');
       }

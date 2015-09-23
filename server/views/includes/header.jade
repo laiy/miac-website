@@ -15,17 +15,29 @@ div#header
         div#header-operation
             if user
                 a(href='/user/' + user._id) Profile
-                a(id='logout') Sign out
+                a#logout Sign out
+
             else
-                a(href='/log') Sign in
-                a(href='/register') Sign 
+                a#sign-in-btn Sign in
+                a(href='/register')#register-btn Sign 
+                
         div#message.animate.invisible
             header
                 h4 Message
-                button.close
-                    span(aria-hidden="true") x
             div.hz-line
             div#message-content
                 p XXX
-            a.button.button-action.button-pill OK
+            a.button.button-action.button-pill#message-confirm OK
+
+        div#login-modal.main.invisible
+            .top.shadow
+                button.close#close-btn
+                    span(aria-hidden='true') x
+                p#login_and_register LOGIN
+                input(type='text' id='username' placeholder='username')
+                input(type='password' id='password' placeholder='password')
+                button.sign-in-submit SIGN IN
+                script(src='./bin/js/message.js')
+                script(src='./bin/js/login.js')
+                p#top_login_or_register Not a member? <a href="/register">sign up now→</a>
     div#header-bottom

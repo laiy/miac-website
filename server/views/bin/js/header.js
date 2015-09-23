@@ -11,9 +11,9 @@
         type: 'delete',
         success: function(data) {
           if (data.result === 'success') {
-            return $(location).attr('href', '/');
+            return $(location).attr('href', './');
           } else {
-            return alert('fail!');
+            messageFadeIn('fail!');
           }
         }
       });
