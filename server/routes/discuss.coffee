@@ -26,7 +26,7 @@ router.get '/', (req, res)->
         return res.json { result: 'fail', msg: 'Invalid tags.' }
     if typeof(page) isnt "number"
         return res.json { result: 'fail', msg: 'Invalid page.' }
-    DiscussionModel.find { type: 'question', tag: new RegExp(tag) }, null, { sort: ['_id': -1] }, (err, discussions)->
+    DiscussionModel.find { type: 'question', tags: new RegExp(tag) }, null, { sort: ['_id': -1] }, (err, discussions)->
         if err
             return res.status(500).send 'Server Error.'
         else
