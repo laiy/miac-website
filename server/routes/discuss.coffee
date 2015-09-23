@@ -13,15 +13,36 @@ MessageModel = require '../db/models/message.coffee'
 
 ###
 * render 'discuss' when get '/discuss'
-* find all the discussions in DiscussionModel
+* find discussions in the designate page from the specific tag
+* if tag is none means that find all discussions
 * render with discussions
+* @param tag: the tag to specify the finding region
+* @param page: the index of the page to be response to discussions(one page equals 10 discussions)
 ###
 router.get '/', (req, res)->
-    DiscussionModel.find { type: 'question' }, (err, discussions)->
+    { tag, page } = req.query
+    page = parseInt page
+    if tag isnt 'Front-end' and tag isnt 'Back-end' and tag isnt 'Software_Design' and tag isnt 'Software_Engineering' and tag isnt 'Database' and tag isnt 'Other' and tag isnt ''
+        return res.json { result: 'fail', msg: 'Invalid tags.' }
+    if typeof(page) isnt "number"
+        return res.json { result: 'fail', msg: 'Invalid page.' }
+    DiscussionModel.find { type: 'question', tag: new RegExp(tag) }, null, { sort: [['_id': -1]] }, (err, discussions)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'discuss', discussions: discussions
+            numbersOfDiscussions = discussions.length
+            pages = Math.ceil numbersOfDiscussions / 10
+            pages = if pages is 0 then 1 else pages
+            if page > pages
+                return res.json { result: 'fail', msg: 'Invalid page.' }
+            else
+                discussionsInAPage = []
+                pageIndex = (page - 1) * 10
+                while pageIndex < page * 10
+                    if pageIndex < numbersOfDiscussions
+                        discussionsInAPage.push discussions[pageIndex]
+                    pageIndex++
+                res.render 'discuss', discussions: discussionsInAPage, pages: pages
 
 ###
 * render 'createDiscuss' when get '/discuss/create'
