@@ -5,13 +5,20 @@
 
 express = require 'express'
 router = express.Router()
+ArticleModel = require '../db/models/article.coffee'
+DiscussionModel = require '../db/models/discuss.coffee'
 
 ###
 * render 'index' when get '/'
 ###
 router.get '/', (req, res)->
-    res.render('index')
+    ArticleModel.findOne {}, (err, article)->
+        DiscussionModel.findOne {}, (err, discussion)->
+            res.render 'index', article: article, discussion: discussion
 
+###
+* redirect '/home' to get '/'
+###
 router.get '/home', (req, res)->
     res.redirect('/')
 
