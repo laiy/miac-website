@@ -2,6 +2,10 @@ messageCallback = function() {
 };
 
 (function() {
+    $("#message-confirm").click(function() {
+       messageFadeOut(); 
+    });
+
     messageFadeIn = function(mess) {
         $("#message-content").find("p").text(mess);
         $("#message").removeClass("invisible").addClass("extent-in-animate").removeClass("extent-out-animate");
@@ -11,8 +15,9 @@ messageCallback = function() {
     }
 
     messageCallback = function() {
-        messageFadeOut();
     }
+
+    $("#message-confirm").click(messageCallback);
 
     $("#sign-in-btn").click(function(e) {
         e.preventDefault();

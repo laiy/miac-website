@@ -2,7 +2,6 @@
   $('#submit').click(function() {
     var content, title;
     title = $('#title').val();
-    content = tinyMCE.activeEditor.getContent();
     var tags = []; 
     $(".discuss_tag").find("input").each(function() {
         tag = $(this).attr("value");

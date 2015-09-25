@@ -2,6 +2,10 @@ body {
 	background-color: #F1EFF0;
 }
 
+.article_editor {
+    position: relative;
+}
+
 .main {
 	width: 750px;
 	margin: 0 auto 50px auto;
@@ -261,7 +265,23 @@ input {
 	font-size: 15px;
 }
 
+.update_discussion {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+}
+
 .delete_answer {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+	float: right;
+	margin: 0;
+}
+
+.update_answer {
 	border: none;
 	color: #1BA6EB;
 	background-color: #fff;
@@ -277,4 +297,143 @@ input {
 	font-size: 15px;
 	float: right;
 	margin: 0;
+}
+
+.update_reply {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+	float: right;
+	margin: 0;
+}
+
+.article-editor textarea {
+	width: 830px;
+	height: 300px;
+}
+
+.article-editor .main {
+	width: 850px;
+	margin: 25px auto 50px auto;
+}
+i
+.article-editor input {
+	height: 40px;
+	margin: 20px 0;
+	border: 1px solid #D8D8D8;
+	font-size: 18px;
+	padding: 3px 8px;
+}
+
+.article-editor button {
+	font-size: 16px;
+	color: #fff;
+	border: none;
+	border-radius: 10%;
+	padding: 0 25px;
+    float: none;
+    cursor: pointer;
+}
+
+.article-editor #submit{
+	background-color: #00A0EA;
+	height: 40px;
+}
+
+.article-editor #update{
+	background-color: #00A0EA;
+	height: 40px;
+    position: relative;
+    left: 550px;
+}
+
+.article-editor #cancel {
+	background-color: #484848;
+	height: 40px;
+    position: relative;
+    left: 550px;
+}
+
+.article-editor .bottom {
+	color: black;
+	text-align: center;
+	font-size: 18px;
+}
+
+.add_shadow_title {
+	width: 500px;
+	height: auto;
+	position: relative;
+}
+
+.add_shadow_title input {
+	width: 500px;
+    height: 40px;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.add_shadow_title:after {
+	position: absolute;
+    content: '';
+    width: 450px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 45px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.add_shadow_tag {
+	width: 300px;
+	height: auto;
+	position: relative;
+}
+
+.add_shadow_tag input {
+	width: 250px;
+}
+
+.add_shadow_tag:after {
+	position: absolute;
+    content: '';
+    width: 150px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 50px;
+    top: 50px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+#content_textarea:after {
+	position: absolute;
+    content: '';
+    width: 800px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 270px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.article-editor button {
+	border: none;
+}
+
+#content_ifr {
+    height: 307px!important;
 }

@@ -243,6 +243,8 @@ body {
     font-size: 32px;
     padding: 5px 5px;
     margin: 10px 0;
+    height: 47px;
+    float: none;
 }
 
 #login-modal a {

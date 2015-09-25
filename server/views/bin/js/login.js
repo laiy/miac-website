@@ -18,7 +18,7 @@
         if (data.result === 'success') {
           $("#message-confirm").unbind("click", messageCallback);
           messageCallback = function() {
-            $(location).attr('href', './');
+            window.location.reload();
           };
           $("#message-confirm").click(messageCallback);
         }

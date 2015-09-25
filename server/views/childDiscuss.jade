@@ -6,7 +6,7 @@ html
         link(href='/bin/css/header.css', rel='stylesheet')
         link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/childdiscuss.css' rel='stylesheet')
-        link(href='./lib/buttons/button.css' rel='stylesheet')
+        link(href='/lib/buttons/button.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
@@ -29,8 +29,8 @@ html
                             .discussion_MainPart
                                 p.discussion_title
                                     span=discussion.title
-                                p.discussion_content
-                                    span#change_content!=discussion.content
+                                p.discussion_content#head_value
+                                    span!=discussion.content
                             p.discussion_detail
                                 span.gray.style 评论
                                 -var size = 0
@@ -42,11 +42,21 @@ html
                                 if user
                                     if discussion.username == user.username
                                         button(type='button' id='delete_discussion' discussionid=discussion._id) 删除
+                                        button.update_discussion(type='button' id='update_discussion' discussionid=discussion._id) 编辑
                         .discussion_right_down
                             p.discussion_join 参与讨论
                             .input_shadow
                                 input(type='textarea' id='content')
                             button(type='button' id='answer-submit') 发 布
+                    .article-editor.invisible
+                        script(src='/lib/tinymce/js/tinymce/tinymce.min.js')
+                        script(src='/bin/js/creatediscuss_tinymce.js')
+                        .main
+                            #content_textarea
+                                #content_textarea_border
+                                    textarea(id='content')
+                            button#update(type='button') 编辑
+                            button(type='button' id="cancel") 取消
             if answers
                 each answer in answers
                     .discussion_answer
@@ -67,7 +77,8 @@ html
                                     .discussion_right_top.size
                                         .discussion_MainPart
                                             p.discussion_content
-                                                span=answer.content
+                                                span.discuss_value=answer.content
+                                            input.discussion_editor.invisible(type='text')
                                         p.discussion_detail
                                             span.gray.style=answer.username
                                             span.blue.style 回复于
@@ -76,6 +87,7 @@ html
                                             if user
                                                 if answer.username == user.username
                                                     button(type='button' class='delete_answer' answerid=answer._id) 删除
+                                                    button.update_answer(type='button' class='update_discussion' discussionid=answer._id) 编辑
                                     .discussion_right_down.show
                                         .input_shadow
                                             input(type='text' class='reply_content')
@@ -90,7 +102,8 @@ html
                                             .discussion_right_top.reply_size
                                                 .discussion_part
                                                     p.discussion_content
-                                                        span=reply.content
+                                                        span.discuss_value=reply.content
+                                                    input.discussion_editor.invisible(type='text')
                                                 p.discussion_detail
                                                     span.gray.style=reply.username
                                                     span.blue.style 回复于
@@ -98,6 +111,7 @@ html
                                                     if user
                                                         if reply.username == user.username
                                                             button(type='button' class='delete_reply' replyid=reply._id) 删除
+                                                            button.update_reply(type='button' class='update_discussion' replyid=reply._id) 编辑
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
         script(src='../bin/js/childDiscuss.js')

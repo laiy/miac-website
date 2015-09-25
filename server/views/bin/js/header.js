@@ -11,7 +11,7 @@
         type: 'delete',
         success: function(data) {
           if (data.result === 'success') {
-            return $(location).attr('href', './');
+            window.location.reload();
           } else {
             messageFadeIn('fail!');
           }
