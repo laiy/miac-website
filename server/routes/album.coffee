@@ -16,15 +16,31 @@ MessageModel = require '../db/models/message.coffee'
 
 ###
 * render 'album' when get '/album'
-* find all the albums in AlbumModel
 * render with albums
+* @param page: the index of the page to be response to albums(one page equals 12 albums)
 ###
-router.get '/', (req , res)->
-    AlbumModel.find {}, (err, albums)->
+router.get '/', (req, res)->
+    { page } = req.query
+    page = parseInt page
+    if typeof(page) isnt "number"
+        return res.json { result: 'fail', msg: 'Invalid page.' }
+    AlbumModel.find {}, null, { sort: ['_id': -1] }, (err, albums)->
         if err
             return res.status(500).send 'Server Error.'
         else
-            res.render 'album', albums: albums
+            numbersOfAlbums = albums.length
+            pages = Math.ceil numbersOfAlbums / 12
+            pages = if pages is 0 then 1 else pages
+            if page > pages
+                return res.json { result: 'fail', msg: 'Invalid page.' }
+            else
+                albumsInAPage = []
+                pageIndex = (page - 1) * 12
+                while pageIndex < page * 12
+                    if pageIndex < numbersOfAlbums
+                        albumsInAPage.push albums[pageIndex]
+                    pageIndex++
+                res.render 'album', albums: albumsInAPage, pages: pages
 
 ###
 * render 'createAlbum' when get '/album/createAlbum'
