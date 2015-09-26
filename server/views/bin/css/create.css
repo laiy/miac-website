@@ -32,6 +32,42 @@ input {
 	padding: 3px 8px;
 }
 
+.create_tag {
+    background: white;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    width: 65%;
+    border: 1px solid #d8d8d8;
+    position: relative;
+}
+
+.create_tag:after {
+	position: absolute;
+    content: '';
+    width: 450px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 35px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.create_tag p {
+    display: inline-block;
+    color: #8f9b8f;
+    font-size: 14pt;
+}
+
+.create_tag input {
+    height: 10px;
+    margin-left: 10px;
+}
+
 button {
 	height: 40px;
 	font-size: 16px;

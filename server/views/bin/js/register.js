@@ -1,17 +1,21 @@
 (function() {
-  $('button').click(function() {
+  $('.sign-up-submit').click(function() {
     var email, password, username;
-    username = $('#username').val();
-    password = $('#password').val();
-    email = $('#email').val();
+    username = $('#new-username').val();
+    password = $('#new-password').val();
+    email = $('#new-email').val();
     return $.post('/Register/regist', {
       username: username,
       password: password,
       email: email
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
       if (data.result === 'success') {
-        return $(location).attr('href', '/');
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            $(location).attr('href', '/');
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });

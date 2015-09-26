@@ -96,6 +96,13 @@ a:hover {
     background: url(/src/img/password.png) no-repeat;
 }
 
+#new-username {
+    background: url(/src/img/username.png) no-repeat;
+}
+
+#new-password {
+    background: url(/src/img/password.png) no-repeat;
+}
 
 #username_tip {
     background-color: #fff;
@@ -104,5 +111,9 @@ a:hover {
 }
 
 #username,#password {
+    margin-top: 12px;
+}
+
+#new-username,#new-password {
     margin-top: 12px;
 }

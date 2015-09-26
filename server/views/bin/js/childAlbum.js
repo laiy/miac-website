@@ -5,9 +5,13 @@
         return $.post('/album/deleteAlbum', {
             albumId: id
         }, function(data) {
-          alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+          messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
           if (data.result === 'success') {
-            return $(location).attr('href', '/Album');
+            $("#message-confirm").unbind("click", messageCallback);
+            messageCallback = function() {
+                $(location).attr('href', '/Album');
+            }
+            $("#message-confirm").bind("click", messageCallback);
           }
         });
     });
