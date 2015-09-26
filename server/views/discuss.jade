@@ -2,17 +2,19 @@ doctype html
 html
     head
         title discuss
-        script(src='./lib/jquery.js')
+        script(src='/lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
+        link(href='/lib/buttons/button.css' rel='stylesheet')
         link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/discuss.css' rel='stylesheet')
         script(src='/bin/js/header.js')
+        script(src='/lib/js-url-2.0.2/url.min.js')
     body
         include ./includes/header.jade
         .main
             .sreach
                 .input_shadow
-                    input(type='text' id='sreach' placeholder='sreach')
+                    input#search-input(type='text' placeholder='sreach')
                 if user
                     .input_shadow
                         a(href='/Discuss/create')
@@ -26,13 +28,17 @@ html
                         .tips_index
                             ul
                                 li
-                                    a(href="http://www.baidu.com", target="_blank") Javascript
+                                    a(href="/Discuss?page=1?&tag=Front-end", target="_blank") 前端
                                 li
-                                    a(href="#", target="_blank") PHP
+                                    a(href="/Discuss?page=1&tag=Back-end", target="_blank") 后端
                                 li
-                                    a(href="#", target="_blank") CSS
+                                    a(href="/Discuss?page=1&tag=Software_Design", target="_blank") 软件设计
                                 li
-                                    a(href="#", target="_blank") Dream
+                                    a(href="/Discuss?page=1&tag=Softare_Engineering", target="_blank") 软件工程
+                                li
+                                    a(href="/Discuss?page=1&tag=Database", target="_blank") 数据库
+                                li
+                                    a(href="/Discuss?page=1&tag=Other", target="_blank") 其它 
             if discussions
                 each discussion in discussions
                     .discussion
@@ -40,14 +46,15 @@ html
                             .discussion_left
                                 .avatar
                                     img(src='/assets/img/user/' + discussion.avatar alt='avatar')
-                                .up_box
-                                    button(class='up' discussion-id=discussion._id)
-                                    p
-                                        span=discussion.up
-                                .down_box
-                                    button(class='down' discussion-id=discussion._id)
-                                    p
-                                        span=discussion.down
+                                if user
+                                    .up_box
+                                        button(class='up' discussion-id=discussion._id)
+                                        p
+                                            span=discussion.up
+                                    .down_box
+                                        button(class='down' discussion-id=discussion._id)
+                                        p
+                                            span=discussion.down
                             .discussion_right
                                 .discussion_right_top
                                     p.discussion_title
@@ -55,13 +62,20 @@ html
                                     .discussion_content
                                         span!=discussion.content
                                 p.discussion_right_down
-                                    img(src='/assets/img/user/' + discussion.avatar alt='avatar' class='avatar_image_style')
                                     span.gray 浏览
                                     span.blue=discussion.viewsCount
                                     span.gray=discussion.username
                                     span.gray 创建于
                                     span.blue=moment(discussion.createdAt).format('MMM D,YY')
-            p#discuss_bottom 没有更多内容了
-        script(src='./bin/js/discuss.js')
+                .page-nav
+                    #prev-page.page-button-2
+                        a prev
+                    -for (var i = 0; i < pages; ++i) {
+                        .page-button
+                            a #{i + 1}
+                    -}
+                    #next-page.page-button-2
+                        a next
+        script(src='/bin/js/discuss.js')
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')

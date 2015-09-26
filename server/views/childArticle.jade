@@ -6,6 +6,7 @@ html
         link(href='/bin/css/header.css', rel='stylesheet')
         link(href='/bin/css/footer.css' rel='stylesheet')
         link(href='/bin/css/childarticle.css' rel='stylesheet')
+        link(href='/lib/buttons/button.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
@@ -21,9 +22,21 @@ html
                     if user
                         if user.username == article.username
                             button(type='button' id='delete_article' article_id=article._id) 删除文章
-                .article_comment
-                    input(type='text')
-                    button(type='button' id='comment-submit') submit
+                            button(type='button' id='update_article' article_id=article._id) 编辑文章
+                if user
+                    .article_comment
+                        input(type='text')
+                        button(type='button' id='comment-submit') submit
+            .article-editor.invisible
+                script(src='/lib/tinymce/js/tinymce/tinymce.min.js')
+                script(src='/bin/js/creatediscuss_tinymce.js')
+                .main
+                    #content_textarea
+                        #content_textarea_border
+                            textarea(id='content')
+                    button#update(type='button') 确定
+                    button(type='button' id="cancel") 取消
+
             if comments
                 each comment in comments
                     .comment_reply
@@ -31,17 +44,21 @@ html
                             .avatar
                                 img(src='/assets/img/user/' + comment.avatar alt='avatar')
                             .comment_content.comment_content_width
-                                p
-                                    span=comment.content
+                                p.comment_p
+                                    span.comment_value=comment.content
+                                input.comment_editor.invisible(type='text')
                                 p.click_to_reply
                                     span.gray.style=comment.username
                                     span.gray.style 创建于
                                     span.blue.style=moment(comment.createdAt).format('MMM D,YY')
-                                    span.blue.reply_style 回复
+                                    if user
+                                        span.blue.reply_style 回复
                                     if user
                                         if comment.createdBy == user._id
                                             span
                                                 button(type='button' class='delete_discussion' messageid=comment._id) 删除
+                                            span
+                                                button(type='button' messageid=comment._id).update_comment 编辑
                             .comment_comment.hide
                                 input(type='text')
                                 button(type='button' class='reply-submit' comment-id=comment._id) submit
@@ -51,15 +68,19 @@ html
                                     .avatar
                                         img(src='/assets/img/user/' + reply.avatar alt='avatar')
                                     .reply_content.comment_content
-                                        p
-                                            span=reply.content
+                                        p.comment_p
+                                            span.comment_value=reply.content
+                                        input.comment_editor.invisible(type='text')
                                         p.click_to_reply
                                             span.gray.style=reply.username
                                             span.gray.style 创建于
                                             span.blue.style=moment(reply.createdAt).format('MMM D,YY')
                                             if user
                                                 if reply.createdBy == user._id
-                                                    button(type='button' class='delete_reply' replyid=reply._id) 删除
+                                                    span
+                                                        button(type='button' class='delete_reply' replyid=reply._id) 删除
+                                                    span
+                                                        button(type='button' class='update_comment' messageid=reply._id) 编辑
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
         script(src='../bin/js/childArticle.js')
