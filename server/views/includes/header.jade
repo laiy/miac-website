@@ -1,4 +1,5 @@
 div#header
+    div#cover.invisible
     div#header-wrapper
         div#header-logo
             div#triangle-small
@@ -6,14 +7,38 @@ div#header
             h3 MIAC
             div#header-pointer
         div#header-nav
-            - elements = ['Home', 'Article', 'Discuss', 'Album', 'Works', 'About']
-            each element in elements
-                a(href='/' + element)=element
+            a(href='/Home') Home
+            a(href="/Article?page=1&tag=") Article
+            a(href="/Discuss?page=1&tag=") Discuss
+            a(href="/Album?page=1&tag=") Album
+            a(href="/Works") Works
+            a(href='About') About
         div#header-operation
             if user
                 a(href='/user/' + user._id) Profile
-                a(id='logout') Sign out
+                a#logout Sign out
+
             else
-                a(href='/log') Sign in
-                a(href='/register') Sign up
+                a#sign-in-btn Sign in
+                a(href='/register')#register-btn Sign up 
+                
+        div#message.animate.invisible
+            header
+                h4 Message
+            div.hz-line
+            div#message-content
+                p XXX
+            a.button.button-primary.button-pill#message-confirm OK
+
+        div#login-modal.main.invisible
+            .top.shadow
+                button.close#close-btn
+                    span(aria-hidden='true') x
+                p#login_and_register LOGIN
+                input(type='text' id='sign-in-username' placeholder='username')
+                input(type='password' id='sign-in-password' placeholder='password')
+                button.sign-in-submit SIGN IN
+                script(src='/bin/js/message.js')
+                script(src='/bin/js/login.js')
+                p#top_login_or_register Not a member? <a href="/register">sign up now→</a>
     div#header-bottom
