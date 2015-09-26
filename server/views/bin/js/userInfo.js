@@ -5,9 +5,13 @@
     return $.post('/User/updatePassword', {
       password: password
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });
@@ -18,9 +22,13 @@
     return $.post('/User/updateEmail', {
       email: email
     }, function(data) {
-      alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
       if (data.result === 'success') {
-        return window.location.reload();
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").bind("click", messageCallback);
       }
     });
   });

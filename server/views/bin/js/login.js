@@ -1,5 +1,5 @@
 (function() {
-  $('button').click(function() {
+  $('.sign-in-submit').click(function() {
     var password, username;
     username = $('#username').val();
     password = $('#password').val();
@@ -11,12 +11,16 @@
       },
       type: 'post',
       error: function(XMLHttpRequest) {
-        return alert(XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText);
+        messageFadeIn(XMLHttpRequest.status + ' ' + XMLHttpRequest.statusText);
       },
       success: function(data) {
-        alert(data.result + '\n' + (data.msg ? data.msg : void 0));
+        messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
         if (data.result === 'success') {
-          return $(location).attr('href', '/');
+          $("#message-confirm").unbind("click", messageCallback);
+          messageCallback = function() {
+            window.location.reload();
+          };
+          $("#message-confirm").click(messageCallback);
         }
       }
     });

@@ -5,6 +5,7 @@ html
         script(src='../lib/jquery.js')
         link(href='/bin/css/header.css', rel='stylesheet')
         link(href='/bin/css/footer.css' rel='stylesheet')
+        link(href='/lib/buttons/button.css' rel='stylesheet')
         link(href='/bin/css/create.css' rel='stylesheet')
         script(src='/bin/js/header.js')
     body
@@ -14,6 +15,20 @@ html
         .main
             .add_shadow_title
                 input(type='text' id='title' placeholder='标题')
+            .create_tag.discuss_tag
+                p 标签
+                input(type='checkbox' value="Front-end")
+                |前端
+                input(type='checkbox' value="Back-end")
+                |后端
+                input(type='checkbox' value="Software_Design") 
+                |软件设计
+                input(type='checkbox' value="Software_Engineering")
+                |软件工程
+                input(type='checkbox' value="Database")
+                |数据库
+                input(type='checkbox' value="Other")
+                |其它
             #content_textarea
                 #content_textarea_border
                     textarea(id='content')

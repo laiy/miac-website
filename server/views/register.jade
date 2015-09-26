@@ -6,16 +6,17 @@ html
         link(href='/bin/css/header.css', rel='stylesheet')
         link(href='/bin/css/login_and_register.css' rel='stylesheet')
         link(href='/bin/css/register.css' rel='stylesheet')
+        link(href='./lib/buttons/button.css', rel='stylesheet')
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
         .main
             .top.register_shadow
                 p#login_and_register REGISTER
-                input(type='text' id='username' placeholder='username')
-                input(type='password' id='password' placeholder='password')
-                input(type='text' id='email' placeholder='email')
-                button(type='button') SIGN UP
+                input(type='text' id='new-username' placeholder='username')
+                input(type='password' id='new-password' placeholder='password')
+                input(type='text' id='new-email' placeholder='email')
+                button(type='button').sign-up-submit SIGN UP
                 p#top_login_or_register <a href="/log">sign in now→</a>
                 script(src='./bin/js/register.js')
             .bottom
