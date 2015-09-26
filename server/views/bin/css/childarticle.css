@@ -17,7 +17,7 @@ p {
 .article_comment input {
 	width: 778px;
 }
- 
+
 button {
 	height: 40px;
 	color: #fff;
@@ -60,7 +60,7 @@ img {
 	width: 718px;
 }
 
-#comment-submit {
+#comment-submit, .reply-submit {
     border-radius: 5px;
 }
 
