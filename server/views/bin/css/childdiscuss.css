@@ -470,7 +470,7 @@ i
     margin-bottom: 10px;
 }
 
-#answer-submit {
+#answer-submit, .reply-submit {
     border-radius: 5px;
 }
 
