@@ -18,6 +18,10 @@ body {
 	overflow: hidden;
 }
 
+button {
+    cursor: pointer;
+}
+
 /*avatar*/
 .avatar {
 	height: 75px;
@@ -133,11 +137,13 @@ body {
 
 .reply_style {
 	float: right;
+    font-size: 15px;
+    cursor: pointer;
 }
 
 .discussion_right_down {
 	height: auto;
-	width: 650px;
+	width: 100%;
 }
 
 .discussion_join {
@@ -272,6 +278,13 @@ input {
 	font-size: 15px;
 }
 
+.discussion_submit_update {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+}
+
 .delete_answer {
 	border: none;
 	color: #1BA6EB;
@@ -308,6 +321,15 @@ input {
 	margin: 0;
 }
 
+.reply_submit_update {
+	border: none;
+	color: #1BA6EB;
+	background-color: #fff;
+	font-size: 15px;
+	float: right;
+	margin: 0;
+}
+
 .article-editor textarea {
 	width: 830px;
 	height: 300px;
@@ -315,7 +337,7 @@ input {
 
 .article-editor .main {
 	width: 850px;
-	margin: 25px auto 50px auto;
+	margin: 25px 0px 50px 0px;
 }
 i
 .article-editor input {
@@ -345,14 +367,14 @@ i
 	background-color: #00A0EA;
 	height: 40px;
     position: relative;
-    left: 550px;
+    left: 570px;
 }
 
 .article-editor #cancel {
 	background-color: #484848;
 	height: 40px;
     position: relative;
-    left: 550px;
+    left: 580px;
 }
 
 .article-editor .bottom {
@@ -436,4 +458,22 @@ i
 
 #content_ifr {
     height: 307px!important;
+}
+
+.discussion_editor {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+.reply_editor {
+    width: 90%;
+    margin-bottom: 10px;
+}
+
+#answer-submit {
+    border-radius: 5px;
+}
+
+button {
+    cursor: pointer;
 }

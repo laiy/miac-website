@@ -5,7 +5,7 @@
     return $.post('/Discuss/up', {
       discussionId: discussionId
     }, function(data) {
-      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
       if (data.result === 'success') {
           $("#message-confirm").unbind("click", messageCallback);
           messageCallback = function() {

@@ -59,7 +59,7 @@
       return $.post('/discuss/delete', {
           discussionId: id
       }, function(data) {
-        messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
+        messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
         if (data.result === 'success') {
           $("#message-confirm").unbind("click", messageCallback);
           messageCallback = function() {
@@ -79,7 +79,7 @@
       type: 'reply',
       content: content
     }, function(data) {
-      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
       if (data.result === 'success') {
           $("#message-confirm").unbind("click", messageCallback);
           messageCallback = function() {
@@ -96,7 +96,7 @@
     return $.post('/Discuss/up', {
       discussionId: discussionId
     }, function(data) {
-      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
       if (data.result === 'success') {
           $("#message-confirm").unbind("click", messageCallback);
           messageCallback = function() {
@@ -113,7 +113,7 @@
     return $.post('/Discuss/down', {
       discussionId: discussionId
     }, function(data) {
-      messageFadeIn(data.result + '\n' + (data.msg ? data.msg : void 0));
+      messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
       if (data.result === 'success') {
           $("#message-confirm").unbind("click", messageCallback);
           messageCallback = function() {
@@ -144,32 +144,68 @@
   });
 
   $('.update_discussion').click(function(){
-    var content = $(this).parent().parent().find('.discuss_value').text();         
-    var editor = $(this).parent().parent().find('.discussion_editor'); 
-    $(this).parent().parent().find('.discussion_content').addClass('invisible');
-    editor.val(content).removeClass('invisible');
-    editor.focus();
+    if ($(this).hasClass('update_discussion')) {
+        var content = $(this).parent().parent().find('.discuss_value').text();         
+        var editor = $(this).parent().parent().find('.discussion_editor'); 
+        $(this).parent().parent().find('.discussion_content').addClass('invisible');
+        editor.val(content).removeClass('invisible');
+        editor.focus();
+        $(this).removeClass('update_discussion').addClass('discussion_submit_update').text('确定');
+        return;
+    }
+
+    if ($(this).hasClass('discussion_submit_update')) {
+        var content = $(this).parent().parent().find('.discussion_editor').val(), id = $(this).attr('discussionid');
+        var dataCallback = (function (obj) { 
+            return function(data) {
+                if (data.result === 'success') {
+                    $(obj).parent().parent().find('.discuss_value').text(content);   
+                    $(obj).parent().parent().find('.discussion_editor').addClass('invisible');
+                    $(obj).parent().parent().find('.discussion_content').removeClass('invisible');
+                } else {
+                    messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
+                }
+            }
+        })(this);
+        $.post('/discuss/updateContent', {
+            discussionId: id,
+            content: content
+        }, dataCallback); 
+        $(this).removeClass('discussion_submit_update').addClass('update_discussion').text('编辑');
+    }
   }); 
 
-  //编辑评论
-  $('.discussion_editor').blur(function() {
-    var content = $(this).val(), id = $(this).parent().parent().find('.update_discussion').attr('discussionid');
-    $.post('/message/updateContent', {
-        discussionId: id,
-        content: content
-    }, function(data) {
-      if (data.result === 'success') {
-            $(this).parent().find('.comment_value').text(content);   
-            $(this).addClass('invisible');
-            $(this).parent().find('.comment_p').removeClass('invisible');
-      } else {
-          messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
-      }
-    }); 
-    $(this).parent().find('.discuss_value').text(content);   
-    $(this).addClass('invisible');
-    $(this).parent().find('.discussion_content').removeClass('invisible');
-  });
+  $('.update_reply').click(function(){
+    if ($(this).hasClass('update_reply')) {
+        var content = $(this).parent().parent().find('.discuss_value').text();         
+        var editor = $(this).parent().parent().find('.reply_editor'); 
+        $(this).parent().parent().find('.discussion_content').addClass('invisible');
+        editor.val(content).removeClass('invisible');
+        editor.focus();
+        $(this).removeClass('update_reply').addClass('reply_submit_update').text('确定');
+        return;
+    }
+
+    if ($(this).hasClass('reply_submit_update')) {
+        var content = $(this).parent().parent().find('.reply_editor').val(), id = $(this).attr('replyid');
+        var dataCallback = (function (obj) { 
+            return function(data) {
+            if (data.result === 'success') {
+                $(obj).parent().parent().find('.discuss_value').text(content);   
+                $(obj).parent().parent().find('.reply_editor').addClass('invisible');
+                $(obj).parent().parent().find('.discussion_content').removeClass('invisible');
+            } else {
+                messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
+            }
+            }
+        })(this);
+        $.post('/message/updateContent', {
+            messageId: id,
+            content: content
+        }, dataCallback); 
+        $(this).removeClass('reply_submit_update').addClass('update_reply').text('编辑');
+    }
+  }); 
 
   $('#update').click(function() {
     var id, content;
@@ -194,6 +230,7 @@
     $('.article-editor').addClass('invisible');
     $('.discussion_right').removeClass('invisible');
     $('.discussion_left').removeClass('invisible');
+    $('.discussion_reply').removeClass('invisible');
   });
   
   $('#update_discussion').click(function() {         
@@ -202,6 +239,7 @@
     $('.article-editor').removeClass('invisible');
     $('.discussion_right').addClass('invisible');
     $('.discussion_left').addClass('invisible');
+    $('.discussion_reply').addClass('invisible');
   }); 
 }).call(this);
 

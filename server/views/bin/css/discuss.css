@@ -12,6 +12,10 @@ body {
     overflow: hidden;
 }
 
+button {
+    cursor: pointer;
+}
+
 p {
 	white-space: normal;
 	word-break:break-all; /*支持IE，chrome，FF不支持*/
@@ -111,7 +115,7 @@ a {
 .discussion_right_down {
 	margin: 10px 0 0 0;
 	height: auto;
-	width: 300px;
+	width: 90%;
 }
 
 .gray {

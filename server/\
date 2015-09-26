@@ -34,8 +34,8 @@ html
                     #content_textarea
                         #content_textarea_border
                             textarea(id='content')
-                    button#update(type='button') 确定
-                    button(type='button' id="cancel") 取消
+                    button#update(type='button') 编辑
+                    button(type='button' id="cancel") 取 消
 
             if comments
                 each comment in comments
@@ -48,6 +48,8 @@ html
                                     span.comment_value=comment.content
                                 input.comment_editor.invisible(type='text')
                                 p.click_to_reply
+                                    .avatar
+                                        img(src='/assets/img/user/' + comment.avatar alt='avatar')
                                     span.gray.style=comment.username
                                     span.gray.style 创建于
                                     span.blue.style=moment(comment.createdAt).format('MMM D,YY')

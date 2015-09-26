@@ -16,14 +16,15 @@ html
                     .discussion_left
                         .avatar
                             img(src='/assets/img/user/' + discussion.avatar alt='avatar')
-                        .up_box
-                            button(class='up' discussion-id=discussion._id)
-                            p
-                                span=discussion.up
-                        .down_box
-                            button(class='down' discussion-id=discussion._id)
-                            p
-                                span=discussion.down
+                        if user
+                            .up_box
+                                button(class='up' discussion-id=discussion._id)
+                                p
+                                    span=discussion.up
+                            .down_box
+                                button(class='down' discussion-id=discussion._id)
+                                p
+                                    span=discussion.down
                     .discussion_right
                         .discussion_right_top.size
                             .discussion_MainPart
@@ -43,11 +44,12 @@ html
                                     if discussion.username == user.username
                                         button(type='button' id='delete_discussion' discussionid=discussion._id) 删除
                                         button.update_discussion(type='button' id='update_discussion' discussionid=discussion._id) 编辑
-                        .discussion_right_down
-                            p.discussion_join 参与讨论
-                            .input_shadow
-                                input(type='textarea' id='content')
-                            button(type='button' id='answer-submit') 发 布
+                        if user
+                            .discussion_right_down
+                                p.discussion_join 参与讨论
+                                .input_shadow
+                                    input(type='textarea' id='content')
+                                button(type='button' id='answer-submit') 发 布
                     .article-editor.invisible
                         script(src='/lib/tinymce/js/tinymce/tinymce.min.js')
                         script(src='/bin/js/creatediscuss_tinymce.js')
@@ -55,7 +57,7 @@ html
                             #content_textarea
                                 #content_textarea_border
                                     textarea(id='content')
-                            button#update(type='button') 编辑
+                            button#update(type='button') 确定
                             button(type='button' id="cancel") 取消
             if answers
                 each answer in answers
@@ -64,14 +66,15 @@ html
                             .discussion_left
                                 .avatar
                                     img(src='/assets/img/user/' + answer.avatar alt='avatar')
-                                .up_box
-                                    button(class='up' discussion-id=answer._id)
-                                    p
-                                        span=answer.up
-                                .down_box
-                                    button(class='down' discussion-id=answer._id)
-                                    p
-                                        span=answer.down
+                                if user
+                                    .up_box
+                                        button(class='up' discussion-id=answer._id)
+                                        p
+                                            span=answer.up
+                                    .down_box
+                                        button(class='down' discussion-id=answer._id)
+                                        p
+                                            span=answer.down
                             .discussion_right.add_discussion_right
                                 .hide
                                     .discussion_right_top.size
@@ -83,7 +86,8 @@ html
                                             span.gray.style=answer.username
                                             span.blue.style 回复于
                                             span.gray.style=moment(answer.createdAt).format('MMM D,YY')
-                                            span.blue.reply_style 回复
+                                            if user
+                                                span.blue.reply_style 回复
                                             if user
                                                 if answer.username == user.username
                                                     button(type='button' class='delete_answer' answerid=answer._id) 删除
@@ -103,7 +107,7 @@ html
                                                 .discussion_part
                                                     p.discussion_content
                                                         span.discuss_value=reply.content
-                                                    input.discussion_editor.invisible(type='text')
+                                                    input.reply_editor.invisible(type='text')
                                                 p.discussion_detail
                                                     span.gray.style=reply.username
                                                     span.blue.style 回复于
@@ -111,7 +115,7 @@ html
                                                     if user
                                                         if reply.username == user.username
                                                             button(type='button' class='delete_reply' replyid=reply._id) 删除
-                                                            button.update_reply(type='button' class='update_discussion' replyid=reply._id) 编辑
+                                                            button.update_reply(type='button' replyid=reply._id) 编辑
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
         script(src='../bin/js/childDiscuss.js')

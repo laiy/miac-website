@@ -49,6 +49,7 @@ img {
 .article {
 	height: auto;
 	width: 800px;
+    margin-bottom: 10px;
 }
 
 .article_page {
@@ -57,6 +58,10 @@ img {
 	padding: 40px;
 	position: relative;
 	width: 718px;
+}
+
+#comment-submit {
+    border-radius: 5px;
 }
 
 .article_page:after {
@@ -78,6 +83,10 @@ img {
 .comment_reply {
 	overflow: hidden;
 	width: 800px;
+}
+
+.reply-submit {
+    margin-bottom: 10px;
 }
 
 .article_page_title {
@@ -294,6 +303,14 @@ img {
 	margin-top: 0;
 }
 
+.submit_comment {
+    padding: 0;
+	height: 20px;
+	background-color: #fff;
+	color: #1BA6EB;
+	margin-top: 0;
+}
+
 .delete_reply {
 	border: none;
 	color: #1BA6EB;
@@ -466,3 +483,9 @@ i
 .article-editor button {
 	border: none;
 }
+
+.comment_editor {
+    width: 90%;
+    margin-bottom: 10px;
+}
+

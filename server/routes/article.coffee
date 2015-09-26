@@ -104,7 +104,8 @@ router.post '/create', requireLogin, (req, res)->
                 else
                     tagsString += tag
             username = req.session.user.username
-            ArticleModel.createArticle category, title, content, createdBy, username, tagsString, ->
+            avatar = req.session.user.avatar
+            ArticleModel.createArticle category, title, content, createdBy, username, tagsString, avatar, ->
                 res.json { result: 'success' }
 
 ###

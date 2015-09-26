@@ -245,6 +245,7 @@ body {
     margin: 10px 0;
     height: 47px;
     float: none;
+    cursor: pointer;
 }
 
 #login-modal a {

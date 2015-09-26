@@ -89,8 +89,8 @@
     });
   });
 
-  $('.comment').click(function() {
-    $(this).children().eq(2).slideDown();
+  $('.reply_style').click(function() {
+    $(this).parent().parent().parent().children().eq(2).slideDown();
   });
 
   $(document).mouseup(function(e){
@@ -134,31 +134,36 @@
     $('.comment_reply').addClass('invisible');   
   }); 
 
-  $('.update_answer').click(function(){
-    var content = $(this).parent().parent().parent().find('.comment_value').text();         
-    var editor = $(this).parent().parent().parent().find('.comment_editor'); 
-    $(this).parent().parent().parent().find('.comment_p').addClass('invisible');
-    editor.val(content).removeClass('invisible');
-    editor.focus();
+  $('.update_comment').click(function() {
+    if ($(this).hasClass("update_comment")) {
+        var content = $(this).parent().parent().parent().find('.comment_value').text();         
+        var editor = $(this).parent().parent().parent().find('.comment_editor'); 
+        $(this).parent().parent().parent().find('.comment_p').addClass('invisible');
+        editor.val(content).removeClass('invisible');
+        editor.focus();
+        $(this).text("确定").removeClass("update_comment").addClass("submit_comment");
+        return;
+    }
+
+    if ($(this).hasClass("submit_comment")) {
+        var content = $(this).parent().parent().parent().find(".comment_editor").val(), id = $(this).attr('messageid');
+        var dataCallback = (function (obj) {
+            return function(data) {
+                if (data.result === 'success') {
+                    $(obj).parent().parent().parent().find('.comment_value').text(content);   
+                    $(obj).parent().parent().parent().find('.comment_editor').addClass('invisible');
+                    $(obj).parent().parent().parent().find('.comment_p').removeClass('invisible');
+                } else {
+                    messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
+                }
+            } 
+        })(this);
+        $.post('/message/updateContent', {
+            messageId: id,
+            content: content
+        }, dataCallback); 
+        $(this).text("编辑").removeClass("submit_comment").addClass("update_comment");
+    }
   }); 
 
-  //编辑评论
-  $('.comment_editor').blur(function() {
-    var content = $(this).val(), id = $(this).parent().find('.update_comment').attr('messageid');
-    $.post('/message/updateContent', {
-        messageId: id,
-        content: content
-    }, function(data) {
-      if (data.result === 'success') {
-            $(this).parent().find('.comment_value').text(content);   
-            $(this).addClass('invisible');
-            $(this).parent().find('.comment_p').removeClass('invisible');
-      } else {
-          messageFadeIn(data.result + '\n' + (data.msg != undefined ? data.msg : ''));
-      }
-    }); 
-    $(this).parent().find('.comment_value').text(content);   
-    $(this).addClass('invisible');
-    $(this).parent().find('.comment_p').removeClass('invisible');
-  });
 }).call(this);
