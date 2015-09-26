@@ -1,5 +1,5 @@
 (function() {
-  $('button').click(function() {
+  $('#sign-up-submit').click(function() {
     var email, password, username;
     username = $('#username').val();
     password = $('#password').val();

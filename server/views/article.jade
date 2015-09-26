@@ -6,13 +6,15 @@ html
         link(href='/bin/css/header.css', rel='stylesheet')
         link(href='/bin/css/article.css' rel='stylesheet')
         link(href='/bin/css/footer.css', rel='stylesheet')
+        link(href='./lib/buttons/button.css' rel='stylesheet')
         script(src='/bin/js/header.js')
+        script(src='./lib/js-url-2.0.2/url.min.js')
     body
         include ./includes/header.jade
         .main
             .main_right
                 .box1
-                    input(type='text' placeholder='search')
+                    input#search-input(type='text' placeholder='search')
                 if user
                     .box1.createnew
                         a(href='/Article/create')
@@ -26,13 +28,18 @@ html
                         .tips_index
                             ul
                                 li
-                                    a(href="http://www.baidu.com", target="_blank") Javascript
+                                    a(href="/Article?page=1?&tag=Front-end", target="_blank") 前端
                                 li
-                                    a(href="#", target="_blank") PHP
+                                    a(href="/Article?page=1&tag=Back-end", target="_blank") 后端
                                 li
-                                    a(href="#", target="_blank") CSS
+                                    a(href="/Article?page=1&tag=Software_Design", target="_blank") 软件设计
                                 li
-                                    a(href="#", target="_blank") Dream
+                                    a(href="/Article?page=1&tag=Software_Engineering", target="_blank") 软件工程
+                                li
+                                    a(href="/Article?page=1&tag=Database", target="_blank") 数据库
+                                li
+                                    a(href="/Article?page=1&tag=Other", target="_blank") 其它
+                                
             if articles
             .main_left
                 each article in articles
@@ -43,11 +50,21 @@ html
                             .content
                                 span!=article.content
                         .article_detail
+                            .avatar
+                                img(src='/assets/img/user/' + article.avatar alt='avatar')
                             p.name=article.username
                             p.name 创建于
                             p.blue
                                 span=moment(article.createdAt).format('MMM D,YY')
-                p#article_bottom 没有更多内容了
+                .page-nav
+                    #prev-page.page-button-2
+                        a prev
+                    -for (var i = 0; i < pages; ++i) {
+                        .page-button
+                            a #{i + 1}
+                    -}
+                    #next-page.page-button-2
+                        a next
         include ./includes/footer.jade
         script(src='/bin/js/article.js')
         script(src='/bin/js/footer.js')

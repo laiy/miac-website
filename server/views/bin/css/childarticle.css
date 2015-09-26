@@ -39,13 +39,17 @@ img {
 .main {
 	clear: both;
 	margin: 0 auto 50px auto;
-	padding-top: 50px;
 	width: 800px;
+}
+
+.main button {
+    cursor: pointer;
 }
 
 .article {
 	height: auto;
 	width: 800px;
+    margin-bottom: 10px;
 }
 
 .article_page {
@@ -54,6 +58,10 @@ img {
 	padding: 40px;
 	position: relative;
 	width: 718px;
+}
+
+#comment-submit {
+    border-radius: 5px;
 }
 
 .article_page:after {
@@ -75,6 +83,10 @@ img {
 .comment_reply {
 	overflow: hidden;
 	width: 800px;
+}
+
+.reply-submit {
+    margin-bottom: 10px;
 }
 
 .article_page_title {
@@ -249,6 +261,7 @@ img {
 .reply_style {
 	float: right;
 	margin-right: 10px;
+    cursor: pointer;
 }
 
 #delete_article {
@@ -256,12 +269,42 @@ img {
 	color: #1BA6EB;
 	font-size: 12px;
 	background-color: #fff;
-	float: none;
-	position: relative;
+	float: right;
 	left: 630px;
+    height: 20px;
+}
+
+#update_article {
+	border: none;
+	color: #1BA6EB;
+	font-size: 12px;
+	background-color: #fff;
+	float: right;
+	left: 630px;
+    height: 20px;
+}
+
+#content_ifr {
+    height: 307px!important;
 }
 
 .delete_discussion {
+	height: 20px;
+	background-color: #fff;
+	color: #1BA6EB;
+	margin-top: 0;
+}
+
+.update_comment {
+    padding: 0;
+	height: 20px;
+	background-color: #fff;
+	color: #1BA6EB;
+	margin-top: 0;
+}
+
+.submit_comment {
+    padding: 0;
 	height: 20px;
 	background-color: #fff;
 	color: #1BA6EB;
@@ -278,3 +321,171 @@ img {
 	padding-right: 10px;
 	height: 20px;
 }
+
+#content_textarea {
+	width: 830px;
+	height: 400px;
+	position: relative;
+}
+
+#content_textarea_border {
+	border:1px solid #D8D8D8;
+}
+
+.article-editor textarea {
+	width: 830px;
+	height: 300px;
+}
+
+.article-editor .main {
+	width: 850px;
+	margin: 25px auto 50px auto;
+}
+i
+.article-editor input {
+	height: 40px;
+	margin: 20px 0;
+	border: 1px solid #D8D8D8;
+	font-size: 18px;
+	padding: 3px 8px;
+}
+
+.create_tag {
+    background: white;
+    margin-bottom: 30px;
+    padding-left: 10px;
+    width: 65%;
+    border: 1px solid #d8d8d8;
+    position: relative;
+}
+
+.create_tag:after {
+	position: absolute;
+    content: '';
+    width: 450px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 35px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.create_tag p {
+    display: inline-block;
+    color: #8f9b8f;
+    font-size: 14pt;
+}
+
+.create_tag input {
+    height: 10px;
+    margin-left: 10px;
+}
+
+.article-editor button {
+	font-size: 16px;
+	color: #fff;
+	border: none;
+	border-radius: 10%;
+	padding: 0 25px;
+    float: none;
+    cursor: pointer;
+}
+
+.article-editor #submit{
+	background-color: #00A0EA;
+}
+
+.article-editor #cancel {
+	background-color: #484848;
+}
+
+.article-editor .bottom {
+	color: black;
+	text-align: center;
+	font-size: 18px;
+}
+
+.add_shadow_title {
+	width: 500px;
+	height: auto;
+	position: relative;
+}
+
+.add_shadow_title input {
+	width: 500px;
+    height: 40px;
+    margin: 20px 0;
+    font-size: 18px;
+}
+
+.add_shadow_title:after {
+	position: absolute;
+    content: '';
+    width: 450px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 45px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.add_shadow_tag {
+	width: 300px;
+	height: auto;
+	position: relative;
+}
+
+.add_shadow_tag input {
+	width: 250px;
+}
+
+.add_shadow_tag:after {
+	position: absolute;
+    content: '';
+    width: 150px;
+    height: 20px;
+    background-color: #DDDBDC;
+    right: 50px;
+    top: 50px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+#content_textarea:after {
+	position: absolute;
+    content: '';
+    width: 800px;
+    height: 100px;
+    background-color: #DDDBDC;
+    right: 20px;
+    top: 270px;
+    z-index: -1;
+    transform: rotate(3deg);
+    -ms-transform:rotate(3deg);    /* IE 9 */
+    -moz-transform:rotate(3deg);    /* Firefox */
+    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
+    -o-transform:rotate(3deg);  /* Opera */
+}
+
+.article-editor button {
+	border: none;
+}
+
+.comment_editor {
+    width: 90%;
+    margin-bottom: 10px;
+}
+

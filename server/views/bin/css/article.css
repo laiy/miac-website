@@ -12,6 +12,7 @@ a {
 	margin: 0 auto;
 	padding-top: 50px;
 	width: 900px;
+    overflow: hidden;
 }
 
 .main_left {
@@ -33,6 +34,61 @@ a {
 	position: relative;
 	width: 550px;
 	margin-bottom: 25px;
+}
+
+.invisible {
+    display: none;
+}
+
+.page-nav {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-button {
+    display: inline-block;
+    color: white!important;
+    background-color: rgb(13, 125, 168);
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.page-button a{
+    text-align: center;
+    top: 5px;
+    position: relative;
+    color: white!important
+}
+
+.page-button-2 {
+    display: inline-block;
+    color: white;
+    background-color: rgb(13, 125, 168);
+    height: 30px;
+    width: 56px;
+    border-radius: 5px;
+}
+
+.page-button-2 a{
+    text-align: center;
+    top: 5px;
+    position: relative;
+    color: white!important
+}
+
+#prev-page {
+    margin-right: 15%;
+}
+
+#next-page {
+    margin-left: 15%;
+}
+
+.chosen-page {
+    background-color: rgb(72, 223, 51);
 }
 
 .article:after {
@@ -91,6 +147,17 @@ a {
 	color: #1BA6EB;
 	font-size: 15px;
 	margin: 0 10px 0 0;
+}
+
+.tag {
+    color: #808080;
+    float: right;
+    overflow: hidden;
+    font-size: 15px;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    position: relative;
+    bottom: 33px;
 }
 
 .box1 {
@@ -200,3 +267,20 @@ li a {
 	color: #C8C8C8;
 	font-size: 18px;
 }
+
+/*avatar*/
+.avatar {
+	width: 40px;
+    height: 40px;
+    display: inline-block!important;
+    float: left;
+    position: relative;
+    top: -10px;
+}
+
+.avatar img {
+	border-radius: 50%;
+	height: 30px;
+	width: 30px;
+}
+/*avatar*/
