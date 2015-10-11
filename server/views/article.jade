@@ -24,7 +24,7 @@ html
                     .tips_head_1
                     .tips_clip
                         .tips_head_2
-                        .tips_index
+                        .tips_index 
                             ul
                                 li
                                     a(href="/Article?page=1?&tag=Front-end", target="_blank") 前端
@@ -45,7 +45,7 @@ html
                         .article_content
                             .title
                                 a(href='/Article/' + article._id)=article.title
-                            .content
+                            .content 
                                 span!=article.content
                         .article_detail
                             .avatar
@@ -53,7 +53,7 @@ html
                             p.name=article.username
                             p.name 创建于
                             p.blue
-                                span=moment(article.createdAt).format('MMM D,YY')
+                                span=moment(article.createdAt).format('YYYY年M月D日')
                 .page-nav
                     #prev-page.page-button-2
                         a prev
@@ -61,8 +61,8 @@ html
                         .page-button
                             a #{i + 1}
                     -}
-                    #next-page.page-button-2
+                    #next-page.page-button-2 
                         a next
-        include ./includes/footer.jade
+        include ./includes/footer.jade 
         script(src='/bin/js/article.js')
         script(src='/bin/js/footer.js')

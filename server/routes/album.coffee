@@ -107,13 +107,13 @@ router.post '/createAlbum', requireLogin, (req, res)->
                         else
                             fs.unlink coverPath, ->
                                 AlbumModel.createAlbum title, req.session.user._id, coverName, ->
-                                    res.redirect '/album'
+                                    res.redirect '/Album?page=1&tag='
 
 ###
 * handle when post '/album/addPicture'
 * require user's login to continue process
 * validate if the albumId is legal
-* if file is not image, return fail
+* if file is not image, return fail 
 * find the album with albumId
 * validate if the user is the one who create the album
 * write the file to the directory belonging to the album and redirect to album child page

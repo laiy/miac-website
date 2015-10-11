@@ -1,133 +1,184 @@
-body {
-  background-color: #eeeeee !important; }
-
+body {margin: 0;padding: 0;}
+body, html{height: 100%;}
+a {text-decoration: none;}
 .main {
-  width: 900px;
-  margin: 0 auto; }
-  .main header {
-    text-align: center;
-    margin-bottom: 5%; }
-    .main header img {
-      width: 100%;
-      height: 300px; }
-  .main #album-search {
-    margin-bottom: 5px;
-    padding: 0; }
-    .main #album-search * {
-      display: inline;
-      height: 30px; }
-    .main #album-search .submit {
-      float: right;
-      text-align: center;
-      font-size: 18px;
-      height: 40px; }
-    .main #album-search #search-word {
-      background-color: white;
-      border: solid #49474A 0.5px;
-      padding: 2px 2px 2px 2px;
-      border: none;
-      background-color: white;
-      font-size: 18px; }
-    .main #album-search #search-button {
-      background-color: white;
-      border: solid #49474A 0.5px;
-      background-color: white;
-      border: none; }
-      .main #album-search #search-button i {
-        background-color: white; }
-  .main header {
-    color: grey;
-    font-size: 60pt;
-    padding: 0px 0px 0px 0px; }
-  .main #content {
-    padding: 1% 1% 5% 1%; }
-    .main #content .pic {
-      display: inline-block;
-      width: 250px;
-      background-color: white;
-      border: solid #49474A 0.5px;
-      margin: 2% 2% 2% 2%; }
-      .main #content .pic img {
-        display: block;
-        height: 250px;
-        width: 100%; }
-      .main #content .pic img:hover {
-        cursor: pointer; }
-      .main #content .pic .info {
-        padding: 4% 4% 4% 4%;
-        height: auto; 
-        overflow: hidden;}
-        .main #content .pic .info span {
-          font-size: 12pt; }
-        .main #content .pic .info span.title {
-          margin-right: 5%;
-          font-size: 14pt; }
-        .main #content .pic .info span.num {
-          float: right; }
-          .main #content .pic .info span.num span.number {
-            color: #00a1ea;
-            font-size: 1.5em;
-            font-weight: bold; }
-      .main #content .pic .time {
-        padding: 10px 10px 5px 0; }
-        .main #content .pic .time p {
-          text-align: right;
-          color: #ebebeb; }
-    .main #content .pic:hover {
-      box-shadow: 2px 2px 2px #c7c4c4; }
-    .main #content .year header {
-      text-align: center;
-      font-size: 40pt;
-      font-weight: bold;
-      color: #c7c4c4;
-      margin-bottom: 0; }
-    .main #content .year .row {
-      text-align: center; }
-
-footer {
-  margin-bottom: 2%;
-  text-align: center;
-  font-size: 18px; }
-
-#header {
-  box-sizing: content-box; }
-  #header * {
-    box-sizing: content-box; }
-  #header h3 {
-    font-weight: bold; }
-  .time p {
-    margin:  0 0 5px 0;
-    color: #c7c4c4;
-  }
-  .album_style {
-    height: 29px;
-    vertical-align: -webkit-baseline-middle;
-  }
-
-  .title {
-    color: #99989e;
-  }
-
-  .pic {
-    position: relative;
-  }
-  .pic:after {
-    position: absolute;
-    content: '';
-    width: 200px;
-    height: 200px;
-    background-color: #DDDBDC;
-    right: 10px;
-    bottom: -5px;
-    z-index: -1;
-    transform: rotate(3deg);
-    -ms-transform:rotate(3deg);    /* IE 9 */
-    -moz-transform:rotate(3deg);    /* Firefox */
-    -webkit-transform:rotate(3deg); /* Safari 和 Chrome */
-    -o-transform:rotate(3deg);  /* Opera */
-  }
-.submit_style {
-  border: none;
-  border-radius: 4px;
+  margin: 0 auto 80px auto;
+  width: 850px;
+  min-height: calc(100% - 300px);
 }
-/*# sourceMappingURL=album.css.map */
+.headerImg img {
+  width: 850px;
+  height: 300px;
+} 
+.newPicBlock {
+  margin: 5px 0;
+  overflow: auto;
+}
+.newPicBlock button{
+  width: 100px;
+  height: 40px;
+  border-radius: 4px;
+  border: none;
+  background-color: #00A1EA;
+  color: #fff;
+  float: right;
+  font-size: 16px;
+}
+.yearNew p{
+  color: #9D9999;
+  font-size: 25pt;
+  font-weight: bolder;
+  text-align: center;
+}
+
+.allPicBlocks {
+  overflow: auto;
+}
+
+.eachPicBlock {
+  width: 241px;
+  height: auto;
+  background-color: #fff;
+  float: left;
+  margin-bottom: 30px;
+  box-shadow: 0px 0px 10px #8B8888;
+}
+.eachPicBlock img{
+  width: 225px;
+  height: 225px;
+  margin: 8px;
+}
+
+.left {
+  margin-right: 29px;
+  margin-left: 5px;
+}
+
+.center {
+  margin: 0 29px;
+}
+
+.right {
+  margin-left: 29px; 
+}
+
+.albumTitle {
+  color: #666161;
+  margin: 0 8px;
+  width: 225px;
+  font-size: 18px;
+  text-align: center;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.albumInfo {
+  margin: 5px 8px;
+  font-size: 14px;
+  text-align: right;
+}
+
+.picForNum {
+  margin: 0 5px;
+  color: #8B8888;
+}
+
+.picNum {
+  color: #00A1EA;
+}
+
+.picDate {
+  margin-left: 5px;
+  color: #00A1EA;
+}
+
+.bottomInfo {
+  text-align: center;
+  color: #8B8888;
+  font-size: 14px;
+  margin: 20px 0 50px 0;
+}
+
+.pagesBtn {
+  margin: 0 auto;
+  text-align: center;
+}
+.prev, .centerBtn, .next {
+  display: inline-block;
+}
+
+.prev {
+  border-left: 25px solid transparent;
+  border-bottom: 25px solid #48B7EA;
+}
+
+.next {
+  border-right: 25px solid transparent;
+  border-bottom: 25px solid #48B7EA;
+  margin-left: 5px;
+}
+.centerBtn {
+  width: 50px;
+  height: 25px;
+  background-color: #48B7EA;
+  color: #fff;
+  vertical-align: baseline;
+  margin: 0 0 0 5px;
+  overflow: hidden;
+}
+
+.invisible {
+    display: none;
+}
+
+.page-nav {
+    padding-left: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+.page-button {
+    display: inline-block;
+    color: white!important;
+    background-color: #00A1EA;
+    height: 30px;
+    width: 30px;
+    margin-right: 10px;
+    border-radius: 5px;
+}
+
+.page-button a{
+    text-align: center;
+    top: 5px;
+    position: relative;
+    color: white!important
+}
+
+.page-button-2 {
+    display: inline-block;
+    color: white;
+    background-color: #00A1EA;
+    height: 30px;
+    width: 56px;
+    border-radius: 5px;
+}
+
+.page-button-2 a{
+    text-align: center;
+    top: 5px;
+    position: relative;
+    color: white!important
+}
+
+#prev-page {
+    margin-right: 15%;
+}
+
+#next-page {
+    margin-left: 15%;
+}
+
+.chosen-page {
+    background-color: #00D1EA;
+}

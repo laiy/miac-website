@@ -68,11 +68,11 @@ router.post '/updatePassword', requireLogin, (req, res)->
 * if file is not image return fail
 * resize image and write to server's local directory named by user's name
 * update avatar of user in UserModel and return success
-* @param req.filse.img: the image to replace the user's avatar
+* @param req.filse.img: the image to replace the user's avatar 
 ###
 router.post '/uploadAvatar', requireLogin, (req, res)->
     if not req.files.img
-        return res.status(500).send 'Server Error.'
+        return res.status(500).send 'Server Error one.'
     else
         path = req.files.img.path
         size = req.files.img.size

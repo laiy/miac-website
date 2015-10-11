@@ -8,21 +8,21 @@ html
         script(src='/bin/js/header.js')
     body
         include ./includes/header.jade
-        .main
+        .main 
             .main_son
                 p.head 头像:
                 p
                     img(src='/assets/img/user/' + user.avatar alt='avatar')
-                    button(type='button' id='change_pic_js')修改头像
+                    button(type='button' id='change_pic_js') 修改头像
                     .js_avatar
-                        form(action='/User/uploadAvatar' method='post' enctype='multipart/form-data')
+                        form(action='./uploadAvatar' method='post' enctype='multipart/form-data')
                             input(type='file' name='img')
                             button upload
             .main_son
                 p.head 密码:
-                p
+                p 
                     input(type='text')
-                    button(type='button' class='password-update')修 改
+                    button(type='button' class='password-update') 修 改
             .main_son
                 p.head 邮箱:
                 p

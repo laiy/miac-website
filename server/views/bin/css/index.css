@@ -1,12 +1,174 @@
+body, ul, li{margin: 0; padding: 0;}
+ul,li {list-style: none;}
+html, body {height: 100%;}
+img {border:0;}
 .main {
-  width: 900px;
-  height: auto;
-  margin: 50px auto;
+	width: 900px; 
+	min-height: calc(100% - 300px);
+	margin: 30px auto;
+}
+.banner-main {
+	margin-bottom: 30px;
+	width: 900px;
+	height: 300px;
+	position: relative;
 }
 
-img {
-  width: 900px;
-  height: auto;
+.banner-main .banner-list {
+	width: 900px;
+	height: 300px;
 }
+
+.banner-main a, .banner-main img {
+	display: block;
+}
+
+.banner-main .banner-list .banner-item {
+	left: 0;
+	top: 0;
+	position: absolute;
+}
+
+.banner-main .banner-btn {
+	width: 100px;
+	height: 300px;
+	top: 0;
+	z-index: 10;
+	opacity: 0.8;
+	position: absolute;
+	cursor: pointer;
+}
+
+.banner-main .banner-prev-btn {
+	left: 0;
+	background: url(./../../src/img/index/prevbtn.png) no-repeat center;
+}
+
+.banner-main .banner-next-btn {
+	right: 0;
+	background: url(./../../src/img/index/nextbtn.png) no-repeat center;
+}
+
+.index-main {
+	width: inherit;
+	overflow: auto;
+}
+
+.index-main .index-main-left {
+	width: 560px;
+}
+
+.index-main .index-main-right {
+	width: 280px;
+	float: right;
+	background-color: #fff;
+	position: relative;
+}
+
+.index-main .index-main-right .right-title {
+	background-color: #000;
+	color: #fff;
+	padding: 10px 20px;
+	font-size: 20px;
+	margin: 0;
+}
+
+.index-main .index-main-right .right-blue {
+	width: inherit;
+	height: 5px;
+	background-color: #00A1EA;
+}
+.index-main .index-main-right .right-three {
+	width:0;
+	height:0;
+    line-height:0;
+    border-width:7.5px;
+    border-style:solid;
+    margin-left: 30px;
+    border-color: #00A1EA transparent transparent transparent;
+}
+.index-main .index-main-right .right-list {
+	margin: 0 0 15px 10px;
+}
+
+.index-main .index-main-right .right-list .right-item {
+	color: #808080;
+	/*list-style: square inside url(./../../src/img/index/tag.png);*/
+	list-style: none;
+	margin: 5px 0;
+}
+
+.index-main .index-main-right .right-list .right-item .right-itemContent {
+	vertical-align: super;
+	margin-left: 10px;
+}
+
+.index-main .index-main-left .detail {
+	width: inherit;
+	background-color: #fff;
+	position: relative;  
+	border: 1px solid #DEDEDE;
+	margin-bottom: 30px;
+}
+.index-main .index-main-left .detail:after {
+	position: absolute;
+    content: '';
+    width: 560px;
+    height: 50px;
+    background-color: #DDDBDC;
+    left: 0;
+    bottom: -2px;
+    z-index: -1;
+    transform: rotate(1deg);
+    -ms-transform:rotate(1deg);    /* IE 9 */
+    -moz-transform:rotate(1deg);    /* Firefox */
+    -webkit-transform:rotate(1deg); /* Safari 和 Chrome */
+    -o-transform:rotate(1deg);  /* Opera */
+}
+
+.index-main .index-main-left .detail .title {
+	margin: 20px 20px 10px 20px;
+	font-size: 20px;
+}
+
+.index-main .index-main-left .detail .title a {
+	color: #00A1EA;
+	text-decoration: none;
+}
+
+.index-main .index-main-left .detail .content {
+	margin: 0 20px;
+	color: #808080;
+	font-size: 16px;
+}
+
+.index-main .index-main-left .detail .bottom {
+	margin: 10px 15px;
+	text-align: right;
+	font-size: 14px;
+	color: #808080;
+}
+.index-main .index-main-left .detail .bottom img {
+	width: 30px;
+	height: 30px;
+	border-radius: 50%;
+}
+.index-main .index-main-left .detail .bottom span {
+	margin-left: 10px;
+	vertical-align: super;
+}
+
+.index-main .index-main-left .detail .bottom .setLength {
+	display: inline-block;
+	max-width: 100px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	vertical-align: baseline;
+	padding-bottom: 2px;
+}
+
+
+
+
 
 /*# sourceMappingURL=index.css.map */

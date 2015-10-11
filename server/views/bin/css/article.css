@@ -4,6 +4,10 @@ body {
 	background-color: #F1EFF0;
 }
 
+html,body {
+	height: 100%;
+}
+
 a {
 	text-decoration: none; 
 }
@@ -13,6 +17,7 @@ a {
 	padding-top: 50px;
 	width: 900px;
     overflow: hidden;
+    min-height: calc(100% - 300px);
 }
 
 .main_left {
@@ -29,7 +34,7 @@ a {
 .article {
 	background-color: #fff;
 	border: 1px solid #DEDEDE;
-	height: 150px;
+	height: 160px;
 	padding: 12px 24px 0 24px;
 	position: relative;
 	width: 550px;
@@ -49,7 +54,7 @@ a {
 .page-button {
     display: inline-block;
     color: white!important;
-    background-color: rgb(13, 125, 168);
+    background-color: #00A1EA;
     height: 30px;
     width: 30px;
     margin-right: 10px;
@@ -66,7 +71,7 @@ a {
 .page-button-2 {
     display: inline-block;
     color: white;
-    background-color: rgb(13, 125, 168);
+    background-color: #00A1EA;
     height: 30px;
     width: 56px;
     border-radius: 5px;
@@ -88,7 +93,7 @@ a {
 }
 
 .chosen-page {
-    background-color: rgb(72, 223, 51);
+    background-color: #00D1EA;
 }
 
 .article:after {
@@ -120,8 +125,9 @@ a {
 
 .content {
 	font-size: 15px;
-	height: 90px;
+	height: 95px;
 	overflow: hidden;
+	visibility: hidden;
 	white-space: normal;
 	word-break:break-all; /*支持IE，chrome，FF不支持*/
 	word-wrap:break-word;/*支持IE，chrome，FF*/
@@ -282,5 +288,6 @@ li a {
 	border-radius: 50%;
 	height: 30px;
 	width: 30px;
+	margin: 5px;
 }
 /*avatar*/

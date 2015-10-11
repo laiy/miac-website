@@ -1,40 +1,60 @@
 doctype html
-html
+html 
     head
         title album
         link(rel="stylesheet", href="/bin/css/album.css")
         link(rel="stylesheet", href="/bin/css/header.css")
-        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
         link(href='/bin/css/footer.css', rel='stylesheet')
         script(src='/lib/jquery.js')
-        script(src='/bin/js/album.js')
         script(src='/bin/js/header.js')
-        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        script(src='/bin/js/album.js')
+        script(src='./lib/js-url-2.0.2/url.min.js')
         meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     body
         header
             include ./includes/header.jade
         .main
-            header
-                img(src="./src/img/works/zhuhai.jpg")
-            div#album-search
-                form#search(action= "#").input-group.navbar-search
-                    input#search-word(type= "text", name= "words", placeholder= '输入关键词搜索相册')
-                    button#search-button(type= "submit")
-                        i.glyphicon.glyphicon-search
-                    button.submit(type= "button", onclick= "window.open('album/createAlbum')").btn.btn-info.submit_style 创建新相册
-            br
-            div#content
-                for album in albums
-                    div.pic
-                        img.cover(src='assets/img/album/'+album.title+'/'+album.cover, onclick="window.open('./album/' + " + "\'" + (album._id) + "\'" + ")")
-                        div.info
-                            .title
-                                span.album_style #{album.title}
-                                span.num 共
-                                    span.number #{album.pictures.length}
-                                    |  张
-                        div.time
-                            p #{album.createdAt.getFullYear()}/#{album.createdAt.getMonth() + 1}/#{album.createdAt.getDate()}
+            .headerImg
+                img(src="./bin/main.jpg")
+
+            if user
+                .newPicBlock
+                    button(type= "button", onclick= "window.open('album/createAlbum')") 创建新相册
+            
+            .allPicBlocks
+
+                -var year = 2014
+                -var num = 0
+                -var position = "left"
+                each album in albums
+                    if (num % 3 === 0)
+                        -position = "left"
+                    else if (num % 3 === 1)
+                        -position = "center"
+                    else if (num % 3 === 2)
+                        -position = "right"
+                    -num++
+                    if (moment(album.createdAt).format('YYYY') > year)
+                        -year++
+                        .yearNew
+                            p — #{year} —
+                    div(class=position).eachPicBlock
+                        .coverPic
+                            img(src='assets/img/album/'+album.title+'/'+album.cover, onclick="window.open('./album/' + " + "\'" + (album._id) + "\'" + ")")
+                        p.albumTitle #{album.title}
+                        p.albumInfo
+                            span.picForNum 共
+                            span.picNum #{album.pictures.length}
+                            span.picForNum 张
+                            span.picDate=moment(album.createdAt).format('YYYY年M月D日')
+            .page-nav
+                    #prev-page.page-button-2
+                        a prev
+                    -for (var i = 0; i < pages; ++i) {
+                        .page-button
+                            a #{i + 1}
+                    -}
+                    #next-page.page-button-2 
+                        a next
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')

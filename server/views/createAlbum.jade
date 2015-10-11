@@ -5,30 +5,26 @@ html
         link(rel="stylesheet", href="/bin/css/createAlbum.css")
         link(rel="stylesheet", href="/bin/css/header.css")
         link(rel="stylesheet", href="/bin/css/footer.css")
-        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
         script(src='/lib/jquery.js')
         script(src='/bin/js/header.js')
-        script(src='/lib/bootstrap/js/bootstrap.min.js')
         meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     body
         header
             include ./includes/header.jade
         .main
-            div.panel.panel-info
-                div.panel-heading
-                    创建新相册
-                div.panel-body
+            .addBG
+                .addForm
                     form(action="./createAlbum", method="POST", enctype="multipart/form-data")
-                        div.panel-son-body
-                            label 相册标题:
-                            div.input-group
-                                span.input-group-addon Title
-                                input(type="text", name="title", placeholder="Input the title").form-control
-                            label 上传相册封面:
-                            div.input-group
-                                input(type="file", name="cover").btn.fileAdder
-                            br
-                        div.panel-footer
-                            button.btn(type="submit").btn.btn-primary.buttom-style 创建完毕
-        include ./includes/footer.jade
-        script(src='/bin/js/footer.js')
+                        fieldset
+                            legend 创建新相册
+                            .title.divTitle
+                                span 标题:
+                                input(type="text", name="title", placeholder="Input the title")
+                            .cover.divTitle
+                                span 封面:
+                                input(type="text" id="chosen" readonly="readonly" placeholder="未选择图片")
+                                a.upload  浏览
+                                    input(type="file" name="cover" onchange="document.getElementById('chosen').value = this.value")
+                            button(type="submit" id="submit") 创建完毕
+        //include ./includes/footer.jade
+        //script(src='/bin/js/footer.js')

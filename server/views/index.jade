@@ -8,9 +8,94 @@ html
     link(href='/bin/css/index.css', rel='stylesheet')
     script(src='/bin/js/header.js')
     script(src='/bin/js/index.js')
+    script(src='/bin/js/Carousel.js')
   body
     include ./includes/header.jade
-    div.main
-      img(src='/src/img/index/index.jpg' alt='index')
+    .main 
+      .banner-main.banner-js
+        .banner-btn.banner-prev-btn
+        ul.banner-list
+          li.banner-item
+            a(href="#")
+              img(src="./bin/main.jpg" width="100%")
+          li.banner-item
+            a(href="#")
+              img(src="./bin/index.jpg" width="100%")
+          li.banner-item
+            a(href="#")
+              img(src="./bin/main.jpg" width="100%")
+          li.banner-item
+            a(href="#")
+              img(src="./bin/index.jpg" width="100%")
+          li.banner-item
+            a(href="#")
+              img(src="./bin/main.jpg" width="100%")
+        .banner-btn.banner-next-btn
+      .index-main
+        .index-main-right
+          p.right-title 公告
+          .right-blue
+          .right-three
+          ul.right-list
+            li.right-item 
+              span 
+                img(src="src/img/index/tag.png")
+              span.right-itemContent 什么是现代互联网应用
+            li.right-item 
+              span 
+                img(src="src/img/index/tag.png")
+              span.right-itemContent 如何进行学习
+            li.right-item 
+              span 
+                img(src="src/img/index/tag.png")
+              span.right-itemContent 必备技能掌握
+            li.right-item 
+              span 
+                img(src="src/img/index/tag.png")
+              span.right-itemContent 大牛的经验分享
+        .index-main-left
+          if article
+              .detail
+                p.title
+                  a(href="#") #{article.title}
+                p.content #{article.content}
+                p.bottom
+                  if (article.avatar == undefinded)
+                    img(src='/assets/img/user/default.jpg', alt='avatar')
+                  else 
+                    img(src='/assets/img/user/' + article.avatar, alt='avatar')
+                  span.setLength #{article.username}
+                  -var date = new Date()
+                  if (article.createdAt.getYear() == date.getYear() && article.createdAt.getMonth() == date.getMonth() && article.createdAt.getDay() == date.getDay() && article.createdAt.getHours() == date.getHours())
+                    span #{date.getMinutes() - article.createdAt.getMinutes()}分钟前
+                  else if (article.createdAt.getYear() == date.getYear() && article.createdAt.getMonth() == date.getMonth() && article.createdAt.getDay() == date.getDay() && article.createdAt.getHours() < date.getHours() - 12)
+                    span #{date.getMinutes() - article.createdAt.getHours()}
+                  else 
+                    span #{moment(article. createdAt).format('YYYY年MM月DD日')}
+                  span 发布了新文章
+          if discussion
+            .detail
+                p.title 
+                  a(href="#") #{discussion.title}
+                p.content #{discussion.content}
+                p.bottom
+                  if (discussion.avatar == undefinded)
+                    img(src='/assets/img/user/default.jpg', alt='avatar')
+                  else 
+                    img(src='/assets/img/user/' + discussion.avatar, alt='avatar')
+                  span.setLength #{discussion.username}
+                  -var date = new Date()
+                  if (discussion.createdAt.getYear() == date.getYear() && discussion.createdAt.getMonth() == date.getMonth() && discussion.createdAt.getDay() == date.getDay() && discussion.createdAt.getHours() == date.getHours())
+                    span #{date.getMinutes() - discussion.createdAt.getMinutes()}分钟前
+                  else if (discussion.createdAt.getYear() == date.getYear() && discussion.createdAt.getMonth() == date.getMonth() && discussion.createdAt.getDay() == date.getDay() && discussion.createdAt.getHours() < date.getHours() - 12)
+                    span #{date.getMinutes() - discussion.createdAt.getHours()}
+                  else 
+                    span #{moment(discussion.createdAt).format('YYYY年MM月DD日')}
+                  span 发布了新讨论
+    script.
+      $(function() {
+          var carousel = new Carousel($(".banner-js"));
+      });
     include ./includes/footer.jade
     script(src='/bin/js/footer.js')
+

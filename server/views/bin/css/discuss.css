@@ -4,12 +4,17 @@ body {
 	background-color: #F1EFF0;
 }
 
+html,body {
+	height: 100%;
+}
+
 .main {
 	width: 1000px;
 	margin: 0 auto;
 	padding-top: 50px;
 	clear: both;
     overflow: hidden;
+    min-height:calc(100% - 300px); 
 }
 
 button {
@@ -311,7 +316,7 @@ li a {
 .page-button {
     display: inline-block;
     color: white!important;
-    background-color: rgb(13, 125, 168);
+    background-color: #00A1EA;
     height: 30px;
     width: 30px;
     margin-right: 10px;
@@ -328,7 +333,7 @@ li a {
 .page-button-2 {
     display: inline-block;
     color: white;
-    background-color: rgb(13, 125, 168);
+    background-color: #00A1EA;
     height: 30px;
     width: 56px;
     border-radius: 5px;
@@ -350,5 +355,5 @@ li a {
 }
 
 .chosen-page {
-    background-color: rgb(72, 223, 51);
+    background-color: #00D1EA;
 }

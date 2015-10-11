@@ -1,6 +1,9 @@
+body,html {
+  height: 100%;
+}
 .main {
   position: relative;
-  height: auto; }
+  min-height: calc(100% - 300px); }
   .main #works-content {
     font-family: "Microsoft YaHei";
     color: gray;
@@ -22,5 +25,9 @@
       .main #works-content .works-discription #works-connected {
         height: auto;
         width: 100%; }
+      .main #works-content .works-discription img {
+        margin-left: 30px;
+      }
+
 
 /*# sourceMappingURL=about.css.map */

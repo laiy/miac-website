@@ -1,75 +1,121 @@
+body, form {margin: 0;padding: 0;}
+
 .main {
-  margin-left: 20%;
-  margin-right: 20%;
-  margin-top: 2%;
-  margin-bottom: 2%;
-  padding: 2% 2% 2% 2%;
-  font-size: 18px !important;
+  width: 500px;
+  margin: 5% auto 0 auto;
 }
-  .main header {
-    color: grey;
-    font-size: 60pt;
-    padding: 0px 0px 0px 0px;
-    font-size: 30px; }
-  .main .panel-body button {
-    float: right; }
-  .main .panel-body .input-group {
-    margin-bottom: 20px !important; }
-  .main .panel-footer {
-    font-size: 18px; }
-    .main .panel-footer button {
-      font-size: 18px !important; }
 
-.fileAdder {
-  font-size: 18px !important; }
-
-footer {
-  margin-bottom: 2%;
-  text-align: center;
-  font-size: 18px; }
-
-#header {
-  box-sizing: content-box; }
-  #header * {
-    box-sizing: content-box; }
-  #header h3 {
-    font-weight: bold; }
-.panel-footer {
-  overflow: hidden;
-}
-.panel-son-body {
-  background-color: #fff;
-  border-left: 1px solid #D8D8D8;
-  border-right: 1px solid #D8D8D8;
-  border-bottom: 1px solid #D8D8D8;
-  padding: 15px;
+.addBG {
   position: relative;
 }
-.panel-son-body:after {
+
+
+.addBG:after{
   position: absolute;
   content: '';
-  width: 600px;
-  height: 200px;
+  width: 450px;
+  height: 100px;
   background-color: #DDDBDC;
-  right: 10px;
+  right: 5px;
   bottom: 0;
   z-index: -1;
   transform: rotate(2deg);
-  -ms-transform:rotate(2deg);    /* IE 9 */
-  -moz-transform:rotate(2deg);    /* Firefox */
+  -ms-transform:rotate(2deg); /* IE 9 */
+  -moz-transform:rotate(2deg);  /* Firefox */
   -webkit-transform:rotate(2deg); /* Safari 和 Chrome */
-  -o-transform:rotate(2deg); 
+  -o-transform:rotate(2deg);  /* Opera */
 }
 
-.buttom-style {
-  border: none;
-  padding: 10px;
-  border-radius: 4px;
+.addForm {
+  background-color: #000;
+  overflow: hidden;
 }
-/*# sourceMappingURL=createAlbum.css.map */
-#delete_album {
+
+.addForm form {
+  background-color: #fff;
+  margin-top: 40px;
+  border: 1px solid #DEDEDE
+}
+
+.addForm form fieldset {
   border: none;
-  background-color: #1BA6EB;
+  position: relative;
+  padding: 30px 20px 10px 20px;
+}
+
+.addForm form fieldset legend {
+  background-color: #00A1EA;
   color: #fff;
-  float: right;
+  font-size: 18px;
+  padding: 4px 8px;
+  position: absolute;
+  left: 10px;
+  top: -15px;
+  box-shadow:  1px 1px 10px #424447;
+}
+
+.divTitle {
+  font-size: 14px;
+}
+
+.cover {
+  margin-top: 10px;
+}
+
+.title input, .cover input {
+  height: 18px;
+  margin: 0 10px;
+  padding: 2px 4px;
+}
+
+.title input {
+  width: 220px;
+}
+
+.cover input {
+  width: 320px;
+}
+
+.upload {
+    padding: 4px 10px;
+    height: 18px;
+    line-height: 18px;
+    position: relative;
+    cursor: pointer;
+    color: #888;
+    background: #fafafa;
+    border: 1px solid #ddd;
+    overflow: hidden;
+    display: inline;
+    margin-top: 5px;
+}
+
+.upload  input {
+    position: absolute;
+    font-size: 100px;
+    top: 0;
+    right: 0;
+    opacity: 0;
+    cursor: pointer;
+    width: 53px;
+    padding: 0;
+    margin: 0;
+    height: 25px;
+}
+
+.upload:hover {
+    color: #444;
+    background: #eee;
+    border-color: #ccc;
+    text-decoration: none;
+}
+
+#submit {
+  background-color: #00A1EA;
+  color: #fff;
+  font-size: 16px;
+  margin-top: 10px;
+  padding: 5px 10px;
+  border: none;
+  margin-left: calc(50% - 40px);
 }

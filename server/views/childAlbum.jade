@@ -5,98 +5,95 @@ html
         link(rel="stylesheet", href="/bin/css/childAlbum.css")
         link(rel="stylesheet", href="/bin/css/header.css")
         link(rel="stylesheet", href="/bin/css/footer.css")
-        link(rel="stylesheet", href="/lib/bootstrap/css/bootstrap.min.css")
         script(src='/lib/jquery.js')
         script(src='/bin/js/childAlbum.js')
         script(src='/bin/js/header.js')
-        script(src='/lib/bootstrap/js/bootstrap.min.js')
+        script(src='/bin/js/albumCarousel.js')
         meta(http-equiv="Content-Type", content="text/html; charset=utf-8")
     body
         header
             include ./includes/header.jade
         .main
-            header.page-header
-                h1 #{album.title}
-            section#pictures
-                if album.pictures.length == 0
-                    div.panel.panel-default
-                        div.panel-body
-                            p There are not any picture in this album.
-                                Button.btn.btn-primary.submit_style
-                                    a(href="#", class="adderButton", data-toggle="modal", data-target="#contain") Add some?
-                else
-                    div#pic-content
-                        nav.loop
-                            a.prev
-                                span.icon-wrap
-                            a.next
-                                span.icon-wrap
-                        -var num = 0
-                        for picture in album.pictures
-                            -var num = num + 1
-                            div.picture
-                                img(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
-                        button.btn.btn-primary.adderButton-two.submit_style
-                            a(href="#", data-toggle="modal", data-target="#contain") Add more pictures.
+            h1 #{album.title}
+            if album.pictures.length != 0
+                .bigPics
+                    ul.bigList-items
+                        -var length = album.pictures.length
+                        -var length1 = 1
+                        -var length2 = 1
+                        each pic in album.pictures
+                            -if (length1 == 1) {
+                                li.bigList-item.firstItem
+                                    span.pic
+                                        img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length1++}")
+                            -} else if (length1 == 2) {
+                                li.bigList-item.rightItem
+                                    span.pic
+                                        img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length1++}")
+                            -} else {
+                                li.bigList-item.normal
+                                    span.pic
+                                        img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length1++}")
+                            -}
+                .smallPics
+                    .prev
+                    ul.smallList-items
+                        -var num = 1;
+                        -var length = album.pictures.length;
+                        each pic in album.pictures
+                            if num == 1
+                                li(style="left:#{(num - 1) * 112.5}px").smallList-item.first
+                                    img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length2++}")
+                            else if num == 7
+                                li(style="left:#{(num - 1) * 112.5}px").smallList-item.last
+                                    img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length2++}")
+                            else if num < 7
+                                li(style="left:#{(num - 1) * 112.5}px").smallList-item
+                                    img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length2++}")
+                            else
+                                li(style="left: 787.5px").smallList-item
+                                    img(src='../assets/img/album/'+album.title+'/'+ pic class="#{length2++}")
+                            -num++
                         if user
-                            if album.createdBy == user._id
-                                button(type='button' id='delete_album' albumid=album._id) Delete.
-                    nav
-                        ul.pagination
-                            -var n = 0
-                            -var num = album.pictures.length
-                            while n < (num - 1) / 12 + 1
-                                li(id="p-" + (n + 1))
-                                    a(href="#" + (n + 1)).page-nav #{++n}
-            div#contain.modal.fate(role="dialog")
-                div.modal-dialog.modal-lg
-                    div.modal-content
-                        div.modal-body
-                            form(action='/Album/addPicture', method='post', enctype='multipart/form-data')
-                                label
-                                    |请选择图片:
-                                input(type="file", name="picture", multiple="multiple")
-                                input#albumId(type="text", name="albumId", value=album._id)
-                                div.modal-footer
-                                    button.btn.btn-primary(type="submit") 添加
-                                    button#close.btn(data-dismiss="modal") 取消
+                            if num < 7
+                                li(style="left: #{(num - 1) * 112.5}px").smallList-item.opcaity
+                                            img(src='../src/img/add.jpg') 
+                            else
+                                li(style="left: 787.5px").smallList-item.opcaity
+                                            img(src='../src/img/add.jpg')  
+                    .next
+            else if user
+                .nonCenter
+                    p 你还没有添加图片(*-o-)=3
+            else 
+                .nonCenter
+                    p 233333这里啥都没有O3O
 
-            div#player.modal.fade(role="dialog")
-                div.modal-dialog.modal-lg
-                    div.modal-content
-                        //- div#screen
-                        //-     nav.loop
-                        //-         a.prev
-                        //-             span.icon-wrap
-                        //-         a.next
-                        //-             span.icon-wrap
-                        //-     div#image
-                        //-         img(src="", alt="no-image")
-                        //-     button#light.btn 关闭
-
-                        div#carousel-example.carousel.slide(data-ride="carousel")
-                            //- ol.carousel-indicators
-                            //-     - for (var i = 0; i < album.pictures.length; ++i)
-                            //-         if i == 0
-                            //-             li.active(data-target="#carousel-example", data-slide-to = i)
-                            //-         else
-                            //-             li(data-target="#carousel-example", data-slide-to = i)
-                            div.carousel-inner(role="listbox")
-                                -var i = 0
-                                for picture in album.pictures
-                                    div.item.picture-page
-                                        img.album-pic(src="../assets/img/album/#{album.title}/#{picture}", alt="Fail loaded.")
-                                        div.carousel-caption            
-
-                            a.left.carousel-control(href="#carousel-example" role="button" data-slide="prev")
-                                span.glyphicon.glyphicon-chevron-left(aria-hidden="true")
-                                span.sr-only Previous               
-
-                            a.right.carousel-control(href="#carousel-example" role="button" data-slide="next")
-                                span.glyphicon.glyphicon-chevron-right(aria-hidden="true")
-                                span.sr-only Next
-
-
-
+            if user
+                .addPicBtn
+                    button(type="button" id="addPictureBtn") 添加图片
+                    if album
+                        button(type="button" id="delete_album" albumid=album.id) 删除相册
+                
+        if user
+            #addPicBG
+                .addPic
+                    form(action='./addPicture' method='POST' enctype='multipart/form-data')
+                        fieldset
+                            legend 添加新图片
+                            a.upload 选择文件
+                                input(type="file" name="picture" id="addPic" onchange="document.getElementById('chosen').value = this.value")
+                            input(type="text" id="chosen" readonly="readonly" placeholder="未选择图片")
+                            button.add 添加
+                    button.add#closeBtn close
+        if album
+            .showPic
+                .center
+                    button#close X
+                    span.centerPic
+                        img(src="../bin/main.jpg")
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
+
+
+            
