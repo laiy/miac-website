@@ -113,7 +113,7 @@ router.post '/createAlbum', requireLogin, (req, res)->
 * handle when post '/album/addPicture'
 * require user's login to continue process
 * validate if the albumId is legal
-* if file is not image, return fail 
+* if file is not image, return fail
 * find the album with albumId
 * validate if the user is the one who create the album
 * write the file to the directory belonging to the album and redirect to album child page

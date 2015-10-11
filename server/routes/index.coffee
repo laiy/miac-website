@@ -13,7 +13,7 @@ DiscussionModel = require '../db/models/discuss.coffee'
 ###
 router.get '/', (req, res)->
     ArticleModel.findOne {}, (err, article)->
-        DiscussionModel.findOne {}, (err, discussion)->
+        DiscussionModel.findOne { type: 'question' }, (err, discussion)->
             res.render 'index', article: article, discussion: discussion
 
 ###
