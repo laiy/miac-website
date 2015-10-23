@@ -11,17 +11,15 @@ div#header
             a(href="/Article?page=1&tag=") Article
             a(href="/Discuss?page=1&tag=") Discuss
             a(href="/Album?page=1&tag=") Album
-            a(href="/Works") Works
+            // a(href="/Works") Works
             a(href='About') About
         div#header-operation
             if user
                 a(href='/user/' + user._id) Profile
                 a#logout Sign out
-
             else
                 a#sign-in-btn Sign in
-                a(href='/register')#register-btn Sign up 
-                
+                a(href='/register')#register-btn Sign up
         div#message.animate.invisible
             header
                 h4 Message

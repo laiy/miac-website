@@ -22,7 +22,7 @@ $(function() {
             $(this).addClass('chosen-page');
         } else {
             $(this).removeClass('chosen-page');
-        } 
+        }
     });
 });
 

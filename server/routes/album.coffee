@@ -125,6 +125,7 @@ router.post '/addPicture', requireLogin, (req, res)->
         return res.status(500).send 'Server Error.'
     else
         { albumId } = req.body
+        console.log albumId
         if not /^(?=[a-f\d]{24}$)(\d+[a-f]|[a-f]+\d)/i.test(albumId)
             return res.json { result: 'fail', msg: 'Invalid albumId.' }
         else

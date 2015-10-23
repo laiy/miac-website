@@ -57,15 +57,15 @@ html
                         if user
                             if num < 7
                                 li(style="left: #{(num - 1) * 112.5}px").smallList-item.opcaity
-                                            img(src='../src/img/add.jpg') 
+                                            img(src='../src/img/add.jpg')
                             else
                                 li(style="left: 787.5px").smallList-item.opcaity
-                                            img(src='../src/img/add.jpg')  
+                                            img(src='../src/img/add.jpg')
                     .next
             else if user
                 .nonCenter
                     p 你还没有添加图片(*-o-)=3
-            else 
+            else
                 .nonCenter
                     p 233333这里啥都没有O3O
 
@@ -74,15 +74,15 @@ html
                     button(type="button" id="addPictureBtn") 添加图片
                     if album
                         button(type="button" id="delete_album" albumid=album.id) 删除相册
-                
         if user
             #addPicBG
                 .addPic
-                    form(action='./addPicture' method='POST' enctype='multipart/form-data')
+                    form(action='/album/addPicture' method='POST' enctype='multipart/form-data')
                         fieldset
                             legend 添加新图片
                             a.upload 选择文件
                                 input(type="file" name="picture" id="addPic" onchange="document.getElementById('chosen').value = this.value")
+                                input(type="text" name="albumId" value = album._id style="display: none;")
                             input(type="text" id="chosen" readonly="readonly" placeholder="未选择图片")
                             button.add 添加
                     button.add#closeBtn close
@@ -94,6 +94,3 @@ html
                         img(src="../bin/main.jpg")
         include ./includes/footer.jade
         script(src='/bin/js/footer.js')
-
-
-            
